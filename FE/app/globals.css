@@ -1,0 +1,207 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root {
+    --background: #0d1210;
+    --foreground: #f8fafc;
+    --muted: #94a3b8;
+    --border: rgba(255, 255, 255, 0.12);
+    --font-body: 'Be Vietnam Pro', 'Segoe UI', 'Noto Sans', Arial, sans-serif;
+    --font-display: 'Times New Roman', 'Noto Serif', 'Cormorant Garamond', serif;
+}
+
+html {
+    font-family: var(--font-body);
+}
+
+@keyframes menu-in {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes menu-backdrop {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.animate-menu-in {
+    animation: menu-in 260ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-menu-backdrop {
+    animation: menu-backdrop 220ms ease-out both;
+}
+
+.mobile-menu-active>div:first-child,
+.mobile-menu-active~* {
+    filter: blur(3px);
+    transition: filter 220ms ease-out;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-body);
+    font-feature-settings: 'kern', 'liga', 'calt', 'ss01', 'cv01', 'cv11';
+    font-variant-ligatures: common-ligatures;
+    font-kerning: normal;
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.6;
+}
+
+::selection {
+    background: rgba(16, 185, 129, 0.35);
+    color: #a7f3d0;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #0d1210;
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.18);
+    border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(16, 185, 129, 0.5);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+    line-height: 0.96;
+    color: var(--foreground);
+    font-weight: 600;
+}
+
+p {
+    margin: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.container-shell {
+    width: min(100%, 80rem);
+    margin-inline: auto;
+    padding-inline: 1rem;
+}
+
+@media (min-width: 640px) {
+    .container-shell {
+        padding-inline: 1.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container-shell {
+        padding-inline: 2rem;
+    }
+}
+
+/* Print layout optimization for Educational Study Worksheet (A4) */
+@media print {
+    body {
+        background: white !important;
+        color: black !important;
+    }
+    header,
+    footer,
+    nav,
+    .no-print,
+    button {
+        display: none !important;
+    }
+    #printable-sheet {
+        box-shadow: none !important;
+        border: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-height: auto !important;
+    }
+}
+
+/* Fix Vietnamese typography for Printable Educational Worksheet */
+#printable-sheet,
+#printable-sheet * {
+    font-family: 'Times New Roman', 'Noto Serif', Times, serif !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   Sylva Living Green 3D Design Tokens & Controls
+   ═══════════════════════════════════════════════════════════════════════ */
+.sylva-glass {
+    background: rgba(12, 19, 14, 0.78);
+    backdrop-filter: blur(24px) saturate(1.2);
+    -webkit-backdrop-filter: blur(24px) saturate(1.2);
+    border: 1px solid rgba(16, 185, 129, 0.18);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+}
+
+.sylva-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    padding: 0.5rem 1.25rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: rgba(6, 78, 59, 0.45);
+    border: 1px solid rgba(52, 211, 153, 0.35);
+    color: #6ee7b7;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+}
+
+.sylva-pill:hover {
+    background: rgba(16, 185, 129, 0.85);
+    border-color: #6ee7b7;
+    color: #ffffff;
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+    transform: translateY(-1px);
+}
+
+.sylva-pill:active {
+    transform: translateY(0);
+}
+
+.shader-frame {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    min-height: 0;
+}

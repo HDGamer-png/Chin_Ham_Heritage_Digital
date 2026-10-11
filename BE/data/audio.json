@@ -1,0 +1,41 @@
+[{
+        "id": "audio-intro",
+        "title": "Giới thiệu tổng quan",
+        "duration": "03:20",
+        "category": "Khởi đầu",
+        "description": "Giới thiệu ngắn về giá trị lịch sử, không gian và ý nghĩa của Chín Hầm trong đời sống văn hóa và ký ức cộng đồng.",
+        "fileUrl": "/media/audio/intro.txt"
+    },
+    {
+        "id": "audio-nha-chung-tich",
+        "title": "Nhà chứng tích Ngô Đình Cẩn",
+        "duration": "05:15",
+        "category": "Không gian",
+        "description": "Khám phá nơi lưu giữ hình ảnh, hiện vật và các thông tin lịch sử quan trọng để hiểu rõ giá trị của di tích.",
+        "fileUrl": "/media/audio/nha-chung-tich.txt"
+    },
+    {
+        "id": "audio-ham-1",
+        "title": "Hầm 1 và ký ức lịch sử",
+        "duration": "04:45",
+        "category": "Dấu vết",
+        "description": "Câu chuyện về không gian, cấu trúc và giá trị lịch sử của hầm, đồng thời mô tả cách ký ức được giữ lại qua thời gian.",
+        "fileUrl": "/media/audio/ham-1.txt"
+    },
+    {
+        "id": "audio-ham-3",
+        "title": "Hầm 3 và những dấu tích chiến lược",
+        "duration": "06:05",
+        "category": "Lịch sử",
+        "description": "Tường thuật về vai trò chiến lược của hầm trong bối cảnh lịch sử, và cách không gian ấy còn lưu giữ những lớp ký ức quan trọng.",
+        "fileUrl": "/media/audio/ham-3.txt"
+    },
+    {
+        "id": "audio-ket-thuc",
+        "title": "Kết thúc hành trình khám phá",
+        "duration": "02:50",
+        "category": "Tổng kết",
+        "description": "Nhắn nhủ kết nối giữa quá khứ, hiện tại và tương lai của ký ức lịch sử tại Chín Hầm.",
+        "fileUrl": "/media/audio/ket-thuc.txt"
+    }
+]

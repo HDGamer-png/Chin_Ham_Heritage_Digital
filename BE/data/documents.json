@@ -1,0 +1,37 @@
+[{
+        "id": "doc-intro",
+        "title": "Giới thiệu tổng quan về Chín Hầm",
+        "type": "pdf",
+        "category": "Tổng quan",
+        "url": "/media/documents/intro.pdf",
+        "description": "Tài liệu tổng hợp về bối cảnh lịch sử, giá trị văn hóa và ý nghĩa của cụm di tích Chín Hầm.",
+        "publishedAt": "2026-01-01"
+    },
+    {
+        "id": "doc-nha-chung-tich",
+        "title": "Nhà chứng tích Ngô Đình Cẩn",
+        "type": "pdf",
+        "category": "Nhà chứng tích",
+        "url": "/media/documents/nha-chung-tich.pdf",
+        "description": "Tư liệu giới thiệu không gian trưng bày, hiện vật lịch sử và nội dung tường thuật của nhà chứng tích.",
+        "publishedAt": "2026-01-08"
+    },
+    {
+        "id": "doc-ham-1",
+        "title": "Ký ức và dấu tích của Hầm 1",
+        "type": "image",
+        "category": "Hầm",
+        "url": "/media/documents/ham-1.jpg",
+        "description": "Tư liệu hình ảnh phục vụ cho màn hình thuyết minh di tích, nhấn mạnh không gian, kiến trúc và di vật lưu giữ.",
+        "publishedAt": "2026-01-12"
+    },
+    {
+        "id": "doc-heritage-map",
+        "title": "Bản đồ không gian di tích Chín Hầm",
+        "type": "image",
+        "category": "Bản đồ",
+        "url": "/media/documents/heritage-map.jpg",
+        "description": "Bản đồ sơ đồ tuyến tham quan và bố cục các hầm trong cụm di tích để hỗ trợ người xem hiểu không gian thực địa.",
+        "publishedAt": "2026-01-15"
+    }
+]

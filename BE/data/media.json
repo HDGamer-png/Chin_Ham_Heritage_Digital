@@ -1,0 +1,46 @@
+[{
+        "id": "media-cover-1",
+        "siteId": "nha-chung-tich",
+        "title": "Bìa nhà chứng tích",
+        "assetType": "image",
+        "fileName": "nha-chung-tich-cover.jpg",
+        "fileUrl": "/media/images/nha-chung-tich-cover.jpg",
+        "mimeType": "image/jpeg",
+        "altText": "Bìa nhà chứng tích Chín Hầm",
+        "width": 1600,
+        "height": 900,
+        "isCover": true,
+        "sortOrder": 1,
+        "status": "active"
+    },
+    {
+        "id": "media-cover-2",
+        "siteId": "ham-1",
+        "title": "Bìa Hầm 1",
+        "assetType": "image",
+        "fileName": "ham-1-cover.jpg",
+        "fileUrl": "/media/images/ham-1-cover.jpg",
+        "mimeType": "image/jpeg",
+        "altText": "Bìa Hầm 1 Chín Hầm",
+        "width": 1600,
+        "height": 900,
+        "isCover": true,
+        "sortOrder": 2,
+        "status": "active"
+    },
+    {
+        "id": "media-doc-1",
+        "siteId": "ham-3",
+        "title": "Tư liệu hầm 3",
+        "assetType": "document",
+        "fileName": "ham-3-doc.pdf",
+        "fileUrl": "/media/documents/ham-3-doc.pdf",
+        "mimeType": "application/pdf",
+        "altText": "Tư liệu hầm 3",
+        "width": null,
+        "height": null,
+        "isCover": false,
+        "sortOrder": 3,
+        "status": "active"
+    }
+]

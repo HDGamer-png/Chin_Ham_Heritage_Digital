@@ -1,0 +1,92 @@
+CREATE DATABASE ChinhHamDb;
+GO
+
+USE ChinhHamDb;
+GO
+
+CREATE TABLE dbo.Sites (
+    SiteId INT IDENTITY(1,1) PRIMARY KEY,
+    Slug NVARCHAR(100) NOT NULL UNIQUE,
+    Name NVARCHAR(200) NOT NULL,
+    Subtitle NVARCHAR(200) NULL,
+    Description NVARCHAR(MAX) NULL,
+    Summary NVARCHAR(MAX) NULL,
+    Category NVARCHAR(100) NULL,
+    Status NVARCHAR(50) NOT NULL DEFAULT 'active',
+    SortOrder INT NOT NULL DEFAULT 0,
+    CreatedAt DATETIME2 NOT NULL DEFAULT SYSUTCDATETIME(),
+    UpdatedAt DATETIME2 NOT NULL DEFAULT SYSUTCDATETIME()
+);
+GO
+
+CREATE TABLE dbo.Documents (
+    DocumentId INT IDENTITY(1,1) PRIMARY KEY,
+    SiteId INT NULL,
+    Title NVARCHAR(250) NOT NULL,
+    FileName NVARCHAR(255) NOT NULL,
+    FileType NVARCHAR(50) NOT NULL,
+    MimeType NVARCHAR(100) NULL,
+    Category NVARCHAR(100) NULL,
+    Description NVARCHAR(MAX) NULL,
+    FileUrl NVARCHAR(500) NOT NULL,
+    IsFeatured BIT NOT NULL DEFAULT 0,
+    Status NVARCHAR(50) NOT NULL DEFAULT 'active',
+    PublishedAt DATETIME2 NULL,
+    CreatedAt DATETIME2 NOT NULL DEFAULT SYSUTCDATETIME(),
+    UpdatedAt DATETIME2 NOT NULL DEFAULT SYSUTCDATETIME(),
+    CONSTRAINT FK_Documents_Sites FOREIGN KEY (SiteId) REFERENCES dbo.Sites(SiteId)
+);
+GO
+
+CREATE TABLE dbo.AudioTracks (
+    AudioId INT IDENTITY(1,1) PRIMARY KEY,
+    SiteId INT NULL,
+    Title NVARCHAR(250) NOT NULL,
+    FileName NVARCHAR(255) NOT NULL,
+    FileUrl NVARCHAR(500) NOT NULL,
+    DurationSeconds INT NULL,
+    Category NVARCHAR(100) NULL,
+    Description NVARCHAR(MAX) NULL,
+    Language NVARCHAR(20) NOT NULL DEFAULT 'vi',
+    IsFeatured BIT NOT NULL DEFAULT 0,
+    Status NVARCHAR(50) NOT NULL DEFAULT 'active',
+    CreatedAt DATETIME2 NOT NULL DEFAULT SYSUTCDATETIME(),
+    UpdatedAt DATETIME2 NOT NULL DEFAULT SYSUTCDATETIME(),
+    CONSTRAINT FK_AudioTracks_Sites FOREIGN KEY (SiteId) REFERENCES dbo.Sites(SiteId)
+);
+GO
+
+CREATE TABLE dbo.MediaAssets (
+    MediaId INT IDENTITY(1,1) PRIMARY KEY,
+    SiteId INT NULL,
+    Title NVARCHAR(250) NOT NULL,
+    AssetType NVARCHAR(50) NOT NULL, -- image, video, banner, thumbnail, document_cover
+    FileName NVARCHAR(255) NOT NULL,
+    FileUrl NVARCHAR(500) NOT NULL,
+    MimeType NVARCHAR(100) NULL,
+    AltText NVARCHAR(255) NULL,
+    Width INT NULL,
+    Height INT NULL,
+    IsCover BIT NOT NULL DEFAULT 0,
+    SortOrder INT NOT NULL DEFAULT 0,
+    Status NVARCHAR(50) NOT NULL DEFAULT 'active',
+    CreatedAt DATETIME2 NOT NULL DEFAULT SYSUTCDATETIME(),
+    UpdatedAt DATETIME2 NOT NULL DEFAULT SYSUTCDATETIME(),
+    CONSTRAINT FK_MediaAssets_Sites FOREIGN KEY (SiteId) REFERENCES dbo.Sites(SiteId)
+);
+GO
+
+CREATE TABLE dbo.SiteContentSummary (
+    SummaryId INT IDENTITY(1,1) PRIMARY KEY,
+    SiteId INT NOT NULL,
+    SummaryText NVARCHAR(MAX) NOT NULL,
+    CreatedAt DATETIME2 NOT NULL DEFAULT SYSUTCDATETIME(),
+    UpdatedAt DATETIME2 NOT NULL DEFAULT SYSUTCDATETIME(),
+    CONSTRAINT FK_SiteContentSummary_Sites FOREIGN KEY (SiteId) REFERENCES dbo.Sites(SiteId)
+);
+GO
+
+CREATE INDEX IX_Documents_SiteId ON dbo.Documents(SiteId);
+CREATE INDEX IX_AudioTracks_SiteId ON dbo.AudioTracks(SiteId);
+CREATE INDEX IX_MediaAssets_SiteId ON dbo.MediaAssets(SiteId);
+GO
