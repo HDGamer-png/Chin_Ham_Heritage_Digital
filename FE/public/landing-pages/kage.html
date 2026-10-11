@@ -472,6 +472,84 @@ h1,h2,h3{ font-weight:400; margin:0; letter-spacing:-.005em; }
   .poi-tx { font-size: 10.5px; }
   .poi-dot { width: 8px; height: 8px; }
 }
+
+/* Aerial Modal Map Pins (Chấm đúng vị trí, không ghi tên) */
+.aerial-map-stage {
+  position: relative;
+  width: 100%;
+  max-width: calc(64vh * 16 / 9);
+  aspect-ratio: 16 / 9;
+  margin: 0 auto;
+  overflow: hidden;
+  background: #020508;
+}
+.aerial-map-stage img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+.aerial-poi-pin {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2.5px solid #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.95), 0 0 18px currentColor;
+  cursor: pointer;
+  z-index: 20;
+  transition: transform .25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow .25s, filter .25s;
+}
+.aerial-poi-pin::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid currentColor;
+  opacity: .85;
+  animation: aerial-pin-pulse 2.2s infinite ease-out;
+  pointer-events: none;
+}
+.aerial-poi-pin:hover,
+.aerial-poi-pin.active {
+  transform: translate(-50%, -50%) scale(1.45);
+  box-shadow: 0 0 14px rgba(0, 0, 0, 0.95), 0 0 28px currentColor;
+  z-index: 30;
+  filter: brightness(1.2);
+}
+@keyframes aerial-pin-pulse {
+  0% { transform: translate(-50%, -50%) scale(1); opacity: 0.95; }
+  100% { transform: translate(-50%, -50%) scale(2.8); opacity: 0; }
+}
+.aerial-poi-pin--red { background: #e0231c; color: #e0231c; }
+.aerial-poi-pin--gold { background: #ffd700; color: #ffd700; }
+.aerial-poi-pin--blue { background: #38bdf8; color: #38bdf8; }
+.aerial-poi-pin--green { background: #10b981; color: #10b981; }
+
+.aerial-legend-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.aerial-legend-item:hover,
+.aerial-legend-item.active {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
 .overview-bottom-bar {
   position: absolute;
   bottom: clamp(14px, 2.5vh, 24px);
@@ -3264,22 +3342,38 @@ body[data-layout-footer="b"] .foot-base span:last-child{ text-align:right; }
       <button class="b-modal-close" id="aerial-modal-close-btn" aria-label="Đóng" data-cursor>&times;</button>
     </div>
     <div style="position:relative; border-radius:16px; overflow:hidden; border:1px solid rgba(223,231,224,.18); background:#020508;">
-      <img src="khong_gian_tong_quan.jpg" alt="Không gian tổng quan Khu Di Tích Chín Hầm nhìn từ trên cao" style="width:100%; height:auto; display:block; object-fit:contain; max-height:64vh; margin:0 auto;">
+      <div class="aerial-map-stage">
+        <img src="khong_gian_tong_quan.jpg" alt="Không gian tổng quan Khu Di Tích Chín Hầm nhìn từ trên cao">
+        
+        <!-- 🔴 Nhà Tưởng Niệm chính: Đỉnh đồi cao nhất, mái ngói dốc đỏ nâu truyền thống -->
+        <span class="aerial-poi-pin aerial-poi-pin--red" style="top:18%; left:48.9%;" title="Nhà Tưởng Niệm chính" data-target="red" data-cursor></span>
+
+        <!-- 🟡 Đài Tưởng Niệm & Bia Di Tích: Đặt trên thềm trước Nhà Tưởng Niệm -->
+        <span class="aerial-poi-pin aerial-poi-pin--gold" style="top:33%; left:48.9%;" title="Đài Tưởng Niệm & Bia Di Tích" data-target="gold" data-cursor></span>
+
+        <!-- 🔵 Nhà Tả Vu - Hữu Vu: Hai bên sân đại lễ mở rộng giữa sườn đồi -->
+        <span class="aerial-poi-pin aerial-poi-pin--blue" style="top:48.6%; left:42.2%;" title="Nhà Tả Vu (Trưng Bày Hiện Vật)" data-target="blue" data-cursor></span>
+        <span class="aerial-poi-pin aerial-poi-pin--blue" style="top:48.6%; left:56%;" title="Nhà Hữu Vu (Khánh Tiết)" data-target="blue" data-cursor></span>
+
+        <!-- 🟢 Đường bậc thang & Cổng: Trục chính nối từ đường chân đồi lên đỉnh qua rừng thông -->
+        <span class="aerial-poi-pin aerial-poi-pin--green" style="top:66%; left:48.9%;" title="Đường bậc thang" data-target="green" data-cursor></span>
+        <span class="aerial-poi-pin aerial-poi-pin--green" style="top:84.8%; left:48.9%;" title="Cổng Di Tích Chân Đồi" data-target="green" data-cursor></span>
+      </div>
       <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:14px; padding:18px; background:rgba(10,14,18,0.96); border-top:1px solid rgba(223,231,224,.12);">
-        <div style="display:flex; align-items:flex-start; gap:8px;">
-          <span style="display:inline-block; width:12px; height:12px; border-radius:50%; background:#e0231c; margin-top:4px; flex-shrink:0;"></span>
+        <div class="aerial-legend-item" data-target="red" data-cursor>
+          <span style="display:inline-block; width:12px; height:12px; border-radius:50%; background:#e0231c; margin-top:4px; flex-shrink:0; box-shadow:0 0 10px #e0231c;"></span>
           <span style="font-size:12px; line-height:1.4;"><b style="color:#fff;">Nhà Tưởng Niệm chính:</b> Đỉnh đồi cao nhất, mái ngói dốc đỏ nâu truyền thống.</span>
         </div>
-        <div style="display:flex; align-items:flex-start; gap:8px;">
-          <span style="display:inline-block; width:12px; height:12px; border-radius:50%; background:#c9a24a; margin-top:4px; flex-shrink:0;"></span>
+        <div class="aerial-legend-item" data-target="gold" data-cursor>
+          <span style="display:inline-block; width:12px; height:12px; border-radius:50%; background:#ffd700; margin-top:4px; flex-shrink:0; box-shadow:0 0 10px #ffd700;"></span>
           <span style="font-size:12px; line-height:1.4;"><b style="color:#fff;">Đài Tưởng Niệm & Bia Di Tích:</b> Đặt trên thềm trước Nhà Tưởng Niệm.</span>
         </div>
-        <div style="display:flex; align-items:flex-start; gap:8px;">
-          <span style="display:inline-block; width:12px; height:12px; border-radius:50%; background:#38bdf8; margin-top:4px; flex-shrink:0;"></span>
+        <div class="aerial-legend-item" data-target="blue" data-cursor>
+          <span style="display:inline-block; width:12px; height:12px; border-radius:50%; background:#38bdf8; margin-top:4px; flex-shrink:0; box-shadow:0 0 10px #38bdf8;"></span>
           <span style="font-size:12px; line-height:1.4;"><b style="color:#fff;">Nhà Tả Vu - Hữu Vu:</b> Hai bên sân đại lễ mở rộng giữa sườn đồi.</span>
         </div>
-        <div style="display:flex; align-items:flex-start; gap:8px;">
-          <span style="display:inline-block; width:12px; height:12px; border-radius:50%; background:#10b981; margin-top:4px; flex-shrink:0;"></span>
+        <div class="aerial-legend-item" data-target="green" data-cursor>
+          <span style="display:inline-block; width:12px; height:12px; border-radius:50%; background:#10b981; margin-top:4px; flex-shrink:0; box-shadow:0 0 10px #10b981;"></span>
           <span style="font-size:12px; line-height:1.4;"><b style="color:#fff;">Đường bậc thang & Cổng:</b> Trục chính nối từ đường chân đồi lên đỉnh qua rừng thông.</span>
         </div>
       </div>
@@ -7270,6 +7364,26 @@ function wireNav() {
   if (navAerialBtn) navAerialBtn.addEventListener('click', openAerial);
   if (closeAerialBtn) closeAerialBtn.addEventListener('click', closeAerial);
   if (closeAerialBg) closeAerialBg.addEventListener('click', closeAerial);
+
+  // Wire Aerial POI Pins and Legend highlight sync
+  $$('#aerial-modal .aerial-legend-item').forEach(item => {
+    const target = item.getAttribute('data-target');
+    item.addEventListener('mouseenter', () => {
+      $$('#aerial-modal .aerial-poi-pin[data-target="' + target + '"]').forEach(p => p.classList.add('active'));
+    });
+    item.addEventListener('mouseleave', () => {
+      $$('#aerial-modal .aerial-poi-pin[data-target="' + target + '"]').forEach(p => p.classList.remove('active'));
+    });
+  });
+  $$('#aerial-modal .aerial-poi-pin').forEach(pin => {
+    const target = pin.getAttribute('data-target');
+    pin.addEventListener('mouseenter', () => {
+      $$('#aerial-modal .aerial-legend-item[data-target="' + target + '"]').forEach(i => i.classList.add('active'));
+    });
+    pin.addEventListener('mouseleave', () => {
+      $$('#aerial-modal .aerial-legend-item[data-target="' + target + '"]').forEach(i => i.classList.remove('active'));
+    });
+  });
 
   /* Memorial Lightbox Modal interaction */
   const memorialModal = $('#memorial-lightbox-modal');
