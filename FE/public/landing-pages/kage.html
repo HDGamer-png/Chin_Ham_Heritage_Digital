@@ -773,13 +773,20 @@ h1,h2,h3{ font-weight:400; margin:0; letter-spacing:-.005em; }
 /* — chapter III: curriculum */
 .cur-head{ display:grid; grid-template-columns:minmax(0,1fr) minmax(0,.72fr); gap:clamp(28px,5vw,90px); align-items:end; margin-bottom:clamp(34px,6vh,72px); }
 .cur-head h2{ max-width:13ch; }
-.cur{ border-top:1px solid var(--line-soft); }
+.cur{
+  border-top:1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+}
 .les{
   position:relative; display:grid; align-items:center;
   grid-template-columns:64px minmax(0,1.05fr) minmax(0,1.25fr) 86px;
   gap:clamp(14px,2.4vw,40px);
-  padding:clamp(20px,2.4vw,30px) 0; border-bottom:1px solid var(--line-soft);
-  cursor:pointer; transition:padding .5s var(--ease-out);
+  padding:clamp(20px,2.4vw,30px) 0; border-bottom:1px solid rgba(255, 255, 255, 0.12);
+  background:rgba(10, 16, 22, 0.38);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  cursor:pointer; transition:padding .5s var(--ease-out), background .35s ease;
 }
 .les::before{ content:''; position:absolute; left:calc(var(--pad) * -1); right:0; top:0; bottom:0;
   background:linear-gradient(90deg, rgba(224,35,28,.09), transparent 46%);
@@ -1564,12 +1571,12 @@ h1,h2,h3{ font-weight:400; margin:0; letter-spacing:-.005em; }
   position: relative;
   padding: 26px 26px;
   border-radius: 22px;
-  background: rgba(10, 14, 18, 0.85);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(223, 231, 224, 0.16);
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.75);
-  transition: transform .35s var(--ease-out), border-color .35s, box-shadow .35s;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.08) 0%, rgba(12, 18, 24, 0.38) 45%, rgba(6, 10, 16, 0.52) 100%);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.45);
+  transition: transform .35s var(--ease-out), border-color .35s, box-shadow .35s, background .35s;
   text-align: left;
 }
 .tech-pillar-card:hover {
@@ -2159,19 +2166,36 @@ body[data-layout-gallery="b"] .card:not(:first-child) .card-fr{ min-height:200px
 body[data-layout-curriculum="b"] .cur-head{ grid-template-columns:minmax(0,.72fr) minmax(0,1.2fr); align-items:start; }
 body[data-layout-curriculum="b"] .cur{
   display:grid; grid-template-columns:repeat(6,1fr); gap:1px;
-  background:var(--line-soft); border:1px solid var(--line-soft);
+  background:rgba(255, 255, 255, 0.14);
+  border:1px solid rgba(255, 255, 255, 0.16);
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 18px 45px rgba(0,0,0,0.45);
+  backdrop-filter:blur(18px) saturate(135%);
+  -webkit-backdrop-filter:blur(18px) saturate(135%);
 }
 body[data-layout-curriculum="b"] .les{
   display:flex; flex-direction:column; align-items:flex-start; min-height:250px;
-  padding:24px; gap:14px; border:0; background:rgba(5,7,10,.84); overflow:hidden;
+  padding:24px; gap:14px; border:0;
+  background:linear-gradient(145deg, rgba(255, 255, 255, 0.08) 0%, rgba(12, 18, 24, 0.38) 45%, rgba(6, 10, 16, 0.52) 100%);
+  backdrop-filter:blur(20px) saturate(135%);
+  -webkit-backdrop-filter:blur(20px) saturate(135%);
+  overflow:hidden;
+  transition:background .35s var(--ease-out), padding .35s var(--ease-out), box-shadow .35s;
 }
 body[data-layout-curriculum="b"] .les:nth-child(-n+2){ grid-column:span 3; }
 body[data-layout-curriculum="b"] .les:nth-child(n+3){ grid-column:span 2; }
-body[data-layout-curriculum="b"] .les::before{ left:0; background:linear-gradient(145deg,rgba(224,35,28,.13),transparent 58%); }
-body[data-layout-curriculum="b"] .les:hover{ padding-left:32px; }
-body[data-layout-curriculum="b"] .les h3{ font-size:clamp(20px,2vw,30px); }
-body[data-layout-curriculum="b"] .les p{ display:block; max-width:34ch; }
-body[data-layout-curriculum="b"] .les .t{ text-align:left; margin-top:auto; }
+body[data-layout-curriculum="b"] .les::before{ left:0; background:linear-gradient(145deg,rgba(224,35,28,.14),transparent 58%); }
+body[data-layout-curriculum="b"] .les:hover{
+  padding-left:32px;
+  background:linear-gradient(145deg, rgba(255, 255, 255, 0.14) 0%, rgba(20, 30, 42, 0.5) 45%, rgba(10, 16, 24, 0.65) 100%);
+  backdrop-filter:blur(26px) saturate(155%);
+  -webkit-backdrop-filter:blur(26px) saturate(155%);
+}
+body[data-layout-curriculum="b"] .les h3{ font-size:clamp(20px,2vw,30px); color:#ffffff; text-shadow:0 2px 12px rgba(0,0,0,0.9); }
+body[data-layout-curriculum="b"] .les p{ display:block; max-width:34ch; color:#d6e2dc; text-shadow:0 1px 10px rgba(0,0,0,0.9); }
+body[data-layout-curriculum="b"] .les .k{ color:rgba(255,255,255,0.7); font-weight:600; text-shadow:0 1px 8px rgba(0,0,0,0.8); }
+body[data-layout-curriculum="b"] .les .t{ text-align:left; margin-top:auto; color:rgba(255,255,255,0.7); text-shadow:0 1px 8px rgba(0,0,0,0.8); }
 
 /* — closing B · gallery: the title hangs vertically on the right while the
      chapter mark, the last line and the call to action run down the left. */
