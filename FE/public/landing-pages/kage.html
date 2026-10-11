@@ -605,8 +605,8 @@ h1,h2,h3{ font-weight:400; margin:0; letter-spacing:-.005em; }
 .hero-top .eyebrow .dot{ width:5px; height:5px; border-radius:50%; background:var(--vermilion); box-shadow:0 0 10px var(--vermilion); }
 .hero h1{ margin-bottom:18px; }
 .hero-sub{ max-width:322px; text-shadow:0 1px 26px rgba(3,6,8,.95); }
-.hero-spacer{ flex:1 1 auto; min-height:clamp(140px,26vh,300px); }
-.hero-foot{ padding-bottom:clamp(22px,4.2vh,42px); position:relative; z-index:2; }
+.hero-spacer{ flex:1 1 auto; min-height:clamp(20px,3vh,48px); }
+.hero-foot{ padding-bottom:clamp(20px,3.5vh,36px); position:relative; z-index:2; }
 .hero-cue{ display:flex; align-items:center; justify-content:flex-end; gap:12px; margin-bottom:14px;
   font-size:9px; letter-spacing:.3em; text-transform:uppercase; color:var(--muted); }
 .hero-cue .track{ width:54px; height:1px; background:var(--line); position:relative; overflow:hidden; }
@@ -631,14 +631,17 @@ h1,h2,h3{ font-weight:400; margin:0; letter-spacing:-.005em; }
 .chip.on b{ color:var(--bone); }
 /* the floating window: overview preview card in bottom-right corner */
 .peek{
-  position:absolute; z-index:15; right:calc(var(--pad) + clamp(10px, 1.2vw, 26px)) !important; bottom:clamp(32px,6vh,84px) !important; top:auto !important; left:auto !important;
-  width:clamp(172px,15vw,236px) !important; display:flex; flex-direction:column;
+  position:fixed !important; z-index:45 !important;
+  right:calc(var(--pad) + clamp(10px, 1.2vw, 26px)) !important;
+  bottom:clamp(20px, 3.2vh, 36px) !important;
+  top:auto !important; left:auto !important;
+  width:clamp(176px, 14vw, 226px) !important; display:flex; flex-direction:column;
   padding:8px 10px; border-radius:16px; box-sizing:border-box;
   background:rgba(9,13,17,.88); border:1px solid rgba(223,231,224,.18);
   box-shadow:0 18px 44px -10px rgba(0,0,0,.88), 0 0 0 1px rgba(255,255,255,.04);
   backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
   text-decoration:none;
-  transition:transform .45s var(--ease-out), border-color .3s, box-shadow .3s;
+  transition:opacity .35s ease, transform .45s var(--ease-out), border-color .3s, box-shadow .3s;
 }
 .peek:hover{
   transform:translateY(-4px) scale(1.02);
@@ -912,8 +915,8 @@ h1,h2,h3{ font-weight:400; margin:0; letter-spacing:-.005em; }
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  margin-top: 18px;
-  padding: 8px 18px;
+  margin-top: 14px;
+  padding: 6px 16px;
   border-radius: 999px;
   background: rgba(10, 14, 18, 0.75);
   border: 1px solid rgba(254, 240, 138, 0.35);
@@ -928,8 +931,8 @@ h1,h2,h3{ font-weight:400; margin:0; letter-spacing:-.005em; }
 }
 .hero-actions-group {
   display: flex;
-  gap: 14px;
-  margin-top: 24px;
+  gap: 12px;
+  margin-top: 16px;
   flex-wrap: wrap;
   align-items: center;
 }
@@ -2196,8 +2199,10 @@ body[data-layout-hero="b"] .chip .tx{
 }
 /* the live window drops into the bottom-right corner as originally designed, shifted clear of the vertical text */
 body[data-layout-hero="b"] .peek{
-  left:auto !important; right:calc(var(--pad) + clamp(10px, 1.2vw, 26px)) !important; top:auto !important; bottom:clamp(32px,6vh,84px) !important;
-  width:clamp(172px,15vw,236px) !important;
+  position:fixed !important; z-index:45 !important;
+  left:auto !important; right:calc(var(--pad) + clamp(10px, 1.2vw, 26px)) !important;
+  top:auto !important; bottom:clamp(20px, 3.2vh, 36px) !important;
+  width:clamp(176px, 14vw, 226px) !important;
 }
 body[data-layout-hero="b"] .peek-cap b,
 body[data-layout-hero="b"] .peek-cap b.jp{ font-size:11px !important; letter-spacing:.11em !important; white-space:nowrap; }
@@ -7532,6 +7537,22 @@ function wireViewMode() {
 
   if (peekBtn) {
     peekBtn.addEventListener('click', scrollToOverview);
+
+    // Keep peek floating gracefully in bottom-right of hero and fade out when scrolled down
+    const updatePeek = () => {
+      const heroThreshold = Math.min(window.innerHeight * 0.75, 550);
+      if (window.scrollY > heroThreshold) {
+        peekBtn.style.opacity = '0';
+        peekBtn.style.pointerEvents = 'none';
+        peekBtn.style.transform = 'translate3d(0, 16px, 0)';
+      } else {
+        peekBtn.style.opacity = '1';
+        peekBtn.style.pointerEvents = 'auto';
+        peekBtn.style.transform = 'none';
+      }
+    };
+    window.addEventListener('scroll', updatePeek, { passive: true });
+    updatePeek();
   }
 }
 
