@@ -1,21 +1,23 @@
 'use client';
 
-import { KageLandingPage } from "@designcodeio/threeui";
+import { SylvaHero } from "@designcodeio/threeui";
 import "@designcodeio/threeui/style.css";
 
 export function Scene() {
   return (
     <div className="shader-frame w-full h-full">
-      <KageLandingPage
-        headingFont="onest"
-        bodyFont="onest"
-        headingWeight="400"
+      <SylvaHero
+        variant="living-green"
+        headingFont="lexend"
+        bodyFont="lexend"
+        headingWeight="300"
         bodyWeight="300"
-        primaryColor="#e0231c"
-        headingSize={46}
-        bodySize={17}
-        headingLetterSpacing={-0.012}
+        primaryColor="#ffffff"
+        headingSize={63}
+        bodySize={16.5}
+        headingLetterSpacing={-0.006}
       />
     </div>
   );
 }
+
