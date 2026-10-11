@@ -1,7 +1,12 @@
-import ChinHamPage from '@/app/chin-ham/page';
+import { Scene } from "@/components/Scene";
 
 export default function HomePage() {
-  return <ChinHamPage />;
+  return (
+    <div className="relative w-screen h-screen overflow-hidden bg-[#080808]">
+      <Scene />
+    </div>
+  );
 }
+
 
 

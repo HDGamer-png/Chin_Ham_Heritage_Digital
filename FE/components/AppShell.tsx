@@ -35,6 +35,10 @@ export function AppShell({ children }: { children: React.ReactNode }) {
     return () => window.removeEventListener('pointermove', handlePointerMove);
   }, []);
 
+  if (isHomePage) {
+    return <>{children}</>;
+  }
+
   return (
     <div className="relative min-h-screen flex flex-col justify-between bg-[#191d18] text-stone-100 selection:bg-emerald-500/30 selection:text-emerald-200">
       {/* 3D Living Green (SylvaHero) World as Immersive Persistent Background */}
