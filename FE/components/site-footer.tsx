@@ -11,7 +11,7 @@ export function SiteFooter() {
   };
 
   return (
-    <footer className="relative border-t border-emerald-500/20 bg-gradient-to-b from-transparent via-black/10 to-black/20 backdrop-blur-[5px] text-stone-300 overflow-hidden">
+    <footer className="relative border-t border-emerald-500/20 bg-gradient-to-b from-transparent via-black/15 to-black/30 backdrop-blur-[10px] text-stone-300 overflow-hidden">
       {/* Tia sáng hairline viền đỉnh mờ ảo */}
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-emerald-400/40 to-transparent pointer-events-none" />
 
