@@ -11,12 +11,12 @@ export function SiteFooter() {
   };
 
   return (
-    <footer className="relative border-t border-emerald-500/15 bg-gradient-to-b from-[#080e0a]/35 via-[#060b08]/55 to-[#040705]/75 backdrop-blur-2xl text-stone-300 overflow-hidden">
+    <footer className="relative border-t border-emerald-500/20 bg-gradient-to-b from-black/10 via-[#060b07]/20 to-[#040805]/35 backdrop-blur-md text-stone-300 overflow-hidden">
       {/* Tia sáng hairline viền đỉnh mờ ảo */}
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-emerald-400/40 to-transparent pointer-events-none" />
 
-      {/* Ánh sáng thực vật tỏa nhẹ phía sau logo */}
-      <div className="absolute -top-24 left-1/4 -translate-x-1/2 w-96 h-36 bg-emerald-500/10 blur-3xl rounded-full pointer-events-none" />
+      {/* Ánh sáng thực vật tỏa siêu nhẹ */}
+      <div className="absolute -top-24 left-1/4 -translate-x-1/2 w-96 h-36 bg-emerald-500/5 blur-3xl rounded-full pointer-events-none" />
 
       {/* Nội dung footer chính */}
       <div className="container-shell grid gap-10 py-12 md:grid-cols-2 lg:grid-cols-12 relative z-10">
@@ -158,7 +158,7 @@ export function SiteFooter() {
       </div>
 
       {/* Dòng bản quyền & Nút cuộn lên đầu trang */}
-      <div className="border-t border-emerald-500/10 py-4 bg-black/20">
+      <div className="border-t border-emerald-500/10 py-4 bg-black/10">
         <div className="container-shell flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-stone-400">
           <div className="text-center sm:text-left">
             © 2026 <strong className="text-stone-300 font-semibold">Chín Hầm Heritage Digital</strong> • Kết nối ký ức với tương lai
