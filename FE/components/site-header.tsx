@@ -43,7 +43,7 @@ export function SiteHeader() {
   }, []);
 
   return (
-    <header className={`sticky top-0 z-50 border-b border-emerald-500/25 bg-[#0c120e]/68 backdrop-blur-[16px] shadow-[0_4px_20px_rgba(0,0,0,0.35)] transition duration-300 ${mobileMenuOpen ? 'mobile-menu-active' : ''}`}>
+    <header className={`sticky top-0 z-50 border-b border-white/10 bg-black/82 backdrop-blur-xl shadow-[0_4px_24px_rgba(0,0,0,0.65)] transition duration-300 ${mobileMenuOpen ? 'mobile-menu-active' : ''}`}>
       <div className="container-shell flex items-center justify-between py-3.5 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
         {/* Brand Logo */}
         <Link href="/" className="flex items-center gap-3 group">
