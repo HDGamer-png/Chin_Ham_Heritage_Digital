@@ -522,10 +522,10 @@ export default function BanDo360Page() {
         </div>
 
         {/* Layout 2 cột: Bia đá tương tác lớn & Khối thông tin chi tiết */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
           {/* Cột trái: Tấm bia đá phục hồi tương tác (chiếm 8 cột) */}
-          <div className="lg:col-span-8 flex flex-col gap-3">
-            <div className="relative overflow-hidden rounded-2xl border-2 border-amber-500/30 bg-stone-950 shadow-2xl group">
+          <div className="lg:col-span-8 flex flex-col justify-between gap-4 h-full">
+            <div className="relative overflow-hidden rounded-2xl border-2 border-amber-500/30 bg-stone-950 shadow-2xl group flex-1 flex flex-col justify-center">
               {/* Container có zoom */}
               <div
                 className="relative w-full aspect-[1024/571] overflow-hidden transition-transform duration-300 origin-center"
@@ -592,64 +592,76 @@ export default function BanDo360Page() {
               </div>
             </div>
 
-            {/* Danh sách chip nhanh các hầm */}
-            <div className="flex flex-wrap items-center gap-1.5 pt-1">
-              {LANDMARK_POINTS.map((pt) => (
-                <button
-                  key={pt.id}
-                  onClick={() => setSelectedLandmark(pt)}
-                  className={`px-2.5 py-1 rounded-lg text-xs font-semibold transition ${
-                    selectedLandmark.id === pt.id
-                      ? 'bg-amber-400 text-stone-950 shadow-md font-bold'
-                      : 'bg-white/5 text-stone-300 hover:bg-white/10 border border-white/5'
-                  }`}
-                >
-                  {pt.name}
-                </button>
-              ))}
+            {/* Danh sách chip nhanh các hầm có khung viền glassmorphism đồng bộ */}
+            <div className="rounded-2xl border border-white/10 bg-stone-900/60 backdrop-blur-xl p-3.5 shadow-lg flex flex-col gap-2">
+              <div className="flex items-center justify-between text-[11px] font-semibold text-stone-400 px-1">
+                <span className="flex items-center gap-1.5 text-amber-400 font-bold uppercase tracking-wider">
+                  <MapPin size={12} /> 12 Điểm Mốc Lịch Sử
+                </span>
+                <span className="text-[10px] text-stone-400">Nhấp để định vị nhanh trên bản đồ</span>
+              </div>
+              <div className="flex flex-wrap items-center gap-1.5">
+                {LANDMARK_POINTS.map((pt) => (
+                  <button
+                    key={pt.id}
+                    onClick={() => setSelectedLandmark(pt)}
+                    className={`px-2.5 py-1 rounded-lg text-xs font-semibold transition ${
+                      selectedLandmark.id === pt.id
+                        ? 'bg-amber-400 text-stone-950 shadow-md font-bold'
+                        : 'bg-white/5 text-stone-300 hover:bg-white/10 border border-white/5'
+                    }`}
+                  >
+                    {pt.name}
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
 
-          {/* Cột phải: Card chi tiết điểm & Nút bấm mở 360° (chiếm 4 cột) */}
-          <div className="lg:col-span-4 flex flex-col gap-4">
-            <div className="rounded-2xl border border-white/15 bg-stone-900/80 backdrop-blur-xl p-5 shadow-xl flex flex-col gap-4">
-              <div>
-                <div className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-amber-400 mb-1">
-                  <MapPin size={13} /> {selectedLandmark.tag}
+          {/* Cột phải: Card chi tiết điểm & Nút bấm mở 360° (chiếm 4 cột, h-full đồng bộ) */}
+          <div className="lg:col-span-4 flex flex-col h-full">
+            <div className="rounded-2xl border border-white/15 bg-stone-900/80 backdrop-blur-xl p-5 shadow-xl flex flex-col justify-between h-full gap-4">
+              <div className="flex flex-col gap-3.5">
+                <div>
+                  <div className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-amber-400 mb-1">
+                    <MapPin size={13} /> {selectedLandmark.tag}
+                  </div>
+                  <h3 className="text-xl font-black text-white">{selectedLandmark.name}</h3>
+                  <p className="text-xs text-stone-400 font-mono mt-0.5">{selectedLandmark.coords}</p>
                 </div>
-                <h3 className="text-xl font-black text-white">{selectedLandmark.name}</h3>
-                <p className="text-xs text-stone-400 font-mono mt-0.5">{selectedLandmark.coords}</p>
-              </div>
 
-              <div className="relative aspect-video w-full rounded-xl overflow-hidden border border-white/10 group">
-                <Image
-                  src={selectedLandmark.thumbnail}
-                  alt={selectedLandmark.name}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-3">
-                  <span className="text-xs font-semibold text-stone-200">
-                    {selectedLandmark.name} - Triền đồi Ba Đồn
-                  </span>
+                <div className="relative aspect-video w-full rounded-xl overflow-hidden border border-white/10 group">
+                  <Image
+                    src={selectedLandmark.thumbnail}
+                    alt={selectedLandmark.name}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-3">
+                    <span className="text-xs font-semibold text-stone-200">
+                      {selectedLandmark.name} - Triền đồi Ba Đồn
+                    </span>
+                  </div>
+                </div>
+
+                <div className="rounded-xl bg-white/5 border border-white/5 p-3 text-xs text-stone-300 leading-relaxed space-y-1.5">
+                  <p><strong className="text-white">Vai trò lịch sử:</strong> {selectedLandmark.historicalRole}</p>
+                  <p className="text-stone-400">{selectedLandmark.description}</p>
                 </div>
               </div>
 
-              <div className="rounded-xl bg-white/5 border border-white/5 p-3 text-xs text-stone-300 leading-relaxed space-y-2">
-                <p><strong className="text-white">Vai trò lịch sử:</strong> {selectedLandmark.historicalRole}</p>
-                <p className="text-stone-400">{selectedLandmark.description}</p>
-              </div>
+              <div className="flex flex-col gap-2 pt-1">
+                <button
+                  onClick={() => setIs360ModalOpen(true)}
+                  className="w-full flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 text-stone-950 font-black py-3 px-4 shadow-lg shadow-amber-500/20 hover:shadow-amber-500/40 transition hover:scale-[1.02] active:scale-95 text-sm"
+                >
+                  <Eye size={17} />
+                  <span>MỞ KHÔNG GIAN 360° THỰC ĐỊA</span>
+                </button>
 
-              <button
-                onClick={() => setIs360ModalOpen(true)}
-                className="w-full flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 text-stone-950 font-black py-3 px-4 shadow-lg shadow-amber-500/20 hover:shadow-amber-500/40 transition hover:scale-[1.02] active:scale-95 text-sm"
-              >
-                <Eye size={17} />
-                <span>MỞ KHÔNG GIAN 360° THỰC ĐỊA</span>
-              </button>
-
-              <div className="text-[11px] text-center text-stone-400">
-                Hỗ trợ xoay toàn cảnh 360°, la bàn định hướng và zoom chi tiết
+                <div className="text-[11px] text-center text-stone-400">
+                  Hỗ trợ xoay toàn cảnh 360°, la bàn định hướng và zoom chi tiết
+                </div>
               </div>
             </div>
           </div>
