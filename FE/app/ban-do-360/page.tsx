@@ -5,32 +5,16 @@ import Link from 'next/link';
 import Image from 'next/image';
 import {
   Compass,
-  ArrowLeft,
-  Maximize2,
-  Minimize2,
   Eye,
   Layers,
-  Sparkles,
   MapPin,
-  Volume2,
-  VolumeX,
   Play,
   Pause,
-  RotateCw,
   RotateCcw,
   ZoomIn,
   ZoomOut,
-  Info,
-  CheckCircle2,
   ChevronRight,
   ChevronLeft,
-  Navigation,
-  Sliders,
-  Send,
-  HelpCircle,
-  Clock,
-  ShieldAlert,
-  Share2,
 } from 'lucide-react';
 
 // --- DATA CÁC CĂN HẦM VÀ ĐIỂM MỐC TRÊN BIA ĐÁ PHỤC HỒI ---
@@ -459,45 +443,11 @@ function PanoramaViewer({
   );
 }
 
-// --- MAIN PAGE VỚI 4 DEMO CHO NGƯỜI DÙNG DUYỆT ---
-export default function BanDo360ReviewPage() {
-  const [selectedDemo, setSelectedDemo] = useState<'demo1' | 'demo2' | 'demo3' | 'demo4'>('demo1');
+// --- TRANG CHÍNH: SA BÀN THỰC ĐỊA & BẢN ĐỒ 360° ---
+export default function BanDo360Page() {
   const [selectedLandmark, setSelectedLandmark] = useState<LandmarkPoint>(LANDMARK_POINTS[0]);
   const [is360ModalOpen, setIs360ModalOpen] = useState<boolean>(false);
-  const [liveYaw, setLiveYaw] = useState<number>(45);
   const [mapZoom, setMapZoom] = useState<number>(1);
-  const [audioEnabled, setAudioEnabled] = useState<boolean>(false);
-  const [tourStep, setTourStep] = useState<number>(0);
-  const [isTourPlaying, setIsTourPlaying] = useState<boolean>(false);
-  const [approvedDemo, setApprovedDemo] = useState<string | null>(null);
-
-  // Auto-tour progression for Demo 4
-  useEffect(() => {
-    let timer: any;
-    if (isTourPlaying && selectedDemo === 'demo4') {
-      timer = setInterval(() => {
-        setTourStep((prev) => {
-          const next = (prev + 1) % LANDMARK_POINTS.length;
-          setSelectedLandmark(LANDMARK_POINTS[next]);
-          return next;
-        });
-      }, 5000);
-    }
-    return () => clearInterval(timer);
-  }, [isTourPlaying, selectedDemo]);
-
-  // Handle tour step change
-  const handleNextStep = () => {
-    const next = (tourStep + 1) % LANDMARK_POINTS.length;
-    setTourStep(next);
-    setSelectedLandmark(LANDMARK_POINTS[next]);
-  };
-
-  const handlePrevStep = () => {
-    const prev = (tourStep - 1 + LANDMARK_POINTS.length) % LANDMARK_POINTS.length;
-    setTourStep(prev);
-    setSelectedLandmark(LANDMARK_POINTS[prev]);
-  };
 
   return (
     <div className="min-h-screen bg-transparent text-stone-100 flex flex-col font-sans selection:bg-amber-500/30">
@@ -516,888 +466,252 @@ export default function BanDo360ReviewPage() {
             <div className="flex items-center gap-2">
               <span className="h-2.5 w-2.5 rounded-full bg-emerald-400 animate-pulse" />
               <h1 className="text-sm md:text-base font-bold text-white tracking-tight">
-                Đề Xuất 4 Bản Demo Bản Đồ 360° (Dựa trên Bia Đá Phục Hồi)
+                Sa Bàn Thực Địa & Bản Đồ 360° Chín Hầm
               </h1>
             </div>
           </div>
 
-          {/* Quick status */}
           <div className="flex items-center gap-2 text-xs">
-            {approvedDemo ? (
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/20 border border-emerald-400/40 px-3 py-1 text-emerald-300 font-semibold">
-                <CheckCircle2 size={13} /> Đã chọn duyệt: {approvedDemo}
-              </span>
-            ) : (
-              <span className="text-stone-400 hidden sm:inline">
-                Hãy trải nghiệm cả 4 bản demo dưới đây và bấm nút <strong className="text-amber-400">"Duyệt Demo Này"</strong>
-              </span>
-            )}
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-white/5 border border-white/10 px-3 py-1 text-stone-300">
+              <Compass size={13} className="text-amber-400" />
+              <span>12 Điểm Tọa Độ Thực Địa</span>
+            </span>
           </div>
         </div>
       </header>
 
-      {/* --- THANH CHUYỂN TABS 4 BẢN DEMO --- */}
-      <section className="bg-stone-950/80 border-b border-white/10 px-4 py-2.5">
-        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
-          <div className="flex flex-wrap items-center gap-1.5">
-            <button
-              onClick={() => setSelectedDemo('demo1')}
-              className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold transition ${
-                selectedDemo === 'demo1'
-                  ? 'bg-amber-500 text-stone-950 shadow-lg shadow-amber-500/30'
-                  : 'bg-white/5 text-stone-300 hover:bg-white/10 border border-white/5'
-              }`}
-            >
-              <Layers size={14} />
-              <span>Demo 1: Sa Bàn Bia Đá Tương Tác</span>
-              <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-black/20 uppercase font-mono">Bia Gốc</span>
-            </button>
-
-            <button
-              onClick={() => setSelectedDemo('demo2')}
-              className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold transition ${
-                selectedDemo === 'demo2'
-                  ? 'bg-sky-500 text-stone-950 shadow-lg shadow-sky-500/30'
-                  : 'bg-white/5 text-stone-300 hover:bg-white/10 border border-white/5'
-              }`}
-            >
-              <Navigation size={14} />
-              <span>Demo 2: Góc Nhìn Kép (Dual Radar)</span>
-              <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-black/20 uppercase font-mono">Đồng Bộ</span>
-            </button>
-
-            <button
-              onClick={() => setSelectedDemo('demo3')}
-              className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold transition ${
-                selectedDemo === 'demo3'
-                  ? 'bg-purple-500 text-white shadow-lg shadow-purple-500/30'
-                  : 'bg-white/5 text-stone-300 hover:bg-white/10 border border-white/5'
-              }`}
-            >
-              <Sparkles size={14} />
-              <span>Demo 3: Sa Bàn 3D Không Gian</span>
-              <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-black/20 uppercase font-mono">Chiều Sâu</span>
-            </button>
-
-            <button
-              onClick={() => setSelectedDemo('demo4')}
-              className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold transition ${
-                selectedDemo === 'demo4'
-                  ? 'bg-emerald-500 text-stone-950 shadow-lg shadow-emerald-500/30'
-                  : 'bg-white/5 text-stone-300 hover:bg-white/10 border border-white/5'
-              }`}
-            >
-              <Compass size={14} />
-              <span>Demo 4: Tour Kể Chuyện Lộ Trình</span>
-              <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-black/20 uppercase font-mono">Từng Bước</span>
-            </button>
-          </div>
-
-          {/* Quick action button for current demo */}
-          <button
-            onClick={() => setApprovedDemo(
-              selectedDemo === 'demo1' ? 'Demo 1 (Sa Bàn Bia Đá Tương Tác)' :
-              selectedDemo === 'demo2' ? 'Demo 2 (Góc Nhìn Kép Dual Radar)' :
-              selectedDemo === 'demo3' ? 'Demo 3 (Sa Bàn 3D Không Gian)' :
-              'Demo 4 (Tour Kể Chuyện Lộ Trình)'
-            )}
-            className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 px-4 py-2 text-xs font-black text-stone-950 shadow-lg shadow-amber-950/40 transition hover:scale-105"
-          >
-            <CheckCircle2 size={15} />
-            <span>Duyệt Chọn {selectedDemo.toUpperCase()}</span>
-          </button>
-        </div>
-      </section>
-
-      {/* --- NỘI DUNG CHÍNH CỦA BẢN DEMO ĐANG CHỌN --- */}
+      {/* --- NỘI DUNG CHÍNH --- */}
       <main className="flex-1 max-w-7xl w-full mx-auto p-4 md:p-6 flex flex-col gap-6">
-
-        {/* ========================================================================= */}
-        {/* DEMO 1: SA BÀN BIA ĐÁ TƯƠNG TÁC + CỬA SỔ TOÀN CẢNH 360° */}
-        {/* ========================================================================= */}
-        {selectedDemo === 'demo1' && (
-          <div className="flex flex-col gap-6">
-            {/* Banner tóm tắt triết lý */}
-            <div className="rounded-2xl border border-amber-500/20 bg-gradient-to-r from-amber-950/30 via-stone-900/60 to-stone-900/40 p-4 backdrop-blur-md flex flex-col md:flex-row md:items-center justify-between gap-4">
-              <div>
-                <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-amber-400 mb-1">
-                  <Layers size={14} /> Triết lý cốt lõi: Tôn trọng 100% Nguyên Tác Bia Đá Lịch Sử
-                </div>
-                <h2 className="text-xl md:text-2xl font-black text-white">
-                  Sa Bàn Bia Đá Chỉ Huy & Cửa Sổ Khám Phá 360° Đa Điểm
-                </h2>
-                <p className="text-stone-300 text-xs md:text-sm mt-1 max-w-3xl leading-relaxed">
-                  Bản đồ bia đá phục hồi được giữ nguyên vẹn với vân đá granite đỏ trầm và các đường nét khắc trắng sắc nét. Từng căn hầm và công trình lịch sử được gắn các <strong>Radar Beacons</strong> phát xung ánh sáng trực tiếp tại vị trí khắc trên đá. Nhấp vào bất kỳ điểm nào để xem tóm lược lịch sử và mở không gian 360° tương tác toàn cảnh.
-                </p>
-              </div>
-
-              <div className="flex items-center gap-2 shrink-0">
-                <button
-                  onClick={() => setMapZoom((prev) => Math.min(1.8, prev + 0.2))}
-                  className="p-2 rounded-xl bg-white/10 hover:bg-white/20 text-stone-200 transition"
-                  title="Phóng to bản đồ"
-                >
-                  <ZoomIn size={16} />
-                </button>
-                <button
-                  onClick={() => setMapZoom((prev) => Math.max(0.9, prev - 0.2))}
-                  className="p-2 rounded-xl bg-white/10 hover:bg-white/20 text-stone-200 transition"
-                  title="Thu nhỏ bản đồ"
-                >
-                  <ZoomOut size={16} />
-                </button>
-                <button
-                  onClick={() => setMapZoom(1)}
-                  className="p-2 rounded-xl bg-white/10 hover:bg-white/20 text-stone-200 transition text-xs font-bold"
-                  title="Mặc định 100%"
-                >
-                  100%
-                </button>
-              </div>
+        {/* Banner giới thiệu sa bàn */}
+        <div className="rounded-2xl border border-white/10 bg-gradient-to-r from-stone-950/80 via-stone-900/60 to-stone-950/80 p-4 md:p-5 backdrop-blur-xl flex flex-col md:flex-row md:items-center justify-between gap-4 shadow-xl">
+          <div>
+            <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-amber-400 mb-1">
+              <Layers size={14} /> Sa Bàn Chỉ Huy Khắc Đá & Cửa Sổ Thực Tế Ảo 360°
             </div>
-
-            {/* Layout 2 cột: Bia đá tương tác lớn & Khối thông tin chi tiết */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-              {/* Cột trái: Tấm bia đá phục hồi tương tác (chiếm 8 cột) */}
-              <div className="lg:col-span-8 flex flex-col gap-3">
-                <div className="relative overflow-hidden rounded-2xl border-2 border-amber-500/30 bg-stone-950 shadow-2xl group">
-                  {/* Container có zoom */}
-                  <div
-                    className="relative w-full aspect-[1024/571] overflow-hidden transition-transform duration-300 origin-center"
-                    style={{ transform: `scale(${mapZoom})` }}
-                  >
-                    {/* Hình ảnh bia đá phục hồi */}
-                    <Image
-                      src="/ban_do_chinh_ham_phuc_hoi.jpg"
-                      alt="Bản đồ Chín Hầm bia đá phục hồi nét trắng"
-                      fill
-                      className="object-contain select-none pointer-events-none"
-                      priority
-                    />
-
-                    {/* Lớp phủ tương tác với các điểm ghim Radar nằm chính xác TRONG các biểu tượng */}
-                    <div className="absolute inset-0">
-                      {LANDMARK_POINTS.map((pt) => {
-                        const isSelected = selectedLandmark.id === pt.id;
-                        return (
-                          <button
-                            key={pt.id}
-                            onClick={() => setSelectedLandmark(pt)}
-                            className="absolute -translate-x-1/2 -translate-y-1/2 group/pin z-20 focus:outline-none transition-transform hover:scale-125"
-                            style={{ left: `${pt.x}%`, top: `${pt.y}%` }}
-                            title={pt.name}
-                          >
-                            {/* Vòng xung radar tinh tế, không che lấp chữ xung quanh */}
-                            {isSelected && (
-                              <span
-                                className="absolute -inset-1 rounded-full animate-ping bg-amber-400/60 pointer-events-none"
-                                style={{ animationDuration: '2s' }}
-                              />
-                            )}
-
-                            {/* Tâm điểm nút - kích thước vừa vặn trong biểu tượng hình học */}
-                            <span
-                              className={`relative flex items-center justify-center w-5 h-5 sm:w-6 sm:h-6 rounded-full border text-[9px] sm:text-[10px] font-black shadow-md transition ${
-                                isSelected
-                                  ? 'bg-amber-400 text-stone-950 border-white scale-110 shadow-amber-400/80 ring-2 ring-amber-300 ring-offset-1 ring-offset-stone-950'
-                                  : 'bg-stone-950/90 text-amber-300 border-amber-400/80 hover:bg-amber-400 hover:text-stone-950 hover:border-white'
-                              }`}
-                            >
-                              {pt.id.startsWith('ham-') ? pt.id.replace('ham-', 'H') : '★'}
-                            </span>
-
-                            {/* Tooltip hover */}
-                            <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1.5 hidden group-hover/pin:flex flex-col items-center pointer-events-none z-30">
-                              <span className="whitespace-nowrap rounded-md bg-stone-950/95 px-2 py-0.5 text-[10px] sm:text-[11px] font-bold text-amber-300 border border-amber-400/50 shadow-xl">
-                                {pt.name}
-                              </span>
-                              <div className="w-1.5 h-1.5 bg-stone-950 rotate-45 -mt-1 border-r border-b border-amber-400/50" />
-                            </div>
-                          </button>
-                        );
-                      })}
-                    </div>
-                  </div>
-
-                  {/* Thanh điều khiển góc dưới tấm bia */}
-                  <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs text-stone-300 pointer-events-none">
-                    <span className="rounded-lg bg-black/70 backdrop-blur-md px-3 py-1.5 border border-white/10 pointer-events-auto">
-                      Đang chọn: <strong className="text-amber-400">{selectedLandmark.name}</strong>
-                    </span>
-                    <span className="rounded-lg bg-black/70 backdrop-blur-md px-3 py-1.5 border border-white/10 hidden sm:inline pointer-events-auto">
-                      Click vào các điểm đỏ/vàng trên bia đá để xem
-                    </span>
-                  </div>
-                </div>
-
-                {/* Danh sách chip nhanh các hầm */}
-                <div className="flex flex-wrap items-center gap-1.5 pt-1">
-                  {LANDMARK_POINTS.map((pt) => (
-                    <button
-                      key={pt.id}
-                      onClick={() => setSelectedLandmark(pt)}
-                      className={`px-2.5 py-1 rounded-lg text-xs font-semibold transition ${
-                        selectedLandmark.id === pt.id
-                          ? 'bg-amber-400 text-stone-950 shadow-md font-bold'
-                          : 'bg-white/5 text-stone-300 hover:bg-white/10 border border-white/5'
-                      }`}
-                    >
-                      {pt.name}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              {/* Cột phải: Card chi tiết điểm & Nút bấm mở 360° (chiếm 4 cột) */}
-              <div className="lg:col-span-4 flex flex-col gap-4">
-                <div className="rounded-2xl border border-white/15 bg-stone-900/80 backdrop-blur-xl p-5 shadow-xl flex flex-col gap-4">
-                  {/* Badge & Tên */}
-                  <div>
-                    <div className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-amber-400 mb-1">
-                      <MapPin size={13} /> {selectedLandmark.tag}
-                    </div>
-                    <h3 className="text-xl font-black text-white">{selectedLandmark.name}</h3>
-                    <p className="text-xs text-stone-400 font-mono mt-0.5">{selectedLandmark.coords}</p>
-                  </div>
-
-                  {/* Thumbnail xem trước */}
-                  <div className="relative aspect-video w-full rounded-xl overflow-hidden border border-white/10 group">
-                    <Image
-                      src={selectedLandmark.thumbnail}
-                      alt={selectedLandmark.name}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-3">
-                      <span className="text-xs font-semibold text-stone-200">
-                        {selectedLandmark.name} - Triền đồi Ba Đồn
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Mô tả lịch sử */}
-                  <div className="rounded-xl bg-white/5 border border-white/5 p-3 text-xs text-stone-300 leading-relaxed space-y-2">
-                    <p><strong className="text-white">Vai trò lịch sử:</strong> {selectedLandmark.historicalRole}</p>
-                    <p className="text-stone-400">{selectedLandmark.description}</p>
-                  </div>
-
-                  {/* Nút bấm vàng mở cửa sổ 360° */}
-                  <button
-                    onClick={() => setIs360ModalOpen(true)}
-                    className="w-full flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 text-stone-950 font-black py-3 px-4 shadow-lg shadow-amber-500/20 hover:shadow-amber-500/40 transition hover:scale-[1.02] active:scale-95 text-sm"
-                  >
-                    <Eye size={17} />
-                    <span>MỞ KHÔNG GIAN 360° THỰC ĐỊA</span>
-                  </button>
-
-                  <div className="text-[11px] text-center text-stone-400">
-                    Hỗ trợ xoay toàn cảnh 360°, la bàn định hướng và zoom chi tiết
-                  </div>
-                </div>
-
-                {/* Card đánh giá ưu điểm của Demo 1 */}
-                <div className="rounded-2xl border border-white/10 bg-white/5 p-4 text-xs text-stone-300 space-y-2">
-                  <div className="font-bold text-amber-400 flex items-center gap-1.5">
-                    <CheckCircle2 size={14} /> Ưu điểm của Demo 1:
-                  </div>
-                  <ul className="list-disc list-inside space-y-1 text-stone-400">
-                    <li>Bản đồ đá hiển thị toàn diện, không che khuất tầm nhìn</li>
-                    <li>Tọa độ chuẩn xác từng nét khắc thực tế của di tích</li>
-                    <li>Giao diện quen thuộc, thân thiện với người dùng mọi lứa tuổi</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            {/* Modal xem 360° toàn màn hình khi bấm nút */}
-            {is360ModalOpen && (
-              <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-2xl flex flex-col p-4 md:p-8 animate-fadeIn">
-                <div className="max-w-6xl w-full mx-auto flex-1 flex flex-col gap-3">
-                  {/* Modal Header */}
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <span className="px-2.5 py-1 rounded-md bg-amber-400 text-stone-950 text-xs font-black">
-                        360° VIEW
-                      </span>
-                      <h3 className="text-lg md:text-xl font-bold text-white">
-                        {selectedLandmark.name} - {selectedLandmark.tag}
-                      </h3>
-                    </div>
-                    <button
-                      onClick={() => setIs360ModalOpen(false)}
-                      className="px-3.5 py-1.5 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-bold transition flex items-center gap-1.5"
-                    >
-                      <span>Đóng [ESC]</span>
-                    </button>
-                  </div>
-
-                  {/* Viewer 360 component */}
-                  <div className="flex-1 w-full rounded-2xl overflow-hidden shadow-2xl relative">
-                    <PanoramaViewer
-                      imageSrc={selectedLandmark.image360}
-                      title={`Toàn cảnh 360°: ${selectedLandmark.name}`}
-                      className="w-full h-full min-h-[480px]"
-                    />
-                  </div>
-
-                  {/* Modal Footer: Chuyển nhanh qua hầm khác */}
-                  <div className="flex items-center justify-between text-xs text-stone-400 pt-1">
-                    <span>Di chuột/vuốt để xoay toàn cảnh 360 độ</span>
-                    <div className="flex items-center gap-2">
-                      <button
-                        onClick={() => {
-                          const idx = LANDMARK_POINTS.findIndex((p) => p.id === selectedLandmark.id);
-                          const prev = LANDMARK_POINTS[(idx - 1 + LANDMARK_POINTS.length) % LANDMARK_POINTS.length];
-                          setSelectedLandmark(prev);
-                        }}
-                        className="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white font-semibold transition"
-                      >
-                        ← Điểm trước
-                      </button>
-                      <button
-                        onClick={() => {
-                          const idx = LANDMARK_POINTS.findIndex((p) => p.id === selectedLandmark.id);
-                          const next = LANDMARK_POINTS[(idx + 1) % LANDMARK_POINTS.length];
-                          setSelectedLandmark(next);
-                        }}
-                        className="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white font-semibold transition"
-                      >
-                        Điểm kế tiếp →
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )}
+            <h2 className="text-xl md:text-2xl font-black text-white">
+              Bản Đồ Sa Bàn Thực Địa & Không Gian 360° Toàn Cảnh
+            </h2>
+            <p className="text-stone-300 text-xs md:text-sm mt-1 max-w-3xl leading-relaxed">
+              Phục hồi nguyên vẹn dựa trên bia đá sa bàn thực địa đồi Ba Đồn. Nhấp chọn các điểm chốt radar trên bia đá hoặc danh sách bên dưới để định vị không gian và mở cửa sổ toàn cảnh 360° tương tác.
+            </p>
           </div>
-        )}
 
-        {/* ========================================================================= */}
-        {/* DEMO 2: GÓC NHÌN KÉP ĐỒNG BỘ (DUAL-VIEW RADAR SYNCHRONIZATION) */}
-        {/* ========================================================================= */}
-        {selectedDemo === 'demo2' && (
-          <div className="flex flex-col gap-6">
-            {/* Banner tóm tắt triết lý */}
-            <div className="rounded-2xl border border-sky-500/20 bg-gradient-to-r from-sky-950/30 via-stone-900/60 to-stone-900/40 p-4 backdrop-blur-md flex flex-col md:flex-row md:items-center justify-between gap-4">
-              <div>
-                <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-sky-400 mb-1">
-                  <Navigation size={14} /> Triết lý cốt lõi: Không Bao Giờ Bị Mất Phương Hướng
-                </div>
-                <h2 className="text-xl md:text-2xl font-black text-white">
-                  Góc Nhìn Kép Song Hành: Radar Bia Đá & Không Gian 360° Realtime
-                </h2>
-                <p className="text-stone-300 text-xs md:text-sm mt-1 max-w-3xl leading-relaxed">
-                  Màn hình chia đôi: Một bên là <strong>Không gian 360° thời gian thực</strong>, một bên là <strong>Bản đồ bia đá với Nón Tầm Nhìn (Radar Cone)</strong>. Khi bạn xoay chuột nhìn quanh không gian 360°, nón góc nhìn trên bản đồ đá sẽ xoay theo đúng góc độ đó trong thời gian thực! Bạn có thể click vào bất kỳ hầm nào trên bản đồ đá để dịch chuyển camera 360 tới đó.
-                </p>
-              </div>
-
-              <div className="rounded-xl border border-sky-400/30 bg-sky-950/50 px-3.5 py-2 text-xs text-sky-200 flex items-center gap-2 shrink-0">
-                <Compass size={16} className="text-sky-400 animate-spin" style={{ animationDuration: '6s' }} />
-                <span>Góc nhìn hiện tại: <strong>{Math.round(liveYaw)}°</strong></span>
-              </div>
-            </div>
-
-            {/* Layout Split Screen 50 / 50 */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
-              {/* Cột trái: Không gian 360 tương tác trực tiếp (6 cột) */}
-              <div className="lg:col-span-6 flex flex-col gap-3">
-                <div className="flex items-center justify-between text-xs text-stone-300">
-                  <span className="font-bold text-sky-400 flex items-center gap-1.5">
-                    <Eye size={14} /> KHÔNG GIAN 360° THỰC ĐỊA: {selectedLandmark.name.toUpperCase()}
-                  </span>
-                  <span className="text-stone-400 text-[11px]">Kéo chuột để xoay & xem nón radar quay theo</span>
-                </div>
-
-                <div className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden border-2 border-sky-500/30 shadow-2xl">
-                  <PanoramaViewer
-                    imageSrc={selectedLandmark.image360}
-                    title={`360° Live: ${selectedLandmark.name}`}
-                    onYawChange={(yawDegrees) => setLiveYaw(yawDegrees)}
-                    className="w-full h-full"
-                  />
-                </div>
-
-                {/* Thông tin nhanh điểm đang xem */}
-                <div className="rounded-xl bg-white/5 border border-white/10 p-3 text-xs text-stone-300 flex items-center justify-between">
-                  <div>
-                    <span className="font-bold text-white">{selectedLandmark.name}</span> —{' '}
-                    <span className="text-stone-400">{selectedLandmark.tag}</span>
-                  </div>
-                  <span className="text-sky-400 font-mono text-[11px]">{selectedLandmark.coords}</span>
-                </div>
-              </div>
-
-              {/* Cột phải: Bản đồ bia đá với Nón Radar đồng bộ góc nhìn (6 cột) */}
-              <div className="lg:col-span-6 flex flex-col gap-3">
-                <div className="flex items-center justify-between text-xs text-stone-300">
-                  <span className="font-bold text-amber-400 flex items-center gap-1.5">
-                    <Navigation size={14} /> RADAR BIA ĐÁ ĐỒNG BỘ HƯỚNG NHÌN
-                  </span>
-                  <span className="text-amber-300 text-[11px]">Click vào hầm trên đá để dịch chuyển</span>
-                </div>
-
-                <div className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden border-2 border-amber-500/30 bg-stone-950 shadow-2xl flex items-center justify-center p-2">
-                  {/* Container map đá */}
-                  <div className="relative w-full aspect-[1024/571] rounded-xl overflow-hidden">
-                    <Image
-                      src="/ban_do_chinh_ham_phuc_hoi.jpg"
-                      alt="Bản đồ đá đồng bộ radar"
-                      fill
-                      className="object-contain select-none"
-                    />
-
-                    {/* Vị trí các hầm và Nón Radar */}
-                    <div className="absolute inset-0">
-                      {LANDMARK_POINTS.map((pt) => {
-                        const isSelected = selectedLandmark.id === pt.id;
-                        return (
-                          <div
-                            key={pt.id}
-                            className="absolute -translate-x-1/2 -translate-y-1/2 z-20"
-                            style={{ left: `${pt.x}%`, top: `${pt.y}%` }}
-                          >
-                            {/* NÓN TẦM NHÌN RADAR CONE KHI ĐƯỢC CHỌN */}
-                            {isSelected && (
-                              <div
-                                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none transition-transform duration-75"
-                                style={{ transform: `rotate(${liveYaw}deg)` }}
-                              >
-                                <svg
-                                  width="120"
-                                  height="120"
-                                  viewBox="-60 -60 120 120"
-                                  className="overflow-visible"
-                                >
-                                  {/* Radar Sector Wedge */}
-                                  <path
-                                    d="M 0 0 L -30 -60 A 70 70 0 0 1 30 -60 Z"
-                                    fill="url(#radarGradient)"
-                                    opacity="0.6"
-                                  />
-                                  {/* Radar pulse line */}
-                                  <line
-                                    x1="0"
-                                    y1="0"
-                                    x2="0"
-                                    y2="-60"
-                                    stroke="#38bdf8"
-                                    strokeWidth="1.5"
-                                    strokeDasharray="2 2"
-                                  />
-                                  <defs>
-                                    <radialGradient id="radarGradient" cx="0" cy="0" r="70" gradientUnits="userSpaceOnUse">
-                                      <stop offset="0%" stopColor="#38bdf8" stopOpacity="0.8" />
-                                      <stop offset="100%" stopColor="#38bdf8" stopOpacity="0.0" />
-                                    </radialGradient>
-                                  </defs>
-                                </svg>
-                              </div>
-                            )}
-
-                            {/* Nút Marker nằm gọn trong biểu tượng */}
-                            <button
-                              onClick={() => setSelectedLandmark(pt)}
-                              className={`relative z-10 w-5 h-5 sm:w-6 sm:h-6 rounded-full border text-[9px] sm:text-[10px] font-black flex items-center justify-center transition hover:scale-125 ${
-                                isSelected
-                                  ? 'bg-sky-400 text-stone-950 border-white shadow-lg shadow-sky-400/80 ring-2 ring-sky-300 ring-offset-1 ring-offset-stone-950 scale-110'
-                                  : 'bg-stone-950/90 text-amber-300 border-amber-400/80 hover:bg-amber-400 hover:text-stone-950 hover:border-white shadow-md'
-                              }`}
-                            >
-                              {pt.id.startsWith('ham-') ? pt.id.replace('ham-', 'H') : '★'}
-                            </button>
-                          </div>
-                        );
-                      })}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Card đánh giá ưu điểm của Demo 2 */}
-                <div className="rounded-xl border border-white/10 bg-white/5 p-3 text-xs text-stone-300 space-y-1.5">
-                  <div className="font-bold text-sky-400 flex items-center gap-1.5">
-                    <CheckCircle2 size={14} /> Ưu điểm vượt trội của Demo 2:
-                  </div>
-                  <p className="text-stone-400 leading-relaxed">
-                    Khắc phục hoàn toàn nhược điểm lớn nhất của các ứng dụng 360 truyền thống: <em>người dùng dễ bị lạc hướng và không biết mình đang nhìn về phía nào</em>. Nón radar đồng bộ giúp định vị không gian 100% chuẩn xác.
-                  </p>
-                </div>
-              </div>
-            </div>
+          <div className="flex items-center gap-2 shrink-0">
+            <button
+              onClick={() => setMapZoom((prev) => Math.min(1.8, prev + 0.2))}
+              className="p-2 rounded-xl bg-white/10 hover:bg-white/20 text-stone-200 transition"
+              title="Phóng to bản đồ"
+            >
+              <ZoomIn size={16} />
+            </button>
+            <button
+              onClick={() => setMapZoom((prev) => Math.max(0.9, prev - 0.2))}
+              className="p-2 rounded-xl bg-white/10 hover:bg-white/20 text-stone-200 transition"
+              title="Thu nhỏ bản đồ"
+            >
+              <ZoomOut size={16} />
+            </button>
+            <button
+              onClick={() => setMapZoom(1)}
+              className="p-2 rounded-xl bg-white/10 hover:bg-white/20 text-stone-200 transition text-xs font-bold"
+              title="Mặc định 100%"
+            >
+              100%
+            </button>
           </div>
-        )}
+        </div>
 
-        {/* ========================================================================= */}
-        {/* DEMO 3: SA BÀN 3D KHÔNG GIAN & PHỐI CẢNH ĐỒI BA ĐỒN */}
-        {/* ========================================================================= */}
-        {selectedDemo === 'demo3' && (
-          <div className="flex flex-col gap-6">
-            {/* Banner tóm tắt triết lý */}
-            <div className="rounded-2xl border border-purple-500/20 bg-gradient-to-r from-purple-950/30 via-stone-900/60 to-stone-900/40 p-4 backdrop-blur-md flex flex-col md:flex-row md:items-center justify-between gap-4">
-              <div>
-                <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-purple-400 mb-1">
-                  <Sparkles size={14} /> Triết lý cốt lõi: Trải Nghiệm Thị Giác Sa Bàn Điện Tử Tương Tác
-                </div>
-                <h2 className="text-xl md:text-2xl font-black text-white">
-                  Sa Bàn 3D Không Gian & Phối Cảnh Chiều Sâu Đồi Ba Đồn
-                </h2>
-                <p className="text-stone-300 text-xs md:text-sm mt-1 max-w-3xl leading-relaxed">
-                  Tấm bia đá được đặt trong không gian phối cảnh 3D (Isometric Perspective) mô phỏng địa hình đồi thông dốc. Các căn hầm nhô lên thành các khối kiến trúc bán nổi với hiệu ứng ánh sáng laser chạy dọc các con đường nối. Người dùng có thể chỉnh góc nghiêng 3D và click vào hầm để bay sà xuống (Cinematic Fly-to) mở toàn cảnh 360°.
-                </p>
-              </div>
-
-              <div className="flex items-center gap-2 shrink-0">
-                <button
-                  onClick={() => setIs360ModalOpen(true)}
-                  className="rounded-xl bg-purple-600 hover:bg-purple-500 px-4 py-2 text-xs font-black text-white shadow-lg shadow-purple-950/50 transition flex items-center gap-1.5"
-                >
-                  <Eye size={14} /> Xem 360° Điểm Chọn
-                </button>
-              </div>
-            </div>
-
-            {/* Container 3D Isometric View */}
-            <div className="relative rounded-3xl border-2 border-purple-500/30 bg-gradient-to-b from-[#090b14] via-[#05070d] to-black p-6 md:p-12 overflow-hidden shadow-2xl flex items-center justify-center min-h-[460px]">
-              {/* Lưới tọa độ không gian 3D nền */}
+        {/* Layout 2 cột: Bia đá tương tác lớn & Khối thông tin chi tiết */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          {/* Cột trái: Tấm bia đá phục hồi tương tác (chiếm 8 cột) */}
+          <div className="lg:col-span-8 flex flex-col gap-3">
+            <div className="relative overflow-hidden rounded-2xl border-2 border-amber-500/30 bg-stone-950 shadow-2xl group">
+              {/* Container có zoom */}
               <div
-                className="absolute inset-0 opacity-20 pointer-events-none"
-                style={{
-                  backgroundImage: 'radial-gradient(rgba(168, 85, 247, 0.4) 1px, transparent 1px)',
-                  backgroundSize: '24px 24px',
-                }}
-              />
-
-              {/* TẤM BIA ĐÁ NGHIÊNG 3D */}
-              <div
-                className="relative w-full max-w-4xl aspect-[1024/571] rounded-2xl overflow-hidden shadow-[0_25px_60px_-15px_rgba(168,85,247,0.3)] transition-transform duration-700 ease-out hover:rotate-0"
-                style={{
-                  transform: 'perspective(1200px) rotateX(20deg) rotateZ(-2deg) scale(0.95)',
-                  boxShadow: '0 30px 60px -12px rgba(0, 0, 0, 0.8), 0 0 40px rgba(168, 85, 247, 0.25)',
-                }}
+                className="relative w-full aspect-[1024/571] overflow-hidden transition-transform duration-300 origin-center"
+                style={{ transform: `scale(${mapZoom})` }}
               >
-                {/* Ảnh bia đá */}
+                {/* Hình ảnh bia đá phục hồi */}
                 <Image
                   src="/ban_do_chinh_ham_phuc_hoi.jpg"
-                  alt="Bản đồ 3D Bia đá"
+                  alt="Bản đồ Chín Hầm bia đá phục hồi nét trắng"
                   fill
-                  className="object-cover"
+                  className="object-contain select-none pointer-events-none"
+                  priority
                 />
 
-                {/* Các khối hầm nổi 3D (3D Extruded Bunker Pillars) */}
+                {/* Lớp phủ tương tác với các điểm ghim Radar */}
                 <div className="absolute inset-0">
                   {LANDMARK_POINTS.map((pt) => {
                     const isSelected = selectedLandmark.id === pt.id;
                     return (
-                      <div
+                      <button
                         key={pt.id}
-                        className="absolute -translate-x-1/2 -translate-y-1/2 z-20 group"
+                        onClick={() => setSelectedLandmark(pt)}
+                        className="absolute -translate-x-1/2 -translate-y-1/2 group/pin z-20 focus:outline-none transition-transform hover:scale-125"
                         style={{ left: `${pt.x}%`, top: `${pt.y}%` }}
+                        title={pt.name}
                       >
-                        {/* Cột sáng laser đứng */}
-                        <div
-                          className={`w-0.5 h-12 md:h-16 mx-auto -mb-1 transition-all ${
-                            isSelected ? 'bg-gradient-to-t from-purple-400 to-white opacity-100' : 'bg-purple-500/50 opacity-40 group-hover:opacity-100'
-                          }`}
-                        />
+                        {isSelected && (
+                          <span
+                            className="absolute -inset-1 rounded-full animate-ping bg-amber-400/60 pointer-events-none"
+                            style={{ animationDuration: '2s' }}
+                          />
+                        )}
 
-                        {/* Thẻ ghim 3D nổi */}
-                        <button
-                          onClick={() => setSelectedLandmark(pt)}
-                          className={`relative px-2.5 py-1 rounded-lg border text-[11px] font-black whitespace-nowrap shadow-xl transition-all transform hover:-translate-y-1 hover:scale-110 ${
+                        <span
+                          className={`relative flex items-center justify-center w-5 h-5 sm:w-6 sm:h-6 rounded-full border text-[9px] sm:text-[10px] font-black shadow-md transition ${
                             isSelected
-                              ? 'bg-purple-600 text-white border-purple-300 shadow-purple-500/50 scale-105 ring-2 ring-purple-400'
-                              : 'bg-black/80 text-stone-200 border-white/20 hover:border-purple-400'
+                              ? 'bg-amber-400 text-stone-950 border-white scale-110 shadow-amber-400/80 ring-2 ring-amber-300 ring-offset-1 ring-offset-stone-950'
+                              : 'bg-stone-950/90 text-amber-300 border-amber-400/80 hover:bg-amber-400 hover:text-stone-950 hover:border-white'
                           }`}
                         >
-                          {pt.name}
-                        </button>
-                      </div>
+                          {pt.id.startsWith('ham-') ? pt.id.replace('ham-', 'H') : '★'}
+                        </span>
+
+                        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1.5 hidden group-hover/pin:flex flex-col items-center pointer-events-none z-30">
+                          <span className="whitespace-nowrap rounded-md bg-stone-950/95 px-2 py-0.5 text-[10px] sm:text-[11px] font-bold text-amber-300 border border-amber-400/50 shadow-xl">
+                            {pt.name}
+                          </span>
+                          <div className="w-1.5 h-1.5 bg-stone-950 rotate-45 -mt-1 border-r border-b border-amber-400/50" />
+                        </div>
+                      </button>
                     );
                   })}
                 </div>
               </div>
 
-              {/* Chú thích góc */}
-              <div className="absolute bottom-4 left-6 z-10 text-xs text-stone-400 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-xl border border-white/10">
-                Hiệu ứng Sa Bàn 3D | Đang chọn: <strong className="text-purple-300">{selectedLandmark.name}</strong>
+              {/* Thanh điều khiển góc dưới tấm bia */}
+              <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs text-stone-300 pointer-events-none">
+                <span className="rounded-lg bg-black/70 backdrop-blur-md px-3 py-1.5 border border-white/10 pointer-events-auto">
+                  Đang chọn: <strong className="text-amber-400">{selectedLandmark.name}</strong>
+                </span>
+                <span className="rounded-lg bg-black/70 backdrop-blur-md px-3 py-1.5 border border-white/10 hidden sm:inline pointer-events-auto">
+                  Click vào các điểm đỏ/vàng trên bia đá để xem
+                </span>
               </div>
             </div>
 
-            {/* Modal 360 tích hợp cho Demo 3 */}
-            {is360ModalOpen && (
-              <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-2xl flex flex-col p-4 md:p-8">
-                <div className="max-w-5xl w-full mx-auto flex-1 flex flex-col gap-3">
-                  <div className="flex items-center justify-between">
-                    <h3 className="text-lg font-bold text-white">Toàn cảnh 360°: {selectedLandmark.name}</h3>
-                    <button
-                      onClick={() => setIs360ModalOpen(false)}
-                      className="px-3 py-1.5 rounded-lg bg-white/10 text-white text-xs font-bold"
-                    >
-                      Đóng [X]
-                    </button>
-                  </div>
-                  <div className="flex-1 w-full rounded-2xl overflow-hidden shadow-2xl">
-                    <PanoramaViewer
-                      imageSrc={selectedLandmark.image360}
-                      title={`360°: ${selectedLandmark.name}`}
-                      className="w-full h-full min-h-[460px]"
-                    />
-                  </div>
-                </div>
-              </div>
-            )}
+            {/* Danh sách chip nhanh các hầm */}
+            <div className="flex flex-wrap items-center gap-1.5 pt-1">
+              {LANDMARK_POINTS.map((pt) => (
+                <button
+                  key={pt.id}
+                  onClick={() => setSelectedLandmark(pt)}
+                  className={`px-2.5 py-1 rounded-lg text-xs font-semibold transition ${
+                    selectedLandmark.id === pt.id
+                      ? 'bg-amber-400 text-stone-950 shadow-md font-bold'
+                      : 'bg-white/5 text-stone-300 hover:bg-white/10 border border-white/5'
+                  }`}
+                >
+                  {pt.name}
+                </button>
+              ))}
+            </div>
           </div>
-        )}
 
-        {/* ========================================================================= */}
-        {/* DEMO 4: TOUR KỂ CHUYỆN LỘ TRÌNH (GUIDED STORYLINE TOUR) */}
-        {/* ========================================================================= */}
-        {selectedDemo === 'demo4' && (
-          <div className="flex flex-col gap-6">
-            {/* Banner tóm tắt triết lý */}
-            <div className="rounded-2xl border border-emerald-500/20 bg-gradient-to-r from-emerald-950/30 via-stone-900/60 to-stone-900/40 p-4 backdrop-blur-md flex flex-col md:flex-row md:items-center justify-between gap-4">
+          {/* Cột phải: Card chi tiết điểm & Nút bấm mở 360° (chiếm 4 cột) */}
+          <div className="lg:col-span-4 flex flex-col gap-4">
+            <div className="rounded-2xl border border-white/15 bg-stone-900/80 backdrop-blur-xl p-5 shadow-xl flex flex-col gap-4">
               <div>
-                <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-emerald-400 mb-1">
-                  <Compass size={14} /> Triết lý cốt lõi: Hướng Dẫn Viên Ảo Theo Dấu Chân Lịch Sử
+                <div className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-amber-400 mb-1">
+                  <MapPin size={13} /> {selectedLandmark.tag}
                 </div>
-                <h2 className="text-xl md:text-2xl font-black text-white">
-                  Tour Thực Tế Ảo 360 Tuyến Điểm Kể Chuyện (Storyline Guided Tour)
-                </h2>
-                <p className="text-stone-300 text-xs md:text-sm mt-1 max-w-3xl leading-relaxed">
-                  Được thiết kế như một chuyến viếng thăm có thuyết minh tự động. Khách tham quan được dẫn dắt tuần tự qua 12 điểm mốc theo đúng cung đường vẽ trắng trên bia đá: từ Cổng vào → Nhà Tưởng niệm → Nhà Chứng tích → Hầm 1 → ... → Hầm 8. Có chế độ Tự Động Chạy Tour (Auto-Play) và Thuyết Minh Âm Thanh.
-                </p>
+                <h3 className="text-xl font-black text-white">{selectedLandmark.name}</h3>
+                <p className="text-xs text-stone-400 font-mono mt-0.5">{selectedLandmark.coords}</p>
               </div>
 
-              {/* Bộ điều khiển tour */}
-              <div className="flex items-center gap-2 shrink-0">
-                <button
-                  onClick={() => setIsTourPlaying(!isTourPlaying)}
-                  className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold transition ${
-                    isTourPlaying
-                      ? 'bg-amber-500 text-stone-950 shadow-lg shadow-amber-500/30'
-                      : 'bg-emerald-600 hover:bg-emerald-500 text-white shadow-lg shadow-emerald-950/40'
-                  }`}
-                >
-                  {isTourPlaying ? <Pause size={14} /> : <Play size={14} />}
-                  <span>{isTourPlaying ? 'Tạm Dừng Tour' : 'Tự Động Chạy Tour'}</span>
-                </button>
+              <div className="relative aspect-video w-full rounded-xl overflow-hidden border border-white/10 group">
+                <Image
+                  src={selectedLandmark.thumbnail}
+                  alt={selectedLandmark.name}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-3">
+                  <span className="text-xs font-semibold text-stone-200">
+                    {selectedLandmark.name} - Triền đồi Ba Đồn
+                  </span>
+                </div>
+              </div>
 
-                <button
-                  onClick={() => setAudioEnabled(!audioEnabled)}
-                  className={`p-2 rounded-xl border text-xs transition ${
-                    audioEnabled
-                      ? 'bg-emerald-500/20 text-emerald-300 border-emerald-400/40'
-                      : 'bg-white/5 text-stone-400 border-white/10 hover:text-white'
-                  }`}
-                  title="Thuyết minh âm thanh"
-                >
-                  {audioEnabled ? <Volume2 size={16} /> : <VolumeX size={16} />}
-                </button>
+              <div className="rounded-xl bg-white/5 border border-white/5 p-3 text-xs text-stone-300 leading-relaxed space-y-2">
+                <p><strong className="text-white">Vai trò lịch sử:</strong> {selectedLandmark.historicalRole}</p>
+                <p className="text-stone-400">{selectedLandmark.description}</p>
+              </div>
+
+              <button
+                onClick={() => setIs360ModalOpen(true)}
+                className="w-full flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 text-stone-950 font-black py-3 px-4 shadow-lg shadow-amber-500/20 hover:shadow-amber-500/40 transition hover:scale-[1.02] active:scale-95 text-sm"
+              >
+                <Eye size={17} />
+                <span>MỞ KHÔNG GIAN 360° THỰC ĐỊA</span>
+              </button>
+
+              <div className="text-[11px] text-center text-stone-400">
+                Hỗ trợ xoay toàn cảnh 360°, la bàn định hướng và zoom chi tiết
               </div>
             </div>
+          </div>
+        </div>
 
-            {/* Layout Tour: Bản đồ có lộ trình + Màn hình 360 kết hợp */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
-              {/* Cột trái: Tấm bia đá làm kim chỉ nam lộ trình (chiếm 5 cột) */}
-              <div className="lg:col-span-5 flex flex-col gap-3">
-                <div className="relative aspect-[1024/571] w-full rounded-2xl overflow-hidden border-2 border-emerald-500/30 bg-stone-950 shadow-xl">
-                  <Image
-                    src="/ban_do_chinh_ham_phuc_hoi.jpg"
-                    alt="Bản đồ lộ trình tour bia đá"
-                    fill
-                    className="object-contain"
-                  />
-
-                  {/* Marker hiện tại đang tham quan */}
-                  <div className="absolute inset-0">
-                    {LANDMARK_POINTS.map((pt, idx) => {
-                      const isActive = tourStep === idx;
-                      return (
-                        <button
-                          key={pt.id}
-                          onClick={() => {
-                            setTourStep(idx);
-                            setSelectedLandmark(pt);
-                          }}
-                          className={`absolute -translate-x-1/2 -translate-y-1/2 z-20 transition-all ${
-                            isActive ? 'scale-125 z-30' : 'opacity-70 hover:opacity-100 hover:scale-110'
-                          }`}
-                          style={{ left: `${pt.x}%`, top: `${pt.y}%` }}
-                        >
-                          <span
-                            className={`w-5 h-5 sm:w-6 sm:h-6 rounded-full border text-[9px] sm:text-[10px] font-black flex items-center justify-center transition ${
-                              isActive
-                                ? 'bg-emerald-400 text-stone-950 border-white ring-2 ring-emerald-300 ring-offset-1 ring-offset-stone-950 shadow-lg scale-110'
-                                : 'bg-stone-950/90 text-stone-200 border-emerald-500/60 shadow-md hover:border-emerald-300'
-                            }`}
-                          >
-                            {idx + 1}
-                          </span>
-                        </button>
-                      );
-                    })}
-                  </div>
+        {/* Modal xem 360° toàn màn hình khi bấm nút */}
+        {is360ModalOpen && (
+          <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-2xl flex flex-col p-4 md:p-8 animate-fadeIn">
+            <div className="max-w-6xl w-full mx-auto flex-1 flex flex-col gap-3">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <span className="px-2.5 py-1 rounded-md bg-amber-400 text-stone-950 text-xs font-black">
+                    360° VIEW
+                  </span>
+                  <h3 className="text-lg md:text-xl font-bold text-white">
+                    {selectedLandmark.name} - {selectedLandmark.tag}
+                  </h3>
                 </div>
-
-                {/* Progress bar của tour */}
-                <div className="rounded-xl bg-white/5 border border-white/10 p-3 flex flex-col gap-2">
-                  <div className="flex items-center justify-between text-xs text-stone-300">
-                    <span>Tiến độ tour: <strong>Chặng {tourStep + 1} / {LANDMARK_POINTS.length}</strong></span>
-                    <span className="text-emerald-400 font-bold">{selectedLandmark.name}</span>
-                  </div>
-                  <div className="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
-                    <div
-                      className="h-full bg-gradient-to-r from-emerald-500 to-emerald-400 transition-all duration-300"
-                      style={{ width: `${((tourStep + 1) / LANDMARK_POINTS.length) * 100}%` }}
-                    />
-                  </div>
-                  <div className="flex items-center justify-between pt-1">
-                    <button
-                      onClick={handlePrevStep}
-                      className="px-3 py-1 rounded-lg bg-white/10 hover:bg-white/20 text-xs font-semibold text-stone-200 transition flex items-center gap-1"
-                    >
-                      <ChevronLeft size={14} /> Chặng trước
-                    </button>
-                    <button
-                      onClick={handleNextStep}
-                      className="px-3 py-1 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-xs font-bold text-white transition flex items-center gap-1 shadow-md"
-                    >
-                      Chặng sau <ChevronRight size={14} />
-                    </button>
-                  </div>
-                </div>
+                <button
+                  onClick={() => setIs360ModalOpen(false)}
+                  className="px-3.5 py-1.5 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-bold transition flex items-center gap-1.5"
+                >
+                  <span>Đóng [ESC]</span>
+                </button>
               </div>
 
-              {/* Cột phải: Không gian 360° trực tiếp và lời thuyết minh (chiếm 7 cột) */}
-              <div className="lg:col-span-7 flex flex-col gap-4">
-                <div className="relative aspect-[16/10] w-full rounded-2xl overflow-hidden border-2 border-emerald-500/30 shadow-2xl">
-                  <PanoramaViewer
-                    imageSrc={selectedLandmark.image360}
-                    title={`Chặng ${tourStep + 1}: ${selectedLandmark.name}`}
-                    className="w-full h-full"
-                  />
-                </div>
+              <div className="flex-1 w-full rounded-2xl overflow-hidden shadow-2xl relative">
+                <PanoramaViewer
+                  imageSrc={selectedLandmark.image360}
+                  title={`Toàn cảnh 360°: ${selectedLandmark.name}`}
+                  className="w-full h-full min-h-[480px]"
+                />
+              </div>
 
-                {/* Khối lời dẫn thuyết minh lịch sử */}
-                <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-md flex flex-col gap-2">
-                  <div className="flex items-center gap-2">
-                    <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold text-xs">
-                      THUYẾT MINH LỊCH SỬ
-                    </span>
-                    <h4 className="text-sm font-bold text-white">
-                      {selectedLandmark.name} — {selectedLandmark.tag}
-                    </h4>
-                  </div>
-                  <p className="text-xs text-stone-300 leading-relaxed">
-                    {selectedLandmark.historicalRole}
-                  </p>
-                  <p className="text-xs text-stone-400 italic">
-                    "{selectedLandmark.description}"
-                  </p>
+              <div className="flex items-center justify-between text-xs text-stone-400 pt-1">
+                <span>Di chuột/vuốt để xoay toàn cảnh 360 độ</span>
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={() => {
+                      const idx = LANDMARK_POINTS.findIndex((p) => p.id === selectedLandmark.id);
+                      const prev = LANDMARK_POINTS[(idx - 1 + LANDMARK_POINTS.length) % LANDMARK_POINTS.length];
+                      setSelectedLandmark(prev);
+                    }}
+                    className="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white font-semibold transition"
+                  >
+                    ← Điểm trước
+                  </button>
+                  <button
+                    onClick={() => {
+                      const idx = LANDMARK_POINTS.findIndex((p) => p.id === selectedLandmark.id);
+                      const next = LANDMARK_POINTS[(idx + 1) % LANDMARK_POINTS.length];
+                      setSelectedLandmark(next);
+                    }}
+                    className="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white font-semibold transition"
+                  >
+                    Điểm kế tiếp →
+                  </button>
                 </div>
               </div>
             </div>
           </div>
         )}
-
-        {/* ========================================================================= */}
-        {/* BẢNG SO SÁNH TỔNG HỢP & PHÊ DUYỆT CỦA NGƯỜI DÙNG */}
-        {/* ========================================================================= */}
-        <section className="rounded-3xl border border-white/15 bg-stone-900/60 backdrop-blur-xl p-6 mt-4 flex flex-col gap-6">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-white/10 pb-4">
-            <div>
-              <h3 className="text-lg font-black text-white flex items-center gap-2">
-                <Sliders size={18} className="text-amber-400" /> Bảng Đối Chiếu 4 Phương Án Để Bạn Duyệt
-              </h3>
-              <p className="text-xs text-stone-400 mt-0.5">
-                Xem xét ưu điểm của từng bản demo và chọn phương án bạn thấy ưng ý nhất để hệ thống hoàn thiện tiếp
-              </p>
-            </div>
-
-            {/* Action buttons */}
-            <div className="flex items-center gap-3">
-              <button
-                onClick={() => alert(`Cảm ơn bạn! Bạn đã duyệt phương án: ${selectedDemo.toUpperCase()}. Antigravity sẽ tiến hành hoàn thiện chuyên sâu cho phương án này!`)}
-                className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 px-5 py-2.5 text-xs font-black text-white shadow-lg shadow-emerald-950/50 transition hover:scale-105"
-              >
-                <CheckCircle2 size={16} /> Duyệt Chốt Phương Án Này
-              </button>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
-            {/* Demo 1 Card */}
-            <div
-              onClick={() => setSelectedDemo('demo1')}
-              className={`p-4 rounded-2xl border cursor-pointer transition ${
-                selectedDemo === 'demo1'
-                  ? 'bg-amber-950/30 border-amber-500 ring-2 ring-amber-500/30'
-                  : 'bg-white/5 border-white/10 hover:border-white/20'
-              }`}
-            >
-              <div className="font-bold text-amber-400 mb-1 flex items-center justify-between">
-                <span>Demo 1: Sa Bàn Bia Gốc</span>
-                {selectedDemo === 'demo1' && <CheckCircle2 size={14} />}
-              </div>
-              <p className="text-stone-300 text-[11px] leading-relaxed">
-                Giữ 100% nguyên bản bia đá với nét khắc trắng. Click điểm mở toàn cảnh 360° riêng biệt. Rất trực quan và chuẩn lịch sử.
-              </p>
-            </div>
-
-            {/* Demo 2 Card */}
-            <div
-              onClick={() => setSelectedDemo('demo2')}
-              className={`p-4 rounded-2xl border cursor-pointer transition ${
-                selectedDemo === 'demo2'
-                  ? 'bg-sky-950/30 border-sky-500 ring-2 ring-sky-500/30'
-                  : 'bg-white/5 border-white/10 hover:border-white/20'
-              }`}
-            >
-              <div className="font-bold text-sky-400 mb-1 flex items-center justify-between">
-                <span>Demo 2: Góc Nhìn Kép Realtime</span>
-                {selectedDemo === 'demo2' && <CheckCircle2 size={14} />}
-              </div>
-              <p className="text-stone-300 text-[11px] leading-relaxed">
-                Bản đồ đá đồng bộ Nón Tầm Nhìn (Radar Cone). Xoay 360° đến đâu thì radar trên đá xoay theo đến đó, không bao giờ mất hướng.
-              </p>
-            </div>
-
-            {/* Demo 3 Card */}
-            <div
-              onClick={() => setSelectedDemo('demo3')}
-              className={`p-4 rounded-2xl border cursor-pointer transition ${
-                selectedDemo === 'demo3'
-                  ? 'bg-purple-950/30 border-purple-500 ring-2 ring-purple-500/30'
-                  : 'bg-white/5 border-white/10 hover:border-white/20'
-              }`}
-            >
-              <div className="font-bold text-purple-400 mb-1 flex items-center justify-between">
-                <span>Demo 3: Sa Bàn 3D Không Gian</span>
-                {selectedDemo === 'demo3' && <CheckCircle2 size={14} />}
-              </div>
-              <p className="text-stone-300 text-[11px] leading-relaxed">
-                Tấm bia đá phối cảnh 3D nghiêng với cột laser hầm nổi. Hiệu ứng thị giác công nghệ cao đẳng cấp quốc tế.
-              </p>
-            </div>
-
-            {/* Demo 4 Card */}
-            <div
-              onClick={() => setSelectedDemo('demo4')}
-              className={`p-4 rounded-2xl border cursor-pointer transition ${
-                selectedDemo === 'demo4'
-                  ? 'bg-emerald-950/30 border-emerald-500 ring-2 ring-emerald-500/30'
-                  : 'bg-white/5 border-white/10 hover:border-white/20'
-              }`}
-            >
-              <div className="font-bold text-emerald-400 mb-1 flex items-center justify-between">
-                <span>Demo 4: Tour Kể Chuyện Lộ Trình</span>
-                {selectedDemo === 'demo4' && <CheckCircle2 size={14} />}
-              </div>
-              <p className="text-stone-300 text-[11px] leading-relaxed">
-                Dẫn dắt tham quan tuần tự từ Cổng vào đến Hầm 8 theo đường vẽ trắng. Có thuyết minh tự động từng bước rất sâu sắc.
-              </p>
-            </div>
-          </div>
-        </section>
       </main>
     </div>
   );
