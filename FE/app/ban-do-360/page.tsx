@@ -452,12 +452,12 @@ export default function BanDo360Page() {
   return (
     <div className="min-h-screen bg-transparent text-stone-100 flex flex-col font-sans selection:bg-amber-500/30">
       {/* --- HEADER CHÍNH --- */}
-      <header className="sticky top-0 z-50 border-b border-white/10 bg-gradient-to-b from-transparent via-black/10 to-black/20 backdrop-blur-sm px-4 py-3">
+      <header className="sticky top-0 z-50 border-b border-white/10 bg-transparent backdrop-blur-sm px-4 py-3">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-3">
             <Link
               href="/"
-              className="inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-stone-300 hover:text-white hover:bg-white/10 transition"
+              className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-stone-300 hover:text-white hover:bg-white/10 transition backdrop-blur-sm"
             >
               <img src="/Logo CH1.png" alt="Logo Chín Hầm" className="h-4 w-4 object-contain" />
               <span>Trang Chủ</span>
@@ -472,7 +472,7 @@ export default function BanDo360Page() {
           </div>
 
           <div className="flex items-center gap-2 text-xs">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-white/5 border border-white/10 px-3 py-1 text-stone-300">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-white/5 border border-white/10 px-3 py-1 text-stone-300 backdrop-blur-sm">
               <Compass size={13} className="text-amber-400" />
               <span>12 Điểm Tọa Độ Thực Địa</span>
             </span>
@@ -483,7 +483,7 @@ export default function BanDo360Page() {
       {/* --- NỘI DUNG CHÍNH --- */}
       <main className="flex-1 max-w-7xl w-full mx-auto p-4 md:p-6 flex flex-col gap-6">
         {/* Banner giới thiệu sa bàn */}
-        <div className="rounded-2xl border border-white/10 bg-gradient-to-b from-transparent via-black/10 to-black/20 p-4 md:p-5 backdrop-blur-sm flex flex-col md:flex-row md:items-center justify-between gap-4 shadow-xl drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
+        <div className="rounded-2xl border border-white/10 bg-transparent p-4 md:p-5 flex flex-col md:flex-row md:items-center justify-between gap-4 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
           <div>
             <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-amber-400 mb-1">
               <Layers size={14} /> Sa Bàn Chỉ Huy Khắc Đá & Cửa Sổ Thực Tế Ảo 360°
@@ -499,21 +499,21 @@ export default function BanDo360Page() {
           <div className="flex items-center gap-2 shrink-0">
             <button
               onClick={() => setMapZoom((prev) => Math.min(1.8, prev + 0.2))}
-              className="p-2 rounded-xl bg-white/10 hover:bg-white/20 text-stone-200 transition"
+              className="p-2 rounded-xl bg-white/5 hover:bg-white/15 border border-white/10 text-stone-200 transition backdrop-blur-sm"
               title="Phóng to bản đồ"
             >
               <ZoomIn size={16} />
             </button>
             <button
               onClick={() => setMapZoom((prev) => Math.max(0.9, prev - 0.2))}
-              className="p-2 rounded-xl bg-white/10 hover:bg-white/20 text-stone-200 transition"
+              className="p-2 rounded-xl bg-white/5 hover:bg-white/15 border border-white/10 text-stone-200 transition backdrop-blur-sm"
               title="Thu nhỏ bản đồ"
             >
               <ZoomOut size={16} />
             </button>
             <button
               onClick={() => setMapZoom(1)}
-              className="p-2 rounded-xl bg-white/10 hover:bg-white/20 text-stone-200 transition text-xs font-bold"
+              className="p-2 rounded-xl bg-white/5 hover:bg-white/15 border border-white/10 text-stone-200 transition text-xs font-bold backdrop-blur-sm"
               title="Mặc định 100%"
             >
               100%
@@ -525,7 +525,7 @@ export default function BanDo360Page() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
           {/* Cột trái: Tấm bia đá phục hồi tương tác (chiếm 8 cột) */}
           <div className="lg:col-span-8 flex flex-col justify-between gap-4 h-full">
-            <div className="relative overflow-hidden rounded-2xl border-2 border-amber-500/30 bg-black/20 backdrop-blur-sm shadow-2xl group flex-1 flex flex-col justify-center">
+            <div className="relative overflow-hidden rounded-2xl border-2 border-amber-500/30 bg-transparent group flex-1 flex flex-col justify-center">
               {/* Container có zoom */}
               <div
                 className="relative w-full aspect-[1024/571] overflow-hidden transition-transform duration-300 origin-center"
@@ -583,17 +583,17 @@ export default function BanDo360Page() {
 
               {/* Thanh điều khiển góc dưới tấm bia */}
               <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs text-stone-300 pointer-events-none">
-                <span className="rounded-lg bg-black/40 backdrop-blur-sm px-3 py-1.5 border border-white/10 pointer-events-auto">
+                <span className="rounded-full bg-black/40 backdrop-blur-md px-3.5 py-1.5 border border-white/10 pointer-events-auto">
                   Đang chọn: <strong className="text-amber-400">{selectedLandmark.name}</strong>
                 </span>
-                <span className="rounded-lg bg-black/40 backdrop-blur-sm px-3 py-1.5 border border-white/10 hidden sm:inline pointer-events-auto">
+                <span className="rounded-full bg-black/40 backdrop-blur-md px-3.5 py-1.5 border border-white/10 hidden sm:inline pointer-events-auto">
                   Click vào các điểm đỏ/vàng trên bia đá để xem
                 </span>
               </div>
             </div>
 
-            {/* Danh sách chip nhanh các hầm có khung viền glassmorphism đồng bộ */}
-            <div className="rounded-2xl border border-white/10 bg-gradient-to-b from-transparent via-black/10 to-black/20 backdrop-blur-sm p-3.5 shadow-lg flex flex-col gap-2 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
+            {/* Danh sách chip nhanh các hầm */}
+            <div className="rounded-2xl border border-white/10 bg-transparent p-3.5 flex flex-col gap-2.5 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
               <div className="flex items-center justify-between text-[11px] font-semibold text-stone-400 px-1">
                 <span className="flex items-center gap-1.5 text-amber-400 font-bold uppercase tracking-wider">
                   <MapPin size={12} /> 12 Điểm Mốc Lịch Sử
@@ -605,10 +605,10 @@ export default function BanDo360Page() {
                   <button
                     key={pt.id}
                     onClick={() => setSelectedLandmark(pt)}
-                    className={`px-2.5 py-1 rounded-lg text-xs font-semibold transition ${
+                    className={`px-3 py-1.5 rounded-full text-xs font-semibold transition ${
                       selectedLandmark.id === pt.id
-                        ? 'bg-amber-400 text-stone-950 shadow-md font-bold'
-                        : 'bg-white/5 text-stone-300 hover:bg-white/10 border border-white/5'
+                        ? 'bg-amber-400 text-stone-950 font-bold shadow-md ring-2 ring-amber-300'
+                        : 'bg-white/5 hover:bg-white/15 text-stone-200 border border-white/10 backdrop-blur-sm'
                     }`}
                   >
                     {pt.name}
@@ -620,7 +620,7 @@ export default function BanDo360Page() {
 
           {/* Cột phải: Card chi tiết điểm & Nút bấm mở 360° (chiếm 4 cột, h-full đồng bộ) */}
           <div className="lg:col-span-4 flex flex-col h-full">
-            <div className="rounded-2xl border border-white/15 bg-gradient-to-b from-transparent via-black/10 to-black/20 backdrop-blur-sm p-5 shadow-xl flex flex-col justify-between h-full gap-4 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
+            <div className="rounded-2xl border border-white/10 bg-transparent p-5 flex flex-col justify-between h-full gap-4 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
               <div className="flex flex-col gap-3.5">
                 <div>
                   <div className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-amber-400 mb-1">
@@ -644,9 +644,9 @@ export default function BanDo360Page() {
                   </div>
                 </div>
 
-                <div className="rounded-xl bg-black/20 border border-white/10 p-3 text-xs text-stone-200 leading-relaxed space-y-1.5 backdrop-blur-sm">
+                <div className="text-xs text-stone-200 leading-relaxed space-y-2 py-1">
                   <p><strong className="text-white">Vai trò lịch sử:</strong> {selectedLandmark.historicalRole}</p>
-                  <p className="text-stone-300">{selectedLandmark.description}</p>
+                  <p className="text-stone-300/85">{selectedLandmark.description}</p>
                 </div>
               </div>
 
