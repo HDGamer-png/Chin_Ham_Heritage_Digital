@@ -452,7 +452,7 @@ export default function BanDo360Page() {
   return (
     <div className="min-h-screen bg-transparent text-stone-100 flex flex-col font-sans selection:bg-amber-500/30">
       {/* --- HEADER CHÍNH --- */}
-      <header className="sticky top-0 z-50 border-b border-white/10 bg-black/10 backdrop-blur-[3px] px-4 py-3">
+      <header className="sticky top-0 z-50 border-b border-emerald-500/20 bg-gradient-to-b from-transparent via-black/[0.06] to-black/[0.12] backdrop-blur-[3px] px-4 py-3">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-3">
             <Link
@@ -483,7 +483,7 @@ export default function BanDo360Page() {
       {/* --- NỘI DUNG CHÍNH --- */}
       <main className="flex-1 max-w-7xl w-full mx-auto p-4 md:p-6 flex flex-col gap-6">
         {/* Banner giới thiệu sa bàn */}
-        <div className="rounded-2xl border border-white/10 bg-black/10 backdrop-blur-[3px] p-4 md:p-5 flex flex-col md:flex-row md:items-center justify-between gap-4 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
+        <div className="rounded-2xl border border-emerald-500/20 bg-gradient-to-b from-transparent via-black/[0.06] to-black/[0.12] backdrop-blur-[3px] p-4 md:p-5 flex flex-col md:flex-row md:items-center justify-between gap-4 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
           <div>
             <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-amber-400 mb-1">
               <Layers size={14} /> Sa Bàn Chỉ Huy Khắc Đá & Cửa Sổ Thực Tế Ảo 360°
@@ -525,7 +525,7 @@ export default function BanDo360Page() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
           {/* Cột trái: Tấm bia đá phục hồi tương tác (chiếm 8 cột) */}
           <div className="lg:col-span-8 flex flex-col justify-between gap-4 h-full">
-            <div className="relative overflow-hidden rounded-2xl border-2 border-amber-500/30 bg-black/10 backdrop-blur-[3px] group flex-1 flex flex-col justify-center">
+            <div className="relative overflow-hidden rounded-2xl border-2 border-amber-500/30 bg-gradient-to-b from-transparent via-black/[0.06] to-black/[0.12] backdrop-blur-[3px] group flex-1 flex flex-col justify-center">
               {/* Container có zoom */}
               <div
                 className="relative w-full aspect-[1024/571] overflow-hidden transition-transform duration-300 origin-center"
@@ -593,7 +593,7 @@ export default function BanDo360Page() {
             </div>
 
             {/* Danh sách chip nhanh các hầm */}
-            <div className="rounded-2xl border border-white/10 bg-black/10 backdrop-blur-[3px] p-3.5 flex flex-col gap-2.5 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
+            <div className="rounded-2xl border border-emerald-500/20 bg-gradient-to-b from-transparent via-black/[0.06] to-black/[0.12] backdrop-blur-[3px] p-3.5 flex flex-col gap-2.5 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
               <div className="flex items-center justify-between text-[11px] font-semibold text-stone-400 px-1">
                 <span className="flex items-center gap-1.5 text-amber-400 font-bold uppercase tracking-wider">
                   <MapPin size={12} /> 12 Điểm Mốc Lịch Sử
@@ -620,7 +620,7 @@ export default function BanDo360Page() {
 
           {/* Cột phải: Card chi tiết điểm & Nút bấm mở 360° (chiếm 4 cột, h-full đồng bộ) */}
           <div className="lg:col-span-4 flex flex-col h-full">
-            <div className="rounded-2xl border border-white/10 bg-black/10 backdrop-blur-[3px] p-5 flex flex-col justify-between h-full gap-4 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
+            <div className="rounded-2xl border border-emerald-500/20 bg-gradient-to-b from-transparent via-black/[0.06] to-black/[0.12] backdrop-blur-[3px] p-5 flex flex-col justify-between h-full gap-4 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
               <div className="flex flex-col gap-3.5">
                 <div>
                   <div className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-amber-400 mb-1">
@@ -644,7 +644,7 @@ export default function BanDo360Page() {
                   </div>
                 </div>
 
-                <div className="rounded-xl bg-black/10 border border-white/10 p-3 text-xs text-stone-200 leading-relaxed space-y-1.5 backdrop-blur-[3px]">
+                <div className="rounded-xl bg-black/[0.05] border border-emerald-500/20 p-3 text-xs text-stone-200 leading-relaxed space-y-1.5 backdrop-blur-[3px]">
                   <p><strong className="text-white">Vai trò lịch sử:</strong> {selectedLandmark.historicalRole}</p>
                   <p className="text-stone-300/90">{selectedLandmark.description}</p>
                 </div>
