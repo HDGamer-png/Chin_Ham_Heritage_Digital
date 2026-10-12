@@ -489,7 +489,7 @@ export default function BanDo360Page() {
               <Layers size={14} /> Sa Bàn Chỉ Huy Khắc Đá & Cửa Sổ Thực Tế Ảo 360°
             </div>
             <h2 className="text-xl md:text-2xl font-black text-white">
-              Bản Đồ Sa Bàn Thực Địa & Không Gian 360° Toàn Cảnh
+              Bản đồ các hầm tại di tích
             </h2>
             <p className="text-stone-300 text-xs md:text-sm mt-1 max-w-3xl leading-relaxed">
               Phục hồi nguyên vẹn dựa trên bia đá sa bàn thực địa đồi Ba Đồn. Nhấp chọn các điểm chốt radar trên bia đá hoặc danh sách bên dưới để định vị không gian và mở cửa sổ toàn cảnh 360° tương tác.
