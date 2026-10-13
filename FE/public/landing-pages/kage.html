@@ -2040,7 +2040,16 @@ h1,h2,h3{ font-weight:400; margin:0; letter-spacing:-.005em; }
 /* — chapter IV: eternity */
 .fin{ min-height:100svh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; }
 .fin .eyebrow{ margin-bottom:26px; }
-.fin h2{ font-size:clamp(38px,7.4vw,124px); line-height:.94; letter-spacing:-.03em; text-transform:uppercase; }
+.fin h2{
+  font-size: clamp(26px, 3.6vw, 48px);
+  line-height: 1.24;
+  letter-spacing: -0.015em;
+  text-transform: uppercase;
+  max-width: min(1040px, 92vw);
+  margin-left: auto;
+  margin-right: auto;
+  text-wrap: balance;
+}
 .fin p{ max-width:44ch; margin:26px auto 0; }
 .cta{
   position:relative; display:inline-flex; align-items:center; gap:14px; margin-top:44px;
@@ -2368,10 +2377,12 @@ body[data-layout-closing="b"] .fin{
 body[data-layout-closing="b"] .fin .eyebrow{ margin-bottom: 18px !important; }
 body[data-layout-closing="b"] .fin h2{
   writing-mode: horizontal-tb !important;
-  font-size: clamp(32px, 4.2vw, 56px) !important;
-  line-height: 1.2 !important;
-  letter-spacing: -0.02em !important;
-  margin: 0 auto 14px !important;
+  font-size: clamp(26px, 3.6vw, 48px) !important;
+  line-height: 1.24 !important;
+  letter-spacing: -0.015em !important;
+  margin: 0 auto 16px !important;
+  max-width: min(1040px, 92vw) !important;
+  text-wrap: balance !important;
 }
 body[data-layout-closing="b"] .fin p.body-lg{
   max-width: 72ch !important;
@@ -3166,7 +3177,7 @@ body[data-layout-footer="b"] .foot-base span:last-child{ text-align:right; }
     </span>
   </div>
   <div class="eyebrow" data-rv="fade">Chương 04 — Sau Ngày Giải Phóng & Tưởng Niệm</div>
-  <h2 class="display" data-rv="up">Hồi Sinh Trong Hòa Bình</h2>
+  <h2 class="display" data-rv="up">Nơi bóng tối không che khuất được ánh sáng</h2>
   <p class="body-lg" data-rv="up">Cánh cửa ngục tối đã vĩnh viễn khép lại. Ngày nay trên đồi Ba Đồn, tiếng thông reo hòa cùng tiếng chuông tưởng niệm và hoa rừng xanh ngát — nhắc nhở chúng ta trân trọng giá trị thiêng liêng của hòa bình và độc lập tự do.</p>
 
   <!-- Card Trưng Bày Nghệ Thuật: Khu Vực Đài Tưởng Niệm Thực Tế -->
