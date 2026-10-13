@@ -21,7 +21,7 @@ export function KageLandingPage(props: LandingPageProps & PageTypographyProps) {
       {...frame}
       customization={customization}
       title="Kage — Where stillness reveals the unseen"
-      sourceUrl="/landing-pages/kage.html?v=eternity_heading_v19"
+      sourceUrl="/landing-pages/kage.html?v=eternity_heading_v20"
     />
   );
 }

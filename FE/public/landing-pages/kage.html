@@ -9,7 +9,7 @@
 <link rel="icon" type="image/png" href="Logo CH1.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Onest:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Cinzel:wght@600;700;800&family=Onest:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="secret-pathways-assets/fonts.css">
 <style>
 /* ============================================================= tokens */
@@ -34,7 +34,7 @@
 html{ -webkit-text-size-adjust:100%; scroll-behavior:auto; }
 body{
   margin:0; background:var(--ink); color:var(--bone);
-  font-family:'Onest',system-ui,-apple-system,'Helvetica Neue',sans-serif;
+  font-family:'Be Vietnam Pro','Onest',system-ui,-apple-system,'Helvetica Neue',sans-serif;
   font-weight:300; font-size:16px; line-height:1.6;
   -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
   overflow-x:hidden;
@@ -148,17 +148,21 @@ h1,h2,h3{ font-weight:400; margin:0; letter-spacing:-.005em; }
 [data-rv="fade"]{ transform:none; }
 [data-rv].rv-in{ opacity:1; transform:none;
   transition:opacity .9s var(--ease-out), transform 1.05s var(--ease-out); }
-.mask-line{ display:block; overflow:hidden; }
+.mask-line{ display:block; overflow:hidden; padding-top:0.35em; margin-top:-0.35em; padding-bottom:0.15em; margin-bottom:-0.15em; }
 .mask-line:not(.word-reveal) > span{ display:block; transform:translate3d(0,110%,0); }
 .rv-in .mask-line:not(.word-reveal) > span, .mask-line:not(.word-reveal).rv-in > span{ transform:none; }
 .mask-line:not(.word-reveal) > span{ transition:transform 1.05s var(--ease-out); }
-.word-mask{ display:inline-block; overflow:hidden; vertical-align:top; }
+.word-mask{ display:inline-block; overflow:hidden; vertical-align:top; padding-top:0.35em; margin-top:-0.35em; padding-bottom:0.15em; margin-bottom:-0.15em; }
 .word{
   display:inline-block; opacity:0; transform:translate3d(0,112%,0); will-change:transform,opacity;
   transition:transform .82s var(--ease-out), opacity .5s var(--ease-out);
   transition-delay:var(--word-delay,0ms);
 }
 .word-reveal.rv-in .word{ opacity:1; transform:none; }
+.word-reveal.rv-in .word-mask,
+.rv-in .word-mask,
+.rv-in.mask-line,
+.rv-in .mask-line { overflow:visible !important; }
 
 /* ============================================================= preloader */
 #pre{
@@ -3177,7 +3181,10 @@ body[data-layout-footer="b"] .foot-base span:last-child{ text-align:right; }
     </span>
   </div>
   <div class="eyebrow" data-rv="fade">Chương 04 — Sau Ngày Giải Phóng & Tưởng Niệm</div>
-  <h2 class="display" data-rv="up">Nơi bóng tối<br>Không che khuất được ánh sáng</h2>
+  <h2 class="display" data-rv="up">
+    <span class="mask-line"><span>Nơi bóng tối</span></span>
+    <span class="mask-line"><span>Không che khuất được ánh sáng</span></span>
+  </h2>
   <p class="body-lg" data-rv="up">Cánh cửa ngục tối đã vĩnh viễn khép lại. Ngày nay trên đồi Ba Đồn, tiếng thông reo hòa cùng tiếng chuông tưởng niệm và hoa rừng xanh ngát — nhắc nhở chúng ta trân trọng giá trị thiêng liêng của hòa bình và độc lập tự do.</p>
 
   <!-- Card Trưng Bày Nghệ Thuật: Khu Vực Đài Tưởng Niệm Thực Tế -->
