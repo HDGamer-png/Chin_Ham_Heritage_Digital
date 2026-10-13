@@ -266,7 +266,7 @@ export default function ChatbotPage() {
       </div>
 
       <div className="grid gap-8 lg:grid-cols-[1.6fr_1fr]">
-        <div className="rounded-[2.5rem] border-2 border-emerald-500/30 bg-gradient-to-b from-black/[0.08] via-black/[0.14] to-black/[0.22] p-6 backdrop-blur-md drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] shadow-2xl flex flex-col h-[750px]">
+        <div className="rounded-[2.5rem] border-2 border-emerald-500/30 bg-gradient-to-b from-transparent via-black/[0.04] to-black/[0.08] p-6 backdrop-blur-[3px] drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] shadow-2xl flex flex-col h-[750px]">
           {/* Header */}
           <div className="mb-4 flex items-center justify-between border-b border-emerald-500/15 pb-4">
             <div className="flex items-center gap-3">
@@ -302,14 +302,14 @@ export default function ChatbotPage() {
           {/* Chat Messages Container */}
           <div 
             ref={chatScrollRef}
-            className="flex-1 space-y-4 rounded-2xl border-2 border-emerald-500/20 bg-black/[0.10] p-4 text-sm text-stone-200 overflow-y-auto pr-2 backdrop-blur-md shadow-inner"
+            className="flex-1 space-y-4 rounded-2xl border-2 border-emerald-500/20 bg-transparent p-4 text-sm text-stone-200 overflow-y-auto pr-2 backdrop-blur-[2px]"
           >
             {messages.map((message, index) => (
               <div
                 key={`${message.sender}-${index}`}
                 className={message.sender === 'user'
                   ? 'ml-auto max-w-[85%] rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 p-4 text-white shadow-md'
-                  : 'max-w-[95%] rounded-2xl border-2 border-emerald-500/35 bg-black/25 p-4 text-stone-200 backdrop-blur-md shadow-xl space-y-2'
+                  : 'max-w-[95%] rounded-2xl border-2 border-emerald-500/35 bg-black/[0.08] p-4 text-stone-200 backdrop-blur-md shadow-xl space-y-2'
                 }
               >
                 {/* Badge phân loại lập luận cho bot */}
@@ -352,7 +352,7 @@ export default function ChatbotPage() {
             ))}
 
             {isLoading && (
-              <div className="max-w-[80%] rounded-2xl border-2 border-emerald-500/35 bg-black/25 p-4 text-stone-200 backdrop-blur-md flex items-center gap-3">
+              <div className="max-w-[80%] rounded-2xl border-2 border-emerald-500/35 bg-black/[0.08] p-4 text-stone-200 backdrop-blur-md flex items-center gap-3">
                 <div className="flex gap-1.5">
                   <div className="h-2 w-2 rounded-full bg-emerald-400 animate-bounce" style={{ animationDelay: '0ms' }} />
                   <div className="h-2 w-2 rounded-full bg-emerald-400 animate-bounce" style={{ animationDelay: '150ms' }} />
@@ -388,7 +388,7 @@ export default function ChatbotPage() {
               value={input}
               onChange={(event) => setInput(event.target.value)}
               placeholder="Hỏi về Ngô Đình Cẩn, chuồng cọp, ngày phá hầm 1963, lộ trình..."
-              className="flex-1 rounded-full border-2 border-emerald-500/30 bg-black/20 px-5 py-3 text-sm text-white placeholder-stone-400 outline-none backdrop-blur-md transition focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400/40"
+              className="flex-1 rounded-full border-2 border-emerald-500/30 bg-black/[0.08] px-5 py-3 text-sm text-white placeholder-stone-400 outline-none backdrop-blur-md transition focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400/40"
             />
             <button
               type="submit"
