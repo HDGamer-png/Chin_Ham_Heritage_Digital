@@ -617,7 +617,7 @@ export function SiteDetailInteractive({ site }: { site: SiteData }) {
           <div className="border-t border-white/10 bg-gradient-to-r from-emerald-950/40 via-black/80 to-blue-950/40 p-5 md:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
             <audio
               ref={audioRef}
-              src="/audio/gioi-thieu-ngo-dinh-can.mp3"
+              src={site.slug === 'ham-8' ? '/audio/ham-so-8.mp3' : '/audio/gioi-thieu-ngo-dinh-can.mp3'}
               onTimeUpdate={handleAudioTimeUpdate}
               onEnded={() => setIsPlaying(false)}
               preload="metadata"
@@ -641,11 +641,13 @@ export function SiteDetailInteractive({ site }: { site: SiteData }) {
                     Audio Thuyết Minh Trực Quan
                   </span>
                   <span className="rounded bg-white/10 px-2 py-0.5 text-[10px] text-stone-300 font-mono">
-                    04:44
+                    {site.slug === 'ham-8' ? '04:33' : '04:44'}
                   </span>
                 </div>
                 <div className="text-sm font-semibold text-white">
-                  Nhà Chứng Tích Ngô Đình Cẩn & Ký Ức Đồi Ba Đồn
+                  {site.slug === 'ham-8'
+                    ? 'Hầm 8: Bản Lĩnh Kiên Trung Nơi Đáy Ngục'
+                    : 'Nhà Chứng Tích Ngô Đình Cẩn & Ký Ức Đồi Ba Đồn'}
                 </div>
               </div>
             </div>

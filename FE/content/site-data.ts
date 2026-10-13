@@ -107,7 +107,7 @@ export const guideItems = [
   },
   {
     title: 'Hầm 8: Bản lĩnh kiên trung nơi đáy ngục',
-    duration: '03:06',
+    duration: '04:33',
     category: 'Dấu vết',
   },
   {

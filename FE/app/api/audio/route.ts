@@ -33,10 +33,10 @@ const fallbackAudioTracks = [
   {
     id: 'audio-ham-8',
     title: 'Hầm 8: Bản lĩnh kiên trung nơi đáy ngục',
-    duration: '03:06',
+    duration: '04:33',
     category: 'Dấu vết',
     description: 'Câu chuyện về không gian xà lim chuồng cọp tàn khốc và bản lĩnh kiên trung, bất khuất của những người chiến sĩ cách mạng nơi đáy ngục Chín Hầm.',
-    fileUrl: '/audio/ham-so-8-1.mp3',
+    fileUrl: '/audio/ham-so-8.mp3',
     imageUrl: '/chin_ham_artifacts.jpg',
   },
   {
