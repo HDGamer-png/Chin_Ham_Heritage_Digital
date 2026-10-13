@@ -23,14 +23,6 @@
         "fileUrl": "/media/audio/ham-8.txt"
     },
     {
-        "id": "audio-ham-3",
-        "title": "Hầm 3 và những dấu tích chiến lược",
-        "duration": "06:05",
-        "category": "Lịch sử",
-        "description": "Tường thuật về vai trò chiến lược của hầm trong bối cảnh lịch sử, và cách không gian ấy còn lưu giữ những lớp ký ức quan trọng.",
-        "fileUrl": "/media/audio/ham-3.txt"
-    },
-    {
         "id": "audio-ket-thuc",
         "title": "Kết thúc hành trình khám phá",
         "duration": "02:50",
