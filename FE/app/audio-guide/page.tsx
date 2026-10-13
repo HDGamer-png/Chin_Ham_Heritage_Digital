@@ -243,13 +243,13 @@ export default function AudioGuidePage() {
             <p className="text-sm leading-relaxed text-stone-300">{selectedTrack?.description}</p>
             
             {/* Thanh điều khiển nổi Sleek Compact Pill (Awwwards Style) */}
-            <div className="relative overflow-hidden rounded-2xl border border-emerald-500/25 bg-gradient-to-b from-stone-900/90 via-black/85 to-stone-950/90 p-3.5 backdrop-blur-xl shadow-xl shadow-black/60 ring-1 ring-white/10 space-y-2.5">
+            <div className="relative overflow-hidden rounded-2xl border border-emerald-500/25 bg-gradient-to-b from-stone-900/40 via-black/30 to-stone-950/50 p-3.5 backdrop-blur-md shadow-xl shadow-black/40 ring-1 ring-white/10 space-y-2.5">
               {/* Vệt sáng ambient gradient tinh tế ở viền trên */}
-              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-emerald-400/40 to-transparent" />
+              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-emerald-400/35 to-transparent" />
 
               {/* Thanh tiến trình Custom Gradient Glow Bar */}
               <div className="group relative py-1 cursor-pointer">
-                <div className="relative h-1.5 w-full rounded-full bg-stone-800/90 overflow-hidden group-hover:h-2 transition-all">
+                <div className="relative h-1.5 w-full rounded-full bg-white/10 overflow-hidden group-hover:h-2 transition-all">
                   <div 
                     className="h-full rounded-full bg-gradient-to-r from-emerald-500 via-teal-400 to-emerald-300 shadow-[0_0_10px_rgba(52,211,153,0.6)] transition-[width] duration-150"
                     style={{ width: `${progressPercent}%` }}
