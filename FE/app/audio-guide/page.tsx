@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from 'react';
-import { Play, Pause, RotateCcw, RotateCw, Volume2, VolumeX, Headphones, Sparkles } from 'lucide-react';
+import { Play, Pause, RotateCcw, RotateCw, Volume2, VolumeX, Headphones } from 'lucide-react';
 
 type AudioTrack = {
   id: string;
@@ -241,10 +241,10 @@ export default function AudioGuidePage() {
           <div className="space-y-5 text-stone-200">
             <p className="text-sm leading-relaxed text-stone-300">{selectedTrack?.description}</p>
             
-            {/* Bộ điều khiển Player chuyên nghiệp */}
-            <div className="rounded-2xl border border-emerald-500/20 bg-black/[0.20] p-5 backdrop-blur-md shadow-inner space-y-4">
+            {/* Bộ điều khiển Player gọn gàng */}
+            <div className="rounded-2xl border border-emerald-500/20 bg-black/[0.20] p-3.5 backdrop-blur-md shadow-inner space-y-2.5">
               {/* Thanh kéo thời gian (Seek Bar) */}
-              <div className="space-y-1.5">
+              <div className="space-y-1">
                 <input
                   type="range"
                   min={0}
@@ -254,33 +254,33 @@ export default function AudioGuidePage() {
                   onChange={handleSeek}
                   className="w-full h-1.5 rounded-full bg-stone-700/60 accent-emerald-400 cursor-pointer transition hover:bg-stone-600"
                 />
-                <div className="flex items-center justify-between text-xs text-stone-400 font-mono">
+                <div className="flex items-center justify-between text-[11px] text-stone-400 font-mono">
                   <span>{formatTime(currentTime)}</span>
                   <span>{duration ? formatTime(duration) : selectedTrack?.duration || '00:00'}</span>
                 </div>
               </div>
 
               {/* Nút bấm điều khiển (Play, Pause, Tua 10s) */}
-              <div className="flex items-center justify-center gap-5 pt-1">
+              <div className="flex items-center justify-center gap-3.5">
                 <button
                   type="button"
                   onClick={() => handleSkip(-10)}
                   title="Lùi lại 10 giây"
-                  className="p-2 rounded-full text-stone-400 hover:text-white hover:bg-white/10 transition"
+                  className="p-1.5 rounded-full text-stone-400 hover:text-white hover:bg-white/10 transition"
                 >
-                  <RotateCcw size={18} />
+                  <RotateCcw size={16} />
                 </button>
 
                 <button
                   type="button"
                   onClick={togglePlay}
                   title={isPlaying ? "Tạm dừng" : "Phát âm thanh"}
-                  className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-emerald-400 to-teal-500 text-black shadow-xl shadow-emerald-500/30 hover:scale-105 hover:from-emerald-300 hover:to-teal-400 transition active:scale-95"
+                  className="flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-emerald-400 to-teal-500 text-black shadow-lg shadow-emerald-500/25 hover:scale-105 hover:from-emerald-300 hover:to-teal-400 transition active:scale-95"
                 >
                   {isPlaying ? (
-                    <Pause size={24} className="fill-black" />
+                    <Pause size={20} className="fill-black" />
                   ) : (
-                    <Play size={24} className="fill-black translate-x-0.5" />
+                    <Play size={20} className="fill-black translate-x-0.5" />
                   )}
                 </button>
 
@@ -288,36 +288,31 @@ export default function AudioGuidePage() {
                   type="button"
                   onClick={() => handleSkip(10)}
                   title="Tua tới 10 giây"
-                  className="p-2 rounded-full text-stone-400 hover:text-white hover:bg-white/10 transition"
+                  className="p-1.5 rounded-full text-stone-400 hover:text-white hover:bg-white/10 transition"
                 >
-                  <RotateCw size={18} />
+                  <RotateCw size={16} />
                 </button>
               </div>
 
               {/* Âm lượng & Mute */}
-              <div className="flex items-center justify-between border-t border-emerald-500/10 pt-3 text-xs text-stone-400">
-                <div className="flex items-center gap-2">
-                  <button
-                    type="button"
-                    onClick={toggleMute}
-                    title={isMuted ? "Bật âm" : "Tắt âm"}
-                    className="hover:text-emerald-300 transition"
-                  >
-                    {isMuted || volume === 0 ? <VolumeX size={16} /> : <Volume2 size={16} />}
-                  </button>
-                  <input
-                    type="range"
-                    min={0}
-                    max={1}
-                    step={0.05}
-                    value={isMuted ? 0 : volume}
-                    onChange={handleVolumeChange}
-                    className="w-20 h-1 rounded-full bg-stone-700/60 accent-emerald-400 cursor-pointer"
-                  />
-                </div>
-                <span className="text-[11px] text-emerald-400 flex items-center gap-1">
-                  <Sparkles size={11} /> 3D Spatial Audio
-                </span>
+              <div className="flex items-center justify-center gap-2 border-t border-emerald-500/10 pt-2 text-xs text-stone-400">
+                <button
+                  type="button"
+                  onClick={toggleMute}
+                  title={isMuted ? "Bật âm" : "Tắt âm"}
+                  className="hover:text-emerald-300 transition p-1"
+                >
+                  {isMuted || volume === 0 ? <VolumeX size={15} /> : <Volume2 size={15} />}
+                </button>
+                <input
+                  type="range"
+                  min={0}
+                  max={1}
+                  step={0.05}
+                  value={isMuted ? 0 : volume}
+                  onChange={handleVolumeChange}
+                  className="w-28 h-1 rounded-full bg-stone-700/60 accent-emerald-400 cursor-pointer"
+                />
               </div>
             </div>
 
