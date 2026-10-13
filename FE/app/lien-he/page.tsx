@@ -85,7 +85,7 @@ export default function LienHePage() {
               name="name"
               value={formData.name}
               onChange={handleChange}
-              className="w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-white placeholder-stone-500 outline-none backdrop-blur-[3px] transition focus:border-emerald-400"
+              className="w-full rounded-2xl border border-white/10 bg-black/[0.08] px-4 py-3 text-white placeholder-stone-400 outline-none backdrop-blur-md transition focus:border-emerald-400"
               placeholder="Nhập họ tên của bạn"
             />
           </div>
@@ -97,7 +97,7 @@ export default function LienHePage() {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className="w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-white placeholder-stone-500 outline-none backdrop-blur-[3px] transition focus:border-emerald-400"
+              className="w-full rounded-2xl border border-white/10 bg-black/[0.08] px-4 py-3 text-white placeholder-stone-400 outline-none backdrop-blur-md transition focus:border-emerald-400"
               placeholder="email@example.com"
             />
           </div>
@@ -108,7 +108,7 @@ export default function LienHePage() {
               name="purpose"
               value={formData.purpose}
               onChange={handleChange}
-              className="w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none backdrop-blur-[3px] transition focus:border-emerald-400"
+              className="w-full rounded-2xl border border-white/10 bg-black/[0.08] px-4 py-3 text-white outline-none backdrop-blur-md transition focus:border-emerald-400"
             >
               <option className="bg-stone-900">Tham quan cá nhân / gia đình</option>
               <option className="bg-stone-900">Đặt lịch cho trường học / sinh viên</option>
@@ -124,7 +124,7 @@ export default function LienHePage() {
               name="message"
               value={formData.message}
               onChange={handleChange}
-              className="w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-white placeholder-stone-500 outline-none backdrop-blur-[3px] transition focus:border-emerald-400"
+              className="w-full rounded-2xl border border-white/10 bg-black/[0.08] px-4 py-3 text-white placeholder-stone-400 outline-none backdrop-blur-md transition focus:border-emerald-400"
               placeholder="Nhập nội dung bạn muốn trao đổi..."
             />
           </div>
