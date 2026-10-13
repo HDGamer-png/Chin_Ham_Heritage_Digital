@@ -101,7 +101,7 @@ export const guideItems = [
     category: 'Không gian',
   },
   {
-    title: 'Hầm 1 và ký ức lịch sử',
+    title: 'Hầm 8: Bản lĩnh kiên trung nơi đáy ngục',
     duration: '04:45',
     category: 'Dấu vết',
   },

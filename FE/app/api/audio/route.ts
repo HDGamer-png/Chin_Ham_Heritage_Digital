@@ -18,11 +18,11 @@ const fallbackAudioTracks = [
     description: 'Khám phá nơi lưu giữ hình ảnh, hiện vật và ký ức lịch sử quan trọng.',
   },
   {
-    id: 'ham-1',
-    title: 'Hầm 1 và ký ức lịch sử',
+    id: 'ham-8',
+    title: 'Hầm 8: Bản lĩnh kiên trung nơi đáy ngục',
     duration: '04:45',
     category: 'Dấu vết',
-    description: 'Câu chuyện về không gian, cấu trúc và giá trị lịch sử của hầm.',
+    description: 'Câu chuyện về không gian xà lim chuồng cọp tàn khốc và bản lĩnh kiên trung, bất khuất của những người chiến sĩ cách mạng nơi đáy ngục Chín Hầm.',
   },
 ];
 

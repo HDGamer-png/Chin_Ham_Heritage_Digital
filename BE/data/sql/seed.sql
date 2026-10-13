@@ -18,7 +18,7 @@ GO
 INSERT INTO dbo.AudioTracks (SiteId, Title, FileName, FileUrl, DurationSeconds, Category, Description, Language, IsFeatured, Status)
 VALUES
     (1, N'Giới thiệu tổng quan', N'intro.mp3', '/audio/intro.mp3', 200, N'Khởi đầu', N'Giới thiệu ngắn về giá trị lịch sử và không gian của Chín Hầm.', 'vi', 1, 'active'),
-    (2, N'Hầm 1 và ký ức lịch sử', N'ham-1.mp3', '/audio/ham-1.mp3', 285, N'Dấu vết', N'Câu chuyện về không gian, cấu trúc và giá trị lịch sử của hầm.', 'vi', 0, 'active');
+    (8, N'Hầm 8: Bản lĩnh kiên trung nơi đáy ngục', N'ham-8.mp3', '/audio/ham-8.mp3', 285, N'Dấu vết', N'Câu chuyện về không gian xà lim chuồng cọp tàn khốc và bản lĩnh kiên trung, bất khuất của những người chiến sĩ cách mạng nơi đáy ngục Chín Hầm.', 'vi', 0, 'active');
 GO
 
 INSERT INTO dbo.MediaAssets (SiteId, Title, AssetType, FileName, FileUrl, MimeType, AltText, Width, Height, IsCover, SortOrder, Status)
