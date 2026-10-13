@@ -1,18 +1,18 @@
 [{
         "id": "audio-intro",
         "title": "Giới thiệu tổng quan",
-        "duration": "03:20",
+        "duration": "02:48",
         "category": "Khởi đầu",
-        "description": "Giới thiệu ngắn về giá trị lịch sử, không gian và ý nghĩa của Chín Hầm trong đời sống văn hóa và ký ức cộng đồng.",
-        "fileUrl": "/media/audio/intro.txt"
+        "description": "Giới thiệu toàn cảnh về không gian lịch sử, địa thế đồi Ba Đồn và ý nghĩa của di tích lịch sử Chín Hầm qua lời thuyết minh âm thanh truyền cảm.",
+        "fileUrl": "/audio/gioi-thieu-tong-quan.mp3"
     },
     {
         "id": "audio-nha-chung-tich",
         "title": "Nhà chứng tích Ngô Đình Cẩn",
-        "duration": "05:15",
+        "duration": "02:33",
         "category": "Không gian",
         "description": "Khám phá nơi lưu giữ hình ảnh, hiện vật và các thông tin lịch sử quan trọng để hiểu rõ giá trị của di tích.",
-        "fileUrl": "/media/audio/nha-chung-tich.txt"
+        "fileUrl": "/audio/nha-chung-tich.mp3"
     },
     {
         "id": "audio-ham-8",
@@ -20,14 +20,14 @@
         "duration": "04:45",
         "category": "Dấu vết",
         "description": "Câu chuyện về không gian xà lim chuồng cọp tàn khốc và bản lĩnh kiên trung, bất khuất của những người chiến sĩ cách mạng nơi đáy ngục Chín Hầm.",
-        "fileUrl": "/media/audio/ham-8.txt"
+        "fileUrl": "/audio/gioi-thieu-ngo-dinh-can-1.mp3"
     },
     {
         "id": "audio-ket-thuc",
         "title": "Kết thúc hành trình khám phá",
-        "duration": "02:50",
+        "duration": "01:25",
         "category": "Tổng kết",
         "description": "Nhắn nhủ kết nối giữa quá khứ, hiện tại và tương lai của ký ức lịch sử tại Chín Hầm.",
-        "fileUrl": "/media/audio/ket-thuc.txt"
+        "fileUrl": "/audio/ket-thuc-hanh-trinh.mp3"
     }
 ]

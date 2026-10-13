@@ -92,12 +92,12 @@ export const heritageSites = [
 export const guideItems = [
   {
     title: 'Giới thiệu tổng quan',
-    duration: '03:20',
+    duration: '02:48',
     category: 'Khởi đầu',
   },
   {
     title: 'Nhà chứng tích Ngô Đình Cẩn',
-    duration: '05:15',
+    duration: '02:33',
     category: 'Không gian',
   },
   {

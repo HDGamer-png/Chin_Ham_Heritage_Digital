@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { Play, Pause, RotateCcw, RotateCw, Volume2, VolumeX, Headphones, Sparkles } from 'lucide-react';
 
 type AudioTrack = {
   id: string;
@@ -8,11 +9,19 @@ type AudioTrack = {
   duration: string;
   category: string;
   description: string;
+  fileUrl?: string;
 };
 
 export default function AudioGuidePage() {
   const [tracks, setTracks] = useState<AudioTrack[]>([]);
   const [selectedTrackId, setSelectedTrackId] = useState<string | null>(null);
+  const [isPlaying, setIsPlaying] = useState<boolean>(false);
+  const [currentTime, setCurrentTime] = useState<number>(0);
+  const [duration, setDuration] = useState<number>(0);
+  const [volume, setVolume] = useState<number>(1);
+  const [isMuted, setIsMuted] = useState<boolean>(false);
+
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
     const fetchTracks = async () => {
@@ -34,8 +43,122 @@ export default function AudioGuidePage() {
 
   const selectedTrack = tracks.find((track) => track.id === selectedTrackId) || tracks[0];
 
+  // Đồng bộ nguồn phát khi đổi bài
+  useEffect(() => {
+    if (!audioRef.current || !selectedTrack) return;
+    const audio = audioRef.current;
+    
+    // Đặt lại thời gian
+    setCurrentTime(0);
+    audio.currentTime = 0;
+    
+    if (selectedTrack.fileUrl) {
+      audio.src = selectedTrack.fileUrl;
+      audio.load();
+      if (isPlaying) {
+        audio.play().catch((err) => {
+          console.warn('Playback prevented or interrupted:', err);
+          setIsPlaying(false);
+        });
+      }
+    }
+  }, [selectedTrack?.id]);
+
+  const togglePlay = () => {
+    if (!audioRef.current || !selectedTrack?.fileUrl) return;
+    const audio = audioRef.current;
+
+    if (isPlaying) {
+      audio.pause();
+      setIsPlaying(false);
+    } else {
+      audio.play().then(() => {
+        setIsPlaying(true);
+      }).catch((err) => {
+        console.warn('Playback error:', err);
+        setIsPlaying(false);
+      });
+    }
+  };
+
+  const handleTrackClick = (track: AudioTrack) => {
+    if (selectedTrack?.id === track.id) {
+      togglePlay();
+    } else {
+      setSelectedTrackId(track.id);
+      setIsPlaying(true);
+    }
+  };
+
+  const handleTimeUpdate = () => {
+    if (!audioRef.current) return;
+    setCurrentTime(audioRef.current.currentTime);
+  };
+
+  const handleLoadedMetadata = () => {
+    if (!audioRef.current) return;
+    setDuration(audioRef.current.duration || 0);
+  };
+
+  const handleEnded = () => {
+    setIsPlaying(false);
+    setCurrentTime(0);
+  };
+
+  const handleSeek = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newTime = parseFloat(e.target.value);
+    setCurrentTime(newTime);
+    if (audioRef.current) {
+      audioRef.current.currentTime = newTime;
+    }
+  };
+
+  const handleSkip = (seconds: number) => {
+    if (!audioRef.current) return;
+    const newTime = Math.max(0, Math.min(duration || 9999, audioRef.current.currentTime + seconds));
+    audioRef.current.currentTime = newTime;
+    setCurrentTime(newTime);
+  };
+
+  const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const val = parseFloat(e.target.value);
+    setVolume(val);
+    if (audioRef.current) {
+      audioRef.current.volume = val;
+    }
+    if (val > 0 && isMuted) {
+      setIsMuted(false);
+    }
+  };
+
+  const toggleMute = () => {
+    if (!audioRef.current) return;
+    if (isMuted) {
+      audioRef.current.muted = false;
+      setIsMuted(false);
+    } else {
+      audioRef.current.muted = true;
+      setIsMuted(true);
+    }
+  };
+
+  const formatTime = (secs: number) => {
+    if (isNaN(secs) || secs < 0) return '00:00';
+    const m = Math.floor(secs / 60);
+    const s = Math.floor(secs % 60);
+    return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+  };
+
   return (
     <main className="container-shell py-16">
+      {/* Hidden HTML5 Audio Element */}
+      <audio
+        ref={audioRef}
+        onTimeUpdate={handleTimeUpdate}
+        onLoadedMetadata={handleLoadedMetadata}
+        onEnded={handleEnded}
+      />
+
       <div className="mb-10">
         <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-white/5 px-4 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-emerald-300 backdrop-blur-[3px] drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
@@ -50,38 +173,55 @@ export default function AudioGuidePage() {
       </div>
 
       <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
+        {/* Danh sách các bài thuyết minh */}
         <div className="space-y-4">
-          {tracks.map((item) => (
-            <button
-              key={item.id}
-              type="button"
-              onClick={() => setSelectedTrackId(item.id)}
-              className={`flex w-full items-center justify-between rounded-2xl border p-6 text-left backdrop-blur-[3px] drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)] transition-all duration-300 ${
-                selectedTrack?.id === item.id
-                  ? 'border-emerald-400/70 bg-black/[0.25] shadow-[0_10px_30px_rgba(16,185,129,0.25)] ring-1 ring-emerald-400/50'
-                  : 'border-emerald-500/20 bg-gradient-to-b from-transparent via-black/[0.06] to-black/[0.12] hover:border-emerald-400/40 hover:bg-black/[0.15]'
-              }`}
-            >
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-400">{item.category}</p>
-                <h2 className="mt-1 text-xl font-bold text-white font-display">{item.title}</h2>
-              </div>
-              <div className="flex items-center gap-4">
-                <span className="text-sm font-medium text-stone-300">{item.duration}</span>
-                <span
-                  className={`rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider transition-all duration-300 ${
-                    selectedTrack?.id === item.id
-                      ? 'bg-emerald-500 text-black shadow-lg shadow-emerald-500/40'
-                      : 'border border-emerald-500/30 bg-white/5 backdrop-blur-[3px] text-emerald-300 hover:bg-emerald-600 hover:text-white hover:border-emerald-400'
-                  }`}
-                >
-                  {selectedTrack?.id === item.id ? 'Đang phát ♫' : 'Nghe ngay'}
-                </span>
-              </div>
-            </button>
-          ))}
+          {tracks.map((item) => {
+            const isCurrent = selectedTrack?.id === item.id;
+            return (
+              <button
+                key={item.id}
+                type="button"
+                onClick={() => handleTrackClick(item)}
+                className={`flex w-full items-center justify-between rounded-2xl border p-6 text-left backdrop-blur-[3px] drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)] transition-all duration-300 ${
+                  isCurrent
+                    ? 'border-emerald-400/70 bg-black/[0.25] shadow-[0_10px_30px_rgba(16,185,129,0.25)] ring-1 ring-emerald-400/50'
+                    : 'border-emerald-500/20 bg-gradient-to-b from-transparent via-black/[0.06] to-black/[0.12] hover:border-emerald-400/40 hover:bg-black/[0.15]'
+                }`}
+              >
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-400">{item.category}</p>
+                  <h2 className="mt-1 text-xl font-bold text-white font-display">{item.title}</h2>
+                </div>
+                <div className="flex items-center gap-4">
+                  <span className="text-sm font-medium text-stone-300">{item.duration}</span>
+                  
+                  {/* Equalizer animation khi đang phát */}
+                  {isCurrent && isPlaying ? (
+                    <div className="flex items-end gap-1 h-3.5">
+                      <span className="w-1 bg-emerald-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
+                      <span className="w-1 bg-emerald-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
+                      <span className="w-1 bg-emerald-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
+                    </div>
+                  ) : null}
+
+                  <span
+                    className={`rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider transition-all duration-300 ${
+                      isCurrent && isPlaying
+                        ? 'bg-emerald-500 text-black shadow-lg shadow-emerald-500/40'
+                        : isCurrent
+                        ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-400/50'
+                        : 'border border-emerald-500/30 bg-white/5 backdrop-blur-[3px] text-emerald-300 hover:bg-emerald-600 hover:text-white hover:border-emerald-400'
+                    }`}
+                  >
+                    {isCurrent && isPlaying ? 'Đang phát ♫' : isCurrent ? 'Tạm dừng ⏸' : 'Nghe ngay ▶'}
+                  </span>
+                </div>
+              </button>
+            );
+          })}
         </div>
 
+        {/* Bảng điều khiển Player chi tiết bên phải */}
         <aside className="rounded-[2.5rem] border border-emerald-500/20 bg-gradient-to-b from-transparent via-black/[0.06] to-black/[0.12] p-7 backdrop-blur-[3px] drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)] shadow-2xl h-fit">
           <div className="relative mb-6 overflow-hidden rounded-2xl border border-emerald-500/20 shadow-inner">
             <img
@@ -89,9 +229,10 @@ export default function AudioGuidePage() {
               alt="Không gian Chín Hầm"
               className="h-36 w-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-5 flex flex-col justify-end">
-              <div className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-400">
-                {selectedTrack?.category || 'Audio Guide'}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent p-5 flex flex-col justify-end">
+              <div className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-400 flex items-center gap-1.5">
+                <Headphones size={13} />
+                <span>{selectedTrack?.category || 'Audio Guide'}</span>
               </div>
               <h2 className="mt-1 text-2xl font-bold text-[#fef08a] font-display">{selectedTrack?.title || 'Chưa chọn track'}</h2>
             </div>
@@ -99,17 +240,90 @@ export default function AudioGuidePage() {
 
           <div className="space-y-5 text-stone-200">
             <p className="text-sm leading-relaxed text-stone-300">{selectedTrack?.description}</p>
-            <div className="rounded-2xl border border-emerald-500/20 bg-black/[0.05] p-5 backdrop-blur-[3px]">
-              <div className="mb-3 flex items-center justify-between text-sm">
-                <span className="text-stone-400">Thời lượng ghi âm</span>
-                <span className="font-bold text-[#fef08a]">{selectedTrack?.duration || '--:--'}</span>
+            
+            {/* Bộ điều khiển Player chuyên nghiệp */}
+            <div className="rounded-2xl border border-emerald-500/20 bg-black/[0.20] p-5 backdrop-blur-md shadow-inner space-y-4">
+              {/* Thanh kéo thời gian (Seek Bar) */}
+              <div className="space-y-1.5">
+                <input
+                  type="range"
+                  min={0}
+                  max={duration || 100}
+                  step={0.5}
+                  value={currentTime}
+                  onChange={handleSeek}
+                  className="w-full h-1.5 rounded-full bg-stone-700/60 accent-emerald-400 cursor-pointer transition hover:bg-stone-600"
+                />
+                <div className="flex items-center justify-between text-xs text-stone-400 font-mono">
+                  <span>{formatTime(currentTime)}</span>
+                  <span>{duration ? formatTime(duration) : selectedTrack?.duration || '00:00'}</span>
+                </div>
               </div>
-              <div className="h-2 overflow-hidden rounded-full bg-black/40">
-                <div className="h-full w-2/3 rounded-full bg-gradient-to-r from-emerald-500 to-teal-400 animate-pulse" />
+
+              {/* Nút bấm điều khiển (Play, Pause, Tua 10s) */}
+              <div className="flex items-center justify-center gap-5 pt-1">
+                <button
+                  type="button"
+                  onClick={() => handleSkip(-10)}
+                  title="Lùi lại 10 giây"
+                  className="p-2 rounded-full text-stone-400 hover:text-white hover:bg-white/10 transition"
+                >
+                  <RotateCcw size={18} />
+                </button>
+
+                <button
+                  type="button"
+                  onClick={togglePlay}
+                  title={isPlaying ? "Tạm dừng" : "Phát âm thanh"}
+                  className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-emerald-400 to-teal-500 text-black shadow-xl shadow-emerald-500/30 hover:scale-105 hover:from-emerald-300 hover:to-teal-400 transition active:scale-95"
+                >
+                  {isPlaying ? (
+                    <Pause size={24} className="fill-black" />
+                  ) : (
+                    <Play size={24} className="fill-black translate-x-0.5" />
+                  )}
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => handleSkip(10)}
+                  title="Tua tới 10 giây"
+                  className="p-2 rounded-full text-stone-400 hover:text-white hover:bg-white/10 transition"
+                >
+                  <RotateCw size={18} />
+                </button>
+              </div>
+
+              {/* Âm lượng & Mute */}
+              <div className="flex items-center justify-between border-t border-emerald-500/10 pt-3 text-xs text-stone-400">
+                <div className="flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={toggleMute}
+                    title={isMuted ? "Bật âm" : "Tắt âm"}
+                    className="hover:text-emerald-300 transition"
+                  >
+                    {isMuted || volume === 0 ? <VolumeX size={16} /> : <Volume2 size={16} />}
+                  </button>
+                  <input
+                    type="range"
+                    min={0}
+                    max={1}
+                    step={0.05}
+                    value={isMuted ? 0 : volume}
+                    onChange={handleVolumeChange}
+                    className="w-20 h-1 rounded-full bg-stone-700/60 accent-emerald-400 cursor-pointer"
+                  />
+                </div>
+                <span className="text-[11px] text-emerald-400 flex items-center gap-1">
+                  <Sparkles size={11} /> 3D Spatial Audio
+                </span>
               </div>
             </div>
-            <div className="rounded-2xl border border-emerald-500/20 bg-white/5 p-4 text-xs font-medium text-emerald-300 leading-relaxed backdrop-blur-[3px] shadow-sm">
-              💡 Gợi ý: Hãy đeo tai nghe để cảm nhận hiệu ứng âm thanh không gian 3D binaural kết hợp cùng cảnh quan đồi Ba Đồn.
+
+            <div className="rounded-2xl border border-emerald-500/20 bg-white/5 p-4 text-xs font-medium text-emerald-300 leading-relaxed backdrop-blur-[3px] shadow-sm flex items-start gap-2.5">
+              <span className="text-base">🎧</span>
+              <span>Gợi ý: Hãy đeo tai nghe để cảm nhận trọn vẹn hiệu ứng âm thanh không gian 3D binaural kết hợp cùng cảnh quan thực địa Chín Hầm.</span>
             </div>
           </div>
         </aside>
