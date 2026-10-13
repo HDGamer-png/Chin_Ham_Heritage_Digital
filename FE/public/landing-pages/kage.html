@@ -1145,11 +1145,11 @@ h1,h2,h3{ font-weight:400; margin:0; letter-spacing:-.005em; }
   position: relative;
   min-height: 480px;
   border-radius: 22px;
-  background: rgba(10, 14, 18, 0.88);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: rgba(10, 14, 18, 0.56);
+  backdrop-filter: blur(14px) saturate(130%);
+  -webkit-backdrop-filter: blur(14px) saturate(130%);
   border: 1px solid rgba(223, 231, 224, 0.16);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.75);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.12);
   transition: transform .4s var(--ease-out), border-color .35s, box-shadow .35s;
   display: flex;
   flex-direction: column;
@@ -1160,7 +1160,7 @@ h1,h2,h3{ font-weight:400; margin:0; letter-spacing:-.005em; }
 .focus-site-card:hover {
   transform: translateY(-5px);
   border-color: rgba(56, 189, 248, 0.65);
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.95), 0 0 35px rgba(56, 189, 248, 0.22);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.75), 0 0 35px rgba(56, 189, 248, 0.22);
 }
 .focus-site-card--featured {
   border-color: rgba(201, 162, 74, 0.35);
@@ -1182,7 +1182,7 @@ h1,h2,h3{ font-weight:400; margin:0; letter-spacing:-.005em; }
   height: clamp(215px, calc(16vw + 50px), 260px);
   overflow: hidden;
   background:
-    linear-gradient(180deg, rgba(3,6,9,.08) 25%, rgba(3,6,9,.82) 100%),
+    linear-gradient(180deg, rgba(3,6,9,.04) 25%, rgba(3,6,9,.60) 100%),
     url('khong_gian_tong_quan.jpg') 34% 50% / cover no-repeat;
   isolation: isolate;
   border-bottom: 1px solid rgba(223, 231, 224, 0.12);
@@ -1190,7 +1190,7 @@ h1,h2,h3{ font-weight:400; margin:0; letter-spacing:-.005em; }
 }
 .focus-thumb-fr--ham8 {
   background:
-    linear-gradient(180deg, rgba(3,6,9,.08) 25%, rgba(3,6,9,.82) 100%),
+    linear-gradient(180deg, rgba(3,6,9,.04) 25%, rgba(3,6,9,.60) 100%),
     url('khong_gian_tong_quan.jpg') 74% 32% / cover no-repeat;
 }
 .focus-site-card:hover .focus-thumb-fr {
