@@ -148,11 +148,11 @@ h1,h2,h3{ font-weight:400; margin:0; letter-spacing:-.005em; }
 [data-rv="fade"]{ transform:none; }
 [data-rv].rv-in{ opacity:1; transform:none;
   transition:opacity .9s var(--ease-out), transform 1.05s var(--ease-out); }
-.mask-line{ display:block; overflow:hidden; padding-top:0.35em; margin-top:-0.35em; padding-bottom:0.15em; margin-bottom:-0.15em; }
+.mask-line{ display:block; overflow:visible !important; padding-top:0.35em; margin-top:-0.35em; padding-bottom:0.15em; margin-bottom:-0.15em; }
 .mask-line:not(.word-reveal) > span{ display:block; transform:translate3d(0,110%,0); }
 .rv-in .mask-line:not(.word-reveal) > span, .mask-line:not(.word-reveal).rv-in > span{ transform:none; }
 .mask-line:not(.word-reveal) > span{ transition:transform 1.05s var(--ease-out); }
-.word-mask{ display:inline-block; overflow:hidden; vertical-align:top; padding-top:0.35em; margin-top:-0.35em; padding-bottom:0.15em; margin-bottom:-0.15em; }
+.word-mask{ display:inline-block; overflow:visible !important; vertical-align:top; padding-top:0.35em; margin-top:-0.35em; padding-bottom:0.15em; margin-bottom:-0.15em; }
 .word{
   display:inline-block; opacity:0; transform:translate3d(0,112%,0); will-change:transform,opacity;
   transition:transform .82s var(--ease-out), opacity .5s var(--ease-out);
@@ -907,11 +907,16 @@ h1,h2,h3{ font-weight:400; margin:0; letter-spacing:-.005em; }
 
 .sec.fin h2 {
   color: #ffd700 !important;
+  font-family: 'Segoe UI', 'Be Vietnam Pro', system-ui, -apple-system, Roboto, Arial, sans-serif !important;
   font-weight: 700 !important;
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.95))
           drop-shadow(0 4px 18px rgba(0, 0, 0, 0.92))
           drop-shadow(0 0 24px rgba(255, 215, 0, 0.38)) !important;
   text-shadow: none !important;
+}
+.sec.fin h2 .mask-line,
+.sec.fin h2 .word-mask {
+  overflow: visible !important;
 }
 .sec.fin h2 .word,
 .sec.fin h2 .mask-line:not(.word-reveal) > span,
@@ -922,6 +927,11 @@ body[data-layout-closing="b"] .fin h2 .word {
   -webkit-text-fill-color: transparent !important;
   color: transparent !important;
   display: inline-block !important;
+  padding-top: 0.38em !important;
+  margin-top: -0.38em !important;
+  padding-bottom: 0.18em !important;
+  margin-bottom: -0.18em !important;
+  line-height: 1.45 !important;
 }
 .sec.fin p {
   text-shadow: 0 1px 20px rgba(0, 0, 0, 0.98), 0 2px 10px rgba(0, 0, 0, 0.9) !important;
@@ -3201,8 +3211,8 @@ body[data-layout-footer="b"] .foot-base span:last-child{ text-align:right; }
   </div>
   <div class="eyebrow" data-rv="fade">Chương 04 — Sau Ngày Giải Phóng & Tưởng Niệm</div>
   <h2 class="display" data-rv="up">
-    <span class="mask-line"><span>Nơi bóng tối</span></span>
-    <span class="mask-line"><span>Không che khuất được ánh sáng</span></span>
+    <span class="mask-line"><span>NƠI BÓNG TỐI</span></span>
+    <span class="mask-line"><span>KHÔNG CHE KHUẤT ĐƯỢC ÁNH SÁNG</span></span>
   </h2>
   <p class="body-lg" data-rv="up">Cánh cửa ngục tối đã vĩnh viễn khép lại. Ngày nay trên đồi Ba Đồn, tiếng thông reo hòa cùng tiếng chuông tưởng niệm và hoa rừng xanh ngát — nhắc nhở chúng ta trân trọng giá trị thiêng liêng của hòa bình và độc lập tự do.</p>
 
