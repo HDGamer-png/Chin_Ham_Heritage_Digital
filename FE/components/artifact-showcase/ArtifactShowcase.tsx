@@ -127,10 +127,10 @@ export function ArtifactShowcase() {
               key={item.id}
               type="button"
               onClick={() => handleSelectArtifact(item.id)}
-              className={`group relative flex flex-col text-left p-3.5 rounded-2xl border transition-all duration-300 ${
+              className={`group relative flex flex-col text-left p-3.5 rounded-2xl border transition-all duration-300 backdrop-blur-[3px] ${
                 isSelected
-                  ? 'border-amber-400/80 bg-gradient-to-b from-amber-950/40 to-black/80 shadow-lg shadow-amber-950/40'
-                  : 'border-white/10 bg-black/40 hover:border-white/25 hover:bg-white/5'
+                  ? 'border-amber-400/80 bg-gradient-to-b from-transparent via-black/[0.06] to-black/[0.12] drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)] shadow-lg shadow-amber-950/40 ring-1 ring-amber-400/50'
+                  : 'border-emerald-500/20 bg-gradient-to-b from-transparent via-black/[0.04] to-black/[0.08] hover:border-emerald-500/40 hover:bg-black/[0.15]'
               }`}
             >
               <div className="flex items-center justify-between">
@@ -158,7 +158,7 @@ export function ArtifactShowcase() {
       {/* Main 3D Canvas Showcase Area & Inspector */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
         {/* Left Column: Interactive 3D Canvas Viewport (8 Cols) */}
-        <div className="lg:col-span-8 relative aspect-[4/3] sm:aspect-[16/10] min-h-[380px] sm:min-h-[480px] w-full rounded-3xl border border-white/15 bg-gradient-to-b from-[#090e13] via-[#05070a] to-[#020406] overflow-hidden shadow-2xl">
+        <div className="lg:col-span-8 relative aspect-[4/3] sm:aspect-[16/10] min-h-[380px] sm:min-h-[480px] w-full rounded-3xl border border-emerald-500/20 bg-gradient-to-b from-[#090e13] via-[#05070a] to-[#020406] overflow-hidden shadow-2xl">
           {/* 3D Canvas Component */}
           <ArtifactViewer3D
             artifact={currentArtifact}
@@ -172,7 +172,7 @@ export function ArtifactShowcase() {
           />
 
           {/* Top-Left Floating Controls: Lighting Presets */}
-          <div className="absolute top-4 left-4 z-30 flex flex-wrap items-center gap-1.5 p-1.5 rounded-2xl bg-black/70 backdrop-blur-xl border border-white/15 shadow-xl">
+          <div className="absolute top-4 left-4 z-30 flex flex-wrap items-center gap-1.5 p-1.5 rounded-2xl bg-black/40 backdrop-blur-[3px] border border-white/10 shadow-xl">
             <span className="text-[10px] font-bold text-stone-400 uppercase tracking-wider px-2 hidden sm:inline">
               Ánh sáng:
             </span>
@@ -218,7 +218,7 @@ export function ArtifactShowcase() {
           </div>
 
           {/* Top-Right Floating Controls: X-Ray & Turntable */}
-          <div className="absolute top-4 right-4 z-30 flex items-center gap-1.5 p-1.5 rounded-2xl bg-black/70 backdrop-blur-xl border border-white/15 shadow-xl">
+          <div className="absolute top-4 right-4 z-30 flex items-center gap-1.5 p-1.5 rounded-2xl bg-black/40 backdrop-blur-[3px] border border-white/10 shadow-xl">
             {/* X-Ray / Exploded Matrix Toggle */}
             <button
               type="button"
@@ -248,7 +248,7 @@ export function ArtifactShowcase() {
           </div>
 
           {/* Bottom-Right Zoom Slider & Quick Buttons */}
-          <div className="absolute bottom-4 right-4 z-30 flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1.5 rounded-2xl bg-black/75 backdrop-blur-xl border border-white/15 shadow-xl">
+          <div className="absolute bottom-4 right-4 z-30 flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1.5 rounded-2xl bg-black/40 backdrop-blur-[3px] border border-white/10 shadow-xl">
             <span className="text-[10px] font-semibold text-stone-400 uppercase hidden sm:inline">Thu phóng:</span>
             <button
               type="button"
@@ -285,7 +285,7 @@ export function ArtifactShowcase() {
         <div className="lg:col-span-4 flex flex-col gap-4">
           {/* Active Hotspot Inspector Card (if clicked) */}
           {activeHotspot ? (
-            <div className="rounded-3xl border border-amber-500/40 bg-gradient-to-b from-amber-950/60 to-black/90 p-5 shadow-2xl relative overflow-hidden backdrop-blur-xl">
+            <div className="rounded-3xl border border-amber-500/40 bg-gradient-to-b from-transparent via-black/[0.06] to-black/[0.12] p-5 shadow-2xl relative overflow-hidden backdrop-blur-[3px] drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
               <div className="flex items-center justify-between pb-3 border-b border-amber-500/20">
                 <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-amber-400">
                   <Sparkles size={12} /> {activeHotspot.tag}
@@ -304,13 +304,13 @@ export function ArtifactShowcase() {
 
               <p className="mt-3 text-xs leading-relaxed text-stone-200">{activeHotspot.description}</p>
 
-              <div className="mt-4 p-3 rounded-2xl bg-black/60 border border-white/10 text-[11px] leading-relaxed text-stone-300">
+              <div className="mt-4 p-3 rounded-2xl bg-black/[0.05] border border-emerald-500/20 text-[11px] leading-relaxed text-stone-300 backdrop-blur-[3px]">
                 <span className="font-bold text-amber-300 block mb-1">🔍 Giám định Khảo cổ:</span>
                 {activeHotspot.historicalNote}
               </div>
             </div>
           ) : (
-            <div className="rounded-3xl border border-white/10 bg-black/40 p-5 text-center">
+            <div className="rounded-3xl border border-emerald-500/20 bg-gradient-to-b from-transparent via-black/[0.06] to-black/[0.12] p-5 text-center backdrop-blur-[3px] drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
               <div className="w-10 h-10 rounded-2xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center mx-auto text-amber-300">
                 <Compass size={18} />
               </div>
@@ -322,7 +322,7 @@ export function ArtifactShowcase() {
           )}
 
           {/* Museum Artifact Spec Sheet */}
-          <div className="rounded-3xl border border-white/10 bg-black/60 p-5 backdrop-blur-xl">
+          <div className="rounded-3xl border border-emerald-500/20 bg-gradient-to-b from-transparent via-black/[0.06] to-black/[0.12] p-5 backdrop-blur-[3px] drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)] shadow-2xl">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <Info size={16} className="text-amber-400" /> Hồ Sơ Hiện Vật Di Tích
             </h3>
@@ -347,7 +347,7 @@ export function ArtifactShowcase() {
             </div>
 
             {/* Witness Quote Box */}
-            <div className="mt-4 p-3.5 rounded-2xl border border-white/10 bg-gradient-to-r from-red-950/30 to-amber-950/30">
+            <div className="mt-4 p-3.5 rounded-2xl border border-emerald-500/20 bg-black/[0.05] backdrop-blur-[3px]">
               <p className="text-xs italic leading-relaxed text-stone-200">
                 {currentArtifact.narrativeQuote}
               </p>

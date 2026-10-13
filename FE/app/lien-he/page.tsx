@@ -57,35 +57,35 @@ export default function LienHePage() {
   return (
     <main className="container-shell py-16">
       <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr]">
-        <section className="rounded-[2.5rem] border border-white/10 bg-black/50 p-8 md:p-10 backdrop-blur-2xl shadow-2xl">
-          <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-950/60 px-3.5 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-emerald-300 backdrop-blur-md">
+        <section className="rounded-[2.5rem] border border-emerald-500/20 bg-gradient-to-b from-transparent via-black/[0.06] to-black/[0.12] p-8 md:p-10 backdrop-blur-[3px] drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)] shadow-2xl">
+          <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-white/5 px-3.5 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-emerald-300 backdrop-blur-[3px]">
             Liên Hệ & Đặt Lịch
           </div>
-          <h1 className="text-4xl font-black text-white md:text-5xl font-display">Đặt Lịch Tham Quan & Hợp Tác</h1>
-          <p className="mt-4 text-base text-stone-300 leading-relaxed">
+          <h1 className="text-4xl font-black text-white md:text-5xl font-display drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">Đặt Lịch Tham Quan & Hợp Tác</h1>
+          <p className="mt-4 text-base text-stone-300 leading-relaxed drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
             Khách du lịch, trường học và các đoàn nghiên cứu có thể gửi yêu cầu đặt lịch tham quan thực tế hoặc trải nghiệm bảo tàng số tương tác.
           </p>
 
           <div className="mt-8 grid gap-4 sm:grid-cols-2">
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-md">
+            <div className="rounded-2xl border border-emerald-500/20 bg-black/[0.05] p-5 backdrop-blur-[3px]">
               <div className="text-xs font-semibold uppercase tracking-wider text-emerald-400">Thời gian phản hồi</div>
               <div className="mt-2 text-stone-200 text-sm">Trong vòng 24 giờ làm việc</div>
             </div>
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-md">
+            <div className="rounded-2xl border border-emerald-500/20 bg-black/[0.05] p-5 backdrop-blur-[3px]">
               <div className="text-xs font-semibold uppercase tracking-wider text-emerald-400">Phạm vi hỗ trợ</div>
               <div className="mt-2 text-stone-200 text-sm">Tham quan, thuyết minh & số hóa</div>
             </div>
           </div>
         </section>
 
-        <form onSubmit={handleSubmit} className="space-y-4 rounded-[2.5rem] border border-white/10 bg-black/50 p-8 md:p-10 backdrop-blur-2xl shadow-2xl">
+        <form onSubmit={handleSubmit} className="space-y-4 rounded-[2.5rem] border border-emerald-500/20 bg-gradient-to-b from-transparent via-black/[0.06] to-black/[0.12] p-8 md:p-10 backdrop-blur-[3px] drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)] shadow-2xl">
           <div>
             <label className="mb-2 block text-xs font-semibold uppercase tracking-wider text-stone-300">Họ và tên</label>
             <input
               name="name"
               value={formData.name}
               onChange={handleChange}
-              className="w-full rounded-2xl border border-white/15 bg-black/60 px-4 py-3 text-white placeholder-stone-500 outline-none backdrop-blur-md transition focus:border-emerald-400"
+              className="w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-white placeholder-stone-500 outline-none backdrop-blur-[3px] transition focus:border-emerald-400"
               placeholder="Nhập họ tên của bạn"
             />
           </div>
@@ -97,7 +97,7 @@ export default function LienHePage() {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className="w-full rounded-2xl border border-white/15 bg-black/60 px-4 py-3 text-white placeholder-stone-500 outline-none backdrop-blur-md transition focus:border-emerald-400"
+              className="w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-white placeholder-stone-500 outline-none backdrop-blur-[3px] transition focus:border-emerald-400"
               placeholder="email@example.com"
             />
           </div>
@@ -108,7 +108,7 @@ export default function LienHePage() {
               name="purpose"
               value={formData.purpose}
               onChange={handleChange}
-              className="w-full rounded-2xl border border-white/15 bg-stone-900 px-4 py-3 text-white outline-none transition focus:border-emerald-400"
+              className="w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none backdrop-blur-[3px] transition focus:border-emerald-400"
             >
               <option className="bg-stone-900">Tham quan cá nhân / gia đình</option>
               <option className="bg-stone-900">Đặt lịch cho trường học / sinh viên</option>
@@ -124,7 +124,7 @@ export default function LienHePage() {
               name="message"
               value={formData.message}
               onChange={handleChange}
-              className="w-full rounded-2xl border border-white/15 bg-black/60 px-4 py-3 text-white placeholder-stone-500 outline-none backdrop-blur-md transition focus:border-emerald-400"
+              className="w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-white placeholder-stone-500 outline-none backdrop-blur-[3px] transition focus:border-emerald-400"
               placeholder="Nhập nội dung bạn muốn trao đổi..."
             />
           </div>

@@ -65,14 +65,14 @@ export default function HanhTrinhKyUcPage() {
       <div className="max-w-6xl mx-auto space-y-12">
         {/* Header Hero */}
         <div className="text-center space-y-4 max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-950/70 border border-emerald-400/30 text-emerald-300 text-xs sm:text-sm font-semibold backdrop-blur-md shadow-[0_2px_12px_rgba(16,185,129,0.15)]">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-emerald-500/20 text-emerald-300 text-xs sm:text-sm font-semibold backdrop-blur-[3px] drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
             <Sparkles size={16} className="text-emerald-400 animate-pulse" />
             Không Gian Tương Tác Số Hóa • Living Green 3D
           </div>
-          <h1 className="text-4xl sm:text-6xl font-black text-stone-100 font-display tracking-tight">
+          <h1 className="text-4xl sm:text-6xl font-black text-stone-100 font-display tracking-tight drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
             Hành Trình Ký Ức
           </h1>
-          <p className="text-stone-300 text-base sm:text-lg leading-relaxed">
+          <p className="text-stone-300 text-base sm:text-lg leading-relaxed drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
             Quy tụ 3 phân khu trải nghiệm đa giác quan: chạm vào hiện vật 3D, giải mã bí mật lao tù và thi đấu tri thức lịch sử đồi Ba Đồn.
           </p>
         </div>
@@ -85,7 +85,7 @@ export default function HanhTrinhKyUcPage() {
             return (
               <div
                 key={section.id}
-                className={`relative rounded-3xl border border-emerald-500/20 bg-[#0c130e]/80 flex flex-col justify-between backdrop-blur-2xl shadow-[0_15px_35px_rgba(0,0,0,0.5)] transition-all duration-500 hover:-translate-y-2 group overflow-hidden ${section.border}`}
+                className={`relative rounded-3xl border border-emerald-500/20 bg-gradient-to-b from-transparent via-black/[0.06] to-black/[0.12] flex flex-col justify-between backdrop-blur-[3px] drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)] transition-all duration-500 hover:-translate-y-2 hover:bg-black/[0.15] group overflow-hidden ${section.border}`}
               >
                 {/* Image Header with smooth zoom */}
                 <div className="relative h-44 overflow-hidden border-b border-emerald-500/15">
@@ -94,13 +94,13 @@ export default function HanhTrinhKyUcPage() {
                     alt={section.title}
                     className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0c130e] via-[#0c130e]/60 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                   <div className="relative z-10 p-5 flex items-center justify-between h-full">
-                    <div className="w-12 h-12 rounded-2xl bg-black/60 border border-emerald-500/30 flex items-center justify-center text-emerald-300 shadow-md group-hover:scale-110 group-hover:border-emerald-400 transition duration-300 backdrop-blur-md">
+                    <div className="w-12 h-12 rounded-2xl bg-black/40 border border-emerald-500/30 flex items-center justify-center text-emerald-300 shadow-md group-hover:scale-110 group-hover:border-emerald-400 transition duration-300 backdrop-blur-[3px]">
                       <Icon size={24} />
                     </div>
                     <span
-                      className={`text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full border backdrop-blur-md ${section.badgeColor}`}
+                      className={`text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full border backdrop-blur-[3px] ${section.badgeColor}`}
                     >
                       {section.badge}
                     </span>

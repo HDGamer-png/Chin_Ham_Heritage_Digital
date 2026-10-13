@@ -324,12 +324,12 @@ export function WebQuest1963() {
 
       <div className="max-w-5xl mx-auto space-y-8">
         {/* Top Control Bar: HUD */}
-        <div className="flex flex-wrap items-center justify-between gap-4 p-4 rounded-2xl border border-white/10 bg-black/60 backdrop-blur-xl shadow-xl">
+        <div className="flex flex-wrap items-center justify-between gap-4 p-4 rounded-2xl border border-emerald-500/20 bg-gradient-to-b from-transparent via-black/[0.06] to-black/[0.12] backdrop-blur-[3px] drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)] shadow-xl">
           <div className="flex items-center gap-3">
             <img
               src="/Logo CH1.png"
               alt="Logo Chín Hầm"
-              className="w-10 h-10 object-contain rounded-xl border border-white/10 bg-black/40 p-1 shadow-md"
+              className="w-10 h-10 object-contain rounded-xl border border-white/10 bg-black/30 p-1 shadow-md backdrop-blur-[3px]"
             />
             <div>
               <div className="text-xs uppercase tracking-widest text-red-400 font-semibold">
@@ -360,7 +360,7 @@ export function WebQuest1963() {
 
             <button
               onClick={() => setSoundEnabled((v) => !v)}
-              className="p-2 rounded-xl bg-stone-800/80 hover:bg-stone-700 text-stone-300 transition"
+              className="p-2 rounded-xl bg-white/5 hover:bg-white/15 border border-white/10 text-stone-300 transition backdrop-blur-[3px]"
               title={soundEnabled ? 'Tắt âm thanh' : 'Bật âm thanh'}
             >
               {soundEnabled ? <Volume2 size={16} /> : <VolumeX size={16} className="text-red-400" />}
@@ -368,7 +368,7 @@ export function WebQuest1963() {
 
             <button
               onClick={restartQuest}
-              className="p-2 rounded-xl bg-stone-800/80 hover:bg-stone-700 text-stone-300 transition"
+              className="p-2 rounded-xl bg-white/5 hover:bg-white/15 border border-white/10 text-stone-300 transition backdrop-blur-[3px]"
               title="Chơi lại từ đầu"
             >
               <RotateCcw size={16} />
@@ -386,12 +386,12 @@ export function WebQuest1963() {
               return (
                 <div
                   key={stg.id}
-                  className={`relative p-3.5 rounded-2xl border transition-all duration-300 ${
+                  className={`relative p-3.5 rounded-2xl border transition-all duration-300 backdrop-blur-[3px] ${
                     isActive
-                      ? 'border-amber-500 bg-amber-950/30 shadow-lg shadow-amber-950/40 ring-1 ring-amber-500/50'
+                      ? 'border-amber-500 bg-gradient-to-b from-transparent via-black/[0.06] to-black/[0.12] drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)] shadow-lg shadow-amber-950/40 ring-1 ring-amber-500/50'
                       : isPast
-                      ? 'border-emerald-500/40 bg-emerald-950/20'
-                      : 'border-white/5 bg-stone-900/40 opacity-60'
+                      ? 'border-emerald-500/40 bg-black/[0.08]'
+                      : 'border-white/5 bg-black/[0.04] opacity-60'
                   }`}
                 >
                   <div className="flex items-center gap-2 mb-1">
@@ -402,7 +402,7 @@ export function WebQuest1963() {
                         className={`w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold shrink-0 ${
                           isActive
                             ? 'bg-amber-500 text-stone-950'
-                            : 'bg-stone-800 text-stone-400'
+                            : 'bg-stone-850 text-stone-400'
                         }`}
                       >
                         {stg.id}
@@ -435,14 +435,14 @@ export function WebQuest1963() {
         {isCompleted ? (
           <div className="space-y-8 animate-fadeIn">
             <div className="text-center space-y-3">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-sm font-semibold">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-sm font-semibold backdrop-blur-[3px]">
                 <CheckCircle2 size={18} />
                 Hoàn Thành Toàn Bộ 4 Trạm Giải Mã
               </div>
-              <h2 className="text-3xl sm:text-5xl font-black text-stone-100 font-display">
+              <h2 className="text-3xl sm:text-5xl font-black text-stone-100 font-display drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
                 Khải Hoàn Ký Ức Ba Đồn
               </h2>
-              <p className="text-stone-300 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
+              <p className="text-stone-300 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
                 Bạn đã giải mã thành công tọa độ Hầm 8, tìm thấy mật mã lịch sử 1963, giải đáp nhịp gõ Morse và tái hiện ngày mở toang cánh cửa sắt Chín Hầm.
               </p>
             </div>
@@ -457,13 +457,13 @@ export function WebQuest1963() {
             <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
               <Link
                 href="/hien-vat-3d"
-                className="px-6 py-3 rounded-xl bg-stone-800 hover:bg-stone-700 border border-stone-600 text-stone-200 text-sm font-semibold flex items-center gap-2 transition"
+                className="px-6 py-3 rounded-xl bg-white/5 hover:bg-white/15 border border-white/10 text-stone-200 text-sm font-semibold flex items-center gap-2 transition backdrop-blur-[3px]"
               >
                 Khám phá Showroom Hiện Vật 3D
               </Link>
               <button
                 onClick={restartQuest}
-                className="px-6 py-3 rounded-xl bg-amber-600/20 hover:bg-amber-600/30 border border-amber-500/40 text-amber-300 text-sm font-semibold flex items-center gap-2 transition"
+                className="px-6 py-3 rounded-xl bg-amber-600/20 hover:bg-amber-600/30 border border-amber-500/40 text-amber-300 text-sm font-semibold flex items-center gap-2 transition backdrop-blur-[3px]"
               >
                 <RotateCcw size={16} /> Thử thách lại lần nữa
               </button>
@@ -473,11 +473,11 @@ export function WebQuest1963() {
           /* =============================================================== */
           /* ACTIVE STAGE CARD */
           /* =============================================================== */
-          <div className="rounded-3xl border border-white/10 bg-stone-900/85 p-6 sm:p-10 shadow-2xl backdrop-blur-2xl space-y-8">
+          <div className="rounded-3xl border border-emerald-500/20 bg-gradient-to-b from-transparent via-black/[0.06] to-black/[0.12] p-6 sm:p-10 shadow-2xl backdrop-blur-[3px] drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)] space-y-8">
             {/* Stage Header & Context */}
-            <div className="space-y-4 border-b border-white/10 pb-6">
+            <div className="space-y-4 border-b border-emerald-500/15 pb-6">
               <div className="flex flex-wrap items-center justify-between gap-2">
-                <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-red-950/80 border border-red-500/40 text-red-300 text-xs font-bold uppercase tracking-wider">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-red-950/40 border border-red-500/40 text-red-300 text-xs font-bold uppercase tracking-wider backdrop-blur-[3px]">
                   <Shield size={14} /> Thử Thách {currentStage}/4
                 </div>
                 <button
@@ -498,13 +498,13 @@ export function WebQuest1963() {
                 </p>
               </div>
 
-              <div className="p-4 rounded-2xl bg-black/40 border border-white/5 text-stone-300 text-sm leading-relaxed">
+              <div className="p-4 rounded-2xl bg-black/[0.05] border border-emerald-500/20 text-stone-300 text-sm leading-relaxed backdrop-blur-[3px]">
                 <span className="text-amber-400 font-semibold">Tư liệu lịch sử: </span>
                 {QUEST_STAGES[currentStage - 1].historicalContext}
               </div>
 
               {showHint && (
-                <div className="p-3.5 rounded-xl bg-amber-950/40 border border-amber-500/30 text-amber-200 text-xs sm:text-sm flex items-start gap-2.5 animate-fadeIn">
+                <div className="p-3.5 rounded-xl bg-amber-950/30 border border-amber-500/30 text-amber-200 text-xs sm:text-sm flex items-start gap-2.5 animate-fadeIn backdrop-blur-[3px]">
                   <HelpCircle size={18} className="text-amber-400 shrink-0 mt-0.5" />
                   <div>
                     <span className="font-bold">Manh mối trinh sát: </span>
@@ -528,12 +528,12 @@ export function WebQuest1963() {
                       <button
                         key={bunker.id}
                         onClick={() => handleSelectBunker(bunker)}
-                        className={`p-4 rounded-2xl border text-left transition-all duration-200 relative overflow-hidden group ${
+                        className={`p-4 rounded-2xl border text-left transition-all duration-200 relative overflow-hidden group backdrop-blur-[3px] ${
                           isSelected && bunker.isTarget
-                            ? 'border-emerald-500 bg-emerald-950/50 ring-2 ring-emerald-500'
+                            ? 'border-emerald-500 bg-emerald-950/40 ring-2 ring-emerald-500'
                             : isSelected && !bunker.isTarget
-                            ? 'border-red-500 bg-red-950/40'
-                            : 'border-white/10 bg-black/40 hover:border-amber-500/60 hover:bg-stone-800/60'
+                            ? 'border-red-500 bg-red-950/30'
+                            : 'border-emerald-500/20 bg-black/[0.05] hover:border-amber-500/60 hover:bg-black/[0.15]'
                         }`}
                       >
                         <div className="flex items-center justify-between mb-2">
@@ -563,14 +563,14 @@ export function WebQuest1963() {
             {currentStage === 2 && (
               <div className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-                  <div className="p-5 rounded-2xl bg-black/60 border border-amber-500/30 space-y-4">
+                  <div className="p-5 rounded-2xl bg-black/[0.05] border border-amber-500/30 space-y-4 backdrop-blur-[3px]">
                     <div className="text-xs uppercase tracking-wider text-amber-400 font-semibold flex items-center gap-2">
                       <Layers size={14} /> Di vật: Chiếc lược nhôm khắc chim bồ câu
                     </div>
                     <p className="text-stone-300 text-sm leading-relaxed">
                       Trên sống lược nhôm của người tù Chín Hầm, bên cạnh hình chim bồ câu ngậm cành thùy dương, có một dãy 4 chữ số được cào khắc bí mật bằng mũi đinh sắt.
                     </p>
-                    <div className="p-3 rounded-xl bg-stone-900 border border-white/10 text-xs text-stone-400">
+                    <div className="p-3 rounded-xl bg-black/[0.15] border border-white/10 text-xs text-stone-400">
                       💡 Mật mã này là mốc năm lật đổ chế độ gia đình họ Ngô và mở toang địa ngục Chín Hầm.
                     </div>
                     <div className="flex items-center gap-2">
@@ -595,7 +595,7 @@ export function WebQuest1963() {
                         value={combCodeInput}
                         onChange={(e) => setCombCodeInput(e.target.value)}
                         placeholder="VD: 19xx"
-                        className="w-full px-4 py-3.5 rounded-xl bg-black/60 border border-white/20 text-center font-mono text-2xl tracking-[0.4em] text-amber-300 placeholder-stone-600 focus:outline-none focus:ring-2 focus:ring-amber-400 font-bold"
+                        className="w-full px-4 py-3.5 rounded-xl bg-black/40 border border-white/20 text-center font-mono text-2xl tracking-[0.4em] text-amber-300 placeholder-stone-600 focus:outline-none focus:ring-2 focus:ring-amber-400 font-bold backdrop-blur-[3px]"
                       />
                       <button
                         type="submit"
@@ -619,7 +619,7 @@ export function WebQuest1963() {
             {/* STAGE 3 CONTENT: NHỊP GÕ MOÓC-XƠ QUA TƯỜNG ĐÁ */}
             {currentStage === 3 && (
               <div className="space-y-6">
-                <div className="p-5 rounded-2xl bg-black/60 border border-white/10 space-y-4">
+                <div className="p-5 rounded-2xl bg-black/[0.05] border border-white/10 space-y-4 backdrop-blur-[3px]">
                   <div className="flex flex-wrap items-center justify-between gap-3">
                     <div className="text-xs uppercase tracking-wider text-amber-400 font-semibold flex items-center gap-2">
                       <Radio size={15} /> Tín hiệu Morse gõ vách xà lim
@@ -634,7 +634,7 @@ export function WebQuest1963() {
                     </button>
                   </div>
 
-                  <div className="p-4 rounded-xl bg-stone-950/80 border border-amber-500/30 text-center space-y-2">
+                  <div className="p-4 rounded-xl bg-black/40 border border-amber-500/30 text-center space-y-2 backdrop-blur-[3px]">
                     <div className="text-xs text-stone-400">Chuỗi tín hiệu vách đá:</div>
                     <div className="font-mono text-xl sm:text-2xl font-bold text-amber-300 tracking-[0.3em]">
                       {STAGE_3_MORSE.morsePattern}
@@ -656,12 +656,12 @@ export function WebQuest1963() {
                         <button
                           key={opt.label}
                           onClick={() => handleSelectMorse(opt)}
-                          className={`p-4 rounded-xl border text-center font-bold text-base transition-all duration-200 ${
+                          className={`p-4 rounded-xl border text-center font-bold text-base transition-all duration-200 backdrop-blur-[3px] ${
                             isChosen && opt.isCorrect
-                              ? 'border-emerald-500 bg-emerald-950/50 text-emerald-200 ring-2 ring-emerald-500'
+                              ? 'border-emerald-500 bg-emerald-950/40 text-emerald-200 ring-2 ring-emerald-500'
                               : isChosen && !opt.isCorrect
-                              ? 'border-red-500 bg-red-950/40 text-red-200'
-                              : 'border-white/10 bg-black/40 hover:border-amber-500/60 hover:bg-stone-800 text-stone-200'
+                              ? 'border-red-500 bg-red-950/30 text-red-200'
+                              : 'border-emerald-500/20 bg-black/[0.05] hover:border-amber-500/60 hover:bg-black/[0.15] text-stone-200'
                           }`}
                         >
                           {opt.label}
@@ -691,7 +691,7 @@ export function WebQuest1963() {
                   {timelineOrder.map((ev, idx) => (
                     <div
                       key={ev.id}
-                      className="flex items-center gap-3 p-3.5 sm:p-4 rounded-2xl bg-black/50 border border-white/10 transition hover:border-white/20"
+                      className="flex items-center gap-3 p-3.5 sm:p-4 rounded-2xl bg-black/[0.05] border border-emerald-500/20 backdrop-blur-[3px] transition hover:border-emerald-500/40 hover:bg-black/[0.15]"
                     >
                       <div className="w-8 h-8 rounded-xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center font-mono font-bold text-amber-300 text-sm shrink-0">
                         {idx + 1}

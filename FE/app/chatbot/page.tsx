@@ -254,23 +254,23 @@ export default function ChatbotPage() {
   return (
     <main className="container-shell py-16">
       <div className="mb-10">
-        <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-950/60 px-3.5 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-emerald-300 backdrop-blur-md">
+        <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-white/5 px-3.5 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-emerald-300 backdrop-blur-[3px] drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
           <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" /> Multi-Agent AI Heritage Engine
         </div>
-        <h1 className="text-4xl font-black text-white md:text-5xl font-display">
+        <h1 className="text-4xl font-black text-white md:text-5xl font-display drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
           Trợ Lý AI Di Sản Chín Hầm
         </h1>
-        <p className="mt-3 max-w-2xl text-stone-300 text-base leading-relaxed">
+        <p className="mt-3 max-w-2xl text-stone-300 text-base leading-relaxed drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
           Được vận hành bởi hệ thống đa tác tử (Multi-Agent) chuyên sâu: phân loại ý định, truy hồi tri thức 3 tầng và lập luận suy luận lịch sử chính xác.
         </p>
       </div>
 
       <div className="grid gap-8 lg:grid-cols-[1.6fr_1fr]">
-        <div className="rounded-[2.5rem] border border-emerald-500/20 bg-[#0c130e]/80 p-6 backdrop-blur-2xl shadow-2xl flex flex-col h-[750px]">
+        <div className="rounded-[2.5rem] border border-emerald-500/20 bg-gradient-to-b from-transparent via-black/[0.06] to-black/[0.12] p-6 backdrop-blur-[3px] drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)] shadow-2xl flex flex-col h-[750px]">
           {/* Header */}
           <div className="mb-4 flex items-center justify-between border-b border-emerald-500/15 pb-4">
             <div className="flex items-center gap-3">
-              <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-emerald-500/40 bg-emerald-950/80 text-base font-bold text-emerald-300 shadow-md">
+              <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-emerald-500/40 bg-white/5 backdrop-blur-[3px] text-base font-bold text-emerald-300 shadow-md">
                 🤖
               </div>
               <div>
@@ -293,7 +293,7 @@ export default function ChatbotPage() {
                 setCurrentSuggestions(defaultQuickQuestions);
               }}
               title="Xóa hội thoại"
-              className="text-xs text-stone-400 hover:text-white px-3 py-1.5 rounded-full border border-emerald-500/20 bg-emerald-950/30 hover:bg-emerald-900/40 transition"
+              className="text-xs text-stone-400 hover:text-white px-3 py-1.5 rounded-full border border-emerald-500/20 bg-white/5 hover:bg-white/10 transition backdrop-blur-[3px]"
             >
               Làm mới
             </button>
@@ -302,14 +302,14 @@ export default function ChatbotPage() {
           {/* Chat Messages Container */}
           <div 
             ref={chatScrollRef}
-            className="flex-1 space-y-4 rounded-2xl border border-emerald-500/15 bg-black/40 p-4 text-sm text-stone-200 overflow-y-auto pr-2"
+            className="flex-1 space-y-4 rounded-2xl border border-emerald-500/15 bg-black/[0.05] p-4 text-sm text-stone-200 overflow-y-auto pr-2 backdrop-blur-[3px]"
           >
             {messages.map((message, index) => (
               <div
                 key={`${message.sender}-${index}`}
                 className={message.sender === 'user'
                   ? 'ml-auto max-w-[85%] rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 p-4 text-white shadow-md'
-                  : 'max-w-[95%] rounded-2xl border border-emerald-500/20 bg-[#0e1610]/90 p-4 text-stone-200 backdrop-blur-md shadow-lg space-y-2'
+                  : 'max-w-[95%] rounded-2xl border border-emerald-500/20 bg-black/40 p-4 text-stone-200 backdrop-blur-[3px] shadow-lg space-y-2'
                 }
               >
                 {/* Badge phân loại lập luận cho bot */}
@@ -340,7 +340,7 @@ export default function ChatbotPage() {
                           key={sIdx}
                           type="button"
                           onClick={() => sendMessage(sug)}
-                          className="text-left text-xs bg-emerald-950/40 hover:bg-emerald-900/60 border border-emerald-500/30 hover:border-emerald-400/50 text-emerald-200 px-3 py-1 rounded-full transition"
+                          className="text-left text-xs bg-white/5 hover:bg-white/15 border border-emerald-500/30 hover:border-emerald-400/50 text-emerald-200 px-3 py-1 rounded-full transition backdrop-blur-[3px]"
                         >
                           {sug}
                         </button>
@@ -352,7 +352,7 @@ export default function ChatbotPage() {
             ))}
 
             {isLoading && (
-              <div className="max-w-[80%] rounded-2xl border border-emerald-500/20 bg-[#0e1610]/90 p-4 text-stone-200 backdrop-blur-md flex items-center gap-3">
+              <div className="max-w-[80%] rounded-2xl border border-emerald-500/20 bg-black/40 p-4 text-stone-200 backdrop-blur-[3px] flex items-center gap-3">
                 <div className="flex gap-1.5">
                   <div className="h-2 w-2 rounded-full bg-emerald-400 animate-bounce" style={{ animationDelay: '0ms' }} />
                   <div className="h-2 w-2 rounded-full bg-emerald-400 animate-bounce" style={{ animationDelay: '150ms' }} />
@@ -374,7 +374,7 @@ export default function ChatbotPage() {
                   key={question}
                   type="button"
                   onClick={() => sendMessage(question)}
-                  className="rounded-full border border-emerald-500/25 bg-emerald-950/40 px-3.5 py-1 text-xs font-medium text-emerald-200 backdrop-blur-md transition-all hover:border-emerald-400/60 hover:bg-emerald-600 hover:text-white hover:shadow-[0_0_12px_rgba(16,185,129,0.35)]"
+                  className="rounded-full border border-emerald-500/25 bg-white/5 px-3.5 py-1 text-xs font-medium text-emerald-200 backdrop-blur-[3px] transition-all hover:border-emerald-400/60 hover:bg-emerald-600 hover:text-white hover:shadow-[0_0_12px_rgba(16,185,129,0.35)]"
                 >
                   {question}
                 </button>
@@ -388,7 +388,7 @@ export default function ChatbotPage() {
               value={input}
               onChange={(event) => setInput(event.target.value)}
               placeholder="Hỏi về Ngô Đình Cẩn, chuồng cọp, ngày phá hầm 1963, lộ trình..."
-              className="flex-1 rounded-full border border-emerald-500/25 bg-black/60 px-5 py-3 text-sm text-white placeholder-stone-400 outline-none backdrop-blur-md transition focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400/40"
+              className="flex-1 rounded-full border border-emerald-500/25 bg-black/30 px-5 py-3 text-sm text-white placeholder-stone-400 outline-none backdrop-blur-[3px] transition focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400/40"
             />
             <button
               type="submit"
@@ -402,34 +402,34 @@ export default function ChatbotPage() {
 
         {/* Right Panel: Thông tin hệ thống & FAQ */}
         <div className="space-y-4">
-          <div className="rounded-[2.5rem] border border-emerald-500/20 bg-[#0c130e]/80 p-6 backdrop-blur-2xl shadow-2xl">
+          <div className="rounded-[2.5rem] border border-emerald-500/20 bg-gradient-to-b from-transparent via-black/[0.06] to-black/[0.12] p-6 backdrop-blur-[3px] drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)] shadow-2xl">
             <h2 className="text-lg font-bold text-white font-display mb-3 flex items-center gap-2">
               <span className="text-emerald-400">⚙️</span> Kiến Trúc Multi-Agent
             </h2>
             <div className="space-y-2.5 text-xs text-stone-300">
-              <div className="p-2.5 rounded-xl border border-emerald-500/20 bg-emerald-950/30">
+              <div className="p-2.5 rounded-xl border border-emerald-500/20 bg-black/[0.05] backdrop-blur-[3px]">
                 <span className="font-semibold text-emerald-300">1. Orchestrator</span>: Phân tích intent (8 nhóm) & nhận diện thực thể
               </div>
-              <div className="p-2.5 rounded-xl border border-emerald-500/20 bg-emerald-950/30">
+              <div className="p-2.5 rounded-xl border border-emerald-500/20 bg-black/[0.05] backdrop-blur-[3px]">
                 <span className="font-semibold text-emerald-300">2. RetrieverAgent</span>: Tìm kiếm 3 tầng (TF-IDF + Entity + Graph)
               </div>
-              <div className="p-2.5 rounded-xl border border-emerald-500/20 bg-emerald-950/30">
+              <div className="p-2.5 rounded-xl border border-emerald-500/20 bg-black/[0.05] backdrop-blur-[3px]">
                 <span className="font-semibold text-emerald-300">3. Reasoner</span>: Suy luận logic (Nhân quả, So sánh, Dòng thời gian)
               </div>
-              <div className="p-2.5 rounded-xl border border-emerald-500/20 bg-emerald-950/30">
+              <div className="p-2.5 rounded-xl border border-emerald-500/20 bg-black/[0.05] backdrop-blur-[3px]">
                 <span className="font-semibold text-emerald-300">4. Formatter</span>: Định dạng chuẩn & kiểm chứng nguồn tư liệu
               </div>
             </div>
           </div>
 
-          <div className="rounded-[2.5rem] border border-white/10 bg-black/50 p-6 backdrop-blur-2xl shadow-2xl">
+          <div className="rounded-[2.5rem] border border-emerald-500/20 bg-gradient-to-b from-transparent via-black/[0.06] to-black/[0.12] p-6 backdrop-blur-[3px] drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)] shadow-2xl">
             <h2 className="text-lg font-bold text-[#fef08a] font-display mb-3">Câu Hỏi Thường Gặp</h2>
             <div className="space-y-3">
               {faqItems.map((item) => (
                 <div 
                   key={item.question} 
                   onClick={() => sendMessage(item.question)}
-                  className="rounded-2xl border border-white/10 bg-white/5 p-3.5 backdrop-blur-md hover:border-emerald-500/40 hover:bg-emerald-950/20 cursor-pointer transition group"
+                  className="rounded-2xl border border-emerald-500/20 bg-black/[0.05] p-3.5 backdrop-blur-[3px] hover:border-emerald-500/40 hover:bg-black/[0.15] cursor-pointer transition group"
                 >
                   <div className="font-bold text-white text-xs group-hover:text-emerald-300 transition flex items-center justify-between">
                     <span>{item.question}</span>

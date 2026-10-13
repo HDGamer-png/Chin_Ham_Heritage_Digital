@@ -16,7 +16,7 @@ export function PrintableWorksheet({ onBack }: PrintableWorksheetProps) {
   return (
     <div className="w-full max-w-4xl mx-auto space-y-6">
       {/* Screen action header (Hidden on print) */}
-      <div className="no-print flex flex-wrap items-center justify-between gap-4 p-4 rounded-2xl border border-amber-500/30 bg-stone-900/90 backdrop-blur-xl">
+      <div className="no-print flex flex-wrap items-center justify-between gap-4 p-4 rounded-2xl border border-emerald-500/20 bg-gradient-to-b from-transparent via-black/[0.06] to-black/[0.12] backdrop-blur-[3px] drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)] shadow-xl">
         <div className="flex items-center gap-3">
           {onBack && (
             <button

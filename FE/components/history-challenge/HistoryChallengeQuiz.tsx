@@ -325,9 +325,9 @@ export function HistoryChallengeQuiz() {
 
       <div className="max-w-5xl mx-auto space-y-8">
         {/* Navigation Tabs Header */}
-        <div className="flex flex-wrap items-center justify-between gap-4 p-4 rounded-2xl border border-white/10 bg-black/60 backdrop-blur-xl shadow-xl">
+        <div className="flex flex-wrap items-center justify-between gap-4 p-4 rounded-2xl border border-emerald-500/20 bg-gradient-to-b from-transparent via-black/[0.06] to-black/[0.12] backdrop-blur-[3px] drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)] shadow-xl">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-amber-950 border border-amber-500/40 flex items-center justify-center text-amber-300 font-bold shadow-md">
+            <div className="w-10 h-10 rounded-xl bg-white/5 border border-amber-500/40 flex items-center justify-center text-amber-300 font-bold shadow-md backdrop-blur-[3px]">
               <GraduationCap size={22} />
             </div>
             <div>
@@ -341,7 +341,7 @@ export function HistoryChallengeQuiz() {
           </div>
 
           {/* Tab Switcher Buttons */}
-          <div className="flex items-center gap-1.5 p-1 rounded-xl bg-stone-900 border border-white/10 text-xs sm:text-sm font-semibold">
+          <div className="flex items-center gap-1.5 p-1 rounded-xl bg-black/30 border border-white/10 text-xs sm:text-sm font-semibold backdrop-blur-[3px]">
             <button
               onClick={() => {
                 setActiveTab('quiz');
@@ -405,7 +405,7 @@ export function HistoryChallengeQuiz() {
             {quizMode === 'board' && (
               <div className="space-y-6 animate-fadeIn">
                 {/* Overall Progression HUD */}
-                <div className="p-6 rounded-3xl border border-amber-500/30 bg-gradient-to-br from-stone-900/90 via-stone-900/60 to-black/80 backdrop-blur-2xl shadow-2xl space-y-4">
+                <div className="p-6 rounded-3xl border border-emerald-500/20 bg-gradient-to-b from-transparent via-black/[0.06] to-black/[0.12] backdrop-blur-[3px] drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)] shadow-2xl space-y-4">
                   <div className="flex flex-wrap items-center justify-between gap-4">
                     <div>
                       <div className="text-xs uppercase tracking-wider text-amber-400 font-bold flex items-center gap-2">
@@ -485,10 +485,10 @@ export function HistoryChallengeQuiz() {
                     return (
                       <div
                         key={qSet.id}
-                        className={`p-5 rounded-3xl border transition-all duration-300 flex flex-col justify-between ${
+                        className={`p-5 rounded-3xl border transition-all duration-300 flex flex-col justify-between backdrop-blur-[3px] drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)] ${
                           isUnlocked
-                            ? 'border-white/10 bg-stone-900/85 hover:border-amber-500/50 hover:bg-stone-850 shadow-xl'
-                            : 'border-white/5 bg-black/40 opacity-55'
+                            ? 'border-emerald-500/20 bg-gradient-to-b from-transparent via-black/[0.06] to-black/[0.12] hover:border-amber-500/50 hover:bg-black/[0.15] shadow-xl'
+                            : 'border-white/5 bg-black/[0.04] opacity-55'
                         }`}
                       >
                         <div className="space-y-3">
@@ -596,7 +596,7 @@ export function HistoryChallengeQuiz() {
 
             {/* MODE 2: ĐANG THI ĐẤU (Playing View) */}
             {quizMode === 'playing' && currentQ && (
-              <div className="rounded-3xl border border-white/10 bg-stone-900/85 p-6 sm:p-10 shadow-2xl backdrop-blur-2xl space-y-6 animate-fadeIn">
+              <div className="rounded-3xl border border-emerald-500/20 bg-gradient-to-b from-transparent via-black/[0.06] to-black/[0.12] p-6 sm:p-10 shadow-2xl backdrop-blur-[3px] drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)] space-y-6 animate-fadeIn">
                 {/* HUD Subbar */}
                 <div className="flex flex-wrap items-center justify-between gap-4 border-b border-white/10 pb-5">
                   <div className="flex items-center gap-3">
@@ -776,7 +776,7 @@ export function HistoryChallengeQuiz() {
 
             {/* MODE 3: KẾT QUẢ BỘ ĐỀ (Result & Unlock View) */}
             {quizMode === 'result' && (
-              <div className="rounded-3xl border border-amber-500/30 bg-stone-900/90 p-8 sm:p-12 shadow-2xl backdrop-blur-2xl text-center space-y-6 animate-fadeIn">
+              <div className="rounded-3xl border border-emerald-500/20 bg-gradient-to-b from-transparent via-black/[0.06] to-black/[0.12] p-8 sm:p-12 shadow-2xl backdrop-blur-[3px] drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)] text-center space-y-6 animate-fadeIn">
                 <div
                   className={`w-20 h-20 mx-auto rounded-3xl border-2 flex items-center justify-center shadow-xl ${
                     roundCorrectCount >= 9
@@ -805,7 +805,7 @@ export function HistoryChallengeQuiz() {
 
                 {/* Next Set Difficulty Preview & Warning if passed */}
                 {roundCorrectCount >= 9 && activeSetId < 10 && QUIZ_SETS[activeSetId] && (
-                  <div className="p-4 rounded-2xl bg-gradient-to-r from-amber-500/10 via-emerald-500/10 to-stone-900 border border-emerald-500/30 max-w-lg mx-auto text-xs text-stone-200 space-y-1.5 shadow-lg">
+                  <div className="p-4 rounded-2xl bg-gradient-to-r from-amber-500/10 via-emerald-500/10 to-stone-900 border border-emerald-500/30 max-w-lg mx-auto text-xs text-stone-200 space-y-1.5 shadow-lg backdrop-blur-[3px]">
                     <div className="font-bold text-emerald-400 flex items-center justify-center gap-1.5 text-sm">
                       <Sparkles size={16} /> Cảnh báo tăng cấp độ khó ở Bộ {activeSetId + 1}:
                     </div>
@@ -824,19 +824,19 @@ export function HistoryChallengeQuiz() {
 
                 {/* Score badge summary */}
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 max-w-md mx-auto">
-                  <div className="p-3.5 rounded-2xl bg-black/50 border border-white/10">
+                  <div className="p-3.5 rounded-2xl bg-black/[0.05] border border-emerald-500/20 backdrop-blur-[3px]">
                     <div className="text-xs text-stone-400">Kết quả 10 câu</div>
                     <div className="font-mono text-2xl font-bold text-emerald-400 mt-1">
                       {roundCorrectCount} / 10
                     </div>
                   </div>
-                  <div className="p-3.5 rounded-2xl bg-black/50 border border-white/10">
+                  <div className="p-3.5 rounded-2xl bg-black/[0.05] border border-emerald-500/20 backdrop-blur-[3px]">
                     <div className="text-xs text-stone-400">Điểm số tính giờ</div>
                     <div className="font-mono text-2xl font-bold text-amber-300 mt-1">
                       {roundScore}
                     </div>
                   </div>
-                  <div className="p-3.5 rounded-2xl bg-black/50 border border-white/10 col-span-2 sm:col-span-1">
+                  <div className="p-3.5 rounded-2xl bg-black/[0.05] border border-emerald-500/20 col-span-2 sm:col-span-1 backdrop-blur-[3px]">
                     <div className="text-xs text-stone-400">Tổng điểm 10 bộ</div>
                     <div className="font-mono text-2xl font-bold text-orange-400 mt-1">
                       {totalCorrectQuestions} / 100
@@ -894,8 +894,8 @@ export function HistoryChallengeQuiz() {
         {/* TAB 2: BẢNG VÀNG TRƯỜNG HỌC */}
         {/* ================================================================= */}
         {activeTab === 'leaderboard' && (
-          <div className="rounded-3xl border border-white/10 bg-stone-900/85 p-6 sm:p-10 shadow-2xl backdrop-blur-2xl space-y-6 animate-fadeIn">
-            <div className="flex flex-wrap items-center justify-between gap-4 border-b border-white/10 pb-5">
+          <div className="rounded-3xl border border-emerald-500/20 bg-gradient-to-b from-transparent via-black/[0.06] to-black/[0.12] p-6 sm:p-10 shadow-2xl backdrop-blur-[3px] drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)] space-y-6 animate-fadeIn">
+            <div className="flex flex-wrap items-center justify-between gap-4 border-b border-emerald-500/15 pb-5">
               <div>
                 <div className="text-xs uppercase tracking-widest text-amber-400 font-bold">
                   Phong Trào Tìm Hiểu Lịch Sử
@@ -916,7 +916,7 @@ export function HistoryChallengeQuiz() {
             </div>
 
             {/* Contribute points card */}
-            <div className="max-w-md mx-auto p-4 rounded-2xl bg-black/60 border border-white/10 space-y-3">
+            <div className="max-w-md mx-auto p-4 rounded-2xl bg-black/[0.05] border border-emerald-500/20 space-y-3 backdrop-blur-[3px]">
               <div className="text-xs uppercase tracking-wider text-amber-400 font-bold flex items-center gap-2">
                 <School size={15} /> Đóng góp điểm số ({totalCorrectQuestions}/100) cho trường của bạn:
               </div>
@@ -1004,7 +1004,7 @@ export function HistoryChallengeQuiz() {
             {totalCorrectQuestions >= 91 ? (
               <QuizCertificate totalScore={totalCorrectQuestions} completedAt={new Date()} />
             ) : (
-              <div className="max-w-2xl mx-auto p-8 rounded-3xl border border-amber-500/30 bg-gradient-to-br from-stone-900/95 via-stone-900/80 to-black/90 backdrop-blur-2xl text-center space-y-6 shadow-2xl">
+              <div className="max-w-2xl mx-auto p-8 rounded-3xl border border-emerald-500/20 bg-gradient-to-b from-transparent via-black/[0.06] to-black/[0.12] backdrop-blur-[3px] drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)] text-center space-y-6 shadow-2xl">
                 <div className="w-20 h-20 mx-auto rounded-3xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400">
                   <Lock size={36} />
                 </div>
@@ -1022,7 +1022,7 @@ export function HistoryChallengeQuiz() {
                 </div>
 
                 {/* Progress Box */}
-                <div className="p-4 rounded-2xl bg-black/60 border border-white/10 max-w-md mx-auto space-y-3">
+                <div className="p-4 rounded-2xl bg-black/[0.05] border border-emerald-500/20 max-w-md mx-auto space-y-3 backdrop-blur-[3px]">
                   <div className="flex justify-between items-center text-xs">
                     <span className="text-stone-400">Điểm số tích lũy:</span>
                     <span className="font-mono text-base font-bold text-amber-300">

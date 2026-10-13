@@ -331,9 +331,9 @@ export function SiteDetailInteractive({ site }: { site: SiteData }) {
       {/* 🌟 MAIN INTERACTIVE 3D & REAL-WORLD VIEWPORT (TRỌNG TÂM TRỰC QUAN HÓA) */}
       {/* ========================================================================= */}
       <div className="container-shell relative z-10 mt-6">
-        <div className="relative overflow-hidden rounded-[2.5rem] border border-white/15 bg-black/70 backdrop-blur-2xl shadow-2xl">
+        <div className="relative overflow-hidden rounded-[2.5rem] border border-emerald-500/20 bg-gradient-to-b from-transparent via-black/[0.06] to-black/[0.12] backdrop-blur-[3px] drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)] shadow-2xl">
           {/* Viewport Control Bar */}
-          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 bg-black/60 px-6 py-4 backdrop-blur-xl">
+          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-emerald-500/20 bg-black/30 px-6 py-4 backdrop-blur-[3px]">
             <div className="flex flex-wrap items-center gap-2">
               <span className="text-xs uppercase tracking-[0.16em] text-stone-400 font-semibold mr-2 hidden sm:inline">
                 Chế độ góc nhìn:
@@ -724,7 +724,7 @@ export function SiteDetailInteractive({ site }: { site: SiteData }) {
                   desc: item.desc,
                 })
               }
-              className="group relative cursor-pointer overflow-hidden rounded-3xl border border-white/10 bg-black/50 p-4 backdrop-blur-xl transition duration-300 hover:-translate-y-1.5 hover:border-[#38bdf8]/60 hover:bg-black/75 shadow-xl"
+              className="group relative cursor-pointer overflow-hidden rounded-3xl border border-emerald-500/20 bg-gradient-to-b from-transparent via-black/[0.06] to-black/[0.12] p-4 backdrop-blur-[3px] drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)] transition duration-300 hover:-translate-y-1.5 hover:border-[#38bdf8]/60 hover:bg-black/[0.15] shadow-xl"
             >
               <div className="relative h-44 w-full overflow-hidden rounded-2xl bg-black/60">
                 <img
@@ -759,7 +759,7 @@ export function SiteDetailInteractive({ site }: { site: SiteData }) {
       {/* 🗺️ BẢN ĐỒ RADAR KHÔNG GIAN 3D (KẾT NỐI TOÀN BỘ 9 CĂN HẦM) */}
       {/* ========================================================================= */}
       <div className="container-shell relative z-10 mt-16">
-        <div className="rounded-[2.5rem] border border-white/15 bg-black/60 p-8 md:p-12 backdrop-blur-2xl shadow-2xl">
+        <div className="rounded-[2.5rem] border border-emerald-500/20 bg-gradient-to-b from-transparent via-black/[0.06] to-black/[0.12] p-8 md:p-12 backdrop-blur-[3px] drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)] shadow-2xl">
           <div className="grid gap-8 lg:grid-cols-[1fr_1fr] items-center">
             <div>
               <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[#38bdf8] mb-2">
