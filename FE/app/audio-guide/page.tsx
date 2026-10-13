@@ -223,26 +223,30 @@ export default function AudioGuidePage() {
           })}
         </div>
 
-        {/* Bảng điều khiển Player chi tiết bên phải */}
-        <aside className="rounded-[2.5rem] border border-emerald-500/20 bg-gradient-to-b from-transparent via-black/[0.06] to-black/[0.12] p-7 backdrop-blur-[3px] drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)] shadow-2xl h-fit">
-          <div className="relative mb-6 overflow-hidden rounded-2xl border border-emerald-500/20 shadow-inner">
-            <img
-              src={selectedTrack?.imageUrl || "/khong_gian_tong_quan.jpg"}
-              alt={selectedTrack?.title || "Không gian Chín Hầm"}
-              className="h-36 w-full object-cover transition-all duration-500"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent p-5 flex flex-col justify-end">
-              <div className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-400 flex items-center gap-1.5">
-                <Headphones size={13} />
-                <span>{selectedTrack?.category || 'Audio Guide'}</span>
+        {/* Bảng điều khiển Player chi tiết bên phải (Đồng bộ chiều cao ngang bằng cạnh dưới ô cuối cùng) */}
+        <aside className="rounded-[2.5rem] border border-emerald-500/20 bg-gradient-to-b from-transparent via-black/[0.06] to-black/[0.12] p-7 backdrop-blur-[3px] drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)] shadow-2xl h-full flex flex-col justify-between">
+          {/* Cụm thông tin trên: Ảnh bìa + Thể loại + Tiêu đề + Mô tả */}
+          <div className="space-y-4">
+            <div className="relative overflow-hidden rounded-2xl border border-emerald-500/20 shadow-inner">
+              <img
+                src={selectedTrack?.imageUrl || "/khong_gian_tong_quan.jpg"}
+                alt={selectedTrack?.title || "Không gian Chín Hầm"}
+                className="h-44 w-full object-cover transition-all duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent p-5 flex flex-col justify-end">
+                <div className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-400 flex items-center gap-1.5">
+                  <Headphones size={13} />
+                  <span>{selectedTrack?.category || 'Audio Guide'}</span>
+                </div>
+                <h2 className="mt-1 text-2xl font-bold text-[#fef08a] font-display">{selectedTrack?.title || 'Chưa chọn track'}</h2>
               </div>
-              <h2 className="mt-1 text-2xl font-bold text-[#fef08a] font-display">{selectedTrack?.title || 'Chưa chọn track'}</h2>
             </div>
+
+            <p className="text-sm leading-relaxed text-stone-300 min-h-[3rem] line-clamp-3">{selectedTrack?.description}</p>
           </div>
 
-          <div className="space-y-5 text-stone-200">
-            <p className="text-sm leading-relaxed text-stone-300">{selectedTrack?.description}</p>
-            
+          {/* Cụm điều khiển dưới: Sleek Compact Pill Player + Gợi ý tai nghe */}
+          <div className="space-y-4 pt-4 mt-auto">
             {/* Thanh điều khiển nổi Sleek Compact Pill (Awwwards Style) */}
             <div className="relative overflow-hidden rounded-2xl border border-emerald-500/25 bg-gradient-to-b from-white/[0.04] via-black/[0.12] to-black/[0.18] p-3.5 backdrop-blur-[2px] shadow-lg shadow-black/20 ring-1 ring-white/[0.08] space-y-2.5">
               {/* Vệt sáng ambient gradient tinh tế ở viền trên */}
