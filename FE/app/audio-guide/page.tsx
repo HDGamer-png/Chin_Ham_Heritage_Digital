@@ -10,6 +10,7 @@ type AudioTrack = {
   category: string;
   description: string;
   fileUrl?: string;
+  imageUrl?: string;
 };
 
 export default function AudioGuidePage() {
@@ -226,9 +227,9 @@ export default function AudioGuidePage() {
         <aside className="rounded-[2.5rem] border border-emerald-500/20 bg-gradient-to-b from-transparent via-black/[0.06] to-black/[0.12] p-7 backdrop-blur-[3px] drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)] shadow-2xl h-fit">
           <div className="relative mb-6 overflow-hidden rounded-2xl border border-emerald-500/20 shadow-inner">
             <img
-              src="/khong_gian_tong_quan.jpg"
-              alt="Không gian Chín Hầm"
-              className="h-36 w-full object-cover"
+              src={selectedTrack?.imageUrl || "/khong_gian_tong_quan.jpg"}
+              alt={selectedTrack?.title || "Không gian Chín Hầm"}
+              className="h-36 w-full object-cover transition-all duration-500"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent p-5 flex flex-col justify-end">
               <div className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-400 flex items-center gap-1.5">

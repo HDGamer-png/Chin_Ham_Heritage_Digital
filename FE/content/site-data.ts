@@ -96,14 +96,24 @@ export const guideItems = [
     category: 'Khởi đầu',
   },
   {
+    title: 'Giới thiệu Ngô Đình Cẩn',
+    duration: '04:44',
+    category: 'Nhân vật lịch sử',
+  },
+  {
     title: 'Nhà chứng tích Ngô Đình Cẩn',
     duration: '02:33',
     category: 'Không gian',
   },
   {
     title: 'Hầm 8: Bản lĩnh kiên trung nơi đáy ngục',
-    duration: '04:45',
+    duration: '03:06',
     category: 'Dấu vết',
+  },
+  {
+    title: 'Kết thúc hành trình khám phá',
+    duration: '01:25',
+    category: 'Tổng kết',
   },
 ];
 

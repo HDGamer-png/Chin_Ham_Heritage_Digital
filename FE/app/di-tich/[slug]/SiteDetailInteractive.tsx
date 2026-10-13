@@ -159,17 +159,27 @@ export function SiteDetailInteractive({ site }: { site: SiteData }) {
   // Audio Player state
   const [isPlaying, setIsPlaying] = useState(false);
   const [audioProgress, setAudioProgress] = useState(0);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  // Audio simulation timer
-  useEffect(() => {
-    let interval: any;
+  const toggleAudio = () => {
+    if (!audioRef.current) return;
     if (isPlaying) {
-      interval = setInterval(() => {
-        setAudioProgress((prev) => (prev >= 100 ? 0 : prev + 0.3));
-      }, 300);
+      audioRef.current.pause();
+      setIsPlaying(false);
+    } else {
+      audioRef.current.play().then(() => setIsPlaying(true)).catch((e) => {
+        console.warn('Audio play error:', e);
+      });
     }
-    return () => clearInterval(interval);
-  }, [isPlaying]);
+  };
+
+  const handleAudioTimeUpdate = () => {
+    if (!audioRef.current) return;
+    const cur = audioRef.current.currentTime;
+    const dur = audioRef.current.duration || 1;
+    setAudioProgress((cur / dur) * 100);
+  };
+
 
   // Living Canvas particle background
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -605,9 +615,16 @@ export function SiteDetailInteractive({ site }: { site: SiteData }) {
 
           {/* Integrated Interactive Audio Guide Bar */}
           <div className="border-t border-white/10 bg-gradient-to-r from-emerald-950/40 via-black/80 to-blue-950/40 p-5 md:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
+            <audio
+              ref={audioRef}
+              src="/audio/gioi-thieu-ngo-dinh-can.mp3"
+              onTimeUpdate={handleAudioTimeUpdate}
+              onEnded={() => setIsPlaying(false)}
+              preload="metadata"
+            />
             <div className="flex items-center gap-4 w-full md:w-auto">
               <button
-                onClick={() => setIsPlaying(!isPlaying)}
+                onClick={toggleAudio}
                 className={`flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-2xl shadow-xl transition transform active:scale-95 ${
                   isPlaying
                     ? 'bg-[#e0231c] text-white shadow-[#e0231c]/40'
@@ -623,8 +640,8 @@ export function SiteDetailInteractive({ site }: { site: SiteData }) {
                   <span className="text-xs font-bold text-[#fef08a] uppercase tracking-wider">
                     Audio Thuyết Minh Trực Quan
                   </span>
-                  <span className="rounded bg-white/10 px-2 py-0.5 text-[10px] text-stone-300">
-                    05:15
+                  <span className="rounded bg-white/10 px-2 py-0.5 text-[10px] text-stone-300 font-mono">
+                    04:44
                   </span>
                 </div>
                 <div className="text-sm font-semibold text-white">
