@@ -2247,18 +2247,18 @@ body[data-layout-gallery="b"] .card:not(:first-child) .card-fr{ min-height:200px
 body[data-layout-curriculum="b"] .cur-head{ grid-template-columns:minmax(0,.72fr) minmax(0,1.2fr); align-items:start; }
 body[data-layout-curriculum="b"] .cur{
   display:grid; grid-template-columns:repeat(6,1fr); gap:1px;
-  background:rgba(223, 231, 224, 0.08);
-  border:1px solid rgba(223, 231, 224, 0.14);
+  background:rgba(223, 231, 224, 0.04);
+  border:1px solid rgba(223, 231, 224, 0.10);
   border-radius:20px;
   overflow:hidden;
-  box-shadow:0 24px 60px rgba(0,0,0,0.65), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  box-shadow:0 16px 40px rgba(0,0,0,0.40), inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 body[data-layout-curriculum="b"] .les{
   display:flex; flex-direction:column; align-items:flex-start; min-height:240px;
   padding:26px 24px; gap:12px; border:0;
-  background:linear-gradient(160deg, rgba(8, 12, 16, 0.35) 0%, rgba(4, 7, 10, 0.55) 100%);
-  backdrop-filter:blur(10px) saturate(125%);
-  -webkit-backdrop-filter:blur(10px) saturate(125%);
+  background:linear-gradient(160deg, rgba(8, 12, 16, 0.18) 0%, rgba(4, 7, 10, 0.32) 100%);
+  backdrop-filter:blur(6px) saturate(120%);
+  -webkit-backdrop-filter:blur(6px) saturate(120%);
   overflow:hidden;
   transition:background .35s var(--ease-out), padding .35s var(--ease-out), box-shadow .35s;
 }
@@ -2270,8 +2270,8 @@ body[data-layout-curriculum="b"] .les::before{
 }
 body[data-layout-curriculum="b"] .les:hover{
   padding-left:30px;
-  background:linear-gradient(160deg, rgba(16, 24, 32, 0.48) 0%, rgba(8, 13, 18, 0.68) 100%);
-  box-shadow:inset 0 1px 0 rgba(255, 215, 0, 0.22), 0 10px 28px rgba(0,0,0,0.45);
+  background:linear-gradient(160deg, rgba(16, 24, 32, 0.30) 0%, rgba(8, 13, 18, 0.45) 100%);
+  box-shadow:inset 0 1px 0 rgba(255, 215, 0, 0.22), 0 10px 28px rgba(0,0,0,0.35);
 }
 body[data-layout-curriculum="b"] .les h3{
   font-size:clamp(19px,1.7vw,26px); font-weight:600; color:#ffffff;
