@@ -103,7 +103,7 @@ export function SiteHeader() {
 
             {/* Dropdown Floating Panel */}
             {dropdownOpen && (
-              <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-80 rounded-2xl border border-emerald-500/30 bg-[#0a100c]/95 p-3 shadow-2xl backdrop-blur-2xl animate-fadeIn z-50">
+              <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-80 rounded-2xl border border-emerald-500/30 bg-[#2d2e29]/85 p-3 shadow-2xl backdrop-blur-xl animate-fadeIn z-50">
                 <div className="px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-emerald-400/90 border-b border-emerald-500/20 mb-1 flex items-center justify-between">
                   <span>3 Phân Khu Tương Tác</span>
                   <Link
@@ -122,16 +122,16 @@ export function SiteHeader() {
                         key={item.href}
                         href={item.href}
                         onClick={() => setDropdownOpen(false)}
-                        className="flex items-start gap-3 p-2.5 rounded-xl transition hover:bg-emerald-950/50 hover:border hover:border-emerald-500/20 group"
+                        className="flex items-start gap-3 p-2.5 rounded-xl transition hover:bg-white/[0.08] hover:border hover:border-emerald-500/20 group"
                       >
-                        <div className="w-8 h-8 rounded-lg bg-black/60 border border-emerald-500/20 flex items-center justify-center text-emerald-400 group-hover:scale-110 group-hover:border-emerald-400 transition shrink-0 mt-0.5">
+                        <div className="w-8 h-8 rounded-lg bg-[#2d2e29]/60 border border-emerald-500/20 flex items-center justify-center text-emerald-400 group-hover:scale-110 group-hover:border-emerald-400 transition shrink-0 mt-0.5">
                           <Icon size={16} />
                         </div>
                         <div className="flex-1 min-w-0">
                           <div className="text-xs font-bold text-stone-100 group-hover:text-emerald-300 transition truncate">
                             {item.label}
                           </div>
-                          <div className="text-[11px] text-stone-400 leading-snug truncate">
+                          <div className="text-[11px] text-stone-300 leading-snug truncate">
                             {item.desc}
                           </div>
                         </div>
