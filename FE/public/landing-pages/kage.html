@@ -2793,14 +2793,14 @@ body[data-layout-footer="b"] .foot-base span:last-child{ text-align:right; }
   <div class="hero-foot">
     <div class="hero-cue" data-rv="fade"><span>Cuộn chuột để bắt đầu hành trình</span><span class="track"><i></i></span></div>
     <div class="chapters" id="chips">
-      <div class="chip" data-chip="0" data-rv="up" data-cursor><span class="num">01</span>
-        <span class="tx"><b>Khởi Dựng 1941</b><p>Thực dân Pháp xây 9 hầm kho đạn kiên cố sâu trong đồi núi.</p></span></div>
-      <div class="chip" data-chip="1" data-rv="up" data-cursor><span class="num">02</span>
-        <span class="tx"><b>Địa Ngục Trần Gian</b><p>Bạo chúa Ngô Đình Cẩn lập ngục tối đày ải tù chính trị.</p></span></div>
-      <div class="chip" data-chip="2" data-rv="up" data-cursor><span class="num">03</span>
-        <span class="tx"><b>Phá Hầm 1963</b><p>Ngày 02/11/1963 nhân dân Huế đập tan xiềng xích, cứu tù nhân.</p></span></div>
-      <div class="chip" data-chip="3" data-rv="up" data-cursor><span class="num">04</span>
-        <span class="tx"><b>Di Sản Số Hóa</b><p>Không gian 3D tương tác kết nối lịch sử hào hùng với thế hệ trẻ.</p></span></div>
+      <a href="#gate" class="chip" data-chip="0" data-target="#gate" data-rv="up" data-cursor role="button" aria-label="Chuyển đến phần 01 Khởi Dựng 1941"><span class="num">01</span>
+        <span class="tx"><b>Khởi Dựng 1941</b><p>Thực dân Pháp xây 9 hầm kho đạn kiên cố sâu trong đồi núi.</p></span></a>
+      <a href="#pathways" class="chip" data-chip="1" data-target="#pathways" data-rv="up" data-cursor role="button" aria-label="Chuyển đến phần 02 Địa Ngục Trần Gian"><span class="num">02</span>
+        <span class="tx"><b>Địa Ngục Trần Gian</b><p>Bạo chúa Ngô Đình Cẩn lập ngục tối đày ải tù chính trị.</p></span></a>
+      <a href="#lessons" class="chip" data-chip="2" data-target="#lessons" data-rv="up" data-cursor role="button" aria-label="Chuyển đến phần 03 Phá Hầm 1963"><span class="num">03</span>
+        <span class="tx"><b>Phá Hầm 1963</b><p>Ngày 02/11/1963 nhân dân Huế đập tan xiềng xích, cứu tù nhân.</p></span></a>
+      <a href="#eternity" class="chip" data-chip="3" data-target="#eternity" data-rv="up" data-cursor role="button" aria-label="Chuyển đến phần 04 Di Sản Số Hóa"><span class="num">04</span>
+        <span class="tx"><b>Di Sản Số Hóa</b><p>Không gian 3D tương tác kết nối lịch sử hào hùng với thế hệ trẻ.</p></span></a>
     </div>
   </div>
 
@@ -7655,9 +7655,21 @@ function wireNav() {
 
 function wireFocus() {
   const set = i => { RIG.focus = i; };
-  $$('[data-chip]').forEach(el => {
+  const chipTargets = ['#gate', '#pathways', '#lessons', '#eternity'];
+  $$('[data-chip]').forEach((el, idx) => {
     el.addEventListener('mouseenter', () => { set(+el.dataset.chip); $$('[data-chip]').forEach(o => o.classList.toggle('on', o === el)); });
     el.addEventListener('mouseleave', () => { set(-1); el.classList.remove('on'); });
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetSelector = el.getAttribute('data-target') || el.getAttribute('href') || chipTargets[idx] || chipTargets[+el.dataset.chip];
+      if (targetSelector) {
+        const targetEl = document.querySelector(targetSelector);
+        if (targetEl) {
+          const topPos = targetEl.getBoundingClientRect().top + window.pageYOffset - 40;
+          window.scrollTo({ top: Math.max(0, topPos), behavior: REDUCE ? 'auto' : 'smooth' });
+        }
+      }
+    });
   });
   $$('[data-les]').forEach(el => {
     el.addEventListener('mouseenter', () => set(+el.dataset.les % 4));
