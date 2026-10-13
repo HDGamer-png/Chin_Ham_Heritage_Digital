@@ -1764,119 +1764,92 @@ h1,h2,h3{ font-weight:400; margin:0; letter-spacing:-.005em; }
   gap: 16px;
 }
 .why-stat-box {
-  padding: 18px 16px;
-  border-radius: 16px;
+  padding: 18px 18px 20px;
+  border-radius: 20px;
   background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   text-align: center;
-  backdrop-filter: blur(12px);
-  transition: transform .3s, border-color .3s;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  text-decoration: none !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: transform .35s var(--ease-out), border-color .35s, box-shadow .35s, background .35s;
+  cursor: pointer !important;
 }
-.why-stat-box:hover {
-  transform: translateY(-2px);
-  border-color: rgba(255, 215, 0, 0.5);
+.why-stat-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 8px;
+  padding: 0 2px;
+}
+.why-stat-badge {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 3px 8px;
+  border-radius: 999px;
+  line-height: 1.2;
+}
+.why-stat-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #c9d5cf;
+  transition: transform .3s ease, color .3s ease;
+}
+.why-stat-box:hover .why-stat-arrow {
+  transform: translate(2px, -2px);
+  color: #fff;
 }
 .why-stat-val {
-  font-size: 26px;
+  font-size: 28px;
   font-weight: 900;
   color: #ffd700;
-  line-height: 1;
-  margin-bottom: 6px;
+  line-height: 1.1;
+  margin-bottom: 4px;
   text-shadow: 0 0 16px rgba(255, 215, 0, 0.4);
+  transition: transform .3s ease;
+}
+.why-stat-box:hover .why-stat-val {
+  transform: scale(1.05);
 }
 .why-stat-lbl {
-  font-size: 11px;
+  font-size: 11.5px;
   color: #d1dad4;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
   text-shadow: 0 1px 6px rgba(0, 0, 0, 0.9);
 }
 
-/* 4 CTA Buttons in 1 Row below the horizontal card */
-.fin-cta-wrap {
-  width: 100% !important;
-  max-width: min(1200px, 94vw) !important;
-  margin: 22px auto 0 !important;
-  display: grid !important;
-  grid-template-columns: repeat(4, 1fr) !important;
-  gap: clamp(10px, 1.2vw, 16px) !important;
-  position: relative !important;
-  z-index: 54 !important;
-  pointer-events: auto !important;
+/* Hover effects for each specialized feature card */
+.why-stat-box--survey:hover {
+  transform: translateY(-4px);
+  background: rgba(16, 185, 129, 0.12);
+  border-color: rgba(16, 185, 129, 0.7);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), 0 0 28px rgba(16, 185, 129, 0.28);
 }
-.fin-cta-wrap .cta {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  gap: 8px !important;
-  padding: 14px 12px !important;
-  border-radius: 999px !important;
-  font-size: clamp(11px, 0.82vw, 12.5px) !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.04em !important;
-  white-space: nowrap !important;
-  text-decoration: none !important;
-  text-align: center !important;
-  margin: 0 !important;
-  width: 100% !important;
-  box-sizing: border-box !important;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35) !important;
-  backdrop-filter: blur(12px) !important;
-  -webkit-backdrop-filter: blur(12px) !important;
-  transition: transform .25s ease, border-color .25s, box-shadow .25s, background .25s !important;
+.why-stat-box--ai:hover {
+  transform: translateY(-4px);
+  background: rgba(56, 189, 248, 0.12);
+  border-color: rgba(56, 189, 248, 0.7);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), 0 0 28px rgba(56, 189, 248, 0.28);
 }
-.fin-cta-wrap .cta:hover {
-  transform: translateY(-3px) !important;
-  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.55) !important;
+.why-stat-box--museum:hover {
+  transform: translateY(-4px);
+  background: rgba(201, 162, 74, 0.14);
+  border-color: rgba(201, 162, 74, 0.75);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), 0 0 28px rgba(201, 162, 74, 0.28);
 }
-.fin-cta-wrap .cta i {
-  display: none !important;
-}
-.fin-cta-wrap .cta svg {
-  flex-shrink: 0 !important;
-  transition: transform .25s ease !important;
-}
-.fin-cta-wrap .cta:hover svg {
-  transform: translate(2px, -2px) !important;
-}
-.fin-cta-wrap .cta--museum {
-  background: rgba(201, 162, 74, 0.20) !important;
-  border: 1px solid rgba(201, 162, 74, 0.45) !important;
-  color: #fef08a !important;
-}
-.fin-cta-wrap .cta--museum:hover {
-  background: rgba(201, 162, 74, 0.32) !important;
-  border-color: rgba(201, 162, 74, 0.8) !important;
-  color: #ffffff !important;
-}
-.fin-cta-wrap .cta--audio {
-  background: rgba(224, 35, 28, 0.22) !important;
-  border: 1px solid rgba(224, 35, 28, 0.45) !important;
-  color: #fca5a5 !important;
-}
-.fin-cta-wrap .cta--audio:hover {
-  background: rgba(224, 35, 28, 0.34) !important;
-  border-color: rgba(224, 35, 28, 0.8) !important;
-  color: #ffffff !important;
-}
-.fin-cta-wrap .cta--ai {
-  background: rgba(56, 189, 248, 0.18) !important;
-  border: 1px solid rgba(56, 189, 248, 0.42) !important;
-  color: #7dd3fc !important;
-}
-.fin-cta-wrap .cta--ai:hover {
-  background: rgba(56, 189, 248, 0.30) !important;
-  border-color: rgba(56, 189, 248, 0.8) !important;
-  color: #ffffff !important;
-}
-.fin-cta-wrap .cta--survey {
-  background: rgba(16, 185, 129, 0.18) !important;
-  border: 1px solid rgba(16, 185, 129, 0.42) !important;
-  color: #6ee7b7 !important;
-}
-.fin-cta-wrap .cta--survey:hover {
-  background: rgba(16, 185, 129, 0.30) !important;
-  border-color: rgba(16, 185, 129, 0.8) !important;
-  color: #ffffff !important;
+.why-stat-box--audio:hover {
+  transform: translateY(-4px);
+  background: rgba(224, 35, 28, 0.14);
+  border-color: rgba(239, 68, 68, 0.75);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), 0 0 28px rgba(224, 35, 28, 0.28);
 }
 
 @media (max-width: 992px) {
@@ -1884,13 +1857,10 @@ h1,h2,h3{ font-weight:400; margin:0; letter-spacing:-.005em; }
     grid-template-columns: 1fr;
     gap: 24px;
   }
-  .fin-cta-wrap {
-    grid-template-columns: repeat(2, 1fr) !important;
-  }
 }
 @media (max-width: 560px) {
-  .fin-cta-wrap {
-    grid-template-columns: 1fr !important;
+  .why-stats-grid {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -3262,43 +3232,55 @@ body[data-layout-footer="b"] .foot-base span:last-child{ text-align:right; }
         <p class="why-body">Dự án số hóa di sản Chín Hầm tiên phong kết hợp kiến trúc thực địa, không gian số 3D WebGL, âm thanh tương tác và trí tuệ nhân tạo, mang câu chuyện lịch sử bất khuất đến gần hơn với du khách, học sinh, sinh viên và cộng đồng.</p>
       </div>
       <div class="why-stats-grid">
-        <div class="why-stat-box">
+        <!-- 01: Điểm di tích -> Khảo sát thực địa (/di-tich) -->
+        <a href="/di-tich" target="_top" class="why-stat-box why-stat-box--survey" data-cursor title="Nhấn để Khảo sát thực địa các điểm di tích">
+          <span class="why-stat-top-bar">
+            <span class="why-stat-badge" style="color: #6ee7b7; background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.35);">Khảo sát thực địa</span>
+            <span class="why-stat-arrow">
+              <svg viewBox="0 0 14 14" fill="none" width="12" height="12"><path d="M3 11 11 3M5 3h6v6" stroke="currentColor" stroke-width="1.3"/></svg>
+            </span>
+          </span>
           <div class="why-stat-val">09+</div>
           <div class="why-stat-lbl">Điểm di tích & Căn hầm</div>
-        </div>
-        <div class="why-stat-box">
+        </a>
+
+        <!-- 02: Trợ lý AI -> Trò chuyện AI (/chatbot) -->
+        <a href="/chatbot" target="_top" class="why-stat-box why-stat-box--ai" data-cursor title="Nhấn để mở Trợ lý AI Lịch sử Chín Hầm">
+          <span class="why-stat-top-bar">
+            <span class="why-stat-badge" style="color: #7dd3fc; background: rgba(56, 189, 248, 0.15); border: 1px solid rgba(56, 189, 248, 0.35);">🤖 Trợ lý AI</span>
+            <span class="why-stat-arrow">
+              <svg viewBox="0 0 14 14" fill="none" width="12" height="12"><path d="M3 11 11 3M5 3h6v6" stroke="currentColor" stroke-width="1.3"/></svg>
+            </span>
+          </span>
           <div class="why-stat-val">24/7</div>
           <div class="why-stat-lbl">Trợ lý AI tương tác</div>
-        </div>
-        <div class="why-stat-box">
+        </a>
+
+        <!-- 03: Không gian WebGL -> Bảo tàng số 3D (/chin-ham) -->
+        <a href="/chin-ham" target="_top" class="why-stat-box why-stat-box--museum" data-cursor title="Nhấn để Khám phá Bảo tàng số 3D Chín Hầm">
+          <span class="why-stat-top-bar">
+            <span class="why-stat-badge" style="color: #fef08a; background: rgba(201, 162, 74, 0.15); border: 1px solid rgba(201, 162, 74, 0.35);">Bảo tàng số 3D</span>
+            <span class="why-stat-arrow">
+              <svg viewBox="0 0 14 14" fill="none" width="12" height="12"><path d="M3 11 11 3M5 3h6v6" stroke="currentColor" stroke-width="1.3"/></svg>
+            </span>
+          </span>
           <div class="why-stat-val">3D</div>
           <div class="why-stat-lbl">Không gian số hóa WebGL</div>
-        </div>
-        <div class="why-stat-box">
+        </a>
+
+        <!-- 04: Song Ngữ -> Nghe Audio Thuyết Minh (/audio-guide) -->
+        <a href="/audio-guide" target="_top" class="why-stat-box why-stat-box--audio" data-cursor title="Nhấn để Nghe Audio Guide Thuyết Minh">
+          <span class="why-stat-top-bar">
+            <span class="why-stat-badge" style="color: #fca5a5; background: rgba(224, 35, 28, 0.18); border: 1px solid rgba(224, 35, 28, 0.4);">🎧 Audio Guide</span>
+            <span class="why-stat-arrow">
+              <svg viewBox="0 0 14 14" fill="none" width="12" height="12"><path d="M3 11 11 3M5 3h6v6" stroke="currentColor" stroke-width="1.3"/></svg>
+            </span>
+          </span>
           <div class="why-stat-val">Song Ngữ</div>
           <div class="why-stat-lbl">Audio Guide Việt - Anh</div>
-        </div>
+        </a>
       </div>
     </div>
-  </div>
-
-  <div class="fin-cta-wrap">
-    <a class="cta cta--museum" href="/chin-ham" target="_top" data-rv="fade" data-cursor>
-      <span>Khám phá Bảo tàng Chín Hầm</span>
-      <svg viewBox="0 0 14 14" fill="none" width="13" height="13"><path d="M3 11 11 3M5 3h6v6" stroke="currentColor" stroke-width="1.3"/></svg>
-    </a>
-    <a class="cta cta--audio" href="/audio-guide" target="_top" data-rv="fade" data-cursor>
-      <span>🎧 Nghe Audio Thuyết Minh</span>
-      <svg viewBox="0 0 14 14" fill="none" width="13" height="13"><path d="M3 11 11 3M5 3h6v6" stroke="currentColor" stroke-width="1.3"/></svg>
-    </a>
-    <a class="cta cta--ai" href="/chatbot" target="_top" data-rv="fade" data-cursor>
-      <span>🤖 Trợ Lý AI Lịch Sử</span>
-      <svg viewBox="0 0 14 14" fill="none" width="13" height="13"><path d="M3 11 11 3M5 3h6v6" stroke="currentColor" stroke-width="1.3"/></svg>
-    </a>
-    <a class="cta cta--survey" href="/di-tich" target="_top" data-rv="fade" data-cursor>
-      <span>Khảo sát thực địa</span>
-      <svg viewBox="0 0 14 14" fill="none" width="13" height="13"><path d="M3 11 11 3M5 3h6v6" stroke="currentColor" stroke-width="1.3"/></svg>
-    </a>
   </div>
 </section>
 
