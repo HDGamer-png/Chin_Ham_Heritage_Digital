@@ -42,6 +42,7 @@ export default function AudioGuidePage() {
   }, []);
 
   const selectedTrack = tracks.find((track) => track.id === selectedTrackId) || tracks[0];
+  const progressPercent = duration > 0 ? Math.min(100, Math.max(0, (currentTime / duration) * 100)) : 0;
 
   // Đồng bộ nguồn phát khi đổi bài
   useEffect(() => {
@@ -241,10 +242,19 @@ export default function AudioGuidePage() {
           <div className="space-y-5 text-stone-200">
             <p className="text-sm leading-relaxed text-stone-300">{selectedTrack?.description}</p>
             
-            {/* Bộ điều khiển Player gọn gàng */}
-            <div className="rounded-2xl border border-emerald-500/20 bg-black/[0.20] p-3.5 backdrop-blur-md shadow-inner space-y-2.5">
-              {/* Thanh kéo thời gian (Seek Bar) */}
-              <div className="space-y-1">
+            {/* Thanh điều khiển nổi Sleek Compact Pill (Awwwards Style) */}
+            <div className="relative overflow-hidden rounded-2xl border border-emerald-500/25 bg-gradient-to-b from-stone-900/90 via-black/85 to-stone-950/90 p-3.5 backdrop-blur-xl shadow-xl shadow-black/60 ring-1 ring-white/10 space-y-2.5">
+              {/* Vệt sáng ambient gradient tinh tế ở viền trên */}
+              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-emerald-400/40 to-transparent" />
+
+              {/* Thanh tiến trình Custom Gradient Glow Bar */}
+              <div className="group relative py-1 cursor-pointer">
+                <div className="relative h-1.5 w-full rounded-full bg-stone-800/90 overflow-hidden group-hover:h-2 transition-all">
+                  <div 
+                    className="h-full rounded-full bg-gradient-to-r from-emerald-500 via-teal-400 to-emerald-300 shadow-[0_0_10px_rgba(52,211,153,0.6)] transition-[width] duration-150"
+                    style={{ width: `${progressPercent}%` }}
+                  />
+                </div>
                 <input
                   type="range"
                   min={0}
@@ -252,67 +262,88 @@ export default function AudioGuidePage() {
                   step={0.5}
                   value={currentTime}
                   onChange={handleSeek}
-                  className="w-full h-1.5 rounded-full bg-stone-700/60 accent-emerald-400 cursor-pointer transition hover:bg-stone-600"
+                  className="absolute inset-0 h-full w-full opacity-0 cursor-pointer"
+                  title="Tua thời gian"
                 />
-                <div className="flex items-center justify-between text-[11px] text-stone-400 font-mono">
-                  <span>{formatTime(currentTime)}</span>
-                  <span>{duration ? formatTime(duration) : selectedTrack?.duration || '00:00'}</span>
-                </div>
               </div>
 
-              {/* Nút bấm điều khiển (Play, Pause, Tua 10s) */}
-              <div className="flex items-center justify-center gap-3.5">
-                <button
-                  type="button"
-                  onClick={() => handleSkip(-10)}
-                  title="Lùi lại 10 giây"
-                  className="p-1.5 rounded-full text-stone-400 hover:text-white hover:bg-white/10 transition"
-                >
-                  <RotateCcw size={16} />
-                </button>
-
-                <button
-                  type="button"
-                  onClick={togglePlay}
-                  title={isPlaying ? "Tạm dừng" : "Phát âm thanh"}
-                  className="flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-emerald-400 to-teal-500 text-black shadow-lg shadow-emerald-500/25 hover:scale-105 hover:from-emerald-300 hover:to-teal-400 transition active:scale-95"
-                >
+              {/* Hàng điều khiển tích hợp siêu tinh gọn (Single Row) */}
+              <div className="flex items-center justify-between text-xs">
+                {/* Thời gian đã phát + sóng âm mini */}
+                <div className="flex items-center gap-1.5 min-w-[48px]">
                   {isPlaying ? (
-                    <Pause size={20} className="fill-black" />
-                  ) : (
-                    <Play size={20} className="fill-black translate-x-0.5" />
-                  )}
-                </button>
+                    <span className="flex items-end gap-0.5 h-2.5">
+                      <span className="w-0.5 bg-emerald-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
+                      <span className="w-0.5 bg-emerald-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
+                      <span className="w-0.5 bg-emerald-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
+                    </span>
+                  ) : null}
+                  <span className="font-mono text-[11px] font-semibold text-emerald-400/90 tabular-nums">
+                    {formatTime(currentTime)}
+                  </span>
+                </div>
 
-                <button
-                  type="button"
-                  onClick={() => handleSkip(10)}
-                  title="Tua tới 10 giây"
-                  className="p-1.5 rounded-full text-stone-400 hover:text-white hover:bg-white/10 transition"
-                >
-                  <RotateCw size={16} />
-                </button>
-              </div>
+                {/* Cụm phím Play / Tua */}
+                <div className="flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={() => handleSkip(-10)}
+                    title="Lùi 10 giây"
+                    className="flex h-7 w-7 items-center justify-center rounded-full text-stone-400 hover:text-white hover:bg-white/10 transition active:scale-90"
+                  >
+                    <RotateCcw size={14} />
+                  </button>
 
-              {/* Âm lượng & Mute */}
-              <div className="flex items-center justify-center gap-2 border-t border-emerald-500/10 pt-2 text-xs text-stone-400">
-                <button
-                  type="button"
-                  onClick={toggleMute}
-                  title={isMuted ? "Bật âm" : "Tắt âm"}
-                  className="hover:text-emerald-300 transition p-1"
-                >
-                  {isMuted || volume === 0 ? <VolumeX size={15} /> : <Volume2 size={15} />}
-                </button>
-                <input
-                  type="range"
-                  min={0}
-                  max={1}
-                  step={0.05}
-                  value={isMuted ? 0 : volume}
-                  onChange={handleVolumeChange}
-                  className="w-28 h-1 rounded-full bg-stone-700/60 accent-emerald-400 cursor-pointer"
-                />
+                  <button
+                    type="button"
+                    onClick={togglePlay}
+                    title={isPlaying ? "Tạm dừng" : "Phát âm thanh"}
+                    className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-emerald-400 to-teal-500 text-stone-950 shadow-lg shadow-emerald-500/30 hover:scale-105 hover:from-emerald-300 hover:to-teal-400 transition active:scale-95"
+                  >
+                    {isPlaying ? (
+                      <Pause size={18} className="fill-stone-950" />
+                    ) : (
+                      <Play size={18} className="fill-stone-950 translate-x-0.5" />
+                    )}
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => handleSkip(10)}
+                    title="Tua tới 10 giây"
+                    className="flex h-7 w-7 items-center justify-center rounded-full text-stone-400 hover:text-white hover:bg-white/10 transition active:scale-90"
+                  >
+                    <RotateCw size={14} />
+                  </button>
+                </div>
+
+                {/* Âm lượng & Thời lượng tổng */}
+                <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-1 text-stone-400 hover:text-stone-200 transition">
+                    <button
+                      type="button"
+                      onClick={toggleMute}
+                      title={isMuted ? "Bật âm" : "Tắt âm"}
+                      className="hover:text-emerald-300 transition"
+                    >
+                      {isMuted || volume === 0 ? <VolumeX size={14} /> : <Volume2 size={14} />}
+                    </button>
+                    <input
+                      type="range"
+                      min={0}
+                      max={1}
+                      step={0.05}
+                      value={isMuted ? 0 : volume}
+                      onChange={handleVolumeChange}
+                      className="w-12 h-1 rounded-full bg-stone-700/60 accent-emerald-400 cursor-pointer opacity-70 hover:opacity-100 transition"
+                      title="Âm lượng"
+                    />
+                  </div>
+
+                  <span className="font-mono text-[11px] text-stone-400 tabular-nums">
+                    {duration ? formatTime(duration) : selectedTrack?.duration || '00:00'}
+                  </span>
+                </div>
               </div>
             </div>
 
