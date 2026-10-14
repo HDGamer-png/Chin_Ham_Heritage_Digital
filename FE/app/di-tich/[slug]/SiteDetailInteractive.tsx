@@ -421,7 +421,7 @@ export function SiteDetailInteractive({ site }: { site: SiteData }) {
                     activeTab === 'bunker' && bunkerImg
                       ? bunkerImg
                       : activeTab === 'exhibition'
-                      ? '/nha_chung_tich_exhibition.jpg'
+                      ? '/nha_chung_tich.jpg'
                       : activeTab === 'artifacts'
                       ? '/chin_ham_artifacts.jpg'
                       : activeTab === 'flycam'
@@ -471,7 +471,7 @@ export function SiteDetailInteractive({ site }: { site: SiteData }) {
             {activeTab === 'exhibition' && (
               <div className="relative h-full w-full">
                 <img
-                  src="/nha_chung_tich_exhibition.jpg"
+                  src="/nha_chung_tich.jpg"
                   alt="Không gian Nhà Chứng Tích - Nhà Tả Vu"
                   className="h-full w-full object-cover object-center transition-transform duration-1000 hover:scale-105"
                 />

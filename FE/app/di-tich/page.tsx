@@ -4,7 +4,7 @@ import { heritageSites as fallbackSites } from '@/content/site-data';
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000';
 
 const siteImages: Record<string, string> = {
-  'nha-chung-tich': '/nha_chung_tich_exhibition.jpg',
+  'nha-chung-tich': '/nha_chung_tich.jpg',
   'ham-1': '/cac-ham/ham-1.jpg',
   'ham-2': '/cac-ham/ham-2.jpg',
   'ham-3': '/cac-ham/ham-3.jpg',
