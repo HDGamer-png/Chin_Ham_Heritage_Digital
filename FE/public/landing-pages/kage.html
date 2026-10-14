@@ -2003,6 +2003,7 @@ body[data-layout-closing="b"] .fin h2 .word {
 }
 .memorial-card-info {
   padding: clamp(16px, 2vw, 24px) clamp(20px, 2.8vw, 32px);
+  text-align: left !important;
 }
 .memorial-sub-title {
   font-size: 10px;
@@ -2012,6 +2013,7 @@ body[data-layout-closing="b"] .fin h2 .word {
   color: #ffd700;
   margin-bottom: 4px;
   text-shadow: 0 0 14px rgba(255, 215, 0, 0.3);
+  text-align: left !important;
 }
 .memorial-title {
   font-size: clamp(17px, 1.8vw, 22px);
@@ -2021,13 +2023,20 @@ body[data-layout-closing="b"] .fin h2 .word {
   color: #fff;
   margin: 0 0 8px;
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9);
+  text-align: left !important;
 }
-.memorial-desc {
+.memorial-desc,
+.fin .memorial-desc,
+body[data-layout-closing="b"] .fin .memorial-desc,
+.memorial-card-info .memorial-desc {
   font-size: 13px;
   line-height: 1.6;
   color: #d4e0d8;
-  margin: 0 0 14px;
-  max-width: 110ch;
+  margin: 0 0 14px 0 !important;
+  margin-left: 0 !important;
+  margin-right: auto !important;
+  max-width: 100% !important;
+  text-align: left !important;
   text-shadow: 0 1px 10px rgba(0, 0, 0, 0.95);
 }
 .memorial-meta-grid {
@@ -2081,7 +2090,7 @@ body[data-layout-closing="b"] .fin h2 .word {
   margin-right: auto;
   text-wrap: balance;
 }
-.fin p{ max-width:44ch; margin:26px auto 0; }
+.fin > p, .fin p.body-lg{ max-width:44ch; margin:26px auto 0; }
 .cta{
   position:relative; display:inline-flex; align-items:center; gap:14px; margin-top:44px;
   padding:17px 30px; border:1px solid var(--line); border-radius:100px; overflow:hidden;
@@ -2674,7 +2683,7 @@ body[data-layout-footer="b"] .foot-base span:last-child{ text-align:right; }
   body[data-layout-closing="b"] .fin{ display:flex; align-items:center; text-align:center; gap:0; }
   body[data-layout-closing="b"] .fin .eyebrow{ margin:0 0 26px; }
   body[data-layout-closing="b"] .fin h2{ writing-mode:horizontal-tb; font-size:clamp(23px,3.3vw,45px); font-weight:700; color:#ffd700; }
-  body[data-layout-closing="b"] .fin p{ margin:26px auto 0; }
+  body[data-layout-closing="b"] .fin > p, body[data-layout-closing="b"] .fin p.body-lg{ margin:26px auto 0; }
   body[data-layout-closing="b"] .fin .cta{ margin-top:40px; }
 
   body[data-layout-footer="b"] .foot-grid{ grid-template-columns:1fr; }
@@ -3238,7 +3247,7 @@ body[data-layout-footer="b"] .foot-base span:last-child{ text-align:right; }
           <div class="memorial-sub-title">KHU VỰC ĐÀI TƯỞNG NIỆM & NHÀ DÂNG HƯƠNG</div>
           <h3 class="memorial-title">Tượng Đài Bất Khuất & Trục Hành Lễ Đồi Ba Đồn</h3>
         </div>
-        <p class="memorial-desc">
+        <p class="memorial-desc" style="text-align: left !important; margin: 0 0 14px 0 !important; margin-left: 0 !important; margin-right: auto !important; max-width: 100% !important;">
           Cụm tượng đài ba chiến sĩ cách mạng kiên trung vươn mình đập tan xiềng xích nô dịch, tọa lạc trang nghiêm trên thềm đá giữa rừng thông. Hai dãy bậc tam cấp đối xứng dẫn thẳng lên Nhà dâng hương tưởng niệm trên đỉnh đồi.
         </p>
         <div class="memorial-meta-grid">
