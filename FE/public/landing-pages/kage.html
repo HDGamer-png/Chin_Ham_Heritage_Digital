@@ -966,6 +966,7 @@ body[data-layout-closing="b"] .fin h2 .word {
 .btn-hero-action {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   padding: 12px 24px;
   border-radius: 999px;
@@ -975,30 +976,63 @@ body[data-layout-closing="b"] .fin h2 .word {
   text-transform: uppercase;
   transition: all 0.3s var(--ease);
   text-decoration: none !important;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
 .btn-hero-action.primary {
-  background: linear-gradient(135deg, #e0231c 0%, #b91c1c 100%);
+  background: linear-gradient(135deg, rgba(224, 35, 28, 0.76) 0%, rgba(185, 28, 28, 0.68) 100%);
   color: #fff !important;
-  box-shadow: 0 8px 24px rgba(224, 35, 28, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 24px rgba(224, 35, 28, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.30);
 }
 .btn-hero-action.primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(224, 35, 28, 0.6);
-  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  box-shadow: 0 12px 30px rgba(224, 35, 28, 0.55);
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.88) 0%, rgba(220, 38, 38, 0.80) 100%);
 }
 .btn-hero-action.secondary {
-  background: rgba(10, 14, 18, 0.75);
+  background: rgba(10, 14, 18, 0.48);
   color: #edf2ee !important;
-  border: 1px solid rgba(223, 231, 224, 0.25);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(223, 231, 224, 0.22);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
 }
 .btn-hero-action.secondary:hover {
   transform: translateY(-2px);
   border-color: #ffd700;
   color: #ffd700 !important;
-  background: rgba(20, 24, 28, 0.9);
+  background: rgba(20, 24, 28, 0.75);
+}
+
+/* Mobile: 3 button bằng nhau, căn đều và có độ trong suốt đẹp mắt */
+@media (max-width: 768px) {
+  .hero-actions-group {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: 100% !important;
+    max-width: min(100%, 340px) !important;
+    gap: 11px !important;
+    margin-top: 18px !important;
+  }
+  .btn-hero-action {
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+    padding: 13px 20px !important;
+  }
+  .btn-hero-action.primary {
+    background: linear-gradient(135deg, rgba(224, 35, 28, 0.65) 0%, rgba(185, 28, 28, 0.55) 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.28) !important;
+    box-shadow: 0 6px 20px rgba(224, 35, 28, 0.28) !important;
+  }
+  .btn-hero-action.secondary {
+    background: rgba(10, 14, 18, 0.40) !important;
+    border: 1px solid rgba(223, 231, 224, 0.20) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3) !important;
+  }
 }
 
 /* ============================================================= Chapter 1: Roadmap (Lộ Trình Tham Quan) */
