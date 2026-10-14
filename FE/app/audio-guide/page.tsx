@@ -152,7 +152,7 @@ export default function AudioGuidePage() {
   };
 
   return (
-    <main className="container-shell py-16">
+    <main className="container-shell py-10 sm:py-16">
       {/* Hidden HTML5 Audio Element */}
       <audio
         ref={audioRef}
@@ -161,20 +161,20 @@ export default function AudioGuidePage() {
         onEnded={handleEnded}
       />
 
-      <div className="mb-10">
+      <div className="mb-8 sm:mb-10">
         <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-white/5 px-4 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-emerald-300 backdrop-blur-[3px] drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
           Thuyết Minh Không Gian • Audio Guide
         </div>
-        <h1 className="text-4xl font-black text-white md:text-5xl font-display tracking-tight drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-white font-display tracking-tight drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
           Nghe Hướng Dẫn Âm Thanh Xứ Huế
         </h1>
-        <p className="mt-3 max-w-2xl text-stone-300 text-base leading-relaxed drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
+        <p className="mt-3 max-w-2xl text-stone-300 text-sm sm:text-base leading-relaxed drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
           Đắm mình trong không gian đồi Thiên Thai cùng âm vang lịch sử, tiếng gió thông reo và lời tự thuật bi tráng của các chứng nhân trong môi trường 3D Living Green.
         </p>
       </div>
 
-      <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
+      <div className="grid gap-6 lg:gap-8 lg:grid-cols-[1.2fr_0.8fr]">
         {/* Danh sách các bài thuyết minh */}
         <div className="space-y-4">
           {tracks.map((item) => {
@@ -184,22 +184,22 @@ export default function AudioGuidePage() {
                 key={item.id}
                 type="button"
                 onClick={() => handleTrackClick(item)}
-                className={`flex w-full items-center justify-between rounded-2xl border p-6 text-left backdrop-blur-[3px] drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)] transition-all duration-300 ${
+                className={`flex w-full items-center justify-between rounded-2xl border p-4 sm:p-6 text-left backdrop-blur-[3px] drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)] transition-all duration-300 gap-3 sm:gap-4 ${
                   isCurrent
                     ? 'border-emerald-400/70 bg-black/[0.25] shadow-[0_10px_30px_rgba(16,185,129,0.25)] ring-1 ring-emerald-400/50'
                     : 'border-emerald-500/20 bg-gradient-to-b from-transparent via-black/[0.06] to-black/[0.12] hover:border-emerald-400/40 hover:bg-black/[0.15]'
                 }`}
               >
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-400">{item.category}</p>
-                  <h2 className="mt-1 text-xl font-bold text-white font-display">{item.title}</h2>
+                <div className="min-w-0 flex-1">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-400 truncate">{item.category}</p>
+                  <h2 className="mt-1 text-base sm:text-xl font-bold text-white font-display line-clamp-2">{item.title}</h2>
                 </div>
-                <div className="flex items-center gap-4">
-                  <span className="text-sm font-medium text-stone-300">{item.duration}</span>
+                <div className="flex items-center gap-2 sm:gap-4 shrink-0">
+                  <span className="text-xs sm:text-sm font-medium text-stone-300 whitespace-nowrap">{item.duration}</span>
                   
                   {/* Equalizer animation khi đang phát */}
                   {isCurrent && isPlaying ? (
-                    <div className="flex items-end gap-1 h-3.5">
+                    <div className="flex items-end gap-1 h-3.5 shrink-0">
                       <span className="w-1 bg-emerald-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
                       <span className="w-1 bg-emerald-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
                       <span className="w-1 bg-emerald-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
@@ -207,7 +207,7 @@ export default function AudioGuidePage() {
                   ) : null}
 
                   <span
-                    className={`rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider transition-all duration-300 ${
+                    className={`rounded-full px-3 py-1.5 sm:px-4 sm:py-1.5 text-[11px] sm:text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-all duration-300 shrink-0 ${
                       isCurrent && isPlaying
                         ? 'bg-emerald-500 text-black shadow-lg shadow-emerald-500/40'
                         : isCurrent
@@ -224,7 +224,7 @@ export default function AudioGuidePage() {
         </div>
 
         {/* Bảng điều khiển Player chi tiết bên phải (Đồng bộ chiều cao ngang bằng cạnh dưới ô cuối cùng) */}
-        <aside className="rounded-[2.5rem] border border-emerald-500/20 bg-gradient-to-b from-transparent via-black/[0.06] to-black/[0.12] p-7 backdrop-blur-[3px] drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)] shadow-2xl h-full flex flex-col justify-between">
+        <aside className="rounded-3xl sm:rounded-[2.5rem] border border-emerald-500/20 bg-gradient-to-b from-transparent via-black/[0.06] to-black/[0.12] p-5 sm:p-7 backdrop-blur-[3px] drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)] shadow-2xl h-full flex flex-col justify-between">
           {/* Cụm thông tin trên: Ảnh bìa + Thể loại + Tiêu đề + Mô tả */}
           <div className="space-y-4">
             <div className="relative overflow-hidden rounded-2xl border border-emerald-500/20 shadow-inner">
