@@ -397,28 +397,8 @@ export default function ChatbotPage() {
           </form>
         </div>
 
-        {/* Right Panel: Thông tin hệ thống & FAQ */}
+        {/* Right Panel: FAQ */}
         <div className="space-y-4">
-          <div className="rounded-[2.5rem] border border-emerald-500/20 bg-gradient-to-b from-transparent via-black/[0.06] to-black/[0.12] p-6 backdrop-blur-[3px] drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)] shadow-2xl">
-            <h2 className="text-lg font-bold text-white font-display mb-3 flex items-center gap-2">
-              <span className="text-emerald-400">⚙️</span> Cơ Chế Trả Lời Thông Minh
-            </h2>
-            <div className="space-y-2.5 text-xs text-stone-300">
-              <div className="p-2.5 rounded-xl border border-emerald-500/20 bg-black/[0.05] backdrop-blur-[3px]">
-                <span className="font-semibold text-emerald-300">1. Phân tích câu hỏi</span>: Nhận diện ý định và dữ liệu lịch sử
-              </div>
-              <div className="p-2.5 rounded-xl border border-emerald-500/20 bg-black/[0.05] backdrop-blur-[3px]">
-                <span className="font-semibold text-emerald-300">2. Truy hồi tư liệu</span>: Tìm kiếm chuẩn xác dữ liệu 9 căn hầm
-              </div>
-              <div className="p-2.5 rounded-xl border border-emerald-500/20 bg-black/[0.05] backdrop-blur-[3px]">
-                <span className="font-semibold text-emerald-300">3. Đối chiếu sự kiện</span>: Phân tích nhân quả, so sánh và dòng thời gian
-              </div>
-              <div className="p-2.5 rounded-xl border border-emerald-500/20 bg-black/[0.05] backdrop-blur-[3px]">
-                <span className="font-semibold text-emerald-300">4. Trích dẫn & Định dạng</span>: Trình bày súc tích kèm nguồn khảo chứng
-              </div>
-            </div>
-          </div>
-
           <div className="rounded-[2.5rem] border border-emerald-500/20 bg-gradient-to-b from-transparent via-black/[0.06] to-black/[0.12] p-6 backdrop-blur-[3px] drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)] shadow-2xl">
             <h2 className="text-lg font-bold text-[#fef08a] font-display mb-3">Câu Hỏi Thường Gặp</h2>
             <div className="space-y-3">
