@@ -2496,21 +2496,24 @@ body[data-layout-closing="b"] .fin .memorial-desc,
 }
 @media (max-width:1024px){
   .nav-links{
-    display:flex; position:fixed; top:0; right:0; bottom:0; width:min(84vw,360px);
-    padding:calc(var(--nav-h) + 28px) var(--pad) 34px; flex-direction:column; align-items:flex-start; gap:0;
+    display:flex; position:fixed; top:0; right:0; bottom:0; width:min(84vw,340px);
+    padding:calc(var(--nav-h) + 24px) var(--pad) 30px; flex-direction:column; align-items:flex-start; gap:0;
     background:rgba(3,6,9,.98); border-left:1px solid var(--line-soft);
     transform:translate3d(100%,0,0); opacity:0; visibility:hidden; pointer-events:none;
     transition:transform .65s var(--ease-out), opacity .4s, visibility 0s linear .65s;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
   }
   .nav.menu-open .nav-links{
     transform:none; opacity:1; visibility:visible; pointer-events:auto; transition-delay:0s;
   }
   .nav-links .nav-link{
-    width:100%; height:auto; padding:17px 0; overflow:visible; border-bottom:1px solid var(--line-soft);
-    font-size:17px; line-height:1.2;
+    width:100%; height:auto; padding:13px 0; overflow:visible; border-bottom:1px solid var(--line-soft);
+    font-size:16px; font-weight:600; line-height:1.2;
   }
   .nav-links .nav-link span{ height:auto; line-height:1.2; transform:none !important; }
-  .nav-links .nav-link .alt{ display:block !important; position:static; margin-top:6px; font-size:10px; color:var(--muted); }
+  .nav-links .nav-link .alt{ display:none !important; }
   /* The links panel leaves the flow to become the slide-in sheet, taking its
      margin-left:auto with it, so without this the burger sits tucked against
      the wordmark instead of out at the edge where a thumb reaches. */
@@ -3004,10 +3007,10 @@ body[data-layout-footer="b"] .foot-base span:last-child{ text-align:right; }
     <a class="nav-link" href="#lessons" data-cursor><span>Hồ Sơ Di Sản</span><span class="alt">TƯ LIỆU 1941–1963</span></a>
     <a class="nav-link" href="#eternity" data-cursor><span>Hồi Sinh</span><span class="alt">TƯỞNG NIỆM</span></a>
     <a class="nav-link" id="nav-btn-aerial" href="#overview" data-cursor><span>Ảnh Tổng Quan</span><span class="alt">FLYCAM THỰC ĐỊA</span></a>
-    <a class="nav-link mobile-nav-only" href="/chin-ham" target="_top" data-cursor style="border-top:1px solid rgba(224,35,28,0.3); padding-top:14px; margin-top:8px; color:#f87171;"><span>✨ Bảo Tàng Số Chín Hầm</span><span class="alt">KHÁM PHÁ 3D</span></a>
-    <a class="nav-link mobile-nav-only" href="/audio-guide" target="_top" data-cursor style="color:#34d399;"><span>🎧 Audio Guide Thuyết Minh</span><span class="alt">NGHE TRỰC TIẾP</span></a>
-    <a class="nav-link mobile-nav-only" href="/hanh-trinh-ky-uc" target="_top" data-cursor style="color:#ffd700;"><span>✨ Hành Trình Ký Ức (3D & Đấu Trí)</span><span class="alt">TRẢI NGHIỆM</span></a>
-    <a class="nav-link mobile-nav-only" href="/chatbot" target="_top" data-cursor style="color:#60a5fa;"><span>🤖 Trợ Lý AI Tương Tác</span><span class="alt">HỎI ĐÁP DI TÍCH</span></a>
+    <a class="nav-link mobile-nav-only" href="/chin-ham" target="_top" data-cursor style="border-top:1px solid rgba(224,35,28,0.3); padding-top:14px; margin-top:8px; color:#f87171;"><span>✨ Bảo Tàng Số</span></a>
+    <a class="nav-link mobile-nav-only" href="/audio-guide" target="_top" data-cursor style="color:#34d399;"><span>🎧 Audio Guide</span></a>
+    <a class="nav-link mobile-nav-only" href="/hanh-trinh-ky-uc" target="_top" data-cursor style="color:#ffd700;"><span>✨ Hành Trình Ký Ức</span></a>
+    <a class="nav-link mobile-nav-only" href="/chatbot" target="_top" data-cursor style="color:#60a5fa;"><span>🤖 Trợ Lý AI</span></a>
   </nav>
 
   <div class="nav-quick-actions" id="nav-quick-actions">
