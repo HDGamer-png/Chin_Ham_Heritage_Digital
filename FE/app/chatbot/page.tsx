@@ -180,7 +180,7 @@ export default function ChatbotPage() {
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
       sender: 'bot',
-      text: 'Xin chào! 👋 Tôi là **Trợ lý AI Lịch sử Chín Hầm** được vận hành bởi kiến trúc **Multi-Agent Python nội bộ** (100% độc lập, không phụ thuộc API trả phí).\n\nTôi có thể trả lời phân tích chuyên sâu về:\n• ⛓️ **Tội ác ngục tối & Lý do Hầm 4 gọi là chuồng cọp**\n• 👤 **Hồ sơ nhân vật Ngô Đình Cẩn & Bộ máy mật vụ**\n• ⚖️ **So sánh đối chiếu kiến trúc từng căn hầm**\n• ⏳ **Dòng thời gian sự kiện phá hầm ngày 02/11/1963**\n• 🗺️ **Hướng dẫn chi tiết lộ trình tham quan di tích**\n\nHãy chọn câu hỏi gợi ý bên dưới hoặc nhập câu hỏi của bạn!',
+      text: 'Xin chào! 👋 Tôi là **Trợ lý AI Lịch sử Chín Hầm**.\n\nTôi có thể hỗ trợ bạn tìm hiểu chi tiết về:\n• ⛓️ **Tội ác ngục tối & Lý do Hầm 4 gọi là chuồng cọp**\n• 👤 **Hồ sơ nhân vật Ngô Đình Cẩn & Bộ máy mật vụ**\n• ⚖️ **So sánh đối chiếu kiến trúc từng căn hầm**\n• ⏳ **Dòng thời gian sự kiện phá hầm ngày 02/11/1963**\n• 🗺️ **Hướng dẫn chi tiết lộ trình tham quan di tích**\n\nHãy chọn câu hỏi gợi ý bên dưới hoặc nhập câu hỏi của bạn!',
       intent: 'greeting',
       suggestions: [
         'Tại sao Hầm số 4 được gọi là chuồng cọp?',
@@ -255,13 +255,13 @@ export default function ChatbotPage() {
     <main className="container-shell py-16">
       <div className="mb-10">
         <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-white/5 px-3.5 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-emerald-300 backdrop-blur-[3px] drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
-          <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" /> Multi-Agent AI Heritage Engine
+          <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" /> Trợ Lý AI Di Sản Chín Hầm
         </div>
         <h1 className="text-4xl font-black text-white md:text-5xl font-display drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
           Trợ Lý AI Di Sản Chín Hầm
         </h1>
         <p className="mt-3 max-w-2xl text-stone-300 text-base leading-relaxed drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
-          Được vận hành bởi hệ thống đa tác tử (Multi-Agent) chuyên sâu: phân loại ý định, truy hồi tri thức 3 tầng và lập luận suy luận lịch sử chính xác.
+          Hệ thống hỗ trợ tra cứu lịch sử, giải đáp thông tin và cung cấp tư liệu chi tiết về di tích Chín Hầm - Đồi Ba Đồn.
         </p>
       </div>
 
@@ -274,15 +274,12 @@ export default function ChatbotPage() {
                 🤖
               </div>
               <div>
-                <div className="font-bold text-white font-display text-lg flex items-center gap-2">
+                <div className="font-bold text-white font-display text-lg">
                   Trợ Lý Di Sản Huế
-                  <span className="text-[10px] font-sans font-medium px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
-                    Multi-Agent v2.0
-                  </span>
                 </div>
                 <div className="text-xs text-emerald-400 flex items-center gap-1.5">
-                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-ping" />
-                  <span>5 Agents Hoạt Động (Python Engine 100% Nội Bộ)</span>
+                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                  <span>Đang trực tuyến</span>
                 </div>
               </div>
             </div>
@@ -358,7 +355,7 @@ export default function ChatbotPage() {
                   <div className="h-2 w-2 rounded-full bg-emerald-400 animate-bounce" style={{ animationDelay: '150ms' }} />
                   <div className="h-2 w-2 rounded-full bg-emerald-400 animate-bounce" style={{ animationDelay: '300ms' }} />
                 </div>
-                <span className="text-xs text-emerald-300">Multi-Agent đang truy hồi & suy luận câu trả lời...</span>
+                <span className="text-xs text-emerald-300">Đang tra cứu tư liệu & suy luận câu trả lời...</span>
               </div>
             )}
           </div>
@@ -404,20 +401,20 @@ export default function ChatbotPage() {
         <div className="space-y-4">
           <div className="rounded-[2.5rem] border border-emerald-500/20 bg-gradient-to-b from-transparent via-black/[0.06] to-black/[0.12] p-6 backdrop-blur-[3px] drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)] shadow-2xl">
             <h2 className="text-lg font-bold text-white font-display mb-3 flex items-center gap-2">
-              <span className="text-emerald-400">⚙️</span> Kiến Trúc Multi-Agent
+              <span className="text-emerald-400">⚙️</span> Cơ Chế Trả Lời Thông Minh
             </h2>
             <div className="space-y-2.5 text-xs text-stone-300">
               <div className="p-2.5 rounded-xl border border-emerald-500/20 bg-black/[0.05] backdrop-blur-[3px]">
-                <span className="font-semibold text-emerald-300">1. Orchestrator</span>: Phân tích intent (8 nhóm) & nhận diện thực thể
+                <span className="font-semibold text-emerald-300">1. Phân tích câu hỏi</span>: Nhận diện ý định và dữ liệu lịch sử
               </div>
               <div className="p-2.5 rounded-xl border border-emerald-500/20 bg-black/[0.05] backdrop-blur-[3px]">
-                <span className="font-semibold text-emerald-300">2. RetrieverAgent</span>: Tìm kiếm 3 tầng (TF-IDF + Entity + Graph)
+                <span className="font-semibold text-emerald-300">2. Truy hồi tư liệu</span>: Tìm kiếm chuẩn xác dữ liệu 9 căn hầm
               </div>
               <div className="p-2.5 rounded-xl border border-emerald-500/20 bg-black/[0.05] backdrop-blur-[3px]">
-                <span className="font-semibold text-emerald-300">3. Reasoner</span>: Suy luận logic (Nhân quả, So sánh, Dòng thời gian)
+                <span className="font-semibold text-emerald-300">3. Đối chiếu sự kiện</span>: Phân tích nhân quả, so sánh và dòng thời gian
               </div>
               <div className="p-2.5 rounded-xl border border-emerald-500/20 bg-black/[0.05] backdrop-blur-[3px]">
-                <span className="font-semibold text-emerald-300">4. Formatter</span>: Định dạng chuẩn & kiểm chứng nguồn tư liệu
+                <span className="font-semibold text-emerald-300">4. Trích dẫn & Định dạng</span>: Trình bày súc tích kèm nguồn khảo chứng
               </div>
             </div>
           </div>
