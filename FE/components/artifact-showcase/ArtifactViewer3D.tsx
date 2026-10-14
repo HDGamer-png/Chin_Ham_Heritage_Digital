@@ -1047,9 +1047,10 @@ export function ArtifactViewer3D({
       })}
 
       {/* Dynamic Flashlight Prompt Banner */}
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 pointer-events-none text-[11px] uppercase tracking-[0.16em] text-amber-200 bg-black/75 px-4 py-1.5 rounded-full backdrop-blur-md border border-amber-500/35 flex items-center gap-2 shadow-2xl">
-        <span className="w-2 h-2 rounded-full bg-amber-400 animate-ping" />
-        <span>🔦 Đèn Pin 3D • Rê Chuột Rọi Sáng Chi Tiết • Kéo Xoay 360°</span>
+      <div className="absolute bottom-14 sm:bottom-4 left-1/2 -translate-x-1/2 z-10 pointer-events-none text-[10px] sm:text-[11px] uppercase tracking-[0.12em] sm:tracking-[0.16em] text-amber-200 bg-black/80 px-3 py-1 sm:px-4 sm:py-1.5 rounded-full backdrop-blur-md border border-amber-500/35 flex items-center gap-1.5 sm:gap-2 shadow-2xl whitespace-nowrap">
+        <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-amber-400 animate-ping shrink-0" />
+        <span className="hidden sm:inline">🔦 Đèn Pin 3D • Rê Chuột Rọi Sáng Chi Tiết • Kéo Xoay 360°</span>
+        <span className="inline sm:hidden">🔦 Đèn Pin 3D • Chạm & Vuốt Xoay 360°</span>
       </div>
     </div>
   );

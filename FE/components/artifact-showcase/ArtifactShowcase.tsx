@@ -223,15 +223,15 @@ export function ArtifactShowcase() {
             <button
               type="button"
               onClick={() => setIsXRay(!isXRay)}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition ${
+              className={`flex items-center gap-1.5 p-2 sm:px-3 sm:py-1.5 rounded-xl text-xs font-bold transition ${
                 isXRay
                   ? 'bg-cyan-500 text-black shadow-[0_0_15px_#06b6d4]'
                   : 'text-stone-300 hover:bg-white/10'
               }`}
               title="Bật chế độ tia X bóc tách cấu trúc"
             >
-              <Layers size={13} className={isXRay ? 'text-black' : 'text-cyan-400'} />
-              <span>Tia X Bóc Tách</span>
+              <Layers size={14} className={isXRay ? 'text-black' : 'text-cyan-400'} />
+              <span className="hidden sm:inline">Tia X Bóc Tách</span>
             </button>
 
             {/* Auto Turntable Toggle */}
@@ -248,7 +248,7 @@ export function ArtifactShowcase() {
           </div>
 
           {/* Bottom-Right Zoom Slider & Quick Buttons */}
-          <div className="absolute bottom-4 right-4 z-30 flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1.5 rounded-2xl bg-black/40 backdrop-blur-[3px] border border-white/10 shadow-xl">
+          <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 z-30 flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1.5 rounded-2xl bg-black/60 sm:bg-black/40 backdrop-blur-[3px] border border-white/10 shadow-xl">
             <span className="text-[10px] font-semibold text-stone-400 uppercase hidden sm:inline">Thu phóng:</span>
             <button
               type="button"
