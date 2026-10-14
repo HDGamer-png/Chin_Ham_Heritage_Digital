@@ -95,15 +95,17 @@ export default function HanhTrinhKyUcPage() {
                     className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                  <div className="relative z-10 p-5 flex items-center justify-between h-full">
-                    <div className="w-12 h-12 rounded-2xl bg-black/40 border border-emerald-500/30 flex items-center justify-center text-emerald-300 shadow-md group-hover:scale-110 group-hover:border-emerald-400 transition duration-300 backdrop-blur-[3px]">
-                      <Icon size={24} />
+                  <div className="relative z-10 p-5 pb-3 md:pb-5 flex flex-col justify-end md:justify-center h-full">
+                    <div className="flex items-center justify-between w-full">
+                      <div className="w-12 h-12 rounded-2xl bg-black/40 border border-emerald-500/30 flex items-center justify-center text-emerald-300 shadow-md group-hover:scale-110 group-hover:border-emerald-400 transition duration-300 backdrop-blur-[3px]">
+                        <Icon size={24} />
+                      </div>
+                      <span
+                        className={`text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full border backdrop-blur-[3px] ${section.badgeColor}`}
+                      >
+                        {section.badge}
+                      </span>
                     </div>
-                    <span
-                      className={`text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full border backdrop-blur-[3px] ${section.badgeColor}`}
-                    >
-                      {section.badge}
-                    </span>
                   </div>
                 </div>
 
