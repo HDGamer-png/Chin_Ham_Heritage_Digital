@@ -252,21 +252,21 @@ export default function ChatbotPage() {
   };
 
   return (
-    <main className="container-shell py-16">
-      <div className="mb-10">
+    <main className="container-shell py-10 sm:py-16">
+      <div className="mb-8 sm:mb-10">
         <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-white/5 px-3.5 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-emerald-300 backdrop-blur-[3px] drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
           <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" /> Trợ Lý AI Di Sản Chín Hầm
         </div>
-        <h1 className="text-4xl font-black text-white md:text-5xl font-display drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-white font-display drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
           Trợ Lý AI Di Sản Chín Hầm
         </h1>
-        <p className="mt-3 max-w-2xl text-stone-300 text-base leading-relaxed drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
+        <p className="mt-3 max-w-2xl text-stone-300 text-sm sm:text-base leading-relaxed drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
           Hệ thống hỗ trợ tra cứu lịch sử, giải đáp thông tin và cung cấp tư liệu chi tiết về di tích Chín Hầm - Đồi Thiên Thai.
         </p>
       </div>
 
-      <div className="grid gap-8 lg:grid-cols-[1.6fr_1fr]">
-        <div className="rounded-[2.5rem] border-2 border-emerald-500/30 bg-gradient-to-b from-transparent via-black/[0.04] to-black/[0.08] p-6 backdrop-blur-[3px] drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] shadow-2xl flex flex-col h-[750px]">
+      <div className="grid gap-6 lg:gap-8 lg:grid-cols-[1.6fr_1fr]">
+        <div className="rounded-3xl sm:rounded-[2.5rem] border-2 border-emerald-500/30 bg-gradient-to-b from-transparent via-black/[0.04] to-black/[0.08] p-4 sm:p-6 backdrop-blur-[3px] drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] shadow-2xl flex flex-col h-[600px] sm:h-[750px] max-w-full overflow-hidden">
           {/* Header */}
           <div className="mb-4 flex items-center justify-between border-b border-emerald-500/15 pb-4">
             <div className="flex items-center gap-3">
@@ -299,14 +299,14 @@ export default function ChatbotPage() {
           {/* Chat Messages Container */}
           <div 
             ref={chatScrollRef}
-            className="flex-1 space-y-4 rounded-2xl border-2 border-emerald-500/20 bg-transparent p-4 text-sm text-stone-200 overflow-y-auto pr-2 backdrop-blur-[2px]"
+            className="flex-1 space-y-4 rounded-2xl border-2 border-emerald-500/20 bg-transparent p-3 sm:p-4 text-sm text-stone-200 overflow-y-auto pr-2 backdrop-blur-[2px] min-w-0"
           >
             {messages.map((message, index) => (
               <div
                 key={`${message.sender}-${index}`}
                 className={message.sender === 'user'
-                  ? 'ml-auto max-w-[85%] rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 p-4 text-white shadow-md'
-                  : 'max-w-[95%] rounded-2xl border-2 border-emerald-500/35 bg-black/[0.08] p-4 text-stone-200 backdrop-blur-md shadow-xl space-y-2'
+                  ? 'ml-auto max-w-[85%] rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 p-3.5 sm:p-4 text-white shadow-md break-words'
+                  : 'max-w-[95%] sm:max-w-[90%] rounded-2xl border-2 border-emerald-500/35 bg-black/[0.08] p-3.5 sm:p-4 text-stone-200 backdrop-blur-md shadow-xl space-y-2 break-words'
                 }
               >
                 {/* Badge phân loại lập luận cho bot */}
@@ -337,7 +337,7 @@ export default function ChatbotPage() {
                           key={sIdx}
                           type="button"
                           onClick={() => sendMessage(sug)}
-                          className="text-left text-xs bg-emerald-950/40 hover:bg-emerald-900/60 border border-emerald-500/30 hover:border-emerald-400/50 text-emerald-200 px-3 py-1 rounded-full transition backdrop-blur-sm"
+                          className="text-left text-xs bg-emerald-950/40 hover:bg-emerald-900/60 border border-emerald-500/30 hover:border-emerald-400/50 text-emerald-200 px-3 py-1 rounded-full transition backdrop-blur-sm max-w-full break-words"
                         >
                           {sug}
                         </button>
@@ -349,7 +349,7 @@ export default function ChatbotPage() {
             ))}
 
             {isLoading && (
-              <div className="max-w-[80%] rounded-2xl border-2 border-emerald-500/35 bg-black/[0.08] p-4 text-stone-200 backdrop-blur-md flex items-center gap-3">
+              <div className="max-w-[85%] rounded-2xl border-2 border-emerald-500/35 bg-black/[0.08] p-4 text-stone-200 backdrop-blur-md flex items-center gap-3">
                 <div className="flex gap-1.5">
                   <div className="h-2 w-2 rounded-full bg-emerald-400 animate-bounce" style={{ animationDelay: '0ms' }} />
                   <div className="h-2 w-2 rounded-full bg-emerald-400 animate-bounce" style={{ animationDelay: '150ms' }} />
@@ -360,8 +360,8 @@ export default function ChatbotPage() {
             )}
           </div>
 
-          {/* Quick suggestions bar */}
-          <div className="mt-3">
+          {/* Quick suggestions bar - Ẩn trên mobile theo yêu cầu, hiện trên PC */}
+          <div className="mt-3 hidden sm:block">
             <div className="text-[11px] text-stone-400 mb-1.5 font-medium flex items-center gap-1">
               <span>⚡</span> <span>Khám phá nhanh:</span>
             </div>
@@ -380,26 +380,47 @@ export default function ChatbotPage() {
           </div>
 
           {/* Input Form */}
-          <form onSubmit={handleSubmit} className="mt-3 flex gap-2">
+          <form onSubmit={handleSubmit} className="mt-3 flex gap-2 w-full min-w-0">
             <input
               value={input}
               onChange={(event) => setInput(event.target.value)}
-              placeholder="Hỏi về Ngô Đình Cẩn, chuồng cọp, ngày phá hầm 1963, lộ trình..."
-              className="flex-1 rounded-full border-2 border-emerald-500/30 bg-black/[0.08] px-5 py-3 text-sm text-white placeholder-stone-400 outline-none backdrop-blur-md transition focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400/40"
+              placeholder="Hỏi về Ngô Đình Cẩn, chuồng cọp..."
+              className="flex-1 min-w-0 rounded-full border-2 border-emerald-500/30 bg-black/[0.08] px-4 py-2.5 sm:px-5 sm:py-3 text-sm text-white placeholder-stone-400 outline-none backdrop-blur-md transition focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400/40"
             />
             <button
               type="submit"
               disabled={isLoading || !input.trim()}
-              className="rounded-full bg-gradient-to-r from-emerald-600 via-emerald-600 to-teal-700 px-6 py-3 text-xs font-bold uppercase tracking-wider text-white shadow-[0_0_20px_rgba(16,185,129,0.3)] hover:shadow-[0_0_25px_rgba(16,185,129,0.5)] transition hover:from-emerald-500 hover:to-teal-600 disabled:cursor-not-allowed disabled:opacity-50"
+              className="rounded-full bg-gradient-to-r from-emerald-600 via-emerald-600 to-teal-700 px-5 py-2.5 sm:px-6 sm:py-3 text-xs font-bold uppercase tracking-wider text-white shadow-[0_0_20px_rgba(16,185,129,0.3)] hover:shadow-[0_0_25px_rgba(16,185,129,0.5)] transition hover:from-emerald-500 hover:to-teal-600 disabled:cursor-not-allowed disabled:opacity-50 shrink-0 whitespace-nowrap"
             >
-              {isLoading ? 'Đang xử lý...' : 'Gửi'}
+              {isLoading ? 'Đang gửi...' : 'Gửi'}
             </button>
           </form>
         </div>
 
-        {/* Right Panel: FAQ */}
-        <div className="space-y-4">
-          <div className="rounded-[2.5rem] border border-emerald-500/20 bg-gradient-to-b from-transparent via-black/[0.06] to-black/[0.12] p-6 backdrop-blur-[3px] drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)] shadow-2xl">
+        {/* Right Panel: Thông tin hệ thống & FAQ */}
+        <div className="space-y-4 min-w-0">
+          {/* Card: Cơ Chế Trả Lời Thông Minh - Ẩn trên mobile theo yêu cầu, hiện trên PC */}
+          <div className="hidden lg:block rounded-3xl sm:rounded-[2.5rem] border border-emerald-500/20 bg-gradient-to-b from-transparent via-black/[0.06] to-black/[0.12] p-6 backdrop-blur-[3px] drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)] shadow-2xl">
+            <h2 className="text-lg font-bold text-white font-display mb-3 flex items-center gap-2">
+              <span className="text-emerald-400">⚙️</span> Cơ Chế Trả Lời Thông Minh
+            </h2>
+            <div className="space-y-2.5 text-xs text-stone-300">
+              <div className="p-2.5 rounded-xl border border-emerald-500/20 bg-black/[0.05] backdrop-blur-[3px]">
+                <span className="font-semibold text-emerald-300">1. Phân tích câu hỏi</span>: Nhận diện ý định và dữ liệu lịch sử
+              </div>
+              <div className="p-2.5 rounded-xl border border-emerald-500/20 bg-black/[0.05] backdrop-blur-[3px]">
+                <span className="font-semibold text-emerald-300">2. Truy hồi tư liệu</span>: Tìm kiếm chuẩn xác dữ liệu 9 căn hầm
+              </div>
+              <div className="p-2.5 rounded-xl border border-emerald-500/20 bg-black/[0.05] backdrop-blur-[3px]">
+                <span className="font-semibold text-emerald-300">3. Đối chiếu sự kiện</span>: Phân tích nhân quả, so sánh và dòng thời gian
+              </div>
+              <div className="p-2.5 rounded-xl border border-emerald-500/20 bg-black/[0.05] backdrop-blur-[3px]">
+                <span className="font-semibold text-emerald-300">4. Trích dẫn & Định dạng</span>: Trình bày súc tích kèm nguồn khảo chứng
+              </div>
+            </div>
+          </div>
+
+          <div className="rounded-3xl sm:rounded-[2.5rem] border border-emerald-500/20 bg-gradient-to-b from-transparent via-black/[0.06] to-black/[0.12] p-5 sm:p-6 backdrop-blur-[3px] drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)] shadow-2xl max-w-full">
             <h2 className="text-lg font-bold text-[#fef08a] font-display mb-3">Câu Hỏi Thường Gặp</h2>
             <div className="space-y-3">
               {faqItems.map((item) => (
