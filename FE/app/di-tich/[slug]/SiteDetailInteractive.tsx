@@ -153,15 +153,16 @@ export function SiteDetailInteractive({ site }: { site: SiteData }) {
   const isNhaChungTich = site.slug === 'nha-chung-tich';
   const isBunker = Boolean(site.slug && site.slug.startsWith('ham-'));
   const bunkerImg = isBunker ? `/cac-ham/${site.slug}.jpg` : null;
+  const siteHeroImg =
+    isBunker && bunkerImg
+      ? bunkerImg
+      : site.slug === 'dai-tuong-niem'
+      ? '/dai_tuong_niem.jpg'
+      : '/nha_chung_tich.jpg';
 
   // Selected Radar Bunker state (no page reload)
   const [selectedRadarSlug, setSelectedRadarSlug] = useState<string>(site.slug || 'nha-chung-tich');
 
-  // Viewport Tab modes
-  const [activeTab, setActiveTab] = useState<'bunker' | 'exhibition' | 'artifacts' | 'flycam' | 'monument'>(
-    isBunker ? 'bunker' : 'exhibition'
-  );
-  const [activeHotspot, setActiveHotspot] = useState<string | null>(null);
   const [lightboxImg, setLightboxImg] = useState<{ src: string; title: string; desc: string } | null>(null);
 
   // Audio Player state
@@ -383,310 +384,53 @@ export function SiteDetailInteractive({ site }: { site: SiteData }) {
       {/* ========================================================================= */}
       <div className="container-shell relative z-10 mt-6">
         <div className="relative overflow-hidden rounded-[2.5rem] border border-emerald-500/20 bg-gradient-to-b from-transparent via-black/[0.06] to-black/[0.12] backdrop-blur-[3px] drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)] shadow-2xl">
-          {/* Viewport Control Bar */}
-          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-emerald-500/20 bg-black/30 px-6 py-4 backdrop-blur-[3px]">
-            <div className="flex flex-wrap items-center gap-2">
-              <span className="text-xs uppercase tracking-[0.16em] text-stone-400 font-semibold mr-2 hidden sm:inline">
-                Chế độ góc nhìn:
-              </span>
-              {isBunker && bunkerImg && (
-                <button
-                  onClick={() => { setActiveTab('bunker'); setActiveHotspot(null); }}
-                  className={`inline-flex items-center gap-2 rounded-xl px-3.5 py-1.5 text-xs font-bold transition ${
-                    activeTab === 'bunker'
-                      ? 'bg-[#e0231c] text-white shadow-lg shadow-[#e0231c]/30'
-                      : 'bg-white/5 text-stone-300 hover:bg-white/10 hover:text-white'
-                  }`}
-                >
-                  📸 Ảnh Thực Địa {site.name}
-                </button>
-              )}
-              <button
-                onClick={() => { setActiveTab('exhibition'); setActiveHotspot(null); }}
-                className={`inline-flex items-center gap-2 rounded-xl px-3.5 py-1.5 text-xs font-bold transition ${
-                  activeTab === 'exhibition'
-                    ? 'bg-[#38bdf8] text-black shadow-lg shadow-[#38bdf8]/30'
-                    : 'bg-white/5 text-stone-300 hover:bg-white/10 hover:text-white'
-                }`}
-              >
-                🏛️ Không Gian 3D Trưng Bày
-              </button>
-              <button
-                onClick={() => { setActiveTab('artifacts'); setActiveHotspot(null); }}
-                className={`inline-flex items-center gap-2 rounded-xl px-3.5 py-1.5 text-xs font-bold transition ${
-                  activeTab === 'artifacts'
-                    ? 'bg-[#ffd700] text-black shadow-lg shadow-[#ffd700]/30'
-                    : 'bg-white/5 text-stone-300 hover:bg-white/10 hover:text-white'
-                }`}
-              >
-                ⛓️ Hiện Vật & Xiềng Xích
-              </button>
-              <button
-                onClick={() => { setActiveTab('flycam'); setActiveHotspot(null); }}
-                className={`inline-flex items-center gap-2 rounded-xl px-3.5 py-1.5 text-xs font-bold transition ${
-                  activeTab === 'flycam'
-                    ? 'bg-[#e0231c] text-white shadow-lg shadow-[#e0231c]/30'
-                    : 'bg-white/5 text-stone-300 hover:bg-white/10 hover:text-white'
-                }`}
-              >
-                🛰️ Flycam Thực Địa Đồi Ba Đồn
-              </button>
-              <button
-                onClick={() => { setActiveTab('monument'); setActiveHotspot(null); }}
-                className={`inline-flex items-center gap-2 rounded-xl px-3.5 py-1.5 text-xs font-bold transition ${
-                  activeTab === 'monument'
-                    ? 'bg-emerald-500 text-black shadow-lg shadow-emerald-500/30'
-                    : 'bg-white/5 text-stone-300 hover:bg-white/10 hover:text-white'
-                }`}
-              >
-                🗿 Đài Tưởng Niệm Đá Khối
-              </button>
+          {/* Main Visual Screen Content */}
+          <div className="relative h-[420px] md:h-[540px] w-full overflow-hidden bg-[#020508] select-none group">
+            <img
+              src={siteHeroImg}
+              alt={`Ảnh thực địa ${site.name}`}
+              className="h-full w-full object-cover object-center transition-transform duration-1000 group-hover:scale-105"
+            />
+            {/* Ambient vignette gradient */}
+            <div
+              className="pointer-events-none absolute inset-0"
+              style={{
+                background:
+                  'radial-gradient(circle at 50% 50%, rgba(224, 35, 28, 0.08) 0%, transparent 65%), linear-gradient(180deg, rgba(2,4,6,0.15) 0%, rgba(2,4,6,0.85) 100%)',
+              }}
+            />
 
-              <Link
-                href="/ban-do-360"
-                className="inline-flex items-center gap-1.5 rounded-xl border border-[#ffd700]/50 bg-gradient-to-r from-[#ffd700]/20 to-[#38bdf8]/20 px-3.5 py-1.5 text-xs font-bold text-[#fef08a] hover:scale-105 transition shadow-lg shadow-[#ffd700]/20"
-              >
-                <Compass size={13} className="text-[#ffd700]" />
-                <span>🌐 Mở Bản Đồ 4K 360°</span>
-              </Link>
+            {/* Top Left Badge: Site Real Photo Indicator */}
+            <div className="absolute top-4 left-4 z-20 flex items-center gap-2">
+              <span className="rounded-full bg-black/85 border border-emerald-400/50 px-3.5 py-1 text-[11px] font-bold text-emerald-300 backdrop-blur-md shadow-lg flex items-center gap-1.5">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-ping" />
+                📍 ẢNH THỰC TẾ {site.name.toUpperCase()} (ĐỒI BA ĐỒN)
+              </span>
             </div>
 
-            <div className="flex items-center gap-2">
+            {/* Top Right: Lightbox Expand Button */}
+            <div className="absolute top-4 right-4 z-20">
               <button
-                onClick={() => {
-                  const src =
-                    activeTab === 'bunker' && bunkerImg
-                      ? bunkerImg
-                      : activeTab === 'exhibition'
-                      ? '/nha_chung_tich.jpg'
-                      : activeTab === 'artifacts'
-                      ? '/chin_ham_artifacts.jpg'
-                      : activeTab === 'flycam'
-                      ? '/khong_gian_tong_quan.jpg'
-                      : '/dai_tuong_niem.jpg';
+                type="button"
+                onClick={() =>
                   setLightboxImg({
-                    src,
+                    src: siteHeroImg,
                     title: site.name,
-                    desc: 'Toàn cảnh không gian số hóa chất lượng cao 8K.',
-                  });
-                }}
-                className="inline-flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/5 px-2.5 py-1.5 text-xs font-medium text-stone-300 hover:bg-white/10 hover:text-white"
+                    desc: site.subtitle || 'Ảnh chụp thực địa độ phân giải cao tại khu di tích Chín Hầm.',
+                  })
+                }
+                className="inline-flex items-center gap-1.5 rounded-xl border border-white/20 bg-black/75 px-3 py-1.5 text-xs font-semibold text-white backdrop-blur-md hover:bg-black/90 hover:border-[#38bdf8] transition shadow-xl cursor-pointer"
                 title="Phóng to toàn màn hình"
               >
-                <Maximize2 size={13} />
-                <span className="hidden sm:inline">Phóng to</span>
+                <Maximize2 size={13} className="text-[#38bdf8]" />
+                <span>Phóng to ảnh</span>
               </button>
             </div>
-          </div>
-
-          {/* Viewport Screen Content */}
-          <div className="relative h-[420px] md:h-[540px] w-full overflow-hidden bg-[#020508] select-none">
-            {/* 0. Tab Bunker Real Photo */}
-            {activeTab === 'bunker' && bunkerImg && (
-              <div className="relative h-full w-full">
-                <img
-                  src={bunkerImg}
-                  alt={`Ảnh thực địa ${site.name}`}
-                  className="h-full w-full object-cover object-center transition-transform duration-1000 hover:scale-105"
-                />
-                <div
-                  className="pointer-events-none absolute inset-0"
-                  style={{
-                    background:
-                      'radial-gradient(circle at 50% 50%, rgba(224, 35, 28, 0.12) 0%, transparent 65%), linear-gradient(180deg, rgba(2,4,6,0.1) 0%, rgba(2,4,6,0.85) 100%)',
-                  }}
-                />
-                <div className="absolute top-4 left-4 z-20 flex items-center gap-2">
-                  <span className="rounded-full bg-black/85 border border-emerald-400/50 px-3.5 py-1 text-[11px] font-bold text-emerald-300 backdrop-blur-md shadow-lg">
-                    📍 ẢNH THỰC TẾ {site.name.toUpperCase()} (ĐỒI BA ĐỒN)
-                  </span>
-                </div>
-              </div>
-            )}
-
-            {/* 1. Tab Exhibition Hall */}
-            {activeTab === 'exhibition' && (
-              <div className="relative h-full w-full">
-                <img
-                  src="/nha_chung_tich.jpg"
-                  alt="Không gian Nhà Chứng Tích - Nhà Tả Vu"
-                  className="h-full w-full object-cover object-center transition-transform duration-1000 hover:scale-105"
-                />
-                {/* Living Flame / Light Shader Layer */}
-                <div
-                  className="pointer-events-none absolute inset-0"
-                  style={{
-                    background:
-                      'radial-gradient(circle at 50% 65%, rgba(255, 180, 80, 0.22) 0%, rgba(56, 189, 248, 0.08) 45%, transparent 70%), linear-gradient(180deg, rgba(2,4,6,0.1) 0%, rgba(2,4,6,0.85) 100%)',
-                  }}
-                />
-
-                {/* Reticle Target HUD */}
-                <div className="absolute top-[68%] left-[50%] -translate-x-1/2 -translate-y-1/2 pointer-events-none flex flex-col items-center gap-2">
-                  <div className="h-10 w-10 rounded-full border-2 border-[#38bdf8] shadow-[0_0_20px_#38bdf8] animate-ping opacity-75" />
-                  <span className="rounded-full bg-black/85 border border-[#38bdf8]/60 px-3 py-1 text-[11px] font-bold text-[#38bdf8] backdrop-blur-md shadow-2xl">
-                    🎯 SA BÀN 3D 9 CĂN HẦM
-                  </span>
-                </div>
-
-                {/* Interactive Hotspots */}
-                <button
-                  onClick={() => setActiveHotspot('hotspot-saban')}
-                  className="absolute top-[62%] left-[48%] -translate-x-1/2 -translate-y-1/2 z-20 group"
-                >
-                  <span className="relative flex h-7 w-7 items-center justify-center">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#38bdf8] opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-5 w-5 bg-[#38bdf8] items-center justify-center text-[10px] font-black text-black">
-                      1
-                    </span>
-                  </span>
-                </button>
-
-                <button
-                  onClick={() => setActiveHotspot('hotspot-tu-lieu')}
-                  className="absolute top-[48%] left-[16%] -translate-x-1/2 -translate-y-1/2 z-20 group"
-                >
-                  <span className="relative flex h-7 w-7 items-center justify-center">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#ffd700] opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-5 w-5 bg-[#ffd700] items-center justify-center text-[10px] font-black text-black">
-                      2
-                    </span>
-                  </span>
-                </button>
-
-                <button
-                  onClick={() => setActiveHotspot('hotspot-hien-vat')}
-                  className="absolute top-[52%] left-[90%] -translate-x-1/2 -translate-y-1/2 z-20 group"
-                >
-                  <span className="relative flex h-7 w-7 items-center justify-center">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#e0231c] opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-5 w-5 bg-[#e0231c] items-center justify-center text-[10px] font-black text-white">
-                      3
-                    </span>
-                  </span>
-                </button>
-              </div>
-            )}
-
-            {/* 2. Tab Artifacts */}
-            {activeTab === 'artifacts' && (
-              <div className="relative h-full w-full">
-                <img
-                  src="/chin_ham_artifacts.jpg"
-                  alt="Kỷ vật khảo cổ Chín Hầm"
-                  className="h-full w-full object-cover object-center transition-transform duration-1000 hover:scale-105"
-                />
-                <div
-                  className="pointer-events-none absolute inset-0"
-                  style={{
-                    background:
-                      'radial-gradient(circle at 45% 60%, rgba(255, 215, 0, 0.18) 0%, rgba(224, 35, 28, 0.1) 50%, transparent 75%), linear-gradient(180deg, rgba(2,4,6,0.1) 0%, rgba(2,4,6,0.85) 100%)',
-                  }}
-                />
-
-                <button
-                  onClick={() => setActiveHotspot('hotspot-cum')}
-                  className="absolute top-[52%] left-[36%] -translate-x-1/2 -translate-y-1/2 z-20 group"
-                >
-                  <span className="relative flex h-7 w-7 items-center justify-center">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#ffd700] opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-5 w-5 bg-[#ffd700] items-center justify-center text-[10px] font-black text-black">
-                      ★
-                    </span>
-                  </span>
-                </button>
-
-                <button
-                  onClick={() => setActiveHotspot('hotspot-bat')}
-                  className="absolute top-[56%] left-[68%] -translate-x-1/2 -translate-y-1/2 z-20 group"
-                >
-                  <span className="relative flex h-7 w-7 items-center justify-center">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#38bdf8] opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-5 w-5 bg-[#38bdf8] items-center justify-center text-[10px] font-black text-black">
-                      ✦
-                    </span>
-                  </span>
-                </button>
-              </div>
-            )}
-
-            {/* 3. Tab Flycam Aerial View */}
-            {activeTab === 'flycam' && (
-              <div className="relative h-full w-full">
-                <img
-                  src="/khong_gian_tong_quan.jpg"
-                  alt="Không gian tổng quan Flycam"
-                  className="h-full w-full object-cover object-[34%_50%] transition-transform duration-1000 hover:scale-105"
-                />
-                <div
-                  className="pointer-events-none absolute inset-0"
-                  style={{
-                    background:
-                      'radial-gradient(circle at 34% 50%, rgba(56, 189, 248, 0.25) 0%, transparent 60%), linear-gradient(180deg, rgba(2,4,6,0.1) 0%, rgba(2,4,6,0.85) 100%)',
-                  }}
-                />
-
-                {/* Real Ba Đồn POI Pin for Nhà Tả Vu */}
-                <div className="absolute top-[50%] left-[34%] -translate-x-1/2 -translate-y-1/2 z-20 flex flex-col items-center">
-                  <div className="h-10 w-10 rounded-full border-2 border-[#38bdf8] shadow-[0_0_25px_#38bdf8] animate-ping" />
-                  <span className="mt-2 rounded-full bg-black/90 border border-[#38bdf8] px-3.5 py-1 text-[11px] font-bold text-[#38bdf8] backdrop-blur-md shadow-2xl">
-                    📍 VỊ TRÍ NHÀ CHỨNG TÍCH (NHÀ TẢ VU)
-                  </span>
-                </div>
-              </div>
-            )}
-
-            {/* 4. Tab Monument */}
-            {activeTab === 'monument' && (
-              <div className="relative h-full w-full">
-                <img
-                  src="/dai_tuong_niem.jpg"
-                  alt="Đài Tưởng Niệm Chín Hầm"
-                  className="h-full w-full object-contain bg-black transition-transform duration-1000 hover:scale-105"
-                />
-              </div>
-            )}
-
-            {/* Interactive Hotspot Tooltip Popup */}
-            {activeHotspot && (
-              <div className="absolute bottom-6 left-6 right-6 md:left-auto md:right-8 md:w-96 rounded-2xl border border-white/20 bg-black/90 p-5 backdrop-blur-2xl shadow-2xl z-30 animate-in fade-in zoom-in-95 duration-200">
-                <div className="flex items-start justify-between">
-                  <div className="inline-flex items-center gap-1.5 rounded-full border border-emerald-400/30 bg-emerald-950/70 px-2.5 py-0.5 text-[10px] font-bold text-emerald-300">
-                    DI TÍCH KHẢO CỔ GỐC
-                  </div>
-                  <button
-                    onClick={() => setActiveHotspot(null)}
-                    className="text-stone-400 hover:text-white"
-                  >
-                    <X size={16} />
-                  </button>
-                </div>
-                <h4 className="mt-2 text-base font-bold text-[#fef08a] font-display">
-                  {activeHotspot === 'hotspot-saban' && 'Sa Bàn 3D Toàn Cảnh 9 Căn Hầm'}
-                  {activeHotspot === 'hotspot-tu-lieu' && 'Tư Liệu Ảnh Giải Phóng 02/11/1963'}
-                  {activeHotspot === 'hotspot-hien-vat' && 'Tủ Kính Di Vật Tù Nhân & Khảo Cổ'}
-                  {activeHotspot === 'hotspot-cum' && 'Cùm Chân Số 8 & Xiềng Xích Tử Tù'}
-                  {activeHotspot === 'hotspot-bat' && 'Bát Sắt & Ca Nhôm Sinh Hoạt'}
-                </h4>
-                <p className="mt-1 text-xs text-stone-300 leading-relaxed">
-                  {activeHotspot === 'hotspot-saban' &&
-                    'Tái hiện toàn bộ cấu trúc địa hình đồi Ba Đồn cùng vị trí tọa độ của 9 căn hầm và các công trình đài tưởng niệm theo tỷ lệ thực tế.'}
-                  {activeHotspot === 'hotspot-tu-lieu' &&
-                    'Lưu giữ hàng trăm bức ảnh lịch sử, bản tự thuật và lời khai tố cáo tội ác của mật vụ Ngô Đình Cẩn sau khi nhà tù Chín Hầm bị xóa sổ.'}
-                  {activeHotspot === 'hotspot-hien-vat' &&
-                    'Khai quật trực tiếp từ lòng đất tại các căn hầm, được bảo tồn nguyên vẹn dưới điều kiện nhiệt độ và ánh sáng chuẩn bảo tàng quốc gia.'}
-                  {activeHotspot === 'hotspot-cum' &&
-                    'Khối sắt đặc nặng hơn 10kg, cùm chặt hai chân người tù ngày đêm trong bóng tối ngột ngạt, là chứng tích không thể chối cãi của chế độ giam cầm tàn bạo.'}
-                  {activeHotspot === 'hotspot-bat' &&
-                    'Những kỷ vật sinh hoạt giản dị nhưng thấm đẫm ý chí kiên cường của các chiến sĩ tử tù trong chuỗi ngày bị biệt giam cách ly với ánh sáng.'}
-                </p>
-              </div>
-            )}
 
             {/* Bottom Overlay Legend */}
-            <div className="absolute bottom-4 left-6 z-10 hidden sm:flex items-center gap-3">
+            <div className="absolute bottom-4 left-6 z-10 hidden sm:flex items-center gap-3 pointer-events-none">
               <span className="rounded-full bg-black/70 border border-white/10 px-3 py-1 text-[11px] text-stone-300 backdrop-blur-md">
-                ✦ Di chuột để tương tác và phóng lớn không gian
+                ✦ Di tích lịch sử Quốc gia Chín Hầm • Huế
               </span>
             </div>
           </div>
