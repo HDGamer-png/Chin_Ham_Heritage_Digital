@@ -341,43 +341,46 @@ export function HistoryChallengeQuiz() {
           </div>
 
           {/* Tab Switcher Buttons */}
-          <div className="flex items-center gap-1.5 p-1 rounded-xl bg-black/30 border border-white/10 text-xs sm:text-sm font-semibold backdrop-blur-[3px]">
+          <div className="w-full sm:w-auto grid grid-cols-2 sm:flex sm:items-center gap-1.5 p-1 rounded-xl bg-black/30 border border-white/10 text-xs sm:text-sm font-semibold backdrop-blur-[3px]">
             <button
               onClick={() => {
                 setActiveTab('quiz');
                 setQuizMode('board');
               }}
-              className={`px-3.5 py-2 rounded-lg transition flex items-center gap-1.5 ${
+              className={`px-2.5 py-2 sm:px-3.5 rounded-lg transition flex items-center justify-center sm:justify-start gap-1.5 whitespace-nowrap ${
                 activeTab === 'quiz'
                   ? 'bg-amber-500 text-stone-950 shadow-md font-bold'
                   : 'text-stone-300 hover:text-white'
               }`}
             >
-              <Zap size={15} /> 10 Bộ Đề
+              <Zap size={15} className="shrink-0" />
+              <span className="truncate sm:overflow-visible">10 Bộ Đề</span>
             </button>
             <button
               onClick={() => setActiveTab('leaderboard')}
-              className={`px-3.5 py-2 rounded-lg transition flex items-center gap-1.5 ${
+              className={`px-2.5 py-2 sm:px-3.5 rounded-lg transition flex items-center justify-center sm:justify-start gap-1.5 whitespace-nowrap ${
                 activeTab === 'leaderboard'
                   ? 'bg-amber-500 text-stone-950 shadow-md font-bold'
                   : 'text-stone-300 hover:text-white'
               }`}
             >
-              <Trophy size={15} /> Bảng Vàng
+              <Trophy size={15} className="shrink-0" />
+              <span className="truncate sm:overflow-visible">Bảng Vàng</span>
             </button>
             <button
               onClick={() => setActiveTab('worksheet')}
-              className={`px-3.5 py-2 rounded-lg transition flex items-center gap-1.5 ${
+              className={`px-2.5 py-2 sm:px-3.5 rounded-lg transition flex items-center justify-center sm:justify-start gap-1.5 whitespace-nowrap ${
                 activeTab === 'worksheet'
                   ? 'bg-amber-500 text-stone-950 shadow-md font-bold'
                   : 'text-stone-300 hover:text-white'
               }`}
             >
-              <FileText size={15} /> Phiếu Học Tập A4
+              <FileText size={15} className="shrink-0" />
+              <span className="truncate sm:overflow-visible">Phiếu Học Tập A4</span>
             </button>
             <button
               onClick={() => setActiveTab('certificate')}
-              className={`px-3.5 py-2 rounded-lg transition flex items-center gap-1.5 ${
+              className={`px-2.5 py-2 sm:px-3.5 rounded-lg transition flex items-center justify-center sm:justify-start gap-1.5 whitespace-nowrap ${
                 activeTab === 'certificate'
                   ? totalCorrectQuestions >= 91
                     ? 'bg-gradient-to-r from-red-600 to-amber-600 text-white shadow-md font-bold'
@@ -387,10 +390,10 @@ export function HistoryChallengeQuiz() {
                   : 'text-stone-400 hover:text-stone-200'
               }`}
             >
-              <Award size={15} />
-              <span>Chứng Nhận</span>
+              <Award size={15} className="shrink-0" />
+              <span className="truncate sm:overflow-visible">Chứng Nhận</span>
               {totalCorrectQuestions < 91 && (
-                <Lock size={12} className="text-stone-400" />
+                <Lock size={12} className="text-stone-400 shrink-0" />
               )}
             </button>
           </div>
