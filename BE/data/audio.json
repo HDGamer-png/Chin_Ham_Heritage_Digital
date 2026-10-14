@@ -33,7 +33,7 @@
         "category": "Dấu vết",
         "description": "Câu chuyện về không gian xà lim chuồng cọp tàn khốc và bản lĩnh kiên trung, bất khuất của những người chiến sĩ cách mạng nơi đáy ngục Chín Hầm.",
         "fileUrl": "/audio/ham-so-8.mp3",
-        "imageUrl": "/chin_ham_artifacts.jpg"
+        "imageUrl": "/cac-ham/ham-8.jpg"
     },
     {
         "id": "audio-ket-thuc",
@@ -42,6 +42,6 @@
         "category": "Tổng kết",
         "description": "Nhắn nhủ kết nối giữa quá khứ, hiện tại và tương lai của ký ức lịch sử tại Chín Hầm.",
         "fileUrl": "/audio/ket-thuc-hanh-trinh.mp3",
-        "imageUrl": "/dai_tuong_niem.jpg"
+        "imageUrl": "/tuong_dai.jpg"
     }
 ]

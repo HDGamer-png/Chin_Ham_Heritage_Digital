@@ -14,7 +14,7 @@ const siteImages: Record<string, string> = {
   'ham-7': '/cac-ham/ham-7.jpg',
   'ham-8': '/cac-ham/ham-8.jpg',
   'ham-9': '/cac-ham/ham-9.jpg',
-  'dai-tuong-niem': '/dai_tuong_niem.jpg',
+  'dai-tuong-niem': '/tuong_dai.jpg',
 };
 
 async function getSites() {
