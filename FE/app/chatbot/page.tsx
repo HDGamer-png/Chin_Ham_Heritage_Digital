@@ -180,7 +180,7 @@ export default function ChatbotPage() {
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
       sender: 'bot',
-      text: 'Xin chào! 👋 Tôi là **Trợ lý AI Lịch sử Chín Hầm**.\n\nTôi có thể hỗ trợ bạn tìm hiểu chi tiết về:\n• ⛓️ **Tội ác ngục tối & Lý do Hầm 4 gọi là chuồng cọp**\n• 👤 **Hồ sơ nhân vật Ngô Đình Cẩn & Bộ máy mật vụ**\n• ⚖️ **So sánh đối chiếu kiến trúc từng căn hầm**\n• ⏳ **Dòng thời gian sự kiện phá hầm ngày 02/11/1963**\n• 🗺️ **Hướng dẫn chi tiết lộ trình tham quan di tích**\n\nHãy chọn câu hỏi gợi ý bên dưới hoặc nhập câu hỏi của bạn!',
+      text: 'Xin chào! 👋 Tôi là **Trợ lý AI Di sản Chín Hầm**.\n\nTôi sẵn sàng giải đáp và cung cấp tư liệu lịch sử về 9 căn hầm, nhân vật Ngô Đình Cẩn, chế độ ngục tù và ngày giải phóng 02/11/1963.\n\nHãy chọn câu hỏi gợi ý bên dưới hoặc nhập câu hỏi của bạn!',
       intent: 'greeting',
       suggestions: [
         'Tại sao Hầm số 4 được gọi là chuồng cọp?',

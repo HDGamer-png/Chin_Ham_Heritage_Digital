@@ -39,7 +39,7 @@ function fallbackReply(input: string) {
     }
   }
 
-  return 'Tôi là Trợ lý AI Lịch sử Chín Hầm. Bạn có thể hỏi tôi về nhân vật Ngô Đình Cẩn, cấu trúc 9 căn hầm, sự kiện phá hầm 1963 hoặc hướng dẫn tham quan.\n\n*(Gợi ý: Hãy khởi chạy dịch vụ Python AI tại thư mục AI_SERVICE bằng lệnh `py app.py` để tra cứu toàn văn từ các file tài liệu).*';
+  return 'Tôi là Trợ lý AI Lịch sử Chín Hầm. Bạn có thể hỏi tôi về nhân vật Ngô Đình Cẩn, cấu trúc 9 căn hầm, sự kiện phá hầm 1963 hoặc hướng dẫn tham quan.';
 }
 
 export async function POST(request: NextRequest) {
