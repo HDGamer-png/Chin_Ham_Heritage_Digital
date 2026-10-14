@@ -28,7 +28,7 @@ const journeySubItems = [
 export function SiteHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [mobileJourneyOpen, setMobileJourneyOpen] = useState(true);
+  const [mobileJourneyOpen, setMobileJourneyOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -208,95 +208,121 @@ export function SiteHeader() {
         </button>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Drawer (60% width sliding from the right) */}
       {mobileMenuOpen && (
-        <div className="border-b border-white/10 bg-stone-950/98 p-6 backdrop-blur-2xl md:hidden">
-          <div className="flex flex-col space-y-4">
-            <Link
-              href="/"
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-base font-medium text-stone-200 hover:text-emerald-400"
-            >
-              Trang chủ
-            </Link>
-            <Link
-              href="/di-tich"
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-base font-medium text-stone-200 hover:text-emerald-400"
-            >
-              Di tích
-            </Link>
+        <>
+          {/* Backdrop overlay */}
+          <div
+            className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm md:hidden"
+            onClick={() => setMobileMenuOpen(false)}
+            style={{ animation: 'fadeIn 0.2s ease-out forwards' }}
+          />
 
-            {/* Mobile Journey Section Group */}
-            <div className="rounded-2xl border border-amber-500/30 bg-black/40 p-3 space-y-2">
-              <div
-                onClick={() => setMobileJourneyOpen((v) => !v)}
-                className="flex items-center justify-between text-base font-bold text-amber-300 cursor-pointer"
-              >
-                <div className="flex items-center gap-2">
-                  <Compass size={17} className="text-amber-400" />
-                  <span>Hành trình ký ức</span>
-                </div>
-                <ChevronDown
-                  size={16}
-                  className={`transition-transform duration-200 ${mobileJourneyOpen ? 'rotate-180' : ''}`}
-                />
+          {/* Right 60% drawer panel */}
+          <div
+            className="fixed top-0 bottom-0 right-0 z-50 w-[60%] min-w-[240px] max-w-[320px] bg-stone-950/95 border-l border-emerald-500/25 p-5 shadow-2xl backdrop-blur-2xl flex flex-col justify-between overflow-y-auto md:hidden"
+            style={{ animation: 'slideFromRight 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards' }}
+          >
+            <div>
+              {/* Header inside drawer */}
+              <div className="flex items-center justify-between pb-3 border-b border-white/10 mb-4">
+                <span className="text-xs font-bold uppercase tracking-widest text-[#fef08a] font-display">
+                  Menu
+                </span>
+                <button
+                  type="button"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="p-1 rounded-lg text-stone-400 hover:text-white transition"
+                  aria-label="Đóng menu"
+                >
+                  <X size={20} />
+                </button>
               </div>
 
-              {mobileJourneyOpen && (
-                <div className="pl-3 space-y-2 pt-1 border-l-2 border-amber-500/30 ml-2">
-                  <Link
-                    href="/hanh-trinh-ky-uc"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="block text-xs font-semibold text-amber-400 hover:underline"
+              {/* Navigation Links */}
+              <div className="flex flex-col space-y-3.5">
+                <Link
+                  href="/"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="text-sm font-medium text-stone-200 hover:text-emerald-400 transition"
+                >
+                  Trang chủ
+                </Link>
+                <Link
+                  href="/di-tich"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="text-sm font-medium text-stone-200 hover:text-emerald-400 transition"
+                >
+                  Di tích
+                </Link>
+
+                {/* Mobile Journey Section Accordion (No icon, down arrow on right, 3 items only) */}
+                <div className="space-y-1.5">
+                  <div
+                    onClick={() => setMobileJourneyOpen((v) => !v)}
+                    className="flex items-center justify-between text-sm font-medium text-stone-200 hover:text-emerald-400 cursor-pointer select-none py-1 transition"
                   >
-                    → Trung tâm Hành trình ký ức
-                  </Link>
-                  {journeySubItems.map((sub) => (
-                    <Link
-                      key={sub.href}
-                      href={sub.href}
-                      onClick={() => setMobileMenuOpen(false)}
-                      className="block text-sm font-medium text-stone-300 hover:text-amber-300"
-                    >
-                      {sub.label}
-                    </Link>
-                  ))}
+                    <span>Hành trình ký ức</span>
+                    <ChevronDown
+                      size={15}
+                      className={`transition-transform duration-200 text-stone-400 ${
+                        mobileJourneyOpen ? 'rotate-180 text-emerald-400' : ''
+                      }`}
+                    />
+                  </div>
+
+                  {mobileJourneyOpen && (
+                    <div className="pl-3 space-y-2 py-1.5 border-l border-emerald-500/30 ml-1">
+                      {journeySubItems.map((sub) => (
+                        <Link
+                          key={sub.href}
+                          href={sub.href}
+                          onClick={() => setMobileMenuOpen(false)}
+                          className="block text-xs font-medium text-stone-300 hover:text-emerald-300 transition"
+                        >
+                          {sub.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
                 </div>
-              )}
+
+                <Link
+                  href="/ban-do-360"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="text-sm font-medium text-stone-200 hover:text-emerald-400 transition"
+                >
+                  Bản đồ 360°
+                </Link>
+                <Link
+                  href="/audio-guide"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="text-sm font-medium text-stone-200 hover:text-emerald-400 transition"
+                >
+                  Audio Guide
+                </Link>
+                <Link
+                  href="/chatbot"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="text-sm font-medium text-stone-200 hover:text-emerald-400 transition"
+                >
+                  Chatbot AI
+                </Link>
+              </div>
             </div>
 
-            <Link
-              href="/ban-do-360"
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-base font-medium text-stone-200 hover:text-emerald-400"
-            >
-              Bản đồ 360°
-            </Link>
-            <Link
-              href="/audio-guide"
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-base font-medium text-stone-200 hover:text-emerald-400"
-            >
-              Audio Guide
-            </Link>
-            <Link
-              href="/chatbot"
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-base font-medium text-stone-200 hover:text-emerald-400"
-            >
-              Chatbot AI
-            </Link>
-
-            <Link
-              href="/lien-he"
-              onClick={() => setMobileMenuOpen(false)}
-              className="mt-2 inline-block rounded-xl bg-emerald-600 px-4 py-2.5 text-center text-sm font-bold text-white shadow-md"
-            >
-              Đặt lịch tham quan
-            </Link>
+            {/* Bottom action button with subtle transparency */}
+            <div className="pt-4 mt-4 border-t border-white/10">
+              <Link
+                href="/lien-he"
+                onClick={() => setMobileMenuOpen(false)}
+                className="block rounded-xl border border-emerald-400/35 bg-emerald-600/70 hover:bg-emerald-500/80 px-4 py-2.5 text-center text-xs font-bold uppercase tracking-wider text-white backdrop-blur-md shadow-[0_0_15px_rgba(16,185,129,0.25)] active:scale-[0.98] transition-all"
+              >
+                Đặt lịch tham quan
+              </Link>
+            </div>
           </div>
-        </div>
+        </>
       )}
     </header>
   );
