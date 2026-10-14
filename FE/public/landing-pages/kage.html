@@ -736,7 +736,7 @@ h1,h2,h3{ font-weight:400; margin:0; letter-spacing:-.005em; }
 .gate-stats div span{ font-size:15px; letter-spacing:.15em; text-transform:uppercase; color:var(--muted); line-height:1.4; display:block; }
 
 /* — chapter II: pathways cards */
-.cards{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(10px,1.4vw,22px); align-items:start; }
+.cards{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(10px,1.4vw,22px); align-items:start; margin-bottom:clamp(36px, 6vh, 72px); }
 .card{ position:relative; cursor:pointer; }
 .card:nth-child(1){ transform:translateY(0); }
 .card:nth-child(2){ transform:translateY(clamp(26px,5vw,74px)); }
@@ -753,17 +753,17 @@ h1,h2,h3{ font-weight:400; margin:0; letter-spacing:-.005em; }
 .card:nth-child(1) .card-fr{
   background:
     linear-gradient(180deg,rgba(3,6,9,.04) 36%,rgba(3,6,9,.72) 100%),
-    url('khong_gian_tong_quan.jpg') 25% 45% / cover no-repeat;
+    url('/cac-ham/ham-8.jpg') center / cover no-repeat;
 }
 .card:nth-child(2) .card-fr{
   background:
     linear-gradient(180deg,rgba(3,6,9,.06) 36%,rgba(3,6,9,.74) 100%),
-    url('chin_ham_relief_3d.jpg') center / cover no-repeat;
+    url('/cac-ham/ham-4.jpg') center / cover no-repeat;
 }
 .card:nth-child(3) .card-fr{
   background:
     linear-gradient(180deg,rgba(3,6,9,.05) 36%,rgba(3,6,9,.74) 100%),
-    url('chin_ham_artifacts.jpg') center / cover no-repeat;
+    url('/cac-ham/ham-7.jpg') center / cover no-repeat;
 }
 .card-fr::after{ content:''; position:absolute; inset:0;
   background:linear-gradient(transparent 46%, rgba(4,6,9,.80)); pointer-events:none; }
@@ -1126,6 +1126,13 @@ body[data-layout-closing="b"] .fin h2 .word {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  text-decoration: none !important;
+  color: inherit !important;
+  cursor: pointer !important;
+  transition: opacity .25s var(--ease);
+}
+.roadmap-card-footer:hover {
+  text-decoration: none !important;
 }
 .roadmap-cue-tag {
   display: inline-flex;
@@ -1135,6 +1142,7 @@ body[data-layout-closing="b"] .fin h2 .word {
   color: #c0d2ca;
   font-weight: 500;
   letter-spacing: 0.02em;
+  transition: color .25s var(--ease);
 }
 .roadmap-cue-tag .cue-dot {
   width: 7px;
@@ -1155,7 +1163,12 @@ body[data-layout-closing="b"] .fin h2 .word {
   color: #d1ded7;
   transition: transform .35s var(--ease-out), border-color .35s, background .35s, color .35s;
 }
-.roadmap-step-card:hover .roadmap-cue-arrow {
+.roadmap-step-card:hover .roadmap-cue-tag,
+.roadmap-card-footer:hover .roadmap-cue-tag {
+  color: #ffd700;
+}
+.roadmap-step-card:hover .roadmap-cue-arrow,
+.roadmap-card-footer:hover .roadmap-cue-arrow {
   transform: translate3d(2px, -2px, 0);
   border-color: #ffd700;
   color: #ffd700;
@@ -1164,10 +1177,15 @@ body[data-layout-closing="b"] .fin h2 .word {
 
 /* ============================================================= Chapter 2: Focus Sites (Thực Địa Trọng Tâm) */
 .heritage-focus-wrap {
-  margin-top: 48px;
+  margin-top: clamp(140px, 18vh, 220px);
   position: relative !important;
   z-index: 10 !important;
   pointer-events: auto !important;
+}
+@media (max-width: 820px) {
+  .heritage-focus-wrap {
+    margin-top: clamp(70px, 10vh, 110px);
+  }
 }
 .heritage-focus-grid {
   display: grid;
@@ -1217,7 +1235,7 @@ body[data-layout-closing="b"] .fin h2 .word {
   overflow: hidden;
   background:
     linear-gradient(180deg, rgba(3,6,9,.04) 25%, rgba(3,6,9,.60) 100%),
-    url('khong_gian_tong_quan.jpg') 34% 50% / cover no-repeat;
+    url('nha_chung_tich_exhibition.jpg') center / cover no-repeat;
   isolation: isolate;
   border-bottom: 1px solid rgba(223, 231, 224, 0.12);
   transition: transform .6s var(--ease-out);
@@ -1225,7 +1243,7 @@ body[data-layout-closing="b"] .fin h2 .word {
 .focus-thumb-fr--ham8 {
   background:
     linear-gradient(180deg, rgba(3,6,9,.04) 25%, rgba(3,6,9,.60) 100%),
-    url('khong_gian_tong_quan.jpg') 74% 32% / cover no-repeat;
+    url('/cac-ham/ham-8.jpg') center / cover no-repeat;
 }
 .focus-site-card:hover .focus-thumb-fr {
   filter: brightness(1.1);
@@ -3030,7 +3048,7 @@ body[data-layout-footer="b"] .foot-base span:last-child{ text-align:right; }
       <h3>Mỗi bước đi đều kể một câu chuyện lịch sử</h3>
     </div>
     <div class="heritage-roadmap-grid">
-      <div class="roadmap-step-card" data-cursor>
+      <div class="roadmap-step-card" data-cursor id="roadmap-card-1" title="Khám phá bối cảnh lịch sử & điểm chứng tích">
         <div class="roadmap-card-top">
           <span class="roadmap-num">01</span>
           <span class="roadmap-step-tag">BƯỚC 01</span>
@@ -3039,14 +3057,14 @@ body[data-layout-footer="b"] .foot-base span:last-child{ text-align:right; }
           <h4 class="roadmap-title">Khởi đầu</h4>
           <p class="roadmap-desc">Hiểu rõ bối cảnh lịch sử, vị trí địa lý đồi Ba Đồn và kết cấu cụm kho đạn kiên cố nửa chìm nửa nổi do quân đội Pháp xây dựng năm 1941.</p>
         </div>
-        <div class="roadmap-card-footer">
+        <a href="/di-tich" target="_top" class="roadmap-card-footer" id="btn-roadmap-step-1" data-cursor title="Chuyển đến trang Di Tích • Bối cảnh & Khởi nguyên">
           <span class="roadmap-cue-tag"><span class="cue-dot"></span> Bối cảnh & Khởi nguyên</span>
           <span class="roadmap-cue-arrow">
             <svg viewBox="0 0 14 14" fill="none" width="13" height="13"><path d="M3 11 11 3M5 3h6v6" stroke="currentColor" stroke-width="1.3"/></svg>
           </span>
-        </div>
+        </a>
       </div>
-      <div class="roadmap-step-card" data-cursor>
+      <div class="roadmap-step-card" data-cursor id="roadmap-card-2" title="Khảo sát 9 Căn Hầm (Chuyển đến không gian 3D & mở danh mục hầm)">
         <div class="roadmap-card-top">
           <span class="roadmap-num">02</span>
           <span class="roadmap-step-tag">BƯỚC 02</span>
@@ -3055,14 +3073,14 @@ body[data-layout-footer="b"] .foot-base span:last-child{ text-align:right; }
           <h4 class="roadmap-title">Khám phá</h4>
           <p class="roadmap-desc">Khảo sát 9 căn hầm thực địa, nhà chứng tích, trải nghiệm không gian biệt giam ngột ngạt và đối chiếu tài liệu lịch sử đã được kiểm chứng.</p>
         </div>
-        <div class="roadmap-card-footer">
+        <a href="#pathways" class="roadmap-card-footer" id="btn-roadmap-step-2" data-cursor title="Khảo sát 9 Căn Hầm (Chuyển đến không gian 3D & mở danh mục hầm)">
           <span class="roadmap-cue-tag"><span class="cue-dot"></span> Khảo sát 9 Căn Hầm</span>
           <span class="roadmap-cue-arrow">
             <svg viewBox="0 0 14 14" fill="none" width="13" height="13"><path d="M3 11 11 3M5 3h6v6" stroke="currentColor" stroke-width="1.3"/></svg>
           </span>
-        </div>
+        </a>
       </div>
-      <div class="roadmap-step-card" data-cursor>
+      <div class="roadmap-step-card" data-cursor id="roadmap-card-3" title="Mở trang Audio Guide Thuyết Minh & Tri Ân">
         <div class="roadmap-card-top">
           <span class="roadmap-num">03</span>
           <span class="roadmap-step-tag">BƯỚC 03</span>
@@ -3071,12 +3089,12 @@ body[data-layout-footer="b"] .foot-base span:last-child{ text-align:right; }
           <h4 class="roadmap-title">Gắn kết</h4>
           <p class="roadmap-desc">Lắng nghe giọng kể thuyết minh Audio Guide song ngữ, đặt câu hỏi cùng Trợ lý AI và dâng nén tâm hương tưởng niệm các chiến sĩ kiên trung.</p>
         </div>
-        <div class="roadmap-card-footer">
+        <a href="/audio-guide" target="_top" class="roadmap-card-footer" id="btn-roadmap-step-3" data-cursor title="Chuyển đến trang Audio Guide Thuyết Minh & Tri Ân">
           <span class="roadmap-cue-tag"><span class="cue-dot"></span> Audio Guide & Tri Ân</span>
           <span class="roadmap-cue-arrow">
             <svg viewBox="0 0 14 14" fill="none" width="13" height="13"><path d="M3 11 11 3M5 3h6v6" stroke="currentColor" stroke-width="1.3"/></svg>
           </span>
-        </div>
+        </a>
       </div>
     </div>
   </div>
@@ -3486,6 +3504,9 @@ body[data-layout-footer="b"] .foot-base span:last-child{ text-align:right; }
     </div>
     <div class="b-modal-grid">
       <div class="b-card">
+        <div style="height:140px; border-radius:12px; overflow:hidden; margin-bottom:12px; border:1px solid rgba(223,231,224,0.12);">
+          <img src="nha_chung_tich_exhibition.jpg" alt="Nhà chứng tích" style="width:100%; height:100%; object-fit:cover;" />
+        </div>
         <div>
           <span class="b-card-badge">Trưng bày lịch sử</span>
           <h4>Nhà chứng tích</h4>
@@ -3497,6 +3518,9 @@ body[data-layout-footer="b"] .foot-base span:last-child{ text-align:right; }
         </div>
       </div>
       <div class="b-card">
+        <div style="height:140px; border-radius:12px; overflow:hidden; margin-bottom:12px; border:1px solid rgba(223,231,224,0.12);">
+          <img src="/cac-ham/ham-1.jpg" alt="Hầm 1" style="width:100%; height:100%; object-fit:cover;" />
+        </div>
         <div>
           <span class="b-card-badge">Kho đạn Pháp 1941</span>
           <h4>Hầm 1</h4>
@@ -3508,6 +3532,9 @@ body[data-layout-footer="b"] .foot-base span:last-child{ text-align:right; }
         </div>
       </div>
       <div class="b-card">
+        <div style="height:140px; border-radius:12px; overflow:hidden; margin-bottom:12px; border:1px solid rgba(223,231,224,0.12);">
+          <img src="/cac-ham/ham-2.jpg" alt="Hầm 2" style="width:100%; height:100%; object-fit:cover;" />
+        </div>
         <div>
           <span class="b-card-badge">Ký ức sống động</span>
           <h4>Hầm 2</h4>
@@ -3519,6 +3546,9 @@ body[data-layout-footer="b"] .foot-base span:last-child{ text-align:right; }
         </div>
       </div>
       <div class="b-card">
+        <div style="height:140px; border-radius:12px; overflow:hidden; margin-bottom:12px; border:1px solid rgba(223,231,224,0.12);">
+          <img src="/cac-ham/ham-3.jpg" alt="Hầm 3" style="width:100%; height:100%; object-fit:cover;" />
+        </div>
         <div>
           <span class="b-card-badge">Dấu vết chiến lược</span>
           <h4>Hầm 3</h4>
@@ -3530,6 +3560,9 @@ body[data-layout-footer="b"] .foot-base span:last-child{ text-align:right; }
         </div>
       </div>
       <div class="b-card">
+        <div style="height:140px; border-radius:12px; overflow:hidden; margin-bottom:12px; border:1px solid rgba(223,231,224,0.12);">
+          <img src="/cac-ham/ham-4.jpg" alt="Hầm 4" style="width:100%; height:100%; object-fit:cover;" />
+        </div>
         <div>
           <span class="b-card-badge">Ngâm nước khốc liệt</span>
           <h4>Hầm 4</h4>
@@ -3541,6 +3574,9 @@ body[data-layout-footer="b"] .foot-base span:last-child{ text-align:right; }
         </div>
       </div>
       <div class="b-card">
+        <div style="height:140px; border-radius:12px; overflow:hidden; margin-bottom:12px; border:1px solid rgba(223,231,224,0.12);">
+          <img src="/cac-ham/ham-5.jpg" alt="Hầm 5" style="width:100%; height:100%; object-fit:cover;" />
+        </div>
         <div>
           <span class="b-card-badge">Kết nối ký ức</span>
           <h4>Hầm 5</h4>
@@ -3552,6 +3588,9 @@ body[data-layout-footer="b"] .foot-base span:last-child{ text-align:right; }
         </div>
       </div>
       <div class="b-card">
+        <div style="height:140px; border-radius:12px; overflow:hidden; margin-bottom:12px; border:1px solid rgba(223,231,224,0.12);">
+          <img src="/cac-ham/ham-6.jpg" alt="Hầm 6" style="width:100%; height:100%; object-fit:cover;" />
+        </div>
         <div>
           <span class="b-card-badge">Dấu tích thực địa</span>
           <h4>Hầm 6</h4>
@@ -3563,6 +3602,9 @@ body[data-layout-footer="b"] .foot-base span:last-child{ text-align:right; }
         </div>
       </div>
       <div class="b-card">
+        <div style="height:140px; border-radius:12px; overflow:hidden; margin-bottom:12px; border:1px solid rgba(223,231,224,0.12);">
+          <img src="/cac-ham/ham-7.jpg" alt="Hầm 7" style="width:100%; height:100%; object-fit:cover;" />
+        </div>
         <div>
           <span class="b-card-badge">Không gian đồi cao</span>
           <h4>Hầm 7</h4>
@@ -3574,6 +3616,9 @@ body[data-layout-footer="b"] .foot-base span:last-child{ text-align:right; }
         </div>
       </div>
       <div class="b-card">
+        <div style="height:140px; border-radius:12px; overflow:hidden; margin-bottom:12px; border:1px solid rgba(223,231,224,0.12);">
+          <img src="/cac-ham/ham-8.jpg" alt="Hầm 8" style="width:100%; height:100%; object-fit:cover;" />
+        </div>
         <div>
           <span class="b-card-badge">Chuồng cọp biệt giam</span>
           <h4>Hầm 8</h4>
@@ -3585,6 +3630,9 @@ body[data-layout-footer="b"] .foot-base span:last-child{ text-align:right; }
         </div>
       </div>
       <div class="b-card">
+        <div style="height:140px; border-radius:12px; overflow:hidden; margin-bottom:12px; border:1px solid rgba(223,231,224,0.12);">
+          <img src="/cac-ham/ham-9.jpg" alt="Hầm 9" style="width:100%; height:100%; object-fit:cover;" />
+        </div>
         <div>
           <span class="b-card-badge">Ngày giải phóng 1963</span>
           <h4>Hầm 9</h4>
@@ -7793,6 +7841,73 @@ function wireNav() {
   // 3. Ý nghĩa biểu tượng: mở modal ý nghĩa biểu tượng lịch sử
   if (btnMetaSym) {
     btnMetaSym.addEventListener('click', openSymbolism);
+  }
+
+  /* Lộ trình tham quan 3 bước navigation handlers */
+  const cardRoadmap1 = $('#roadmap-card-1');
+  const btnRoadmap1 = $('#btn-roadmap-step-1');
+  const cardRoadmap2 = $('#roadmap-card-2');
+  const btnRoadmap2 = $('#btn-roadmap-step-2');
+  const cardRoadmap3 = $('#roadmap-card-3');
+  const btnRoadmap3 = $('#btn-roadmap-step-3');
+
+  const navigateTopWindow = (url) => {
+    try {
+      if (window.top && window.top !== window) {
+        window.top.location.href = url;
+        return;
+      }
+    } catch (err) {
+      console.warn('[kage] top window navigation error:', err);
+    }
+    window.location.href = url;
+  };
+
+  // Bước 1: Khởi đầu -> Chuyển đến trang Di Tích (/di-tich)
+  if (cardRoadmap1) {
+    cardRoadmap1.addEventListener('click', (e) => {
+      e.preventDefault();
+      navigateTopWindow('/di-tich');
+    });
+  }
+  if (btnRoadmap1) {
+    btnRoadmap1.addEventListener('click', (e) => {
+      e.stopPropagation();
+      e.preventDefault();
+      navigateTopWindow('/di-tich');
+    });
+  }
+
+  // Bước 2: Khám phá -> Cuộn mượt đến 3D 9 Căn Hầm (#pathways) & mở danh mục hầm
+  const handleStep2Action = (e) => {
+    if (e && e.preventDefault) e.preventDefault();
+    if (e && e.stopPropagation) e.stopPropagation();
+    const pathwaysTarget = $('#pathways');
+    if (pathwaysTarget) {
+      scrollTo({ top: pathwaysTarget.offsetTop - 40, behavior: REDUCE ? 'auto' : 'smooth' });
+      setTimeout(() => {
+        if (typeof openModal === 'function') {
+          openModal();
+        }
+      }, 650);
+    }
+  };
+  if (cardRoadmap2) cardRoadmap2.addEventListener('click', handleStep2Action);
+  if (btnRoadmap2) btnRoadmap2.addEventListener('click', handleStep2Action);
+
+  // Bước 3: Gắn kết -> Chuyển đến trang Audio Guide (/audio-guide)
+  if (cardRoadmap3) {
+    cardRoadmap3.addEventListener('click', (e) => {
+      e.preventDefault();
+      navigateTopWindow('/audio-guide');
+    });
+  }
+  if (btnRoadmap3) {
+    btnRoadmap3.addEventListener('click', (e) => {
+      e.stopPropagation();
+      e.preventDefault();
+      navigateTopWindow('/audio-guide');
+    });
   }
 
   /* Nhà Chứng Tích Modal interaction */

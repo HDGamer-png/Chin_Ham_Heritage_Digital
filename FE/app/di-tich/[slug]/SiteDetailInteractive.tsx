@@ -147,12 +147,16 @@ const mapBunkers = [
 
 export function SiteDetailInteractive({ site }: { site: SiteData }) {
   const isNhaChungTich = site.slug === 'nha-chung-tich';
+  const isBunker = Boolean(site.slug && site.slug.startsWith('ham-'));
+  const bunkerImg = isBunker ? `/cac-ham/${site.slug}.jpg` : null;
 
   // Selected Radar Bunker state (no page reload)
   const [selectedRadarSlug, setSelectedRadarSlug] = useState<string>(site.slug || 'nha-chung-tich');
 
   // Viewport Tab modes
-  const [activeTab, setActiveTab] = useState<'exhibition' | 'artifacts' | 'flycam' | 'monument'>('exhibition');
+  const [activeTab, setActiveTab] = useState<'bunker' | 'exhibition' | 'artifacts' | 'flycam' | 'monument'>(
+    isBunker ? 'bunker' : 'exhibition'
+  );
   const [activeHotspot, setActiveHotspot] = useState<string | null>(null);
   const [lightboxImg, setLightboxImg] = useState<{ src: string; title: string; desc: string } | null>(null);
 
@@ -348,6 +352,18 @@ export function SiteDetailInteractive({ site }: { site: SiteData }) {
               <span className="text-xs uppercase tracking-[0.16em] text-stone-400 font-semibold mr-2 hidden sm:inline">
                 Chế độ góc nhìn:
               </span>
+              {isBunker && bunkerImg && (
+                <button
+                  onClick={() => { setActiveTab('bunker'); setActiveHotspot(null); }}
+                  className={`inline-flex items-center gap-2 rounded-xl px-3.5 py-1.5 text-xs font-bold transition ${
+                    activeTab === 'bunker'
+                      ? 'bg-[#e0231c] text-white shadow-lg shadow-[#e0231c]/30'
+                      : 'bg-white/5 text-stone-300 hover:bg-white/10 hover:text-white'
+                  }`}
+                >
+                  📸 Ảnh Thực Địa {site.name}
+                </button>
+              )}
               <button
                 onClick={() => { setActiveTab('exhibition'); setActiveHotspot(null); }}
                 className={`inline-flex items-center gap-2 rounded-xl px-3.5 py-1.5 text-xs font-bold transition ${
@@ -402,7 +418,9 @@ export function SiteDetailInteractive({ site }: { site: SiteData }) {
               <button
                 onClick={() => {
                   const src =
-                    activeTab === 'exhibition'
+                    activeTab === 'bunker' && bunkerImg
+                      ? bunkerImg
+                      : activeTab === 'exhibition'
                       ? '/nha_chung_tich_exhibition.jpg'
                       : activeTab === 'artifacts'
                       ? '/chin_ham_artifacts.jpg'
@@ -426,6 +444,29 @@ export function SiteDetailInteractive({ site }: { site: SiteData }) {
 
           {/* Viewport Screen Content */}
           <div className="relative h-[420px] md:h-[540px] w-full overflow-hidden bg-[#020508] select-none">
+            {/* 0. Tab Bunker Real Photo */}
+            {activeTab === 'bunker' && bunkerImg && (
+              <div className="relative h-full w-full">
+                <img
+                  src={bunkerImg}
+                  alt={`Ảnh thực địa ${site.name}`}
+                  className="h-full w-full object-cover object-center transition-transform duration-1000 hover:scale-105"
+                />
+                <div
+                  className="pointer-events-none absolute inset-0"
+                  style={{
+                    background:
+                      'radial-gradient(circle at 50% 50%, rgba(224, 35, 28, 0.12) 0%, transparent 65%), linear-gradient(180deg, rgba(2,4,6,0.1) 0%, rgba(2,4,6,0.85) 100%)',
+                  }}
+                />
+                <div className="absolute top-4 left-4 z-20 flex items-center gap-2">
+                  <span className="rounded-full bg-black/85 border border-emerald-400/50 px-3.5 py-1 text-[11px] font-bold text-emerald-300 backdrop-blur-md shadow-lg">
+                    📍 ẢNH THỰC TẾ {site.name.toUpperCase()} (ĐỒI BA ĐỒN)
+                  </span>
+                </div>
+              </div>
+            )}
+
             {/* 1. Tab Exhibition Hall */}
             {activeTab === 'exhibition' && (
               <div className="relative h-full w-full">
@@ -816,20 +857,34 @@ export function SiteDetailInteractive({ site }: { site: SiteData }) {
               {/* Selected Bunker Geographical Description Card */}
               {(() => {
                 const currentBunker = mapBunkers.find((b) => b.slug === selectedRadarSlug) || mapBunkers[0];
+                const isSelectedBunker = currentBunker.slug.startsWith('ham-');
                 return (
                   <div className="mt-5 p-4 rounded-2xl border border-[#38bdf8]/40 bg-gradient-to-br from-[#38bdf8]/10 via-black/60 to-black/85 backdrop-blur-md transition-all duration-300">
-                    <div className="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-2 mb-2">
-                      <span className="text-xs font-bold text-[#fef08a] uppercase tracking-wider flex items-center gap-1.5">
-                        <MapPin size={14} className="text-[#38bdf8]" />
-                        {currentBunker.name} • {currentBunker.position}
-                      </span>
-                      <span className="font-mono text-[11px] text-[#38bdf8] font-bold">
-                        {currentBunker.coords}
-                      </span>
+                    <div className="flex gap-4 items-start">
+                      {isSelectedBunker && (
+                        <div className="w-20 h-20 rounded-xl overflow-hidden border border-[#38bdf8]/40 shrink-0 shadow-md">
+                          <img
+                            src={`/cac-ham/${currentBunker.slug}.jpg`}
+                            alt={currentBunker.name}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                      )}
+                      <div className="flex-1 min-w-0">
+                        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-2 mb-2">
+                          <span className="text-xs font-bold text-[#fef08a] uppercase tracking-wider flex items-center gap-1.5">
+                            <MapPin size={14} className="text-[#38bdf8]" />
+                            {currentBunker.name} • {currentBunker.position}
+                          </span>
+                          <span className="font-mono text-[11px] text-[#38bdf8] font-bold">
+                            {currentBunker.coords}
+                          </span>
+                        </div>
+                        <p className="text-xs text-stone-300 leading-relaxed">
+                          {currentBunker.detail}
+                        </p>
+                      </div>
                     </div>
-                    <p className="text-xs text-stone-300 leading-relaxed">
-                      {currentBunker.detail}
-                    </p>
                     <div className="mt-2.5 pt-2 border-t border-white/10 flex items-center justify-between">
                       <span className="text-[10px] text-stone-400 uppercase tracking-widest font-bold">
                         ĐẶC TÍNH: <span className="text-emerald-300">{currentBunker.tag}</span>

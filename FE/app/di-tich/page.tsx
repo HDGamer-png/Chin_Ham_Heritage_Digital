@@ -5,15 +5,16 @@ const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000';
 
 const siteImages: Record<string, string> = {
   'nha-chung-tich': '/nha_chung_tich_exhibition.jpg',
-  'ham-1': '/khong_gian_tong_quan.jpg',
-  'ham-2': '/dai_tuong_niem.jpg',
-  'ham-3': '/chin_ham_tactical_blueprint.jpg',
-  'ham-4': '/chin_ham_relief_3d.jpg',
-  'ham-5': '/so_do_thuc_te_chin_ham.jpg',
-  'ham-6': '/tactical_night_ba_don.jpg',
-  'ham-7': '/chin_ham_artifacts.jpg',
-  'ham-8': '/chin_ham_aerial_drone.jpg',
-  'ham-9': '/dai_tuong_niem.jpg',
+  'ham-1': '/cac-ham/ham-1.jpg',
+  'ham-2': '/cac-ham/ham-2.jpg',
+  'ham-3': '/cac-ham/ham-3.jpg',
+  'ham-4': '/cac-ham/ham-4.jpg',
+  'ham-5': '/cac-ham/ham-5.jpg',
+  'ham-6': '/cac-ham/ham-6.jpg',
+  'ham-7': '/cac-ham/ham-7.jpg',
+  'ham-8': '/cac-ham/ham-8.jpg',
+  'ham-9': '/cac-ham/ham-9.jpg',
+  'dai-tuong-niem': '/dai_tuong_niem.jpg',
 };
 
 async function getSites() {
