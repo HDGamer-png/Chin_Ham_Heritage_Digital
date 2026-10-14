@@ -35,7 +35,7 @@ const JOURNEY_SECTIONS = [
     badgeColor: 'border-amber-400/40 bg-amber-950/60 text-amber-300',
     icon: KeyRound,
     href: '/giai-ma',
-    image: '/so_do_thuc_te_chin_ham.jpg',
+    image: '/ban_do_chinham.png',
     accent: 'from-amber-500/20 via-yellow-500/10 to-transparent',
     border: 'hover:border-amber-400/60',
     buttonColor: 'bg-gradient-to-r from-amber-600 to-yellow-600 text-white hover:from-amber-500 hover:to-yellow-500 shadow-[0_0_20px_rgba(245,158,11,0.3)]',
