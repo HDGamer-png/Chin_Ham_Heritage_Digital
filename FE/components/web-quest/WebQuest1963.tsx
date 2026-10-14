@@ -133,7 +133,7 @@ export function WebQuest1963() {
   }, [isCompleted]);
 
   // =========================================================================
-  // STAGE 1: TỌA ĐỘ BẢN ĐỒ BA ĐỒN (Grid Radar Scout)
+  // STAGE 1: TỌA ĐỘ BẢN ĐỒ THIÊN THAI (Grid Radar Scout)
   // =========================================================================
   const [selectedBunker, setSelectedBunker] = useState<number | null>(null);
   const [stage1Error, setStage1Error] = useState<string | null>(null);
@@ -440,7 +440,7 @@ export function WebQuest1963() {
                 Hoàn Thành Toàn Bộ 4 Trạm Giải Mã
               </div>
               <h2 className="text-3xl sm:text-5xl font-black text-stone-100 font-display drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
-                Khải Hoàn Ký Ức Ba Đồn
+                Khải Hoàn Ký Ức Thiên Thai
               </h2>
               <p className="text-stone-300 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
                 Bạn đã giải mã thành công tọa độ Hầm 8, tìm thấy mật mã lịch sử 1963, giải đáp nhịp gõ Morse và tái hiện ngày mở toang cánh cửa sắt Chín Hầm.
@@ -518,7 +518,7 @@ export function WebQuest1963() {
             {currentStage === 1 && (
               <div className="space-y-6">
                 <div className="text-sm text-stone-300">
-                  Chọn căn hầm trên sa bàn sườn đồi Ba Đồn tương ứng với căn cứ biệt giam 14 chuồng cọp sắt:
+                  Chọn căn hầm trên sa bàn sườn đồi Thiên Thai tương ứng với căn cứ biệt giam 14 chuồng cọp sắt:
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5">

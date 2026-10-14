@@ -21,11 +21,11 @@ export interface QuizSet {
 
 export const QUIZ_SETS: QuizSet[] = [
   // =========================================================================
-  // BỘ 1: KHỞI NGUỒN & BÍ MẬT ĐỒI BA ĐỒN (1941 - 1954)
+  // BỘ 1: KHỞI NGUỒN & BÍ MẬT ĐỒI THIÊN THAI (1941 - 1954)
   // =========================================================================
   {
     id: 1,
-    title: 'Bộ 1: Khởi Nguồn Kho Đạn Ba Đồn',
+    title: 'Bộ 1: Khởi Nguồn Kho Đạn Thiên Thai',
     subtitle: 'Lịch sử xây dựng công sự ngầm (1941 - 1954)',
     theme: 'Khởi nguồn',
     difficultyLevel: 1,
@@ -43,12 +43,12 @@ export const QUIZ_SETS: QuizSet[] = [
           'Lực lượng Việt Minh xây dựng làm căn cứ',
         ],
         correctAnswer: 1,
-        historicalNote: 'Năm 1941, thực dân Pháp chiếm sườn đồi Ba Đồn để bí mật xây dựng 9 căn hầm kiên cố dưới lòng đất nhằm cất giấu vũ khí, khí tài trong Thế chiến II.',
+        historicalNote: 'Năm 1941, thực dân Pháp chiếm sườn đồi Thiên Thai để bí mật xây dựng 9 căn hầm kiên cố dưới lòng đất nhằm cất giấu vũ khí, khí tài trong Thế chiến II.',
         category: 'SuKien',
       },
       {
         id: 102,
-        question: 'Vị trí địa lý đồi Ba Đồn được Pháp lựa chọn xây dựng kho đạn vì lý do quân sự nào?',
+        question: 'Vị trí địa lý đồi Thiên Thai được Pháp lựa chọn xây dựng kho đạn vì lý do quân sự nào?',
         options: [
           'Gần bờ biển Thuận An để tàu chiến cập cảng',
           'Nằm sát hoàng thành Huế để tiện bảo vệ vua',
@@ -56,7 +56,7 @@ export const QUIZ_SETS: QuizSet[] = [
           'Nằm trên đỉnh núi Ngự Bình cao nhất vùng',
         ],
         correctAnswer: 2,
-        historicalNote: 'Đồi Ba Đồn có sườn đồi dốc tự nhiên, cây cối rậm rạp che chắn, rất thuận lợi để đào sâu vào lòng đất làm kho vũ khí bí mật tránh tầm oanh kích.',
+        historicalNote: 'Đồi Thiên Thai có sườn đồi dốc tự nhiên, cây cối rậm rạp che chắn, rất thuận lợi để đào sâu vào lòng đất làm kho vũ khí bí mật tránh tầm oanh kích.',
         category: 'DiaLy',
       },
       {
@@ -87,7 +87,7 @@ export const QUIZ_SETS: QuizSet[] = [
       },
       {
         id: 105,
-        question: 'Tổng cộng có bao nhiêu căn hầm được xây dựng rải rác trên sườn đồi Ba Đồn?',
+        question: 'Tổng cộng có bao nhiêu căn hầm được xây dựng rải rác trên sườn đồi Thiên Thai?',
         options: ['7 căn hầm', '8 căn hầm', '9 căn hầm', '12 căn hầm'],
         correctAnswer: 2,
         historicalNote: 'Địa danh Chín Hầm xuất phát từ 9 công trình hầm bê tông quân sự được bố trí men theo sườn đồi theo trật tự chiến thuật bí mật.',
@@ -95,7 +95,7 @@ export const QUIZ_SETS: QuizSet[] = [
       },
       {
         id: 106,
-        question: 'Đồi Ba Đồn cách trung tâm thành phố Huế khoảng bao nhiêu kilômét?',
+        question: 'Đồi Thiên Thai cách trung tâm thành phố Huế khoảng bao nhiêu kilômét?',
         options: ['Khoảng 1 km', 'Khoảng 6 km về phía Tây Nam', 'Khoảng 20 km', 'Khoảng 15 km'],
         correctAnswer: 1,
         historicalNote: 'Khu di tích Chín Hầm nằm dưới chân núi Thiên An, thuộc phường An Tây, thành phố Huế, cách trung tâm bờ nam sông Hương khoảng 6km.',
@@ -142,7 +142,7 @@ export const QUIZ_SETS: QuizSet[] = [
       },
       {
         id: 110,
-        question: 'Trước năm 1954, đồi Ba Đồn được người dân địa phương gọi bằng tên dân gian nào?',
+        question: 'Trước năm 1954, đồi Thiên Thai được người dân địa phương gọi bằng tên dân gian nào?',
         options: [
           'Đồi Vọng Cảnh',
           'Vùng đồi Ba Đồn (gắn liền với dấu tích 3 đồn lính canh thời trước)',
@@ -199,7 +199,7 @@ export const QUIZ_SETS: QuizSet[] = [
         id: 203,
         question: 'Tổ chức mật vụ khét tiếng do Ngô Đình Cẩn trực tiếp chỉ huy để săn lùng những người cách mạng có tên là gì?',
         options: [
-          'Đoàn Mật vụ Ba Đồn',
+          'Đoàn Mật vụ Thiên Thai',
           'Đoàn Công tác Đặc biệt Miền Trung',
           'Lực lượng Cảnh sát Quốc gia',
           'Nha An ninh Quân đội',
@@ -417,7 +417,7 @@ export const QUIZ_SETS: QuizSet[] = [
           'Được xây bằng gạch men trắng',
         ],
         correctAnswer: 1,
-        historicalNote: 'Hầm số 9 nằm ở sườn đồi phía nam, cùng với các hầm khác tạo thành một mạng lưới đan xen hiểm hóc trên đồi Ba Đồn.',
+        historicalNote: 'Hầm số 9 nằm ở sườn đồi phía nam, cùng với các hầm khác tạo thành một mạng lưới đan xen hiểm hóc trên đồi Thiên Thai.',
         category: 'DiaLy',
       },
     ],
@@ -897,10 +897,10 @@ export const QUIZ_SETS: QuizSet[] = [
           'Vì đây là khu bảo tồn thiên nhiên quốc gia',
           'Vì xung quanh rải mìn, giăng nhiều lớp hàng rào kẽm gai, lính mật vụ vũ trang tuần tra bắn chết bất kỳ ai đến gần',
           'Vì đường đi lên đồi quá dốc xe không lên được',
-          'Vì đồi Ba Đồn là đất thuộc sở hữu tư nhân trồng chè',
+          'Vì đồi Thiên Thai là đất thuộc sở hữu tư nhân trồng chè',
         ],
         correctAnswer: 1,
-        historicalNote: 'Người dân địa phương chỉ cần lảng vảng gần chân đồi Ba Đồn đều bị mật vụ bắt giữ tra khảo, biến nơi đây thành vùng đất chết ghê rợn.',
+        historicalNote: 'Người dân địa phương chỉ cần lảng vảng gần chân đồi Thiên Thai đều bị mật vụ bắt giữ tra khảo, biến nơi đây thành vùng đất chết ghê rợn.',
         category: 'DiaLy',
       },
       {
@@ -913,7 +913,7 @@ export const QUIZ_SETS: QuizSet[] = [
           'Chỉ có vài phạm nhân hình sự',
         ],
         correctAnswer: 1,
-        historicalNote: 'Rất nhiều chiến sĩ đã vĩnh viễn nằm lại trong lòng đất lạnh Ba Đồn trước khi ngày giải phóng kịp đến.',
+        historicalNote: 'Rất nhiều chiến sĩ đã vĩnh viễn nằm lại trong lòng đất lạnh Thiên Thai trước khi ngày giải phóng kịp đến.',
         category: 'SuKien',
       },
       {
@@ -921,7 +921,7 @@ export const QUIZ_SETS: QuizSet[] = [
         question: 'Các hố chôn tập thể nạn nhân Chín Hầm sau này được phát hiện chủ yếu ở khu vực nào?',
         options: [
           'Bên bờ biển Lăng Cô',
-          'Các khe núi sâu và sườn đồi hoang rậm rạp xung quanh khu vực 9 căn hầm và đồi Ba Đồn',
+          'Các khe núi sâu và sườn đồi hoang rậm rạp xung quanh khu vực 9 căn hầm và đồi Thiên Thai',
           'Trong chợ Đông Ba',
           'Bên trong Hoàng thành',
         ],
@@ -1158,7 +1158,7 @@ export const QUIZ_SETS: QuizSet[] = [
       },
       {
         id: 903,
-        question: 'Ngay trong trưa ngày 02/11/1963, lực lượng nào đã tiên phong kéo lên đồi Ba Đồn phá cổng Chín Hầm?',
+        question: 'Ngay trong trưa ngày 02/11/1963, lực lượng nào đã tiên phong kéo lên đồi Thiên Thai phá cổng Chín Hầm?',
         options: [
           'Quân đội viễn chinh Pháp',
           'Hàng ngàn đồng bào, học sinh sinh viên xứ Huế cùng thân nhân các tù nhân mang xà beng, búa tạ',
@@ -1166,7 +1166,7 @@ export const QUIZ_SETS: QuizSet[] = [
           'Các thương nhân nước ngoài',
         ],
         correctAnswer: 1,
-        historicalNote: 'Đoàn người rầm rộ mang theo búa tạ, xà beng và kìm cắt sắt tiến thẳng vào thung lũng Ba Đồn, quyết tâm phá tan cánh cửa địa ngục bí mật.',
+        historicalNote: 'Đoàn người rầm rộ mang theo búa tạ, xà beng và kìm cắt sắt tiến thẳng vào thung lũng Thiên Thai, quyết tâm phá tan cánh cửa địa ngục bí mật.',
         category: 'SuKien',
       },
       {
@@ -1192,7 +1192,7 @@ export const QUIZ_SETS: QuizSet[] = [
           'Mọi người nhanh chóng giải tán vì trời mưa',
         ],
         correctAnswer: 1,
-        historicalNote: 'Cảnh tượng xúc động chưa từng có: những cánh tay gầy guộc ôm chặt lấy nhau trong nước mắt, tiếng hát khải hoàn vang vọng khắp sườn đồi Ba Đồn.',
+        historicalNote: 'Cảnh tượng xúc động chưa từng có: những cánh tay gầy guộc ôm chặt lấy nhau trong nước mắt, tiếng hát khải hoàn vang vọng khắp sườn đồi Thiên Thai.',
         category: 'SuKien',
       },
       {
@@ -1244,7 +1244,7 @@ export const QUIZ_SETS: QuizSet[] = [
           'Ngày thành lập trường Quốc Học',
         ],
         correctAnswer: 1,
-        historicalNote: 'Ngày 02/11/1963 là mốc son chói lọi trong lịch sử phong trào đấu tranh đô thị Huế, mở toang cánh cửa bóng tối, đưa ánh sáng tự do trở lại với Ba Đồn.',
+        historicalNote: 'Ngày 02/11/1963 là mốc son chói lọi trong lịch sử phong trào đấu tranh đô thị Huế, mở toang cánh cửa bóng tối, đưa ánh sáng tự do trở lại với đồi Thiên Thai.',
         category: 'SuKien',
       },
       {
@@ -1268,7 +1268,7 @@ export const QUIZ_SETS: QuizSet[] = [
   // =========================================================================
   {
     id: 10,
-    title: 'Bộ 10: Di Sản Đỏ Ba Đồn',
+    title: 'Bộ 10: Di Sản Đỏ Thiên Thai',
     subtitle: 'Bảo tồn di tích quốc gia & Giáo dục truyền thống hôm nay',
     theme: 'Di sản & Tương lai',
     difficultyLevel: 5,
@@ -1286,7 +1286,7 @@ export const QUIZ_SETS: QuizSet[] = [
       },
       {
         id: 1002,
-        question: 'Công trình kiến trúc tưởng niệm nào được xây dựng trang trọng dưới chân đồi Ba Đồn để tri ân các anh hùng liệt sĩ?',
+        question: 'Công trình kiến trúc tưởng niệm nào được xây dựng trang trọng dưới chân đồi Thiên Thai để tri ân các anh hùng liệt sĩ?',
         options: [
           'Nhà hát lớn thành phố Huế',
           'Khu Tượng đài Bất khuất và Nhà Tưởng niệm - Trưng bày Di tích Chín Hầm',
@@ -1316,7 +1316,7 @@ export const QUIZ_SETS: QuizSet[] = [
         options: [
           'Thu tiền vé tham quan của du khách',
           'Bảo tồn ký ức lịch sử bằng công nghệ 3D, Audio Guide và Web-Quest tương tác để thế hệ trẻ dễ dàng tiếp cận và tri ân',
-          'Quảng cáo bất động sản đồi Ba Đồn',
+          'Quảng cáo bất động sản đồi Thiên Thai',
           'Thay thế hoàn toàn chuyến đi thực tế',
         ],
         correctAnswer: 1,
@@ -1333,7 +1333,7 @@ export const QUIZ_SETS: QuizSet[] = [
           'Ngày Lễ Tình nhân',
         ],
         correctAnswer: 1,
-        historicalNote: 'Vào ngày 27/7 và ngày 02/11 hàng năm, các cựu tù chính trị và đoàn viên thanh niên xứ Huế đều về đồi Ba Đồn dâng hoa và thắp nén tâm hương tưởng niệm.',
+        historicalNote: 'Vào ngày 27/7 và ngày 02/11 hàng năm, các cựu tù chính trị và đoàn viên thanh niên xứ Huế đều về đồi Thiên Thai dâng hoa và thắp nén tâm hương tưởng niệm.',
         category: 'SuKien',
       },
       {
@@ -1364,7 +1364,7 @@ export const QUIZ_SETS: QuizSet[] = [
       },
       {
         id: 1008,
-        question: 'Khu đồi Ba Đồn ngày nay mang diện mạo hòa bình như thế nào so với quá khứ ngục tù?',
+        question: 'Khu đồi Thiên Thai ngày nay mang diện mạo hòa bình như thế nào so với quá khứ ngục tù?',
         options: [
           'Vẫn ngập chìm trong hàng rào kẽm gai và bom mìn',
           'Được phủ xanh bởi những đồi thông reo vi vút, công viên cây xanh tĩnh mịch và không gian tưởng niệm tôn nghiêm',
@@ -1372,7 +1372,7 @@ export const QUIZ_SETS: QuizSet[] = [
           'Trở thành sân bay quân sự mới',
         ],
         correctAnswer: 1,
-        historicalNote: 'Màu xanh của rừng thông Ba Đồn hôm nay là biểu tượng cho sự hồi sinh mạnh mẽ của vùng đất từng là địa ngục trần gian trong quá khứ.',
+        historicalNote: 'Màu xanh của rừng thông Thiên Thai hôm nay là biểu tượng cho sự hồi sinh mạnh mẽ của vùng đất từng là địa ngục trần gian trong quá khứ.',
         category: 'DiaLy',
       },
       {
@@ -1393,7 +1393,7 @@ export const QUIZ_SETS: QuizSet[] = [
         question: 'Khi bạn đạt thành tích xuất sắc (từ 91/100 câu đúng) qua 10 bộ thử thách, danh hiệu vinh danh của bạn là gì?',
         options: [
           'Khách tham quan thông thường',
-          '« Sử Gia Tinh Anh Chín Hầm — Đại Sứ Ký Ức Ba Đồn » cùng Giấy Chứng Nhận Danh Dự Độc Bản',
+          '« Sử Gia Tinh Anh Chín Hầm — Đại Sứ Ký Ức Thiên Thai » cùng Giấy Chứng Nhận Danh Dự Độc Bản',
           'Nhân viên bảo vệ danh dự',
           'Người chiến thắng không có phần thưởng',
         ],

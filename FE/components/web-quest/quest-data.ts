@@ -11,11 +11,11 @@ export const QUEST_STAGES: QuestStage[] = [
   {
     id: 1,
     code: 'TOA_DO_HAM_8',
-    title: 'Trạm 1: Tọa Độ Bí Mật Ba Đồn',
+    title: 'Trạm 1: Tọa Độ Bí Mật Thiên Thai',
     subtitle: 'Định vị căn hầm biệt giam tàn khốc nhất',
     historicalContext:
-      'Chín Hầm vốn là 9 kho đạn của thực dân Pháp xây dựng năm 1941 dưới lòng núi Ba Đồn. Dưới thời Ngô Đình Cẩn (1954–1963), nơi đây bị cải tạo thành trại biệt giam khét tiếng. Trong đó, Hầm số 8 là nơi tàn bạo nhất: xây dựng kiên cố trên đỉnh dốc, dùng nhốt các chiến sĩ kiên trung và nhân sĩ đối lập trong các chuồng cọp sắt.',
-    hint: 'Hãy rà quét các ô tọa độ trên sa bàn sườn đồi Ba Đồn để tìm ra vị trí Hầm số 8.',
+      'Chín Hầm vốn là 9 kho đạn của thực dân Pháp xây dựng năm 1941 dưới lòng núi Thiên Thai. Dưới thời Ngô Đình Cẩn (1954–1963), nơi đây bị cải tạo thành trại biệt giam khét tiếng. Trong đó, Hầm số 8 là nơi tàn bạo nhất: xây dựng kiên cố trên đỉnh dốc, dùng nhốt các chiến sĩ kiên trung và nhân sĩ đối lập trong các chuồng cọp sắt.',
+    hint: 'Hãy rà quét các ô tọa độ trên sa bàn sườn đồi Thiên Thai để tìm ra vị trí Hầm số 8.',
   },
   {
     id: 2,
@@ -41,7 +41,7 @@ export const QUEST_STAGES: QuestStage[] = [
     title: 'Trạm 4: Thời Khắc Phá Ngục',
     subtitle: 'Sắp xếp dòng thời gian ngày giải phóng 02/11/1963',
     historicalContext:
-      'Đầu tháng 11 năm 1963, chính quyền Diệm - Nhu - Cẩn sụp đổ sau đảo chính. Ngày 02/11/1963, nhân dân và học sinh, sinh viên xứ Huế cùng lực lượng cách mạng đã kéo lên đồi Ba Đồn, phá tung các cánh cửa sắt Chín Hầm, giải thoát những nhân chứng sống kiên trung sau nhiều năm bị đày ải.',
+      'Đầu tháng 11 năm 1963, chính quyền Diệm - Nhu - Cẩn sụp đổ sau đảo chính. Ngày 02/11/1963, nhân dân và học sinh, sinh viên xứ Huế cùng lực lượng cách mạng đã kéo lên đồi Thiên Thai, phá tung các cánh cửa sắt Chín Hầm, giải thoát những nhân chứng sống kiên trung sau nhiều năm bị đày ải.',
     hint: 'Sắp xếp đúng thứ tự 4 sự kiện lịch sử để mở cánh cổng giải phóng cuối cùng.',
   },
 ];
@@ -108,7 +108,7 @@ export const TIMELINE_EVENTS: TimelineEvent[] = [
   },
   {
     id: 'ev-3',
-    title: 'Nhân dân và học sinh Huế kéo lên Ba Đồn',
+    title: 'Nhân dân và học sinh Huế kéo lên đồi Thiên Thai',
     detail: 'Đoàn người rầm rộ mang xà beng, búa tạ tiến vào thung lũng Chín Hầm để giải thoát tù nhân.',
     timeLabel: 'Trưa 02/11/1963',
     correctIndex: 2,

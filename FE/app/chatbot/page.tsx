@@ -261,7 +261,7 @@ export default function ChatbotPage() {
           Trợ Lý AI Di Sản Chín Hầm
         </h1>
         <p className="mt-3 max-w-2xl text-stone-300 text-base leading-relaxed drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
-          Hệ thống hỗ trợ tra cứu lịch sử, giải đáp thông tin và cung cấp tư liệu chi tiết về di tích Chín Hầm - Đồi Ba Đồn.
+          Hệ thống hỗ trợ tra cứu lịch sử, giải đáp thông tin và cung cấp tư liệu chi tiết về di tích Chín Hầm - Đồi Thiên Thai.
         </p>
       </div>
 

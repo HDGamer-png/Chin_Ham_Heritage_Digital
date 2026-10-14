@@ -4,7 +4,7 @@ import { ArtifactShowcase } from '@/components/artifact-showcase/ArtifactShowcas
 export const metadata: Metadata = {
   title: 'Showroom Hiện Vật 3D Tương Tác — Khu Di Tích Lịch Sử Chín Hầm Huế',
   description:
-    'Khám phá 4 bảo vật khảo cổ học vô giá tại Khu Di Tích Chín Hầm (Đồi Ba Đồn, Huế) qua công nghệ 3D xoay 360 độ, bóc tách tia X và thuyết minh âm thanh.',
+    'Khám phá 4 bảo vật khảo cổ học vô giá tại Khu Di Tích Chín Hầm (Đồi Thiên Thai, Huế) qua công nghệ 3D xoay 360 độ, bóc tách tia X và thuyết minh âm thanh.',
 };
 
 export default function HienVat3DPage() {

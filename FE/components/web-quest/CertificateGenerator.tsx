@@ -118,7 +118,7 @@ export function CertificateGenerator({
     // 4. Heritage Institution Header
     ctx.font = '600 13px "Times New Roman", serif';
     ctx.fillStyle = '#b45309';
-    ctx.fillText('BAN QUẢN LÝ KHU DI TÍCH LỊCH SỬ CHÍN HẦM — ĐỒI BA ĐỒN, HUẾ', W / 2, 155);
+    ctx.fillText('BAN QUẢN LÝ KHU DI TÍCH LỊCH SỬ CHÍN HẦM — ĐỒI THIÊN THAI, HUẾ', W / 2, 155);
 
     // 5. Main Title: CHỨNG NHẬN DANH DỰ
     ctx.font = 'bold 36px "Times New Roman", serif';
@@ -169,7 +169,7 @@ export function CertificateGenerator({
       488
     );
     ctx.fillText(
-      'và tiếp nối ngọn lửa yêu nước của các thế hệ cha anh tại đồi Ba Đồn, Thừa Thiên Huế.',
+      'và tiếp nối ngọn lửa yêu nước của các thế hệ cha anh tại đồi Thiên Thai, Thừa Thiên Huế.',
       W / 2,
       512
     );

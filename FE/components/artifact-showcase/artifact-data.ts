@@ -36,7 +36,7 @@ export const ARTIFACTS_DATA: ArtifactItem[] = [
     dimensions: 'Dài 13.8 cm • Rộng 4.2 cm • Dày 2.5 mm',
     bunkerAssociation: 'Hầm số 4 & Hầm số 6',
     summary:
-      'Được người tù chính trị bí mật mài giũa bằng đá cuội đồi Ba Đồn qua hàng trăm đêm tối. Trên sống lược khắc nổi hình tượng chim bồ câu ngậm cành nguyệt quế và dòng chữ bí mật "TỰ DO 1963" — biểu tượng cho ý chí bất khuất và niềm tin tất thắng giữa chốn địa ngục trần gian.',
+      'Được người tù chính trị bí mật mài giũa bằng đá cuội đồi Thiên Thai qua hàng trăm đêm tối. Trên sống lược khắc nổi hình tượng chim bồ câu ngậm cành nguyệt quế và dòng chữ bí mật "TỰ DO 1963" — biểu tượng cho ý chí bất khuất và niềm tin tất thắng giữa chốn địa ngục trần gian.',
     narrativeQuote:
       '“Mỗi nhát mài trên đá là một lần hy vọng. Chúng tôi phải canh chừng những đêm mưa giông sấm sét để mài lược, tiếng sét át tiếng kim loại cọ xát. Chiếc lược này gửi gắm cả cuộc đời và lời hẹn ngày về với người mẹ, người vợ nơi quê nhà.”',
     witnessName: 'Lời kể cựu tù nhân chính trị Chín Hầm',
@@ -49,7 +49,7 @@ export const ARTIFACTS_DATA: ArtifactItem[] = [
         subtitle: 'Khắc thủ công bằng đầu đinh nhọn',
         description:
           'Biểu tượng chim bồ câu sải cánh ngậm cành ô liu được chạm khắc tinh xảo. Các đường vân lông chim được khắc tỉ mỉ từng nét nhỏ, thể hiện tình yêu hòa bình sâu sắc của người chiến sĩ cách mạng.',
-        historicalNote: 'Tư liệu Bảo tàng Lịch sử Thừa Thiên Huế ghi nhận đây là tác phẩm điêu khắc kim loại độc bản của tù nhân Ba Đồn.',
+        historicalNote: 'Tư liệu Bảo tàng Lịch sử Thừa Thiên Huế ghi nhận đây là tác phẩm điêu khắc kim loại độc bản của tù nhân đồi Thiên Thai.',
         position: [0.45, 0.44, 0.08],
         tag: 'Biểu tượng',
       },
@@ -118,7 +118,7 @@ export const ARTIFACTS_DATA: ArtifactItem[] = [
         subtitle: 'Chứng tích độ ẩm & khí yếm trong lòng đất',
         description:
           'Màu nâu đỏ loang lổ của oxit sắt bám dày trên thanh cùm phản ánh điều kiện độ ẩm trên 90% dưới hầm sâu, nước rỉ từ trần hầm xuống tạo môi trường bào mòn ghê gớm.',
-        historicalNote: 'Mẫu phân tích hóa học cho thấy cặn rỉ sắt chứa lượng lớn muối khoáng do nước ngầm đồi Ba Đồn ngấm qua trần bê tông.',
+        historicalNote: 'Mẫu phân tích hóa học cho thấy cặn rỉ sắt chứa lượng lớn muối khoáng do nước ngầm đồi Thiên Thai ngấm qua trần bê tông.',
         position: [0.3, 0.2, -0.15],
         tag: 'Khảo cổ học',
       },
@@ -178,10 +178,10 @@ export const ARTIFACTS_DATA: ArtifactItem[] = [
     name: 'Khuy Áo Gỗ Giấu Mật Thư Vượt Ngục',
     subtitle: 'Nghệ thuật ngụy trang truyền tin trước giờ G 1963',
     era: 'Tháng 10/1963',
-    origin: 'Đường dây liên lạc bí mật giữa Hầm số 3 và ngoại đồi Ba Đồn',
+    origin: 'Đường dây liên lạc bí mật giữa Hầm số 3 và ngoại đồi Thiên Thai',
     material: 'Gỗ lim tiện rỗng nắp xoay, giấy thiếc bao thuốc lá',
     dimensions: 'Đường kính 3.2 cm • Độ dày 8 mm • Nắp ren xoay 1.5 mm',
-    bunkerAssociation: 'Hầm số 3 & Cổng chính Ba Đồn',
+    bunkerAssociation: 'Hầm số 3 & Cổng chính đồi Thiên Thai',
     summary:
       'Chiếc khuy áo gỗ thoạt nhìn như cúc áo bà ba thông thường, nhưng bên trong được khoét rỗng một khoang tròn tí hon. Đây là nơi cất giấu bức mật thư viết bằng nước cơm trên giấy thiếc bao thuốc lá, mang mệnh lệnh phối hợp phá ngục ngày 02/11/1963.',
     narrativeQuote:
@@ -205,7 +205,7 @@ export const ARTIFACTS_DATA: ArtifactItem[] = [
         title: 'Mật Thư Giấy Thiếc Bao Thuốc Lá',
         subtitle: 'Mệnh lệnh nổi dậy cứu tù nhân',
         description:
-          'Mảnh giấy thiếc tráng bạc lấy từ bao thuốc lá bỏ đi, viết bằng mẩu tăm tre với nội dung cô đọng: "Đồng bào nổi dậy - Giải phóng Ba Đồn - Chuẩn bị phá khóa".',
+          'Mảnh giấy thiếc tráng bạc lấy từ bao thuốc lá bỏ đi, viết bằng mẩu tăm tre với nội dung cô đọng: "Đồng bào nổi dậy - Giải phóng Thiên Thai - Chuẩn bị phá khóa".',
         historicalNote: 'Bức thư này được chuyển ra ngoài ngày 28/10/1963, mở đường cho cuộc giải phóng ngày 02/11/1963.',
         position: [0.35, -0.15, 0.25],
         tag: 'Bức mật thư',

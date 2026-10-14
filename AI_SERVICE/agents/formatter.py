@@ -71,7 +71,7 @@ class Formatter:
             suggestions = [
                 "So sánh Hầm số 1 và Hầm số 4 chuồng cọp",
                 "Năm 1941 thực dân Pháp xây Chín Hầm để làm gì?",
-                "Toàn bộ 9 căn hầm nằm ở những vị trí nào trên đồi Ba Đồn?"
+                "Toàn bộ 9 căn hầm nằm ở những vị trí nào trên đồi Thiên Thai?"
             ]
         elif intent == "guide" or "tham_quan" in entities:
             suggestions = [
@@ -81,7 +81,7 @@ class Formatter:
             ]
         elif intent == "compare":
             suggestions = [
-                "Kể tên chi tiết tất cả 9 căn hầm trên đồi Ba Đồn",
+                "Kể tên chi tiết tất cả 9 căn hầm trên đồi Thiên Thai",
                 "Tại sao Hầm 4 là nơi tàn khốc nhất?",
                 "Tội ác của Ngô Đình Cẩn tại Chín Hầm"
             ]

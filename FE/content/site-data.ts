@@ -109,7 +109,7 @@ export const heritageSites = [
     name: 'Hầm 9',
     subtitle: 'Nút giao cứ điểm trung tâm & Mốc son giải phóng 02/11/1963',
     area: '75m²',
-    architecture: 'Kết cấu bê tông cốt thép kiên cố thời Pháp 1941, nằm tại vị trí trung tâm địa hình đồi Ba Đồn nối các tuyến hào và đường mòn huyết mạch.',
+    architecture: 'Kết cấu bê tông cốt thép kiên cố thời Pháp 1941, nằm tại vị trí trung tâm địa hình đồi Thiên Thai nối các tuyến hào và đường mòn huyết mạch.',
     description:
       'Khép lại hành trình qua chín hầm bằng chứng tích lịch sử tại căn hầm nút giao trung tâm. Ngày 02/11/1963, bạo quyền Ngô Đình Cẩn sụp đổ, cánh cửa xà lim Chín Hầm bị nhân dân và lực lượng cách mạng phá tan, giải thoát những người con kiên trung trở về với ánh sáng tự do.',
     historicalNarration:
@@ -121,7 +121,7 @@ export const heritageSites = [
     name: 'Khu vực Đài tưởng niệm',
     subtitle: 'Quần thể tượng đài & Nhà dâng hương',
     description:
-      'Tọa lạc trang nghiêm trên đỉnh đồi Ba Đồn với cụm tượng đài đá ba chiến sĩ cách mạng kiên trung phá tan xiềng xích và hai dãy bậc thang dẫn lên Nhà dâng hương giữa rừng thông xanh.',
+      'Tọa lạc trang nghiêm trên đỉnh đồi Thiên Thai với cụm tượng đài đá ba chiến sĩ cách mạng kiên trung phá tan xiềng xích và hai dãy bậc thang dẫn lên Nhà dâng hương giữa rừng thông xanh.',
   },
 ];
 

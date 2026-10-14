@@ -891,7 +891,7 @@ export function ArtifactViewer3D({
 
       if (hemiLightRef.current) hemiLightRef.current.intensity = 1.0;
     } else {
-      // Ánh ban mai đồi Ba Đồn tự do (tươi sáng, rực rỡ)
+      // Ánh ban mai đồi Thiên Thai tự do (tươi sáng, rực rỡ)
       ambLightRef.current.intensity = 1.1;
       ambLightRef.current.color.setHex(0xfef9c3);
 

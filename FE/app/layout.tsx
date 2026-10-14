@@ -20,8 +20,8 @@ const cormorantGaramond = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: 'Chín Hầm | Di tích lịch sử và bảo tàng số Đồi Ba Đồn Huế',
-  description: 'Không gian số hóa 3D Khu Di Tích Lịch Sử Chín Hầm — Đồi Ba Đồn, Huế. Tái hiện dòng thời gian, kiến trúc ngầm và ký ức bất khuất của các chiến sĩ cách mạng.',
+  title: 'Chín Hầm | Di tích lịch sử và bảo tàng số Đồi Thiên Thai Huế',
+  description: 'Không gian số hóa 3D Khu Di Tích Lịch Sử Chín Hầm — Đồi Thiên Thai, Huế. Tái hiện dòng thời gian, kiến trúc ngầm và ký ức bất khuất của các chiến sĩ cách mạng.',
   icons: {
     icon: '/Logo CH1.png',
     shortcut: '/Logo CH1.png',

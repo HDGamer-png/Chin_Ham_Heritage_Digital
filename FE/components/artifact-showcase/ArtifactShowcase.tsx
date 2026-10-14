@@ -75,7 +75,7 @@ export function ArtifactShowcase() {
           <div className="flex flex-wrap items-center gap-2">
             <div className="inline-flex items-center gap-2 rounded-full border border-amber-500/30 bg-amber-950/40 px-3.5 py-1 text-xs font-semibold text-amber-300">
               <Sparkles size={13} className="text-amber-400 animate-pulse" />
-              Bảo Tàng Khảo Cổ Số 3D • Đồi Ba Đồn
+              Bảo Tàng Khảo Cổ Số 3D • Đồi Thiên Thai
             </div>
             <div className="inline-flex items-center gap-1.5 rounded-full border border-yellow-400/40 bg-yellow-950/50 px-3 py-1 text-xs font-semibold text-yellow-200">
               <span>🔦</span>
@@ -184,7 +184,7 @@ export function ArtifactShowcase() {
                   ? 'bg-amber-600 text-white shadow-md'
                   : 'text-stone-300 hover:bg-white/10'
               }`}
-              title="Ánh nến ngục tối Ba Đồn"
+              title="Ánh nến ngục tối Thiên Thai"
             >
               <Flame size={13} className="text-amber-400" />
               <span>Ngục tối</span>
@@ -210,7 +210,7 @@ export function ArtifactShowcase() {
                   ? 'bg-emerald-600 text-white shadow-md'
                   : 'text-stone-300 hover:bg-white/10'
               }`}
-              title="Ánh ban mai đồi Ba Đồn"
+              title="Ánh ban mai đồi Thiên Thai"
             >
               <Sun size={13} className="text-yellow-300" />
               <span>Ban mai</span>
@@ -362,7 +362,7 @@ export function ArtifactShowcase() {
                 href="/ban-do-360"
                 className="flex items-center justify-between p-3 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-300 hover:bg-amber-500/20 text-xs font-bold transition group"
               >
-                <span>Đối chiếu Sa bàn 360° Đồi Ba Đồn</span>
+                <span>Đối chiếu Sa bàn 360° Đồi Thiên Thai</span>
                 <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>

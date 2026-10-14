@@ -5,7 +5,7 @@ import { Box, KeyRound, GraduationCap, ArrowRight, Sparkles } from 'lucide-react
 export const metadata: Metadata = {
   title: 'Hành Trình Ký Ức | Di Tích Số Hóa Chín Hầm',
   description:
-    'Trung tâm trải nghiệm số hóa 3 phân khu: Showroom Hiện vật 3D, Web-Quest Giải Mã Ký Ức 1963 và Đấu Trí Ba Đồn & Góc Học Đường.',
+    'Trung tâm trải nghiệm số hóa 3 phân khu: Showroom Hiện vật 3D, Web-Quest Giải Mã Ký Ức 1963 và Đấu Trí Thiên Thai & Góc Học Đường.',
 };
 
 const JOURNEY_SECTIONS = [
@@ -73,7 +73,7 @@ export default function HanhTrinhKyUcPage() {
             Hành Trình Ký Ức
           </h1>
           <p className="text-stone-300 text-base sm:text-lg leading-relaxed drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
-            Quy tụ 3 phân khu trải nghiệm đa giác quan: chạm vào hiện vật 3D, giải mã bí mật lao tù và thi đấu tri thức lịch sử đồi Ba Đồn.
+            Quy tụ 3 phân khu trải nghiệm đa giác quan: chạm vào hiện vật 3D, giải mã bí mật lao tù và thi đấu tri thức lịch sử đồi Thiên Thai.
           </p>
         </div>
 

@@ -4,9 +4,9 @@ const PYTHON_AI_URL = process.env.PYTHON_AI_URL || 'http://127.0.0.1:8000';
 
 const cannedResponses = [
   {
-    match: ['chín hầm', 'giá trị', 'lịch sử', 'đồi ba đồn'],
+    match: ['chín hầm', 'giá trị', 'lịch sử', 'đồi Thiên Thai'],
     reply:
-      'Chín Hầm là cụm di tích lịch sử quốc gia nằm trên đồi Ba Đồn (phường An Tây, Huế). Năm 1941, thực dân Pháp xây dựng 9 căn hầm kiên cố để cất giấu vũ khí. Sau năm 1954, bạo chúa Ngô Đình Cẩn đã biến nơi đây thành "địa ngục trần gian" giam cầm các chiến sĩ cách mạng cho đến ngày nhân dân Huế phá hầm giải phóng ngày 02/11/1963.',
+      'Chín Hầm là cụm di tích lịch sử quốc gia nằm trên đồi Thiên Thai (phường An Tây, Huế). Năm 1941, thực dân Pháp xây dựng 9 căn hầm kiên cố để cất giấu vũ khí. Sau năm 1954, bạo chúa Ngô Đình Cẩn đã biến nơi đây thành "địa ngục trần gian" giam cầm các chiến sĩ cách mạng cho đến ngày nhân dân Huế phá hầm giải phóng ngày 02/11/1963.',
   },
   {
     match: ['ngô đình cẩn', 'ngo dinh can', 'cậu cẩn'],
@@ -21,7 +21,7 @@ const cannedResponses = [
   {
     match: ['phá hầm', '1963', '02/11/1963'],
     reply:
-      'Sáng ngày 02/11/1963, ngay sau khi chế độ Diệm sụp đổ, hàng ngàn học sinh, sinh viên và nhân dân Huế đã tiến lên đồi Ba Đồn phá tan xiềng xích, cứu sống các tù nhân kiên trung bị giam cầm tại Chín Hầm.',
+      'Sáng ngày 02/11/1963, ngay sau khi chế độ Diệm sụp đổ, hàng ngàn học sinh, sinh viên và nhân dân Huế đã tiến lên đồi Thiên Thai phá tan xiềng xích, cứu sống các tù nhân kiên trung bị giam cầm tại Chín Hầm.',
   },
   {
     match: ['audio', 'guide'],

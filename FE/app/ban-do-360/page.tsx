@@ -160,7 +160,7 @@ const LANDMARK_POINTS: LandmarkPoint[] = [
     slug: 'ham-9',
     name: 'Hầm số 9',
     tag: 'Nút giao cứ điểm • Giải phóng 1963 • 75m²',
-    historicalRole: 'Diện tích 75m², hầm trung tâm kết nối các tuyến hào huyết mạch đồi Ba Đồn. Cứ điểm chứng kiến ngày 02/11/1963 bạo quyền Ngô Đình Cẩn sụp đổ, nhân dân Huế phá tung xiềng xích giải thoát tù nhân.',
+    historicalRole: 'Diện tích 75m², hầm trung tâm kết nối các tuyến hào huyết mạch đồi Thiên Thai. Cứ điểm chứng kiến ngày 02/11/1963 bạo quyền Ngô Đình Cẩn sụp đổ, nhân dân Huế phá tung xiềng xích giải thoát tù nhân.',
     coords: '16°26\'36"N 107°33\'16"E',
     x: 53.13,
     y: 38.18,
@@ -182,7 +182,7 @@ const LANDMARK_POINTS: LandmarkPoint[] = [
     color: '#facc15',
     image360: '/tuong_dai.jpg',
     thumbnail: '/tuong_dai.jpg',
-    description: 'Bao gồm cụm nhà bia đá tưởng niệm ngũ giác và 2 dãy nhà hành lễ trang nghiêm dưới rặng thông Ba Đồn.',
+    description: 'Bao gồm cụm nhà bia đá tưởng niệm ngũ giác và 2 dãy nhà hành lễ trang nghiêm dưới rặng thông Thiên Thai.',
     order: 2,
   },
   {
@@ -205,7 +205,7 @@ const LANDMARK_POINTS: LandmarkPoint[] = [
     slug: 'cong-di-tich',
     name: 'Lối Vào Di Tích (Ngã Ba)',
     tag: 'Điểm đón tiếp & Khởi đầu tour',
-    historicalRole: 'Ngã ba đường nối từ trung tâm thành phố Huế và tuyến đường tránh vào khu di tích đồi Ba Đồn.',
+    historicalRole: 'Ngã ba đường nối từ trung tâm thành phố Huế và tuyến đường tránh vào khu di tích đồi Thiên Thai.',
     coords: '16°26\'48"N 107°33\'08"E',
     x: 13.50,
     y: 77.00,
@@ -492,7 +492,7 @@ export default function BanDo360Page() {
               Bản đồ các hầm tại di tích
             </h2>
             <p className="text-stone-300 text-xs md:text-sm mt-1 max-w-3xl leading-relaxed">
-              Phục hồi nguyên vẹn dựa trên bia đá sa bàn thực địa đồi Ba Đồn. Nhấp chọn các điểm chốt radar trên bia đá hoặc danh sách bên dưới để định vị không gian và mở cửa sổ toàn cảnh 360° tương tác.
+              Phục hồi nguyên vẹn dựa trên bia đá sa bàn thực địa đồi Thiên Thai. Nhấp chọn các điểm chốt radar trên bia đá hoặc danh sách bên dưới để định vị không gian và mở cửa sổ toàn cảnh 360° tương tác.
             </p>
           </div>
 
@@ -639,7 +639,7 @@ export default function BanDo360Page() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-3">
                     <span className="text-xs font-semibold text-stone-200">
-                      {selectedLandmark.name} - Triền đồi Ba Đồn
+                      {selectedLandmark.name} - Triền đồi Thiên Thai
                     </span>
                   </div>
                 </div>

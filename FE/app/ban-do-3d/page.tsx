@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { ArrowLeft, Compass, Headphones, Sparkles, MapPin, CheckCircle2, ArrowRight } from 'lucide-react';
 
 const mapPoints = [
-  { id: 'ct', label: 'Nhà Chứng Tích', detail: 'Bảng vàng ghi danh, di vật, hồ sơ chứng tích tội ác', position: 'Trung tâm đồi Ba Đồn', coords: '16°26\'42"N 107°33\'18"E', status: 'Khu trung tâm tưởng niệm' },
+  { id: 'ct', label: 'Nhà Chứng Tích', detail: 'Bảng vàng ghi danh, di vật, hồ sơ chứng tích tội ác', position: 'Trung tâm đồi Thiên Thai', coords: '16°26\'42"N 107°33\'18"E', status: 'Khu trung tâm tưởng niệm' },
   { id: 'h1', label: 'Hầm Số 1 (Kho Đạn)', detail: 'Không gian mở đầu, nơi giam giữ tập thể sau 1954', position: 'Triền đồi phía Bắc', coords: '16°26\'44"N 107°33\'15"E', status: 'Căn hầm lớn nhất' },
   { id: 'h2', label: 'Hầm Số 2 (Hầm Giam Giữ)', detail: 'Nơi giam các chiến sĩ cách mạng kiên trung', position: 'Sườn đồi phía Đông Bắc', coords: '16°26\'43"N 107°33\'19"E', status: 'Hiện trường nguyên vẹn' },
   { id: 'h3', label: 'Hầm Số 3 (Biệt Giam Cấp Cao)', detail: 'Giam giữ các lãnh đạo cốt cán bí mật', position: 'Triền dốc sâu', coords: '16°26\'41"N 107°33\'20"E', status: 'Kết cấu bê tông kiên cố' },
@@ -35,12 +35,12 @@ export default function BanDo3DPage() {
             Không Gian 3D Trực Quan • Toàn Cảnh
           </div>
           <h1 className="mt-2 text-3xl font-black text-white md:text-5xl font-display">
-            Bản Đồ Không Gian 3D Đồi Ba Đồn
+            Bản Đồ Không Gian 3D Đồi Thiên Thai
           </h1>
         </div>
 
         <p className="max-w-md text-sm text-stone-300 leading-relaxed">
-          Không gian 3D Living Green tương tác theo thời gian thực — di chuyển con trỏ chuột trên màn hình để điều khiển chùm tia sáng và gọi cánh bướm Ba Đồn.
+          Không gian 3D Living Green tương tác theo thời gian thực — di chuyển con trỏ chuột trên màn hình để điều khiển chùm tia sáng và gọi cánh bướm Thiên Thai.
         </p>
       </div>
 
@@ -76,7 +76,7 @@ export default function BanDo3DPage() {
             <div className="mt-8 relative h-64 w-full rounded-2xl border border-emerald-500/20 bg-gradient-to-br from-emerald-950/40 via-black/60 to-stone-950/80 p-6 flex flex-col justify-between overflow-hidden shadow-inner">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_rgba(16,185,129,0.15),_transparent_70%)] pointer-events-none" />
               <div className="relative z-10 flex items-center justify-between text-xs text-emerald-300">
-                <span>Vị trí vệ tinh GIS đồi Ba Đồn</span>
+                <span>Vị trí vệ tinh GIS đồi Thiên Thai</span>
                 <span className="flex items-center gap-1.5">
                   <span className="h-2 w-2 rounded-full bg-emerald-400 animate-ping" /> Realtime 3D Sync
                 </span>

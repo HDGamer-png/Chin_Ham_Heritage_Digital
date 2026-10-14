@@ -8,14 +8,14 @@ Khu vực đón tiếp và tưởng niệm trung tâm nằm ở chân đồi ph�
 - **Nhà Tưởng Niệm Chính**: Ngôi đền uy nghiêm trên đỉnh đồi cao, nơi dâng hương tri ân các anh hùng liệt sĩ.
 
 ## Vị trí địa lý và cách di chuyển
-- **Địa chỉ**: Đồi Ba Đồn, phường An Tây, thành phố Huế, tỉnh Thừa Thiên Huế.
+- **Địa chỉ**: Đồi Thiên Thai, phường An Tây, thành phố Huế, tỉnh Thừa Thiên Huế.
 - **Tọa độ GPS**: 16°26'42"N 107°33'18"E.
-- **Đường đi**: Từ trung tâm thành phố Huế (chợ Đông Ba / cầu Trường Tiền), đi theo đường Điện Biên Phủ hoặc đường Hùng Vương -> đường Nam Giao -> rẽ vào đường Tôn Thất Tùng hoặc đường Thiên Thai, tiếp tục di chuyển khoảng 2km là đến chân đồi Ba Đồn.
+- **Đường đi**: Từ trung tâm thành phố Huế (chợ Đông Ba / cầu Trường Tiền), đi theo đường Điện Biên Phủ hoặc đường Hùng Vương -> đường Nam Giao -> rẽ vào đường Tôn Thất Tùng hoặc đường Thiên Thai, tiếp tục di chuyển khoảng 2km là đến chân đồi Thiên Thai.
 
 ## Lộ trình tham quan khuyến nghị (3 bước)
 1. **Bước 1 - Khởi đầu**: Tham quan Nhà Chứng Tích (Tả Vu) để xem sa bàn tổng thể, ảnh tư liệu và nghe thuyết minh tổng quan.
 2. **Bước 2 - Lên đồi**: Đi bộ theo cung đường vành đai chữ U xuyên qua rừng thông vi vút để lần lượt khảo sát các căn hầm: Hầm 1 -> Hầm 2, 3 -> Hầm 4 (chuồng cọp) -> Hầm 9 -> Hầm 8, 7, 6, 5.
-3. **Bước 3 - Tri ân**: Lên Đền Tưởng Niệm trên đỉnh đồi để dâng hương tưởng nhớ các anh hùng liệt sĩ và ngắm nhìn toàn cảnh thiên nhiên đồi thông Ba Đồn.
+3. **Bước 3 - Tri ân**: Lên Đền Tưởng Niệm trên đỉnh đồi để dâng hương tưởng nhớ các anh hùng liệt sĩ và ngắm nhìn toàn cảnh thiên nhiên đồi thông Thiên Thai.
 
 ## Các điểm di tích kết nối lân cận
 - **Đền thờ Huyền Trân Công Chúa**: Cách Chín Hầm khoảng 800m về phía Tây, tạo thành tuyến du lịch tâm linh – lịch sử liên hoàn.

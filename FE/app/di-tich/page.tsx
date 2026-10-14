@@ -48,7 +48,7 @@ export default async function DiTichPage() {
           9 Căn Hầm & Điểm Chứng Tích
         </h1>
         <p className="mt-3 max-w-2xl text-stone-300 text-base leading-relaxed drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
-          Khám phá không gian thực địa từng căn hầm tại đồi Ba Đồn qua các tài liệu lịch sử, kết cấu quân sự và các câu chuyện hào hùng trong không gian 3D Living Green.
+          Khám phá không gian thực địa từng căn hầm tại đồi Thiên Thai qua các tài liệu lịch sử, kết cấu quân sự và các câu chuyện hào hùng trong không gian 3D Living Green.
         </p>
       </div>
 
@@ -89,7 +89,7 @@ export default async function DiTichPage() {
                     {site.category || 'Di tích'}
                   </div>
                   <div>
-                    <span className="text-[11px] font-medium tracking-wider uppercase text-emerald-400/90">Đồi Ba Đồn • Huế</span>
+                    <span className="text-[11px] font-medium tracking-wider uppercase text-emerald-400/90">Đồi Thiên Thai • Huế</span>
                     <h3 className="text-xl font-bold text-[#fef08a] font-display">{site.name}</h3>
                   </div>
                 </div>

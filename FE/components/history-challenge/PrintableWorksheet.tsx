@@ -64,7 +64,7 @@ export function PrintableWorksheet({ onBack }: PrintableWorksheetProps) {
           </div>
           <div className="text-right text-xs space-y-1">
             <div className="font-bold uppercase tracking-wider">DI TÍCH LỊCH SỬ QUỐC GIA</div>
-            <div className="font-bold text-red-700">CHÍN HẦM — ĐỒI BA ĐỒN, HUẾ</div>
+            <div className="font-bold text-red-700">CHÍN HẦM — ĐỒI THIÊN THAI, HUẾ</div>
             <div className="italic">Ngày tham quan: ..... / ..... / 20.....</div>
           </div>
         </div>

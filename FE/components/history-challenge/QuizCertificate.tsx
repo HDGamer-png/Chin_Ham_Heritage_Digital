@@ -99,7 +99,7 @@ export function QuizCertificate({ totalScore, completedAt }: QuizCertificateProp
     // 4. Heritage Institution Subheader
     ctx.font = '600 13px "Times New Roman", serif';
     ctx.fillStyle = '#b45309';
-    ctx.fillText('BAN QUẢN LÝ KHU DI TÍCH LỊCH SỬ CHÍN HẦM — ĐỒI BA ĐỒN, HUẾ', W / 2, 155);
+    ctx.fillText('BAN QUẢN LÝ KHU DI TÍCH LỊCH SỬ CHÍN HẦM — ĐỒI THIÊN THAI, HUẾ', W / 2, 155);
 
     // 5. Main Title: CHỨNG NHẬN SỬ GIA TINH ANH
     ctx.font = 'bold 36px "Times New Roman", serif';
@@ -108,7 +108,7 @@ export function QuizCertificate({ totalScore, completedAt }: QuizCertificateProp
 
     ctx.font = 'bold 22px "Times New Roman", serif';
     ctx.fillStyle = '#854d0e';
-    ctx.fillText('« SỬ GIA TINH ANH CHÍN HẦM — ĐẠI SỨ KÝ ỨC BA ĐỒN »', W / 2, 246);
+    ctx.fillText('« SỬ GIA TINH ANH CHÍN HẦM — ĐẠI SỨ KÝ ỨC THIÊN THAI »', W / 2, 246);
 
     // 6. Recipient Name
     ctx.font = '17px "Times New Roman", serif';

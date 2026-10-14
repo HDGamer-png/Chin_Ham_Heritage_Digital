@@ -11,7 +11,7 @@ export default function ChinHamPage() {
         <div className="max-w-3xl">
           <div className="mb-6 inline-flex items-center gap-2.5 rounded-full border border-emerald-400/30 bg-emerald-950/60 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-emerald-300 backdrop-blur-md shadow-lg shadow-black/40">
             <Sparkles size={14} className="text-emerald-400 animate-pulse" />
-            Di Tích Lịch Sử • Đồi Ba Đồn, Cố Đô Huế
+            Di Tích Lịch Sử • Đồi Thiên Thai, Cố Đô Huế
           </div>
 
           <h1 className="text-4xl font-black leading-[1.08] text-white md:text-6xl lg:text-7xl font-display drop-shadow-[0_4px_16px_rgba(0,0,0,0.8)]">
@@ -22,7 +22,7 @@ export default function ChinHamPage() {
           </h1>
 
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-stone-200 md:text-lg lg:text-xl drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
-            Nơi từng là chốn ngục tối khốc liệt của Ngô Đình Cẩn, nay thảm rêu phong đồi Ba Đồn đã phủ xanh những vết thương lịch sử. Hoa dại nảy mầm, dương xỉ xanh ngát và cánh bướm tự do chao liệng — mời bạn bước vào bảo tàng số tương tác cùng thiên nhiên sống động.
+            Nơi từng là chốn ngục tối khốc liệt của Ngô Đình Cẩn, nay thảm rêu phong đồi Thiên Thai đã phủ xanh những vết thương lịch sử. Hoa dại nảy mầm, dương xỉ xanh ngát và cánh bướm tự do chao liệng — mời bạn bước vào bảo tàng số tương tác cùng thiên nhiên sống động.
           </p>
 
           <div className="mt-10 flex flex-wrap items-center gap-4">
@@ -49,7 +49,7 @@ export default function ChinHamPage() {
           {/* Micro Feature Tags */}
           <div className="mt-12 flex flex-wrap items-center gap-6 text-xs font-medium text-stone-300 drop-shadow">
             <span className="flex items-center gap-2">
-              <Trees size={16} className="text-emerald-400" /> Rừng Thông Đồi Ba Đồn
+              <Trees size={16} className="text-emerald-400" /> Rừng Thông Đồi Thiên Thai
             </span>
             <span className="flex items-center gap-2">
               <Eye size={16} className="text-emerald-400" /> 3D Living Green Realtime
@@ -78,7 +78,7 @@ export default function ChinHamPage() {
             {
               icon: Headphones,
               title: 'Audio Guide Truyền Cảm',
-              text: 'Giọng đọc chuẩn truyền cảm xứ Huế, hòa quyện cùng tiếng thông reo Ba Đồn, tiếng chuông tưởng niệm và lời kể nhân chứng.',
+              text: 'Giọng đọc chuẩn truyền cảm xứ Huế, hòa quyện cùng tiếng thông reo Thiên Thai, tiếng chuông tưởng niệm và lời kể nhân chứng.',
               link: '/audio-guide',
               badge: 'Âm Thanh Không Gian',
             },
@@ -126,7 +126,7 @@ export default function ChinHamPage() {
           <div>
             <div className="mb-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-emerald-400">
               <MapPin size={13} />
-              Chứng Tích Đồi Ba Đồn
+              Chứng Tích Đồi Thiên Thai
             </div>
             <h2 className="text-3xl font-black text-white md:text-5xl font-display">
               Các Điểm Đến Trọng Yếu

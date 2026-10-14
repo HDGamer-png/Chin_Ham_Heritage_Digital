@@ -335,7 +335,7 @@ export function HistoryChallengeQuiz() {
                 Góc Học Đường & Di Tích Lịch Sử
               </div>
               <h1 className="text-lg sm:text-xl font-extrabold text-stone-100 font-display">
-                Đấu Trí Ba Đồn (10 Bộ Đề • 100 Câu Hỏi)
+                Đấu Trí Thiên Thai (10 Bộ Đề • 100 Câu Hỏi)
               </h1>
             </div>
           </div>
@@ -798,7 +798,7 @@ export function HistoryChallengeQuiz() {
                     {roundCorrectCount >= 9
                       ? activeSetId < 10
                         ? `Sau khi hoàn thành đủ 10/10 câu và chấm điểm, bạn đã đạt ${roundCorrectCount}/10 câu đúng (đáp ứng tiêu chuẩn tối thiểu ≥ 9/10). Bộ ${activeSetId + 1} đã chính thức được mở khóa!`
-                        : `Chúc mừng bạn đã xuất sắc hoàn thành trọn vẹn 10/10 Bộ Đề Đấu Trí Ba Đồn!`
+                        : `Chúc mừng bạn đã xuất sắc hoàn thành trọn vẹn 10/10 Bộ Đề Đấu Trí Thiên Thai!`
                       : `Bạn đã hoàn thành đủ 10/10 câu, nhưng kết quả chấm điểm đạt ${roundCorrectCount}/10 câu đúng. Quy định yêu cầu phải đạt tối thiểu 9/10 câu đúng sau khi chấm điểm thì mới mở khóa được Bộ ${activeSetId + 1} (còn thiếu ${9 - roundCorrectCount} câu đúng nữa). Hãy làm lại để vượt ải!`}
                   </p>
                 </div>

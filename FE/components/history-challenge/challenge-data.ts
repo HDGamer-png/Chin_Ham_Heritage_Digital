@@ -19,7 +19,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
     ],
     correctAnswer: 1,
     historicalNote:
-      'Năm 1941, thực dân Pháp đã chiếm sườn đồi Ba Đồn để bí mật xây dựng 9 căn hầm kiên cố dưới lòng đất nhằm cất giấu vũ khí, khí tài và đạn dược trong Thế chiến II.',
+      'Năm 1941, thực dân Pháp đã chiếm sườn đồi Thiên Thai để bí mật xây dựng 9 căn hầm kiên cố dưới lòng đất nhằm cất giấu vũ khí, khí tài và đạn dược trong Thế chiến II.',
     category: 'SuKien',
   },
   {
@@ -84,7 +84,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
     ],
     correctAnswer: 2,
     historicalNote:
-      'Ngày 02/11/1963, sau khi chính quyền họ Ngô sụp đổ, đồng bào, học sinh sinh viên Huế cùng các chiến sĩ cách mạng đã tiến lên đồi Ba Đồn phá tan xích xiềng, giải thoát những nhân chứng sống kiên cường.',
+      'Ngày 02/11/1963, sau khi chính quyền họ Ngô sụp đổ, đồng bào, học sinh sinh viên Huế cùng các chiến sĩ cách mạng đã tiến lên đồi Thiên Thai phá tan xích xiềng, giải thoát những nhân chứng sống kiên cường.',
     category: 'SuKien',
   },
   {
@@ -205,7 +205,7 @@ export const WORKSHEET_OPEN_QUESTIONS = [
     id: 1,
     title: 'Câu hỏi thu hoạch 1: Không gian lịch sử',
     prompt:
-      'Qua việc tham quan thực địa và khảo sát không gian số hóa Chín Hầm, em hãy nêu rõ nguyên nhân vì sao nơi đây từng được gọi là "Địa ngục trần gian miền Trung"? Cấu trúc địa hình đồi Ba Đồn có ảnh hưởng như thế nào đến sự bí mật và tàn khốc của khu trại giam?',
+      'Qua việc tham quan thực địa và khảo sát không gian số hóa Chín Hầm, em hãy nêu rõ nguyên nhân vì sao nơi đây từng được gọi là "Địa ngục trần gian miền Trung"? Cấu trúc địa hình đồi Thiên Thai có ảnh hưởng như thế nào đến sự bí mật và tàn khốc của khu trại giam?',
   },
   {
     id: 2,

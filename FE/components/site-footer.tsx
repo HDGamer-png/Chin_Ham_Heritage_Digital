@@ -41,7 +41,7 @@ export function SiteFooter() {
             </Link>
 
             <p className="text-xs sm:text-sm text-stone-300/85 leading-relaxed mb-5 max-w-md">
-              Không gian số hóa di tích lịch sử Quốc gia Chín Hầm — Đồi Ba Đồn, Huế. Tái hiện dòng thời gian và ký ức bất khuất qua công nghệ 3D, bản đồ 360° thực địa và giáo dục di sản tương tác.
+              Không gian số hóa di tích lịch sử Quốc gia Chín Hầm — Đồi Thiên Thai, Huế. Tái hiện dòng thời gian và ký ức bất khuất qua công nghệ 3D, bản đồ 360° thực địa và giáo dục di sản tương tác.
             </p>
           </div>
 
@@ -49,7 +49,7 @@ export function SiteFooter() {
           <div className="flex flex-wrap items-center gap-2 pt-1 text-xs">
             <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-stone-300 backdrop-blur-md">
               <MapPin size={12} className="text-amber-400 shrink-0" />
-              <span>Đồi Ba Đồn, P. An Tây, TP. Huế</span>
+              <span>Đồi Thiên Thai, P. An Tây, TP. Huế</span>
             </div>
             <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-950/40 border border-emerald-500/30 text-emerald-300 backdrop-blur-md font-medium">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />

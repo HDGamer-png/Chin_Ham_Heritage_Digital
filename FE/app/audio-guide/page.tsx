@@ -170,7 +170,7 @@ export default function AudioGuidePage() {
           Nghe Hướng Dẫn Âm Thanh Xứ Huế
         </h1>
         <p className="mt-3 max-w-2xl text-stone-300 text-base leading-relaxed drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
-          Đắm mình trong không gian đồi Ba Đồn cùng âm vang lịch sử, tiếng gió thông reo và lời tự thuật bi tráng của các chứng nhân trong môi trường 3D Living Green.
+          Đắm mình trong không gian đồi Thiên Thai cùng âm vang lịch sử, tiếng gió thông reo và lời tự thuật bi tráng của các chứng nhân trong môi trường 3D Living Green.
         </p>
       </div>
 

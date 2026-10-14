@@ -98,7 +98,7 @@ class Reasoner:
         if "ngô đình cẩn" in q_lower or "ngo_dinh_can" in entities or "nhà tù" in q_lower or "địa ngục" in q_lower:
             topic = "việc Ngô Đình Cẩn chọn Chín Hầm làm khu biệt giam bí mật"
             reasons = [
-                "Vị trí đồi Ba Đồn hoang vu hiểm trở, nằm tách biệt cách xa trung tâm Huế khoảng 6km, rất thuận tiện để cách ly hoàn toàn với dư luận xã hội.",
+                "Vị trí đồi Thiên Thai hoang vu hiểm trở, nằm tách biệt cách xa trung tâm Huế khoảng 6km, rất thuận tiện để cách ly hoàn toàn với dư luận xã hội.",
                 "Cụm 9 căn hầm kiên cố bằng bê tông cốt thép do Pháp xây từ năm 1941 nằm nửa chìm nửa nổi dưới lòng đồi, có khả năng che giấu tuyệt đối không để lộ từ trên không.",
                 "Hệ thống không nằm trong danh sách các nhà tù chính thức của chính quyền Sài Gòn, cho phép mật vụ Ngô Đình Cẩn thủ tiêu, tra tấn tù nhân mà không chịu bất kỳ sự giám sát tư pháp nào."
             ]
@@ -197,11 +197,11 @@ class Reasoner:
         events = [
             {
                 "time": "Năm 1941",
-                "description": "Quân đội thực dân Pháp chiếm đồi Ba Đồn, cho đúc 9 căn hầm bê tông cốt thép kiên cố làm kho cất giấu vũ khí, bom đạn quân sự đối phó phát xít Nhật."
+                "description": "Quân đội thực dân Pháp chiếm đồi Thiên Thai, cho đúc 9 căn hầm bê tông cốt thép kiên cố làm kho cất giấu vũ khí, bom đạn quân sự đối phó phát xít Nhật."
             },
             {
                 "time": "Năm 1954",
-                "description": "Sau Hiệp định Genève, Ngô Đình Cẩn chiếm giữ đồi Ba Đồn, bí mật rào thép gai, biến cụm kho đạn thành hệ thống ngục tù biệt giam ngoài vòng pháp luật."
+                "description": "Sau Hiệp định Genève, Ngô Đình Cẩn chiếm giữ đồi Thiên Thai, bí mật rào thép gai, biến cụm kho đạn thành hệ thống ngục tù biệt giam ngoài vòng pháp luật."
             },
             {
                 "time": "1954 – 1963",
@@ -213,7 +213,7 @@ class Reasoner:
             },
             {
                 "time": "Ngày 02/11/1963",
-                "description": "Hàng vạn đồng bào, phật tử, sinh viên và nhân dân Thừa Thiên Huế cùng lực lượng cách mạng tiến lên đồi Ba Đồn phá tan xiềng xích Chín Hầm, giải cứu các chiến sĩ còn sống sót."
+                "description": "Hàng vạn đồng bào, phật tử, sinh viên và nhân dân Thừa Thiên Huế cùng lực lượng cách mạng tiến lên đồi Thiên Thai phá tan xiềng xích Chín Hầm, giải cứu các chiến sĩ còn sống sót."
             },
             {
                 "time": "Ngày 09/05/1964",
@@ -236,9 +236,9 @@ class Reasoner:
                 "**Hầm số 5**: Nằm tại khúc cua cực Đông nhìn sang Lăng Khải Định, nơi giam giữ các tù nhân chính trị đặc biệt.",
                 "**Hầm số 6 & 7**: Trải dài trên sườn dốc phía Bắc dưới tán thông già, thời tiết mùa đông buốt lạnh, mùa hè ngột ngạt.",
                 "**Hầm số 8**: Nằm sườn Tây Bắc giáp Thủy Phương, hầm biệt giam nghiêm ngặt giam giữ trí thức, sinh viên, cán bộ lãnh đạo.",
-                "**Hầm số 9**: Nằm chính giữa khúc uốn chữ U tại vị trí cao nhất, đầu não kiểm soát an ninh toàn bộ đồi Ba Đồn."
+                "**Hầm số 9**: Nằm chính giữa khúc uốn chữ U tại vị trí cao nhất, đầu não kiểm soát an ninh toàn bộ đồi Thiên Thai."
             ]
-            return ReasoningTemplates.render_list("Hệ thống 9 Căn Hầm trên Đồi Ba Đồn", items)
+            return ReasoningTemplates.render_list("Hệ thống 9 Căn Hầm trên Đồi Thiên Thai", items)
 
         # Danh sách chung từ các chunk tìm thấy
         items = []
@@ -256,13 +256,13 @@ class Reasoner:
     def _reason_guide(self, query: str, retrieved: List[Dict]) -> str:
         title = "Lộ trình tham quan Khu Di tích Lịch sử Chín Hầm"
         steps = [
-            "**Khu Đón Tiếp & Nhà Chứng Tích (Tả Vu - Hữu Vu)**: Xem sa bàn điện tử tổng quan toàn bộ đồi Ba Đồn, tiếp cận các hiện vật cùm sắt, xiềng xích và hình ảnh phục dựng cuộc sống ngục tù.",
+            "**Khu Đón Tiếp & Nhà Chứng Tích (Tả Vu - Hữu Vu)**: Xem sa bàn điện tử tổng quan toàn bộ đồi Thiên Thai, tiếp cận các hiện vật cùm sắt, xiềng xích và hình ảnh phục dựng cuộc sống ngục tù.",
             "**Khu Đài Tưởng Niệm & Bia Di Tích**: Thắp hương tri ân các anh hùng liệt sĩ, đồng bào yêu nước đã hy sinh vì nền độc lập tự do.",
             "**Tuyến Tham Quan 9 Căn Hầm Trong Rừng Thông**: Bắt đầu từ Hầm 1 men theo lối mòn đồi thông qua Hầm 2, 3, lên tâm điểm Hầm 4 Chuồng Cọp, tiếp tục khám phá các Hầm 5 đến 9 trên cao độ đỉnh đồi.",
             "**Trải Nghiệm Audio Guide Thuyết Minh Tự Động**: Quét mã QR tại từng cột mốc biển tên để nghe tường thuật chi tiết từng câu chuyện lịch sử."
         ]
         notes = [
-            "Địa chỉ di tích: Đồi Ba Đồn, phường An Tây, TP. Huế (gần Trung tâm Văn hóa Huyền Trân, cách trung tâm Huế 6km).",
+            "Địa chỉ di tích: Đồi Thiên Thai, phường An Tây, TP. Huế (gần Trung tâm Văn hóa Huyền Trân, cách trung tâm Huế 6km).",
             "Nên mang giày thể thao hoặc đế mềm vì địa hình đồi dốc tự nhiên lát đá bậc tam cấp.",
             "Giữ trật tự, trang nghiêm và tôn trọng không gian thiêng liêng của di tích lịch sử."
         ]

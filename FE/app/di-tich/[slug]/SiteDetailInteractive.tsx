@@ -41,7 +41,7 @@ const mapBunkers = [
     slug: 'nha-chung-tich',
     name: 'Nhà Chứng Tích',
     tag: 'Trưng bày trung tâm',
-    position: 'Trung tâm đồi Ba Đồn',
+    position: 'Trung tâm đồi Thiên Thai',
     coords: '16°26\'42"N 107°33\'18"E',
     detail: 'Không gian kể chuyện bằng hình ảnh, hiện vật khảo cổ, sa bàn 3D toàn cảnh 9 căn hầm và hồ sơ chứng tích tội ác thời Ngô Đình Cẩn.',
     x: 34,
@@ -358,7 +358,7 @@ export function SiteDetailInteractive({ site }: { site: SiteData }) {
           <div>
             <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[#fef08a] mb-2">
               <Sparkles size={14} className="text-[#38bdf8]" />
-              CHỨNG TÍCH LỊCH SỬ • ĐỒI BA ĐỒN, HUẾ
+              CHỨNG TÍCH LỊCH SỬ • ĐỒI THIÊN THAI, HUẾ
             </div>
             <h1 className="text-4xl md:text-6xl font-black text-white font-display tracking-tight">
               {site.name}
@@ -404,7 +404,7 @@ export function SiteDetailInteractive({ site }: { site: SiteData }) {
             <div className="absolute top-4 left-4 z-20 flex items-center gap-2">
               <span className="rounded-full bg-black/85 border border-emerald-400/50 px-3.5 py-1 text-[11px] font-bold text-emerald-300 backdrop-blur-md shadow-lg flex items-center gap-1.5">
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-ping" />
-                📍 ẢNH THỰC TẾ {site.name.toUpperCase()} (ĐỒI BA ĐỒN)
+                📍 ẢNH THỰC TẾ {site.name.toUpperCase()} (ĐỒI THIÊN THAI)
               </span>
             </div>
 
@@ -469,7 +469,7 @@ export function SiteDetailInteractive({ site }: { site: SiteData }) {
                 <div className="text-sm font-semibold text-white">
                   {site.slug === 'ham-8'
                     ? 'Hầm 8: Bản Lĩnh Kiên Trung Nơi Đáy Ngục'
-                    : 'Nhà Chứng Tích Ngô Đình Cẩn & Ký Ức Đồi Ba Đồn'}
+                    : 'Nhà Chứng Tích Ngô Đình Cẩn & Ký Ức Đồi Thiên Thai'}
                 </div>
               </div>
             </div>
@@ -518,7 +518,7 @@ export function SiteDetailInteractive({ site }: { site: SiteData }) {
                 Bản Thuyết Minh Kiến Trúc & Ký Ức: {site.name}
               </h2>
               <p className="mt-1 text-xs text-stone-300">
-                Trích xuất từ hồ sơ khảo cứu di tích lịch sử Quốc gia Chín Hầm - Đồi Ba Đồn, Thừa Thiên Huế
+                Trích xuất từ hồ sơ khảo cứu di tích lịch sử Quốc gia Chín Hầm - Đồi Thiên Thai, Thừa Thiên Huế
               </p>
             </div>
 
@@ -549,7 +549,7 @@ export function SiteDetailInteractive({ site }: { site: SiteData }) {
                 {site.area || (isBunker ? 'Đang cập nhật' : 'Toàn khu di tích')}
               </div>
               <p className="mt-1 text-[11px] text-stone-400">
-                {isBunker ? 'Không gian hầm ngầm bê tông cốt thép' : 'Quần thể đồi Ba Đồn'}
+                {isBunker ? 'Không gian hầm ngầm bê tông cốt thép' : 'Quần thể đồi Thiên Thai'}
               </p>
             </div>
 
@@ -582,7 +582,7 @@ export function SiteDetailInteractive({ site }: { site: SiteData }) {
                 📍 Vị trí & Tọa độ
               </span>
               <div className="text-sm font-bold text-white leading-tight">
-                Đồi Ba Đồn, TP Huế
+                Đồi Thiên Thai, TP Huế
               </div>
               <p className="mt-1 text-[11px] font-mono text-stone-300">
                 16°26&apos;42&quot;N 107°33&apos;18&quot;E
@@ -756,7 +756,7 @@ export function SiteDetailInteractive({ site }: { site: SiteData }) {
                 Mạng Lưới 9 Căn Hầm & Điểm Chứng Tích
               </h3>
               <p className="mt-3 text-sm text-stone-300 leading-relaxed">
-                Bấm vào từng căn hầm bên dưới để định vị ngay lập tức vị trí địa lý trên bản đồ radar đồi Ba Đồn (giữ nguyên trang hiện tại, không tải lại).
+                Bấm vào từng căn hầm bên dưới để định vị ngay lập tức vị trí địa lý trên bản đồ radar đồi Thiên Thai (giữ nguyên trang hiện tại, không tải lại).
               </p>
 
               {/* Bunker Selector Buttons (In-place interactive switch, 0% page reload) */}
@@ -913,7 +913,7 @@ export function SiteDetailInteractive({ site }: { site: SiteData }) {
               {/* Status Header Badge on Radar */}
               <div className="absolute top-4 left-4 text-[10px] font-mono text-stone-400 bg-black/70 px-2.5 py-1 rounded-lg border border-white/10 backdrop-blur-sm flex items-center gap-1.5">
                 <span className="h-1.5 w-1.5 rounded-full bg-[#38bdf8] animate-ping" />
-                <span>RADAR: ĐỒI BA ĐỒN (16°26&apos;N 107°33&apos;E) • ĐANG CHỈ ĐỊNH:</span>
+                <span>RADAR: ĐỒI THIÊN THAI (16°26&apos;N 107°33&apos;E) • ĐANG CHỈ ĐỊNH:</span>
                 <b className="text-[#38bdf8]">
                   {(mapBunkers.find((b) => b.slug === selectedRadarSlug) || mapBunkers[0]).name.toUpperCase()}
                 </b>
