@@ -30,6 +30,10 @@ interface SiteData {
   summary?: string;
   description?: string;
   category?: string;
+  area?: string;
+  architecture?: string;
+  historicalNarration?: string;
+  historicalFigures?: string[];
 }
 
 const mapBunkers = [
@@ -39,7 +43,7 @@ const mapBunkers = [
     tag: 'Trưng bày trung tâm',
     position: 'Trung tâm đồi Ba Đồn',
     coords: '16°26\'42"N 107°33\'18"E',
-    detail: 'Bảng vàng ghi danh, hiện vật khảo cổ, sa bàn 3D toàn cảnh 9 căn hầm và hồ sơ chứng tích lịch sử thời Ngô Đình Cẩn.',
+    detail: 'Không gian kể chuyện bằng hình ảnh, hiện vật khảo cổ, sa bàn 3D toàn cảnh 9 căn hầm và hồ sơ chứng tích tội ác thời Ngô Đình Cẩn.',
     x: 34,
     y: 50,
     color: '#38bdf8',
@@ -47,10 +51,10 @@ const mapBunkers = [
   {
     slug: 'ham-1',
     name: 'Hầm 1',
-    tag: 'Kho đạn Pháp 1941',
+    tag: 'Kho đạn Pháp 1941 • 82m²',
     position: 'Triền đồi phía Bắc',
     coords: '16°26\'44"N 107°33\'15"E',
-    detail: 'Căn hầm bê tông kiên cố lớn nhất, nơi khởi đầu hệ thống kho đạn thời Pháp, sau 1954 biến thành nơi giam giữ tập thể.',
+    detail: 'Hầm chìm sâu 82m², tường bê tông cốt thép, cửa gỗ nẹp sắt (0,6m x 1,8m). Điểm tạm giam phân loại nghi can Cộng sản; mưa lầy lội, đông rét buốt, hè nóng như lò lửa.',
     x: 26,
     y: 38,
     color: '#e0231c',
@@ -58,10 +62,10 @@ const mapBunkers = [
   {
     slug: 'ham-2',
     name: 'Hầm 2',
-    tag: 'Hầm giam giữ',
+    tag: 'Hầm nhỏ nhất • 41m²',
     position: 'Sườn đồi phía Đông Bắc',
     coords: '16°26\'43"N 107°33\'19"E',
-    detail: 'Hiện trường nguyên vẹn tái hiện ký ức sống động về chuỗi ngày biệt giam của các chiến sĩ cách mạng kiên trung.',
+    detail: 'Hầm nhỏ nhất 41m², nửa chìm nửa nổi, tường dày 0,35m, trần 0,45m. Nơi biệt giam, tống tiền các thương gia giàu có và cán bộ kinh tài (Phan Văn Thí, Lê Văn Châu, Nguyễn Văn Yến...).',
     x: 42,
     y: 35,
     color: '#ffd700',
@@ -69,10 +73,10 @@ const mapBunkers = [
   {
     slug: 'ham-3',
     name: 'Hầm 3',
-    tag: 'Biệt giam cấp cao',
-    position: 'Triền dốc sâu',
+    tag: '20 xà lim kiên cố • 85m²',
+    position: 'Triền dốc sâu có hào bảo vệ',
     coords: '16°26\'41"N 107°33\'20"E',
-    detail: 'Hầm ngầm có kết cấu bê tông cốt thép kiên cố, nơi mật vụ dùng để giam giữ các cán bộ cốt cán bí mật.',
+    detail: 'Diện tích 85m², tường 0,45m, trần 0,5m, hào sâu 0,7m, 20 xà lim hai dãy. Nơi giam cầm nhân sĩ trí thức yêu nước (Lê Thiên Tạo, Bác sỹ Lê Khắc Quyến - Giám đốc BV TW Huế...).',
     x: 55,
     y: 44,
     color: '#10b981',
@@ -80,10 +84,10 @@ const mapBunkers = [
   {
     slug: 'ham-4',
     name: 'Hầm 4',
-    tag: 'Hầm ngập nước',
+    tag: 'Hầm ngâm nước • Bể 10m³',
     position: 'Thung lũng trũng',
     coords: '16°26\'39"N 107°33\'17"E',
-    detail: 'Địa ngục bùn lầy ngập nước buốt lạnh quanh năm, không gian thiếu dưỡng khí tra tấn thể xác và ý chí tù nhân.',
+    detail: 'Diện tích 85m², trước hầm có bể nước 10m³, bên trong 20 xà lim. Giam cầm và tra tấn dã man tù nhân yêu nước đưa về từ các tỉnh miền Trung (Nguyễn Vĩnh Nghiệp, Mai Văn Nệm, Vũ Lam...).',
     x: 38,
     y: 64,
     color: '#38bdf8',
@@ -91,10 +95,10 @@ const mapBunkers = [
   {
     slug: 'ham-5',
     name: 'Hầm 5',
-    tag: 'Hầm trừng phạt',
+    tag: 'Hầm lò rải kẽm gai • 70m²',
     position: 'Sườn đồi phía Nam',
     coords: '16°26\'38"N 107°33\'21"E',
-    detail: 'Chế độ trừng phạt khắc nghiệt, vách đá ẩm ướt rêu phong, nơi ghi dấu khí phách bất khuất của các tù nhân.',
+    detail: 'Diện tích 70m², thể tích 220m³, hầm lò để trống nóc rải kẽm gai. Giam tăng ni, Phật tử, sinh viên sau biến cố Phật giáo 5/1963, vụ vượt ngục Mai Ca, nhốt hàng trăm người chết ngạt.',
     x: 62,
     y: 60,
     color: '#f97316',
@@ -102,10 +106,10 @@ const mapBunkers = [
   {
     slug: 'ham-6',
     name: 'Hầm 6',
-    tag: 'Hầm kỷ luật',
-    position: 'Triền rừng thông',
+    tag: 'Lò tra tấn trung cổ • 79m²',
+    position: 'Cách hầm số 9 20m',
     coords: '16°26\'37"N 107°33\'19"E',
-    detail: 'Dấu tích hầm ngầm cô lập sâu trong rừng thông, nơi cách ly hoàn toàn mọi âm thanh và ánh sáng mặt trời.',
+    detail: 'Diện tích 79m², để trống bày la liệt dao, búa, kìm, xích. Nơi tay chân Cẩn (Nguyễn Chữ, Phan Quang Đông, Dương Văn Hiếu) tra tấn đóng đinh, xẻo thịt, đổ xà phòng đạp vỡ ruột rồi phi tang ra rừng thông.',
     x: 50,
     y: 75,
     color: '#a855f7',
@@ -113,10 +117,10 @@ const mapBunkers = [
   {
     slug: 'ham-7',
     name: 'Hầm 7',
-    tag: 'Hầm tra khảo',
+    tag: '20 xà lim biệt giam • 78m²',
     position: 'Gần vọng gác chỉ huy',
     coords: '16°26\'40"N 107°33\'14"E',
-    detail: 'Hầm thẩm vấn man rợ của mật vụ Ngô Đình Cẩn, gần sở chỉ huy quản thúc nghiêm ngặt.',
+    detail: 'Diện tích 78m², tường 0,4m, trần 0,5m, cửa thép 1,8m x 1,2m. 20 xà lim nền ngập nước; giam đảng phái đối lập và chiến sĩ tình báo Cộng sản (Bạch Ngọc Phách, Phan Trọng Tỉnh, Đoàn Thị Thu Thủy...).',
     x: 20,
     y: 56,
     color: '#ec4899',
@@ -124,10 +128,10 @@ const mapBunkers = [
   {
     slug: 'ham-8',
     name: 'Hầm 8',
-    tag: 'Chuồng cọp tử hình',
-    position: 'Khu vực đỉnh đồi cô lập',
+    tag: 'Chuồng cọp tử hình • 72.88m²',
+    position: 'Chìm sâu trong lòng đất đỉnh đồi',
     coords: '16°26\'43"N 107°33\'24"E',
-    detail: 'Hầm biệt giam tử tù chính trị đặc biệt khốc liệt và tàn bạo nhất tại Chín Hầm, biểu tượng ý chí bất diệt.',
+    detail: 'Diện tích 72,88m², chìm sâu, tường 0,4m, cửa thép lỗ hơi 30cm. 20 xà lim (1,8m x 0,8m x 1,8m) đan song sắt chuồng cọp; nơi đày ải tử tù chính trị Cộng sản kiên cường (Nguyễn Minh Vân, Phan Trọng Tịnh...).',
     x: 74,
     y: 32,
     color: '#ef4444',
@@ -135,10 +139,10 @@ const mapBunkers = [
   {
     slug: 'ham-9',
     name: 'Hầm 9',
-    tag: 'Kho quân sự phụ',
+    tag: 'Nút giao cứ điểm • 75m²',
     position: 'Chân đồi phía Tây',
     coords: '16°26\'36"N 107°33\'16"E',
-    detail: 'Kho quân sự phụ thời Pháp, cứ điểm chứng kiến sự sụp đổ của chế độ Ngô Đình Cẩn ngày giải phóng 02/11/1963.',
+    detail: 'Diện tích 75m², hầm trung tâm kết nối hào lũy, cứ điểm chứng kiến nhân dân Huế phá tan xiềng xích giải phóng nhà tù ngày 02/11/1963.',
     x: 28,
     y: 82,
     color: '#06b6d4',
@@ -183,6 +187,39 @@ export function SiteDetailInteractive({ site }: { site: SiteData }) {
     const dur = audioRef.current.duration || 1;
     setAudioProgress((cur / dur) * 100);
   };
+
+  // Text-to-Speech (SpeechSynthesis) for Historical Narration
+  const [isSpeaking, setIsSpeaking] = useState(false);
+  const narrationText = site.historicalNarration || site.description || '';
+
+  const handleSpeakNarration = () => {
+    if (typeof window === 'undefined' || !('speechSynthesis' in window)) {
+      alert('Trình duyệt của bạn chưa hỗ trợ tính năng phát giọng nói tự động.');
+      return;
+    }
+    if (isSpeaking) {
+      window.speechSynthesis.cancel();
+      setIsSpeaking(false);
+      return;
+    }
+    window.speechSynthesis.cancel();
+    const cleanText = (narrationText + (site.architecture ? ` Đặc điểm kiến trúc: ${site.architecture}` : '')).replace(/[#*]/g, '');
+    const utterance = new SpeechSynthesisUtterance(cleanText);
+    utterance.lang = 'vi-VN';
+    utterance.rate = 0.95;
+    utterance.onend = () => setIsSpeaking(false);
+    utterance.onerror = () => setIsSpeaking(false);
+    window.speechSynthesis.speak(utterance);
+    setIsSpeaking(true);
+  };
+
+  useEffect(() => {
+    return () => {
+      if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+      }
+    };
+  }, []);
 
 
   // Living Canvas particle background
@@ -716,6 +753,151 @@ export function SiteDetailInteractive({ site }: { site: SiteData }) {
               >
                 <Headphones size={14} className="text-[#38bdf8]" />
                 <span>Mở Toàn Bộ Audio Guide</span>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* ========================================================================= */}
+      {/* 📜 BẢN THUYẾT MINH LỊCH SỬ & HỒ SƠ KIẾN TRÚC THỰC ĐỊA */}
+      {/* ========================================================================= */}
+      <div className="container-shell relative z-10 mt-14">
+        <div className="rounded-[2.5rem] border border-amber-500/25 bg-gradient-to-b from-black/90 via-[#0a0f14]/90 to-black/95 p-6 md:p-10 backdrop-blur-xl shadow-2xl">
+          {/* Section Header */}
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-white/10 pb-6 mb-8">
+            <div>
+              <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[#ffd700]">
+                <Sparkles size={14} className="text-[#ffd700]" />
+                HỒ SƠ TƯ LIỆU THUYẾT MINH LỊCH SỬ CHÍNH THỨC
+              </div>
+              <h2 className="text-2xl md:text-3xl font-black text-white font-display mt-1">
+                Bản Thuyết Minh Kiến Trúc & Ký Ức: {site.name}
+              </h2>
+              <p className="mt-1 text-xs text-stone-300">
+                Trích xuất từ hồ sơ khảo cứu di tích lịch sử Quốc gia Chín Hầm - Đồi Ba Đồn, Thừa Thiên Huế
+              </p>
+            </div>
+
+            {/* Audio Speech Synthesis Button */}
+            {narrationText && (
+              <button
+                type="button"
+                onClick={handleSpeakNarration}
+                className={`inline-flex items-center gap-2.5 rounded-2xl px-5 py-3 text-xs font-bold transition shadow-xl active:scale-95 cursor-pointer ${
+                  isSpeaking
+                    ? 'bg-[#e0231c] text-white shadow-[#e0231c]/40 animate-pulse'
+                    : 'bg-gradient-to-r from-[#ffd700] to-[#f59e0b] text-black shadow-[#ffd700]/30 hover:brightness-110'
+                }`}
+              >
+                <Volume2 size={16} className={isSpeaking ? 'animate-bounce' : ''} />
+                <span>{isSpeaking ? '⏹ Dừng đọc thuyết minh' : '🔊 Nghe đọc thuyết minh hầm'}</span>
+              </button>
+            )}
+          </div>
+
+          {/* 4 Specifications Cards */}
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 mb-8">
+            <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4 backdrop-blur-md">
+              <span className="text-[11px] font-bold text-amber-400 uppercase tracking-wider block mb-1">
+                📐 Diện tích mặt bằng
+              </span>
+              <div className="text-xl font-black text-white font-display">
+                {site.area || (isBunker ? 'Đang cập nhật' : 'Toàn khu di tích')}
+              </div>
+              <p className="mt-1 text-[11px] text-stone-400">
+                {isBunker ? 'Không gian hầm ngầm bê tông cốt thép' : 'Quần thể đồi Ba Đồn'}
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4 backdrop-blur-md">
+              <span className="text-[11px] font-bold text-[#38bdf8] uppercase tracking-wider block mb-1">
+                🧱 Kết cấu & Xây dựng
+              </span>
+              <div className="text-sm font-bold text-white leading-tight">
+                {isBunker ? 'Bê tông cốt thép Pháp 1941' : 'Nhà Tả Vu & trưng bày'}
+              </div>
+              <p className="mt-1 text-[11px] text-stone-400 line-clamp-2">
+                {site.architecture || 'Công trình phòng thủ kiên cố biến thành nhà tù biệt giam'}
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4 backdrop-blur-md">
+              <span className="text-[11px] font-bold text-emerald-400 uppercase tracking-wider block mb-1">
+                ⚖️ Phân loại giam cầm
+              </span>
+              <div className="text-sm font-bold text-white leading-tight line-clamp-1">
+                {site.subtitle || 'Khu chứng tích lịch sử'}
+              </div>
+              <p className="mt-1 text-[11px] text-stone-400">
+                Thời kỳ bạo chúa miền Trung Ngô Đình Cẩn (1954 - 1963)
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4 backdrop-blur-md">
+              <span className="text-[11px] font-bold text-rose-400 uppercase tracking-wider block mb-1">
+                📍 Vị trí & Tọa độ
+              </span>
+              <div className="text-sm font-bold text-white leading-tight">
+                Đồi Ba Đồn, TP Huế
+              </div>
+              <p className="mt-1 text-[11px] font-mono text-stone-300">
+                16°26&apos;42&quot;N 107°33&apos;18&quot;E
+              </p>
+            </div>
+          </div>
+
+          {/* Full Narration Text Box */}
+          <div className="rounded-3xl border border-white/10 bg-black/60 p-6 md:p-8">
+            <div className="flex items-center gap-2 mb-4">
+              <span className="h-2 w-2 rounded-full bg-[#ffd700]" />
+              <h3 className="text-lg font-bold text-[#fef08a] font-display">
+                Nội dung thuyết minh chi tiết
+              </h3>
+            </div>
+
+            {/* Architecture detail quote if present */}
+            {site.architecture && (
+              <div className="mb-6 rounded-2xl border-l-4 border-[#38bdf8] bg-sky-950/30 p-4 pl-5">
+                <span className="text-xs font-bold uppercase tracking-wider text-[#38bdf8] block mb-1">
+                  Đặc điểm cấu trúc kiến trúc thực địa:
+                </span>
+                <p className="text-sm text-stone-200 leading-relaxed">
+                  {site.architecture}
+                </p>
+              </div>
+            )}
+
+            {/* Narration paragraphs */}
+            <div className="prose prose-invert max-w-none text-stone-200 text-sm md:text-base leading-relaxed space-y-4 font-serif">
+              {(site.historicalNarration || site.description || '')
+                .split('\n\n')
+                .map((para, idx) => (
+                  <p key={idx} className="first-letter:text-2xl first-letter:font-bold first-letter:text-[#ffd700] first-letter:mr-1">
+                    {para}
+                  </p>
+                ))}
+            </div>
+
+            {/* Commemorative Note Box */}
+            <div className="mt-8 rounded-2xl border border-amber-500/20 bg-gradient-to-r from-amber-950/30 via-black/40 to-transparent p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <div className="flex items-center gap-3">
+                <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-[#ffd700]/10 border border-[#ffd700]/30 text-[#ffd700]">
+                  📜
+                </div>
+                <div>
+                  <div className="text-xs font-bold text-white">Di tích Lịch sử Quốc gia Chín Hầm</div>
+                  <div className="text-[11px] text-stone-400">
+                    Xếp hạng Di tích Lịch sử cấp Quốc gia theo Quyết định của Bộ Văn hóa - Thông tin
+                  </div>
+                </div>
+              </div>
+
+              <Link
+                href="/audio-guide"
+                className="inline-flex items-center gap-1.5 rounded-xl border border-white/15 bg-white/5 px-4 py-2 text-xs font-semibold text-[#38bdf8] hover:bg-white/10 hover:text-white transition"
+              >
+                <Headphones size={13} />
+                <span>Kho bài thuyết minh Audio</span>
               </Link>
             </div>
           </div>
