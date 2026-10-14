@@ -256,7 +256,7 @@ class Reasoner:
     def _reason_guide(self, query: str, retrieved: List[Dict]) -> str:
         title = "Lộ trình tham quan Khu Di tích Lịch sử Chín Hầm"
         steps = [
-            "**Khu Đón Tiếp & Nhà Chứng Tích (Tả Vu - Hữu Vu)**: Xem sa bàn điện tử tổng quan toàn bộ đồi Thiên Thai, tiếp cận các hiện vật cùm sắt, xiềng xích và hình ảnh phục dựng cuộc sống ngục tù.",
+            "**Khu Đón Tiếp & Nhà Chứng Tích**: Xem sa bàn điện tử tổng quan toàn bộ đồi Thiên Thai, tiếp cận các hiện vật cùm sắt, xiềng xích và hình ảnh phục dựng cuộc sống ngục tù.",
             "**Khu Đài Tưởng Niệm & Bia Di Tích**: Thắp hương tri ân các anh hùng liệt sĩ, đồng bào yêu nước đã hy sinh vì nền độc lập tự do.",
             "**Tuyến Tham Quan 9 Căn Hầm Trong Rừng Thông**: Bắt đầu từ Hầm 1 men theo lối mòn đồi thông qua Hầm 2, 3, lên tâm điểm Hầm 4 Chuồng Cọp, tiếp tục khám phá các Hầm 5 đến 9 trên cao độ đỉnh đồi.",
             "**Trải Nghiệm Audio Guide Thuyết Minh Tự Động**: Quét mã QR tại từng cột mốc biển tên để nghe tường thuật chi tiết từng câu chuyện lịch sử."

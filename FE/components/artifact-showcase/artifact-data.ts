@@ -132,7 +132,7 @@ export const ARTIFACTS_DATA: ArtifactItem[] = [
     origin: 'Thu giữ tại Hầm số 6 sau ngày giải cứu 02/11/1963',
     material: 'Nhôm quân dụng dập nổi, quai hàn thủ công',
     dimensions: 'Đường kính 9.5 cm • Cao 11.2 cm • Dung tích 750 ml',
-    bunkerAssociation: 'Hầm số 6 & Nhà Tả Vu',
+    bunkerAssociation: 'Hầm số 6 & Nhà chứng tích',
     summary:
       'Mỗi ngày người tù chỉ được phát nửa ca nước cho cả ăn uống lẫn vệ sinh. Chiếc ca nhôm móp méo này trở thành vật bất ly thân và được người tù dùng mẩu đinh nhọn khắc kín các vạch đếm ngày tháng, biến nó thành một cuốn nhật ký lịch sử đếm ngược đến ngày tự do.',
     narrativeQuote:

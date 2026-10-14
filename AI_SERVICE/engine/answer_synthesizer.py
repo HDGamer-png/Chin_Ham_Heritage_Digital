@@ -48,7 +48,7 @@ class AnswerSynthesizer:
                     "• Nhân vật Ngô Đình Cẩn và chế độ cai trị tại miền Trung\n"
                     "• Cấu trúc từng căn hầm (Hầm 1 đến Hầm 9)\n"
                     "• Sự kiện ngày 02/11/1963 phá tan xiềng xích\n"
-                    "• Nhà Chứng Tích (Tả Vu) hoặc Audio Guide thuyết minh."
+                    "• Nhà Chứng Tích hoặc Audio Guide thuyết minh."
                 ),
                 "confidence": scored_chunks[0][1] if scored_chunks else 0.0,
                 "sources": [],

@@ -373,7 +373,7 @@ export function SiteDetailInteractive({ site }: { site: SiteData }) {
               📍 Tọa độ: <b className="text-white">16°26&apos;42&quot;N 107°33&apos;18&quot;E</b>
             </span>
             <span className="rounded-2xl border border-white/10 bg-black/50 px-4 py-2 text-xs text-stone-300 backdrop-blur-md">
-              ⛰️ Vị trí: <b className="text-white">Nhà Tả Vu (Sườn đồi)</b>
+              ⛰️ Vị trí: <b className="text-white">Nhà chứng tích (Sườn đồi)</b>
             </span>
           </div>
         </div>
@@ -558,7 +558,7 @@ export function SiteDetailInteractive({ site }: { site: SiteData }) {
                 🧱 Kết cấu & Xây dựng
               </span>
               <div className="text-sm font-bold text-white leading-tight">
-                {isBunker ? 'Bê tông cốt thép Pháp 1941' : 'Nhà Tả Vu & trưng bày'}
+                {isBunker ? 'Bê tông cốt thép Pháp 1941' : 'Nhà chứng tích & trưng bày'}
               </div>
               <p className="mt-1 text-[11px] text-stone-400 line-clamp-2">
                 {site.architecture || 'Công trình phòng thủ kiên cố biến thành nhà tù biệt giam'}
